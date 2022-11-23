@@ -1,7 +1,7 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import Header from '../components/Header.astro';
 ---
 
 <!DOCTYPE html>
@@ -10,12 +10,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header title={SITE_TITLE} />
+		<Header />
 		<main>
-			<h1>Hi, I'm John </h1>
-			<p>
-				A Product Designer living in Seattle. Currently working at Sentry.
-			</p>
+			<section>
+                <p>Hello Links</p>
+			</section>
 		</main>
 	</body>
 </html>
