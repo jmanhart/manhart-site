@@ -14,32 +14,21 @@ import { SITE_TITLE } from '../config';
 <style lang="scss">
 	@import "../styles/_mixins.scss";
 	header {
-		/* margin: 0em 0 2em 0em; */
-		position: fixed;
-		display: flex;
-		top: 0;
-		right: 0;
-		/* width: 100%; */
-		padding: 1em;
-		/* transform: rotate(-1deg); */
-		align-items: center;
-		justify-content: space-between;
-		/* z-index: 100;
-		background: rgba(240, 236, 243, 0.8);
-		margin-top: -0.5rem; */
-
-		/* -webkit-backdrop-filter: blur(12px);
-		backdrop-filter: blur(12px); */
-		background-color: red;
-		@include md {
-			
-			background-color: blue;
-			/* background: none;
-			box-shadow: none;
-			margin-top: 0;
-			-webkit-backdrop-filter: none;
-			backdrop-filter: none; */
+		@include sm {
+			// background-color: blue;
+			width: auto;
+			top: 0;
+			right: 0;
+			border-bottom: 0px;
 		}
+		background-color: white;
+		position: fixed;
+		padding: 1em;
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+		right: 0;
+		border-bottom: 1px solid #e6e6e6;
 	}
 	h2 {
 		margin: 0.5em 0;
