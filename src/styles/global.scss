@@ -1,13 +1,13 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-body {
+
+
+@import '_mixins.scss';
+
+ body {
 	font-family: Work Sans, sans-serif;
 	margin: auto;
-	padding: 20px;
-	max-width: 65ch;
+	/* padding: 20px;
+	max-width: 65ch; */
+	width: 100vw;
 	height: 100vh;
 	text-align: left;
 	background-color: #fff;
@@ -67,3 +67,17 @@ blockquote {
 	font-style: italic;
 }
 
+.wrapper{
+	/* background-color: pink; */
+	/* align-items: center; */
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+	padding-top: 10em;
+}
+
+.content{
+	/* background-color: yellow; */
+	width: 75%;
+}
