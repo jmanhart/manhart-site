@@ -8,20 +8,41 @@ import Header from '../components/Header.astro';
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			ul{
+				list-style-type: none;
+
+			}
+			li {
+				/* background-color: pink; */
+				margin: 1em 0;
+				padding: 1em;
+				border: 1px solid #e6e6e6;
+				border-radius: 0.25em;
+				display: flex;
+				flex-direction: row;
+				gap: 1em;
+			}
+			.social-media-icon{
+				width: 24px;
+				height: 24px;
+				background-color: gray;
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
-		<main>
-			<section>
-                <ul>
-					<li>Github</li>
-					<li>Linkedin</li>
-					<li>Twitter</li>
-					<li>Twitch</li>
-					<li>Letterboxd</li>
-					
+		<div class="wrapper">
+			<div class="content">
+				<ul>
+					<li><div class="social-media-icon"></div>Github</li>
+					<li><div class="social-media-icon"></div>Letterboxd</li>
+					<li><div class="social-media-icon"></div>Linkedin</li>
+					<li><div class="social-media-icon"></div>Twitter</li>
+					<li><div class="social-media-icon"></div>Twitch</li>
+					<li><div class="social-media-icon"></div>Youtube</li>
 				</ul>
-			</section>
-		</main>
+			</div>
+		</div>
 	</body>
 </html>
