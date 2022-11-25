@@ -1,6 +1,7 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
+import PageHeader from '../components/PageHeader.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
@@ -70,7 +71,9 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 		<div class="wrapper">
 			<div class="content">
 				<main>
+					<PageHeader title="Writing" description="Thoughts, notes, essays, ramblings you decide." />
 					<section>
+						
 						<ul>
 							{
 								posts.map((post) => (
@@ -87,7 +90,7 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 											<span class="blog-description" >{post.frontmatter.description}</span>
 										</div>
 									</li>
-									<hr>
+									<hr/>
 								))
 							}
 						</ul>

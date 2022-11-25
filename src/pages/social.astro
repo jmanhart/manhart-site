@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import Header from '../components/Header.astro';
+import PageHeader from '../components/PageHeader.astro';
 ---
 
 <!DOCTYPE html>
@@ -11,6 +12,8 @@ import Header from '../components/Header.astro';
 		<style>
 			ul{
 				list-style-type: none;
+				padding: 0;
+    			margin: 0;
 
 			}
 			li {
@@ -34,15 +37,21 @@ import Header from '../components/Header.astro';
 		<Header />
 		<div class="wrapper">
 			<div class="content">
+				<PageHeader title="Social Links" description="Yeap I have them and they all live here. Enjoy."/>
 				<ul>
-					<li><div class="social-media-icon"></div>Github</li>
-					<li><div class="social-media-icon"></div>Letterboxd</li>
-					<li><div class="social-media-icon"></div>Linkedin</li>
-					<li><div class="social-media-icon"></div>Twitter</li>
-					<li><div class="social-media-icon"></div>Twitch</li>
-					<li><div class="social-media-icon"></div>Youtube</li>
+					<a href="https://dribbble.com/manhart"><li><div class="social-media-icon"></div>Dribbble</li></a>
+					<a href="https://www.figma.com/@manhart"><li><div class="social-media-icon"></div>Figma</li></a>
+					<a href="https://github.com/jmanhart"><li><div class="social-media-icon"></div>Github</li></a>
+					<a href="https://www.instagram.com/johnmanhart/"><li><div class="social-media-icon"></div>Instagram</li></a>
+					<a href="https://letterboxd.com/manhart/"><li><div class="social-media-icon"></div>Letterboxd</li></a>
+					<a href="https://www.linkedin.com/in/john-manhart/"><li><div class="social-media-icon"></div>Linkedin</li></a>
+					<a href="https://twitter.com/JohnManhart"><li><div class="social-media-icon"></div>Twitter</li></a>
+					<a href="https://www.twitch.tv/itsmanhart"><li><div class="social-media-icon"></div>Twitch</li></a>
+					<a href="https://www.youtube.com/channel/UCdgLTD7oNCCi5Y1sPVqDkwQ"><li><div class="social-media-icon"></div>Youtube</li></a>
 				</ul>
 			</div>
 		</div>
 	</body>
 </html>
+
+
