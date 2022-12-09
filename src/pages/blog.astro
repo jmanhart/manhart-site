@@ -22,14 +22,20 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 			ul li {
 				display: flex;
 				padding: 1em 0;
-				gap: 2em;
-		
+				gap: 1em;
+				margin: 1em 0;
+				padding: 1em;
+				border: 1px solid #e6e6e6;
+				border-radius: 0.25em;
+				display: flex;
+				flex-direction: column;
+				justify-content: baseline;
+			
 			}
 			ul li time {
-				flex: 0 0 8em;
 				color: #595959;
 				font-size: 20px;
-				text-align: right;
+				text-align: left;
 			}
 			ul li a:visited {
 				color: #8e32dc;
@@ -58,12 +64,6 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 				color:#000000;
 				cursor: pointer;
 			}
-			hr{
-				height: 1px;
-        		background-color: #d7d7d7;
-        		border: none;
-			}
-
 		</style>
 	</head>
 	<body>
@@ -90,7 +90,6 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 											<span class="blog-description" >{post.frontmatter.description}</span>
 										</div>
 									</li>
-									<hr/>
 								))
 							}
 						</ul>
