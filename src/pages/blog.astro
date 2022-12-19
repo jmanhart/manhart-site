@@ -1,102 +1,114 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import PageHeader from '../components/PageHeader.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import PageHeader from "../components/PageHeader.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
-	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
 );
-
 ---
 
-<!DOCTYPE html>
+<script>
+  document.documentElement.setAttribute("theme", "light");
+</script>
+
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			ul {
-				list-style-type: none;
-				padding: unset;
-			}
-			ul li {
-				display: flex;
-				padding: 1em 0;
-				gap: 1em;
-				margin: 1em 0;
-				padding: 1em;
-				border: 1px solid #e6e6e6;
-				border-radius: 0.25em;
-				display: flex;
-				flex-direction: column;
-				justify-content: baseline;
-			
-			}
-			ul li time {
-				color: #595959;
-				font-size: 20px;
-				text-align: left;
-			}
-			ul li a:visited {
-				color: #8e32dc;
-			}
-			.blog-description-container{
-				display: flex;
-    			flex-direction: column;
-			}
-			.blog-description{
-				text-overflow: ellipsis;
-				overflow: hidden;
-				white-space: pre-wrap;
-			}
-			.blog-link{
-				display: inline-block;
-				text-decoration: underline;
-				color:#333333;
-				font-weight: 500;
-				font-size: 22px;
-				margin-bottom:6px;
-			}
-			.blog-link:hover{
-				display: inline-block;
-				text-decoration: underline;
-				font-weight: 500;
-				color:#000000;
-				cursor: pointer;
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<div class="wrapper">
-			<div class="content">
-				<main>
-					<PageHeader title="Writing" description="Thoughts, notes, essays, ramblings you decide." />
-					<section>
-						
-						<ul>
-							{
-								posts.map((post) => (
-									<li>
-										<time datetime={post.frontmatter.pubDate}>
-											{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
-												year: 'numeric',
-												month: 'short',
-												day: 'numeric',
-											})}
-										</time>
-										<div class="blog-description-container">
-											<a class="blog-link" href={post.url}>{post.frontmatter.title}</a>
-											<span class="blog-description" >{post.frontmatter.description}</span>
-										</div>
-									</li>
-								))
-							}
-						</ul>
-					</section>
-				</main>
-			</div>
-		</div>
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      ul {
+        list-style-type: none;
+        padding: unset;
+      }
+      ul li {
+        display: flex;
+        padding: 1em 0;
+        gap: 1em;
+        margin: 1em 0;
+        padding: 1em;
+        border: 1px solid #e6e6e6;
+        border-radius: 0.25em;
+        display: flex;
+        flex-direction: column;
+        justify-content: baseline;
+      }
+      ul li time {
+        color: #595959;
+        font-size: 20px;
+        text-align: left;
+      }
+      ul li a:visited {
+        color: #8e32dc;
+      }
+      .blog-description-container {
+        display: flex;
+        flex-direction: column;
+      }
+      .blog-description {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: pre-wrap;
+      }
+      .blog-link {
+        display: inline-block;
+        text-decoration: underline;
+        color: #333333;
+        font-weight: 500;
+        font-size: 22px;
+        margin-bottom: 6px;
+      }
+      .blog-link:hover {
+        display: inline-block;
+        text-decoration: underline;
+        font-weight: 500;
+        color: #000000;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <div class="wrapper">
+      <div class="content">
+        <main>
+          <PageHeader
+            title="Writing"
+            description="Thoughts, notes, essays, ramblings you decide."
+          />
+          <section>
+            <ul>
+              {
+                posts.map((post) => (
+                  <li>
+                    <time datetime={post.frontmatter.pubDate}>
+                      {new Date(post.frontmatter.pubDate).toLocaleDateString(
+                        "en-us",
+                        {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        }
+                      )}
+                    </time>
+                    <div class="blog-description-container">
+                      <a class="blog-link" href={post.url}>
+                        {post.frontmatter.title}
+                      </a>
+                      <span class="blog-description">
+                        {post.frontmatter.description}
+                      </span>
+                    </div>
+                  </li>
+                ))
+              }
+            </ul>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
 </html>

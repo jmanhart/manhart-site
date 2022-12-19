@@ -1,44 +1,30 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import PageHeader from '../components/PageHeader.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import PageHeader from "../components/PageHeader.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header title={SITE_TITLE} />
-		<div class="wrapper">
-			<div class="content">
-				<PageHeader title="Hi, I'm John" description="A Product Designer living in Kansas City. Currently at Sentry" />
-			</div>
-		</div>
-	</body>
+  <head>
+    <script src="../theme-toggle.js">
+      initThemeToggle();
+    </script>
+    <link rel="stylesheet" href="../styles/global.scss" />
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+
+  <body>
+    <Header title={SITE_TITLE} />
+    <div class="wrapper">
+      <div class="content">
+        <button class="theme-toggle">Toggle Theme</button>
+        <PageHeader
+          title="Hi, I'm John"
+          description="A Product Designer living in Kansas City. Currently at Sentry"
+        />
+      </div>
+    </div>
+  </body>
 </html>
-
-
-
-<!-- 
-greetings: [
-"Hello,",
-"Hi,",
-"Howdy,",
-"Hiya,",
-"Yo,",``
-"Aloha,",
-"Sup,",
-"Hullo,",
-"Hola,",
-"Hallo,",
-"Ciao,",
-"👋🏻",
-"Hej,",
-"Bonjour,",
-"Oh hey,",
-"여보세요,",
-"Salut,"
-], -->

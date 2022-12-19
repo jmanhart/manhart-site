@@ -1,59 +1,89 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../config';
+import HeaderLink from "./HeaderLink.astro";
+import { SITE_TITLE } from "../config";
 ---
 
+<!-- <script>
+  // Sets the theme to light by default
+  document.documentElement.setAttribute("theme", "light");
+
+  function toggleTheme(theme) {
+    document.documentElement.setAttribute("theme", theme);
+    console.log(theme);
+  }
+
+  const toggleButton = document.querySelector(".theme-toggle");
+
+  toggleButton.addEventListener("click", () => {
+    const currentTheme = document.documentElement.getAttribute("theme");
+    if (currentTheme === "light") {
+      toggleTheme("dark");
+    } else {
+      toggleTheme("light");
+    }
+  });
+</script> -->
 <header>
-	<nav>
-		<a href="/" class="personal-logo"></a>
-		<div class="header-internal-links">
-			<HeaderLink href="/blog">Writing</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-			<HeaderLink href="/social">Social</HeaderLink>
-		</div>
-	</nav>
+  <nav>
+    <a href="/" class="personal-logo"></a>
+    <div class="header-internal-links">
+      <HeaderLink href="/blog">Writing</HeaderLink>
+      <HeaderLink href="/about">About</HeaderLink>
+      <HeaderLink href="/social">Social</HeaderLink>
+      <button class="theme-toggle">Toggle Theme</button>
+    </div>
+  </nav>
 </header>
 <style lang="scss">
-	@import "../styles/_mixins.scss";
-	header {
-		@include sm {
-			background-color: transparent;
-			border-bottom: 0px;
-			position: fixed;
-			width: 100%;
-			z-index: 999;
-		}
-		box-sizing: border-box;
-		overflow-x: hidden;
-		position: fixed;
-		top:0;
-		background-color: white;
-		width: 100%;
-		padding: 1em;
-		display: flex;
-		justify-content: flex-end;
-		border-bottom: 1px solid #e6e6e6;
-	}
-	h2 {
-		margin: 0.5em 0;
-	}
-	nav{
-		box-sizing: content-box;
-		display: flex;
-		width: 100%;
-		align-items: center;
-    	justify-content: space-between;
+  @import "../styles/_mixins.scss";
+  header {
+    @include sm {
+      background-color: transparent;
+      border-bottom: 0px;
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+    }
+    box-sizing: border-box;
+    overflow-x: hidden;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  h2 {
+    margin: 0.5em 0;
+  }
+  nav {
+    box-sizing: content-box;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .personal-logo {
+    width: 24px;
+    height: 24px;
+    background-color: gray;
+  }
 
-	}
-	.personal-logo{
-		width: 24px;
-		height: 24px;
-		background-color: gray;
-	}
-	.header-internal-links{
+  html[theme="light"] {
+    background-color: white;
+    color: black;
+  }
 
-	}
+  html[theme="dark"] {
+    background-color: rgb(35, 35, 35);
+    color: white;
+  }
 </style>
 
+<script>
+  initThemeToggle();
+</script>
 
-		<!-- <HeaderLink href="/">Home</HeaderLink> -->
+<!-- <HeaderLink href="/">Home</HeaderLink> -->
