@@ -1,15 +1,15 @@
-function initThemeToggle() {
-  const toggleButton = document.querySelector(".theme-toggle");
+// function initThemeToggle() {
+//   const toggleButton = document.querySelector(".theme-toggle");
 
-  toggleButton.addEventListener("click", () => {
-    const currentTheme = document.documentElement.getAttribute("theme");
-    if (currentTheme === "light") {
-      toggleTheme("dark");
-    } else {
-      toggleTheme("light");
-    }
-  });
-}
+//   toggleButton.addEventListener("click", () => {
+//     const currentTheme = document.documentElement.getAttribute("theme");
+//     if (currentTheme === "light") {
+//       toggleTheme("dark");
+//     } else {
+//       toggleTheme("light");
+//     }
+//   });
+// }
 
 // function initThemeToggle() {
 //   // document.documentElement.setAttribute("theme", "light");
@@ -30,25 +30,50 @@ function initThemeToggle() {
 //   });
 // }
 
-{
-  /* <script>
-  // Sets the theme to light by default
-  document.documentElement.setAttribute("theme", "light");
+// Sets the theme to light by default
+// document.documentElement.setAttribute("theme", "light");
 
-  function toggleTheme(theme) {
-    document.documentElement.setAttribute("theme", theme);
-    console.log(theme);
-  }
+// export function toggleTheme(theme) {
+//   document.documentElement.setAttribute("theme", theme);
+//   console.log(theme);
+// }
 
-  const toggleButton = document.querySelector(".theme-toggle");
+// const toggleButton = document.querySelector(".theme-toggle");
 
-  toggleButton.addEventListener("click", () => {
-    const currentTheme = document.documentElement.getAttribute("theme");
-    if (currentTheme === "light") {
-      toggleTheme("dark");
-    } else {
-      toggleTheme("light");
-    }
-  });
-</script> */
-}
+// export toggleButton.addEventListener("click", () => {
+//   const currentTheme = document.documentElement.getAttribute("theme");
+//   if (currentTheme === "light") {
+//     toggleTheme("dark");
+//   } else {
+//     toggleTheme("light");
+//   }
+// });
+
+// Intitalize the state from sessionStorage at the top of the file
+// if (window.sessionStorage.getItem("isToggled")) {
+//   isToggled = JSON.parse(window.sessionStorage.getItem("isToggled"));
+// }
+
+// let isToggled = false;
+
+// export function getIsToggled() {
+//   return isToggled;
+// }
+
+// export function toggle() {
+//   isToggled = !isToggled;
+//   window.sessionStorage.setItem("isToggled", JSON.stringify(isToggled));
+//   console.log("meow");
+// }
+
+// window.addEventListener("popstate", () => {
+//   isToggled = JSON.parse(window.sessionStorage.getItem("isToggled"));
+// });
+
+// element.style.display = show
+//   ? isDarkTheme
+//     ? "block"
+//     : "none"
+//   : isDarkTheme
+//   ? "none"
+//   : "block";

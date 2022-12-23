@@ -3,27 +3,53 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import PageHeader from "../components/PageHeader.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+// import { getIsToggled, toggle } from "../toggle-state.js";
+// import { toggleElement } from "../toggle-state.js";
 ---
 
-<!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="../theme-toggle.js">
-      initThemeToggle();
-    </script>
     <link rel="stylesheet" href="../styles/global.scss" />
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <script>
+      import { toggleElement } from "../toggle-state.js";
+      const button = document.getElementById("toggle-button");
+      // button.addEventListener("click", () => {
+      //   // console.log("toggled");
+      //   toggleElement("toggle-button", false);
+      // });
+      button.addEventListener("click", () => {
+        toggleElement("toggle-button", !button.classList.contains("active"));
+        button.classList.toggle("active");
+      });
+    </script>
+    <style lang="scss">
+      @import "../styles/_mixins.scss";
+      html[theme="light"] {
+        background-color: white;
+        color: black;
+      }
+
+      html[theme="dark"] {
+        background-color: rgb(35, 35, 35);
+        color: white;
+      }
+      .dark-theme {
+        background-color: rgb(35, 35, 35);
+        color: white;
+      }
+    </style>
   </head>
 
   <body>
     <Header title={SITE_TITLE} />
     <div class="wrapper">
       <div class="content">
-        <button class="theme-toggle">Toggle Theme</button>
         <PageHeader
           title="Hi, I'm John"
           description="A Product Designer living in Kansas City. Currently at Sentry"
         />
+        <button id="toggle-button">Toggle Theme</button>
       </div>
     </div>
   </body>

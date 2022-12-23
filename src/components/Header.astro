@@ -1,6 +1,8 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../config";
+import { getIsToggled, toggle } from "../toggle-state.js";
+import { toggleTheme } from "../theme-toggle.js";
 ---
 
 <!-- <script>
@@ -30,7 +32,7 @@ import { SITE_TITLE } from "../config";
       <HeaderLink href="/blog">Writing</HeaderLink>
       <HeaderLink href="/about">About</HeaderLink>
       <HeaderLink href="/social">Social</HeaderLink>
-      <button class="theme-toggle">Toggle Theme</button>
+      <!-- <button class="theme-toggle" id="toggle-button">Toggle Theme</button> -->
     </div>
   </nav>
 </header>
@@ -82,8 +84,8 @@ import { SITE_TITLE } from "../config";
   }
 </style>
 
-<script>
+<!-- <script>
   initThemeToggle();
-</script>
+</script> -->
 
 <!-- <HeaderLink href="/">Home</HeaderLink> -->
