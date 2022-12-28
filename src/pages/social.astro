@@ -33,14 +33,6 @@ import PageHeader from "../components/PageHeader.astro";
       }
     </style>
   </head>
-  <script>
-    import { applyStoredTheme } from "../toggle-state.js";
-    // Wait for the page to finish loading
-    window.addEventListener("load", () => {
-      // Apply the stored theme
-      applyStoredTheme();
-    });
-  </script>
   <body>
     <Header />
     <div class="wrapper">

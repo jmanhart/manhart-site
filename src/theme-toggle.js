@@ -214,3 +214,36 @@ html[theme="dark"] {
 //   localStorage.setItem("theme", "dark");
 //   console.log(localStorage);
 // }
+
+// export function toggleTheme() {
+//   const body = document.body;
+//   const isDarkTheme = body.classList.contains("dark-theme");
+
+//   if (isDarkTheme) {
+//     body.classList.remove("dark-theme");
+//     body.classList.add("light-theme");
+//     localStorage.setItem("theme", "light");
+//   } else {
+//     body.classList.remove("light-theme");
+//     body.classList.add("dark-theme");
+//     localStorage.setItem("theme", "dark-theme");
+//   }
+//   console.log(localStorage);
+// }
+
+// export function toggleButtonIconArtWork(id) {
+//   const body = document.body;
+//   const icon = document.getElementById("toggleButtonIcon");
+//   const isDarkTheme = body.classList.contains("dark-theme");
+//   if (isDarkTheme) {
+//     icon.src = "icon-moon.svg";
+//   } else {
+//     icon.src = "icon-sun.svg";
+//   }
+// }
+
+// if (toggleButtonIcon.src.includes("moon")) {
+//   toggleButtonIcon.src = "/public/icon-sun.svg";
+// } else {
+//   toggleButtonIcon.src = "/public/icon-moon.svg";
+// }
