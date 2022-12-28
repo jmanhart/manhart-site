@@ -3,8 +3,6 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import PageHeader from "../components/PageHeader.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
-// import { getIsToggled, toggle } from "../toggle-state.js";
-// import { toggleElement } from "../toggle-state.js";
 ---
 
 <html lang="en">
@@ -12,7 +10,18 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
     <link rel="stylesheet" href="../styles/global.scss" />
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <script src="../toggle-state.js"></script>
+    <script src="../main.js"></script>
   </head>
+  <script>
+    import * as Sentry from "@sentry/browser";
+    import { BrowserTracing } from "@sentry/tracing";
+
+    Sentry.init({
+      dsn: "https://c61e7197f1d94c0ca64c31b4d54a8acd@o4504409046908928.ingest.sentry.io/4504409048154112",
+      integrations: [new BrowserTracing()],
+      tracesSampleRate: 1.0,
+    });
+  </script>
 
   <body>
     <Header title={SITE_TITLE} />
@@ -22,7 +31,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
           title="Hi, I'm John!!"
           description="A Product Designer living in Kansas City. Currently at Sentry"
         />
-        <!-- <button id="toggle-button">Toggle Theme</button> -->
       </div>
     </div>
   </body>

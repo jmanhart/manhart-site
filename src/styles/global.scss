@@ -2,32 +2,29 @@
 
 @import '_mixins.scss';
 
- body {
+
+.dark-theme {
+    background-color: rgb(35, 35, 35);
+    color: white;
+	a:visited {
+		color: purple;
+	}
+}
+
+.light-theme {
+    background-color: white;
+    color: rgb(35, 35, 35);
+}
+body {
+	// transition: background-color 0.15s ease-in-out;
 	font-family: Work Sans, sans-serif;
 	margin: auto;
-	/* padding: 20px;
-	max-width: 65ch; */
 	width: 100vw;
 	height: 100vh;
 	text-align: left;
-	// background-color: #fff;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	line-height: 1.5;
-	// color: #444;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong,
-b {
-	// color: #222;
-}
-a {
-	color: #3273dc;
 }
 nav a {
 	margin-right: 10px;
@@ -68,8 +65,6 @@ blockquote {
 }
 
 .wrapper{
-	/* background-color: pink; */
-	/* align-items: center; */
     display: flex;
     justify-content: center;
     height: 100vh;
@@ -78,22 +73,10 @@ blockquote {
 }
 
 .content{
-	/* background-color: yellow; */
 	width: 75%;
 	max-width: 65ch
 }
 
-
-
-.dark-theme {
-    background-color: rgb(35, 35, 35);
-    color: white;
-}
-
-.light-theme {
-    background-color: white;
-    color: rgb(35, 35, 35);
-}
 button{
 	margin: 0;
 	padding: 0;
@@ -114,3 +97,6 @@ button{
 		vertical-align: middle;
 	  }
 }
+
+
+

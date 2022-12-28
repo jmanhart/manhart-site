@@ -1,63 +1,72 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
 
 export interface Props {
-	content: {
-		title: string;
-		description: string;
-		pubDate?: string;
-		updatedDate?: string;
-		heroImage?: string;
-		location?: string;
-	};
+  content: {
+    title: string;
+    description: string;
+    pubDate?: string;
+    updatedDate?: string;
+    heroImage?: string;
+    location?: string;
+  };
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage, location },
+  content: { title, description, pubDate, updatedDate, heroImage, location },
 } = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
-			}
-			hr {
-				border-top: 1px solid #ddd;
-				margin: 1rem 0;
-			}
-			.time-location-wrapper{
-				display: f;
-			}
-		</style>
-	</head>
+  <head>
+    <BaseHead title={title} description={description} />
+    <style>
+      .title {
+        font-size: 2em;
+        margin: 0.25em 0 0;
+      }
+      hr {
+        border-top: 1px solid #ddd;
+        margin: 1rem 0;
+      }
+      .time-location-wrapper {
+        display: f;
+      }
+    </style>
+  </head>
 
-	<body>
-		<Header />
-		<div class="wrapper">
-			<div class="content">
-				<main>
-					<article>
-						{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-						<h1 class="title">{title}</h1>
-						{pubDate && <div><time>{pubDate}</time> <div>{location}</div></div>}
-						{
-							updatedDate && (
-								<div>
-									Last updated on <time>{updatedDate}</time>
-								</div>
-							
-							)
-						}
-						<hr />
-						<slot />
-					</article>
-				</main>
-			</div>
-		</div>	
-	</body>
+  <body>
+    <Header />
+    <div class="wrapper">
+      <div class="content">
+        <main>
+          <article>
+            {
+              heroImage && (
+                <img width={720} height={360} src={heroImage} alt="" />
+              )
+            }
+            <h1 class="title">{title}</h1>
+            {
+              pubDate && (
+                <div>
+                  <time>{pubDate}</time> <div>{location}</div>
+                </div>
+              )
+            }
+            {
+              updatedDate && (
+                <div>
+                  Last updated on <time>{updatedDate}</time>
+                </div>
+              )
+            }
+            <hr />
+            <slot />
+          </article>
+        </main>
+      </div>
+    </div>
+  </body>
 </html>

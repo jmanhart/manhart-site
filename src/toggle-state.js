@@ -23,15 +23,15 @@ export function toggleTheme() {
 
   switch (currentTheme) {
     case "light-theme":
-      body.classList.remove("light-theme");
-      body.classList.add("dark-theme");
+      body.classList.toggle("light-theme", false);
+      body.classList.toggle("dark-theme", true);
       iconPath.src = themes[1].iconPath;
       currentTheme = "dark-theme";
       localStorage.setItem("theme", currentTheme);
       break;
     case "dark-theme":
-      body.classList.remove("dark-theme");
-      body.classList.add("light-theme");
+      body.classList.toggle("dark-theme", false);
+      body.classList.toggle("light-theme", true);
       iconPath.src = themes[0].iconPath;
       currentTheme = "light-theme";
       localStorage.setItem("theme", currentTheme);
@@ -45,7 +45,7 @@ export function applyStoredTheme() {
   const storedTheme = localStorage.getItem("theme");
   console.log("storedTheme", storedTheme);
   if (storedTheme) {
-    document.body.classList.add(storedTheme);
+    document.body.classList.toggle(storedTheme);
     const icon = document.getElementById("toggle-button-icon");
     const themeIndex = themes.findIndex((theme) => theme.name === storedTheme);
     icon.src = themes[themeIndex].iconPath;

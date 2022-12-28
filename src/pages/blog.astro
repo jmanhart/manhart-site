@@ -12,10 +12,6 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 );
 ---
 
-<script>
-  document.documentElement.setAttribute("theme", "light");
-</script>
-
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -51,7 +47,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
       .blog-description {
         text-overflow: ellipsis;
         overflow: hidden;
-        white-space: pre-wrap;
+        /* white-space: pre-wrap; */
       }
       .blog-link {
         display: inline-block;
