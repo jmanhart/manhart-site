@@ -1,38 +1,38 @@
-// Define a function that toggles a element with the given id
-export function toggleElement(id, show) {
-  // Function implementation goes in here ...
-  const element = document.getElementById(id);
-  const isDarkTheme = document.body.classList.contains("dark-theme");
-  if ("dark-theme") {
-    element.classList.add("dark-theme");
+export function toggleTheme(id) {
+  const body = document.body;
+  const isDarkTheme = body.classList.contains("dark-theme");
+  // const isLightTheme = body.classList.contains("light-theme");
+
+  // If the dark-theme class is present, remove it and add the light-theme class
+  if (isDarkTheme) {
+    body.classList.remove("dark-theme");
+    body.classList.add("light-theme");
+    // Set the theme to "light"
+    localStorage.setItem("theme", "light");
   } else {
-    element.classList.remove("dark-theme");
+    // If the dark-theme class is not present, remove the light-theme class and add the dark-theme class
+    body.classList.remove("light-theme");
+    body.classList.add("dark-theme");
+    // Set the theme to "dark"
+    localStorage.setItem("theme", "dark-theme");
   }
-  element.style.display = show
-    ? isDarkTheme
-      ? "block"
-      : "none"
-    : isDarkTheme
-    ? "none"
-    : "block";
-
-  console.log(element.style.display);
+  console.log(localStorage);
 }
 
-// Function to store the toggle state in sessionStorage
-export function toggleAndSave(id) {
-  // Function implementation goes in here ...
-  toggleElement(id);
-  sessionStorage.setItem(id, document.getElementById(id).style.display);
-  console.log("Hiya");
-}
-
-// Function to restore the toggle state from sessionStorage
-export function restoreToggleState(id) {
-  // Function implementation goes in here ...
-  const display = sessionStorage.getItem(id);
-  if (display) {
-    document.getElementById(id).style.display = display;
-    console.log("urgh");
+// Apply the stored theme when the page loads
+export function applyStoredTheme() {
+  // Get the stored theme from local storage
+  const storedTheme = localStorage.getItem("theme");
+  console.log("storedTheme", storedTheme);
+  // If a theme is stored, apply it to the page
+  if (storedTheme) {
+    document.body.classList.add(storedTheme);
   }
 }
+
+// window.addEventListener("load", applyStoredTheme);
+// Wait for the page to finish loading
+window.addEventListener("load", () => {
+  // Apply the stored theme
+  applyStoredTheme();
+});

@@ -1,57 +1,84 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
-import Header from '../components/Header.astro';
-import PageHeader from '../components/PageHeader.astro';
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import Header from "../components/Header.astro";
+import PageHeader from "../components/PageHeader.astro";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			ul{
-				list-style-type: none;
-				padding: 0;
-    			margin: 0;
-
-			}
-			li {
-				/* background-color: pink; */
-				margin: 1em 0;
-				padding: 1em;
-				border: 1px solid #e6e6e6;
-				border-radius: 0.25em;
-				display: flex;
-				flex-direction: row;
-				gap: 1em;
-			}
-			.social-media-icon{
-				width: 24px;
-				height: 24px;
-				background-color: gray;
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<div class="wrapper">
-			<div class="content">
-				<PageHeader title="Social Links" description="Yeap I have them and they all live here. Enjoy."/>
-				<ul>
-					<a href="https://dribbble.com/manhart"><li><div class="social-media-icon"></div>Dribbble</li></a>
-					<a href="https://www.figma.com/@manhart"><li><div class="social-media-icon"></div>Figma</li></a>
-					<a href="https://github.com/jmanhart"><li><div class="social-media-icon"></div>Github</li></a>
-					<a href="https://www.instagram.com/johnmanhart/"><li><div class="social-media-icon"></div>Instagram</li></a>
-					<a href="https://letterboxd.com/manhart/"><li><div class="social-media-icon"></div>Letterboxd</li></a>
-					<a href="https://www.linkedin.com/in/john-manhart/"><li><div class="social-media-icon"></div>Linkedin</li></a>
-					<a href="https://twitter.com/JohnManhart"><li><div class="social-media-icon"></div>Twitter</li></a>
-					<a href="https://www.twitch.tv/itsmanhart"><li><div class="social-media-icon"></div>Twitch</li></a>
-					<a href="https://www.youtube.com/channel/UCdgLTD7oNCCi5Y1sPVqDkwQ"><li><div class="social-media-icon"></div>Youtube</li></a>
-				</ul>
-			</div>
-		</div>
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <script src="../toggle-state.js"></script>
+    <style>
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        /* background-color: pink; */
+        margin: 1em 0;
+        padding: 1em;
+        border: 1px solid #e6e6e6;
+        border-radius: 0.25em;
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+      }
+      .social-media-icon {
+        width: 24px;
+        height: 24px;
+        background-color: gray;
+      }
+    </style>
+  </head>
+  <script>
+    import { applyStoredTheme } from "../toggle-state.js";
+    // Wait for the page to finish loading
+    window.addEventListener("load", () => {
+      // Apply the stored theme
+      applyStoredTheme();
+    });
+  </script>
+  <body>
+    <Header />
+    <div class="wrapper">
+      <div class="content">
+        <PageHeader
+          title="Social Links"
+          description="Yeap I have them and they all live here. Enjoy."
+        />
+        <ul>
+          <a href="https://dribbble.com/manhart"
+            ><li><div class="social-media-icon"></div>Dribbble</li>
+          </a>
+          <a href="https://www.figma.com/@manhart"
+            ><li><div class="social-media-icon"></div>Figma</li>
+          </a>
+          <a href="https://github.com/jmanhart"
+            ><li><div class="social-media-icon"></div>Github</li>
+          </a>
+          <a href="https://www.instagram.com/johnmanhart/"
+            ><li><div class="social-media-icon"></div>Instagram</li>
+          </a>
+          <a href="https://letterboxd.com/manhart/"
+            ><li><div class="social-media-icon"></div>Letterboxd</li>
+          </a>
+          <a href="https://www.linkedin.com/in/john-manhart/"
+            ><li><div class="social-media-icon"></div>Linkedin</li>
+          </a>
+          <a href="https://twitter.com/JohnManhart"
+            ><li><div class="social-media-icon"></div>Twitter</li>
+          </a>
+          <a href="https://www.twitch.tv/itsmanhart"
+            ><li><div class="social-media-icon"></div>Twitch</li>
+          </a>
+          <a href="https://www.youtube.com/channel/UCdgLTD7oNCCi5Y1sPVqDkwQ"
+            ><li><div class="social-media-icon"></div>Youtube</li>
+          </a>
+        </ul>
+      </div>
+    </div>
+  </body>
 </html>
-
-

@@ -11,34 +11,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
   <head>
     <link rel="stylesheet" href="../styles/global.scss" />
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <script>
-      import { toggleElement } from "../toggle-state.js";
-      const button = document.getElementById("toggle-button");
-      // button.addEventListener("click", () => {
-      //   // console.log("toggled");
-      //   toggleElement("toggle-button", false);
-      // });
-      button.addEventListener("click", () => {
-        toggleElement("toggle-button", !button.classList.contains("active"));
-        button.classList.toggle("active");
-      });
-    </script>
-    <style lang="scss">
-      @import "../styles/_mixins.scss";
-      html[theme="light"] {
-        background-color: white;
-        color: black;
-      }
-
-      html[theme="dark"] {
-        background-color: rgb(35, 35, 35);
-        color: white;
-      }
-      .dark-theme {
-        background-color: rgb(35, 35, 35);
-        color: white;
-      }
-    </style>
+    <script src="../toggle-state.js"></script>
   </head>
 
   <body>
@@ -46,10 +19,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
     <div class="wrapper">
       <div class="content">
         <PageHeader
-          title="Hi, I'm John"
+          title="Hi, I'm John!!"
           description="A Product Designer living in Kansas City. Currently at Sentry"
         />
-        <button id="toggle-button">Toggle Theme</button>
+        <!-- <button id="toggle-button">Toggle Theme</button> -->
       </div>
     </div>
   </body>
