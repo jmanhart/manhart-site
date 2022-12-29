@@ -3,7 +3,7 @@ const { title, description } = Astro.props;
 ---
 
 <div class="page-header-wrapper">
-  <h1 class="page-header-title">{title}</h1>
+  <h1>{title}</h1>
   <p class="page-header-description">{description}</p>
 </div>
 
@@ -16,13 +16,15 @@ const { title, description } = Astro.props;
   .page-header-wrapper {
     margin-bottom: 2em;
   }
-
   .page-header-title {
     margin: 0;
     padding: 0;
+    font-size: 3rem;
+    font-weight: 400;
   }
   .page-header-description {
     margin: 0;
     padding: 0;
+    font-size: 2rem;
   }
 </style>

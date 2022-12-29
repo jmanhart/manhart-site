@@ -7,14 +7,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
   (a, b) =>
-    new Date(b.frontmatter.pubDate).valueOf() -
-    new Date(a.frontmatter.pubDate).valueOf()
+    new Date(a.frontmatter.pubDate).valueOf() -
+    new Date(b.frontmatter.pubDate).valueOf()
 );
 ---
 
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <script src="../toggle-state.js"></script>
     <style>
       ul {
         list-style-type: none;
@@ -32,38 +33,6 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
         flex-direction: column;
         justify-content: baseline;
       }
-      ul li time {
-        color: #595959;
-        font-size: 20px;
-        text-align: left;
-      }
-      ul li a:visited {
-        color: #8e32dc;
-      }
-      .blog-description-container {
-        display: flex;
-        flex-direction: column;
-      }
-      .blog-description {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        /* white-space: pre-wrap; */
-      }
-      .blog-link {
-        display: inline-block;
-        text-decoration: underline;
-        color: #333333;
-        font-weight: 500;
-        font-size: 22px;
-        margin-bottom: 6px;
-      }
-      .blog-link:hover {
-        display: inline-block;
-        text-decoration: underline;
-        font-weight: 500;
-        color: #000000;
-        cursor: pointer;
-      }
     </style>
   </head>
   <body>
@@ -71,16 +40,13 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
     <div class="wrapper">
       <div class="content">
         <main>
-          <PageHeader
-            title="Writing"
-            description="Thoughts, notes, essays, ramblings you decide."
-          />
+          <PageHeader title="Writing" />
           <section>
             <ul>
               {
                 posts.map((post) => (
                   <li>
-                    <time datetime={post.frontmatter.pubDate}>
+                    <p datetime={post.frontmatter.pubDate}>
                       {new Date(post.frontmatter.pubDate).toLocaleDateString(
                         "en-us",
                         {
@@ -89,14 +55,12 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
                           day: "numeric",
                         }
                       )}
-                    </time>
+                    </p>
                     <div class="blog-description-container">
                       <a class="blog-link" href={post.url}>
                         {post.frontmatter.title}
                       </a>
-                      <span class="blog-description">
-                        {post.frontmatter.description}
-                      </span>
+                      <p>{post.frontmatter.description}</p>
                     </div>
                   </li>
                 ))

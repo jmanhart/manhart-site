@@ -3,17 +3,41 @@
 @import '_mixins.scss';
 
 
+h1{
+	font-size: 3rem;
+	font-weight: 400;
+	margin: 0 0 ;
+	padding: 0 0;
+}
+a{
+	text-decoration: none;
+}
+
+
 .dark-theme {
-    background-color: rgb(35, 35, 35);
-    color: white;
-	a:visited {
-		color: purple;
+    background-color: #111111;
+	h1,h2,h3{
+		color: white;
+	}
+	p,a{
+		color: #7D7D7D;
+	}
+	a:hover{
+		color: white;
 	}
 }
 
 .light-theme {
     background-color: white;
-    color: rgb(35, 35, 35);
+	h1,h2,h3{
+		color: #111;
+	}
+	p,a{
+		color: #7D7D7D;
+	}
+	a:hover{
+		color: black;
+	}
 }
 body {
 	// transition: background-color 0.15s ease-in-out;
