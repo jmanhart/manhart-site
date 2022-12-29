@@ -1,7 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
-import PageHeader from "../components/PageHeader.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 ---
 
@@ -21,16 +20,55 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
         tracesSampleRate: 1.0,
       });
     </script>
+    <style lang="scss">
+      @import "../styles/_mixins.scss";
+      header {
+        @include sm {
+          background-color: transparent;
+          border-bottom: 0px;
+          position: fixed;
+          width: 100%;
+          z-index: 999;
+        }
+        box-sizing: border-box;
+        overflow-x: hidden;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1em;
+        display: flex;
+        justify-content: flex-end;
+        border-bottom: 1px solid #e6e6e6;
+      }
+      nav {
+        box-sizing: content-box;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .personal-logo {
+        width: 24px;
+        height: 24px;
+        background-color: gray;
+      }
+      .hero-content {
+        width: 75%;
+        max-width: 65ch;
+      }
+    </style>
   </head>
-
   <body>
     <Header title={SITE_TITLE} />
-    <div class="wrapper">
-      <div class="content">
-        <PageHeader
-          title="Hi, I'm John!!"
-          description="A Product Designer living in Kansas City. Currently at Sentry"
-        />
+    <div class="root-wrapper" id="hero">
+      <div class="root-content">
+        <img src="self-02.png" class="hero-image" />
+        <h1>Hi, I'm John!!</h1>
+        <h2>
+          A <a href="/product-designer">Product Designer</a> living in
+          <a>Seattle</a>. <br />
+          Currently at <a href="/about">Sentry</a>
+        </h2>
       </div>
     </div>
   </body>

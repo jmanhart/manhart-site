@@ -16,36 +16,54 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <script src="../toggle-state.js"></script>
-    <style>
+    <style lang="scss">
       ul {
         list-style-type: none;
         padding: unset;
       }
       ul li {
         display: flex;
-        padding: 1em 0;
-        gap: 1em;
+        /* padding: 1em 0; */
+        gap: 2rem;
         margin: 1em 0;
         padding: 1em;
         border: 1px solid #e6e6e6;
         border-radius: 0.25em;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: baseline;
+      }
+      .blog-datestamp-container {
+        // background-color: yellow;
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+      }
+      .blog-description-container {
+        // background-color: pink;
+        display: flex;
+        flex-direction: column;
+        flex: 6;
+        h3 {
+          margin: 0 0;
+          padding: 0 0;
+        }
       }
     </style>
   </head>
   <body>
     <Header />
-    <div class="wrapper">
-      <div class="content">
-        <main>
-          <PageHeader title="Writing" />
-          <section>
-            <ul>
-              {
-                posts.map((post) => (
-                  <li>
+    <div class="root-wrapper" id="sub-page">
+      <div class="root-content">
+        <h1>Writing</h1>
+        <h2>Yeah I guess its a blog</h2>
+
+        <ul>
+          {
+            posts.map((post) => (
+              <a class="blog-link" href={post.url}>
+                <li>
+                  <div class="blog-datestamp-container">
                     <p datetime={post.frontmatter.pubDate}>
                       {new Date(post.frontmatter.pubDate).toLocaleDateString(
                         "en-us",
@@ -56,18 +74,17 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
                         }
                       )}
                     </p>
-                    <div class="blog-description-container">
-                      <a class="blog-link" href={post.url}>
-                        {post.frontmatter.title}
-                      </a>
-                      <p>{post.frontmatter.description}</p>
-                    </div>
-                  </li>
-                ))
-              }
-            </ul>
-          </section>
-        </main>
+                  </div>
+
+                  <div class="blog-description-container">
+                    <h3 class="description">{post.frontmatter.title}</h3>
+                    <p>{post.frontmatter.description}</p>
+                  </div>
+                </li>
+              </a>
+            ))
+          }
+        </ul>
       </div>
     </div>
   </body>

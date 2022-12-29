@@ -1,11 +1,11 @@
 const themes = [
   {
     name: "light-theme",
-    iconPath: "icon-sun.svg",
+    iconPath: "/public/icon-sun.svg",
   },
   {
     name: "dark-theme",
-    iconPath: "icon-moon.svg",
+    iconPath: "/public/icon-moon.svg",
   },
 ];
 

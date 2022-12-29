@@ -6,4 +6,5 @@ pubDate: "Jan 15, 2022"
 location: "Seattle"
 ---
 
+Hello yes yay
 [Link](https://www.linkedin.com/pulse/founder6-lessons-from-movie-mcdonalds-greg-coticchia-mba-pc/)
