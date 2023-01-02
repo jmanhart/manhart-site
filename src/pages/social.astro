@@ -10,45 +10,17 @@ import PageHeader from "../components/PageHeader.astro";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <script src="../toggle-state.js"></script>
-    <style>
-      ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-      }
-      li {
-        margin: 1em 0;
-        padding: 1em;
-        border: 1px solid #e6e6e6;
-        border-radius: 0.25em;
-        display: flex;
-        flex-direction: row;
-        gap: 1em;
-      }
-      .social-media-icon {
-        width: 24px;
-        height: 24px;
-        background-color: gray;
-      }
-      .cards {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1em;
-      }
-      .card {
-        width: 300px;
-        height: 300px;
-        /* background-color: gray; */
-        border-radius: 0.25em;
-        flex: 1 0 300px;
-        border: 1px solid #999;
-      }
-      .info-container {
-        margin-bottom: 2em;
-      }
-    </style>
   </head>
+  <style>
+    .social-media-icon {
+      width: 24px;
+      height: 24px;
+      background-color: gray;
+    }
+    .info-container {
+      margin-bottom: 2em;
+    }
+  </style>
   <body>
     <Header />
     <div class="root-wrapper" id="sub-page">
@@ -57,47 +29,80 @@ import PageHeader from "../components/PageHeader.astro";
           <h1>Social Links</h1>
           <h2>All the forms of social media</h2>
         </div>
-
-        <div class="cards">
-          <div class="card">Dribbble</div>
-          <div class="card">Figma</div>
-          <div class="card">Github</div>
-          <div class="card">Insta</div>
-          <div class="card">Letterboxd</div>
-          <div class="card">Linkedin</div>
-          <div class="card">Twitter</div>
-          <div class="card">Twitch</div>
-          <div class="card">Youtube</div>
-        </div>
+        <div class="cards" id="social-media-cards"></div>
       </div>
     </div>
-  </body><!-- <ul>
-  <a href="https://dribbble.com/manhart"
-    ><li><div class="social-media-icon"></div>Dribbble</li>
-  </a>
-  <a href="https://www.figma.com/@manhart"
-    ><li><div class="social-media-icon"></div>Figma</li>
-  </a>
-  <a href="https://github.com/jmanhart"
-    ><li><div class="social-media-icon"></div>Github</li>
-  </a>
-  <a href="https://www.instagram.com/johnmanhart/"
-    ><li><div class="social-media-icon"></div>Instagram</li>
-  </a>
-  <a href="https://letterboxd.com/manhart/"
-    ><li><div class="social-media-icon"></div>Letterboxd</li>
-  </a>
-  <a href="https://www.linkedin.com/in/john-manhart/"
-    ><li><div class="social-media-icon"></div>Linkedin</li>
-  </a>
-  <a href="https://twitter.com/JohnManhart"
-    ><li><div class="social-media-icon"></div>Twitter</li>
-  </a>
-  <a href="https://www.twitch.tv/itsmanhart"
-    ><li><div class="social-media-icon"></div>Twitch</li>
-  </a>
-  <a href="https://www.youtube.com/channel/UCdgLTD7oNCCi5Y1sPVqDkwQ"
-    ><li><div class="social-media-icon"></div>Youtube</li>
-  </a>
-</ul> -->
+    <script>
+      const socialMediaAccounts = [
+        {
+          name: "Dribbble",
+          url: "https://dribbble.com/manhart",
+          icon: "dribbble",
+        },
+        {
+          name: "Figma",
+          url: "https://www.figma.com/@manhart",
+          icon: "figma",
+        },
+        {
+          name: "Github",
+          url: "https://github.com/jmanhart",
+        },
+        {
+          name: "Instagram",
+          url: "https://github.com/jmanhart",
+        },
+        {
+          name: "Letterboxd",
+          url: "https://letterboxd.com/manhart/",
+        },
+        {
+          name: "Linkedin",
+          url: "https://www.linkedin.com/in/john-manhart/",
+        },
+        {
+          name: "Twitter",
+          url: "https://twitter.com/JohnManhart",
+        },
+        {
+          name: "Twitch",
+          url: "https://www.twitch.tv/itsmanhart",
+        },
+        {
+          name: "Youtube",
+          url: "https://www.youtube.com/channel/UCdgLTD7oNCCi5Y1sPVqDkwQ",
+        },
+      ];
+
+      const employeeCards = socialMediaAccounts.map(function (account) {
+        return `
+          <div class="card">
+            <h3>${account.name}</h3>
+          </div>
+        `;
+      });
+      document.getElementById("social-media-cards").innerHTML =
+        employeeCards.join("");
+
+      const style = document.createElement("style");
+      style.textContent = `
+        .cards {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 1em;
+        }
+        .card {
+          width: 300px;
+          height: 300px;
+          border-radius: 0.25em;
+          border: 1px solid #999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      `;
+      document.head.appendChild(style);
+    </script>
+  </body>
 </html>
