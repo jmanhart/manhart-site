@@ -30,44 +30,74 @@ import PageHeader from "../components/PageHeader.astro";
         height: 24px;
         background-color: gray;
       }
+      .cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1em;
+      }
+      .card {
+        width: 300px;
+        height: 300px;
+        /* background-color: gray; */
+        border-radius: 0.25em;
+        flex: 1 0 300px;
+        border: 1px solid #999;
+      }
+      .info-container {
+        margin-bottom: 2em;
+      }
     </style>
   </head>
   <body>
     <Header />
     <div class="root-wrapper" id="sub-page">
       <div class="root-content">
-        <h1>Social Links</h1>
-        <h2>All the forms of social media</h2>
-        <ul>
-          <a href="https://dribbble.com/manhart"
-            ><li><div class="social-media-icon"></div>Dribbble</li>
-          </a>
-          <a href="https://www.figma.com/@manhart"
-            ><li><div class="social-media-icon"></div>Figma</li>
-          </a>
-          <a href="https://github.com/jmanhart"
-            ><li><div class="social-media-icon"></div>Github</li>
-          </a>
-          <a href="https://www.instagram.com/johnmanhart/"
-            ><li><div class="social-media-icon"></div>Instagram</li>
-          </a>
-          <a href="https://letterboxd.com/manhart/"
-            ><li><div class="social-media-icon"></div>Letterboxd</li>
-          </a>
-          <a href="https://www.linkedin.com/in/john-manhart/"
-            ><li><div class="social-media-icon"></div>Linkedin</li>
-          </a>
-          <a href="https://twitter.com/JohnManhart"
-            ><li><div class="social-media-icon"></div>Twitter</li>
-          </a>
-          <a href="https://www.twitch.tv/itsmanhart"
-            ><li><div class="social-media-icon"></div>Twitch</li>
-          </a>
-          <a href="https://www.youtube.com/channel/UCdgLTD7oNCCi5Y1sPVqDkwQ"
-            ><li><div class="social-media-icon"></div>Youtube</li>
-          </a>
-        </ul>
+        <div class="info-container">
+          <h1>Social Links</h1>
+          <h2>All the forms of social media</h2>
+        </div>
+
+        <div class="cards">
+          <div class="card">Dribbble</div>
+          <div class="card">Figma</div>
+          <div class="card">Github</div>
+          <div class="card">Insta</div>
+          <div class="card">Letterboxd</div>
+          <div class="card">Linkedin</div>
+          <div class="card">Twitter</div>
+          <div class="card">Twitch</div>
+          <div class="card">Youtube</div>
+        </div>
       </div>
     </div>
-  </body>
+  </body><!-- <ul>
+  <a href="https://dribbble.com/manhart"
+    ><li><div class="social-media-icon"></div>Dribbble</li>
+  </a>
+  <a href="https://www.figma.com/@manhart"
+    ><li><div class="social-media-icon"></div>Figma</li>
+  </a>
+  <a href="https://github.com/jmanhart"
+    ><li><div class="social-media-icon"></div>Github</li>
+  </a>
+  <a href="https://www.instagram.com/johnmanhart/"
+    ><li><div class="social-media-icon"></div>Instagram</li>
+  </a>
+  <a href="https://letterboxd.com/manhart/"
+    ><li><div class="social-media-icon"></div>Letterboxd</li>
+  </a>
+  <a href="https://www.linkedin.com/in/john-manhart/"
+    ><li><div class="social-media-icon"></div>Linkedin</li>
+  </a>
+  <a href="https://twitter.com/JohnManhart"
+    ><li><div class="social-media-icon"></div>Twitter</li>
+  </a>
+  <a href="https://www.twitch.tv/itsmanhart"
+    ><li><div class="social-media-icon"></div>Twitch</li>
+  </a>
+  <a href="https://www.youtube.com/channel/UCdgLTD7oNCCi5Y1sPVqDkwQ"
+    ><li><div class="social-media-icon"></div>Youtube</li>
+  </a>
+</ul> -->
 </html>
