@@ -49,8 +49,13 @@ p{
 		color: white;
 	}
 	button:hover{
-		background-color: #222;
-			
+		background-color: #222;		
+	}
+	header{
+		background-color: #111111;
+		@include sm {
+			z-index: 999;
+		}
 	}
 }
 
@@ -74,7 +79,15 @@ p{
 	}
 	button:hover{
 		background-color: #f2f2f2;
-			
+	}
+	header{
+		background-color: white;
+		border-top: 1px solid #e6e6e6;
+		@include sm {
+			background-color: white;
+			z-index: 999;
+			border-top: 0px;
+		}
 	}
 }
 body {
@@ -196,7 +209,10 @@ button{
 }
 
 #sub-page{
-	padding-top: 8rem;
+	padding-top: 3rem;
+	@include sm {
+		padding-top: 8rem;
+	}
 }
 
 .info-container {

@@ -4,20 +4,17 @@ import HeaderLink from "./HeaderLink.astro";
 
 <header>
   <nav>
-    <a href="/" class="personal-logo"></a>
-    <div class="header-internal-links">
-      <HeaderLink href="/blog">Writing</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
-      <HeaderLink href="/social">Social</HeaderLink>
-      <button id="toggle-button">
-        <img
-          src="/public/icon-sun.svg"
-          class="icon"
-          alt="Button icon"
-          id="toggle-button-icon"
-        />
-      </button>
-    </div>
+    <HeaderLink href="/blog">Writing</HeaderLink>
+    <HeaderLink href="/about">About</HeaderLink>
+    <HeaderLink href="/social">Social</HeaderLink>
+    <button id="toggle-button">
+      <img
+        src="/public/icon-sun.svg"
+        class="icon"
+        alt="Button icon"
+        id="toggle-button-icon"
+      />
+    </button>
   </nav>
   <script>
     import { toggleTheme } from "../toggle-state.js";
@@ -30,23 +27,23 @@ import HeaderLink from "./HeaderLink.astro";
 <style lang="scss">
   @import "../styles/_mixins.scss";
   header {
-    @include sm {
-      background-color: transparent;
-      border-bottom: 0px;
-      position: fixed;
-      width: 100%;
-      z-index: 999;
-    }
     box-sizing: border-box;
     overflow-x: hidden;
     position: fixed;
-    top: 0;
-    // background-color: white;
+    bottom: 0;
     width: 100%;
     padding: 1em;
     display: flex;
     justify-content: flex-end;
     border-bottom: 1px solid #e6e6e6;
+    @include sm {
+      border-bottom: 0px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      height: min-content;
+    }
   }
   nav {
     box-sizing: content-box;
@@ -54,6 +51,10 @@ import HeaderLink from "./HeaderLink.astro";
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    @include sm {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
   .personal-logo {
     width: 24px;
