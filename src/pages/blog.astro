@@ -16,6 +16,44 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <script src="../toggle-state.js"></script>
+  </head>
+  <body>
+    <Header />
+    <div class="root-wrapper" id="sub-page">
+      <div class="root-content">
+        <div class="info-container">
+          <h1>Writingz</h1>
+          <h2>Yeah I guess its a blog</h2>
+        </div>
+        <ul>
+          {
+            posts.map((post) => (
+              <a class="blog-link" href={post.url}>
+                <li>
+                  <div class="blog-datestamp-container">
+                    <p datetime={post.frontmatter.pubDate}>
+                      {new Date(post.frontmatter.pubDate).toLocaleDateString(
+                        "en-us",
+                        {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        }
+                      )}
+                    </p>
+                  </div>
+
+                  <div class="blog-description-container">
+                    <h3 class="description">{post.frontmatter.title}</h3>
+                    <p>{post.frontmatter.description}</p>
+                  </div>
+                </li>
+              </a>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
     <style lang="scss">
       ul {
         list-style-type: none;
@@ -50,42 +88,5 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
         }
       }
     </style>
-  </head>
-  <body>
-    <Header />
-    <div class="root-wrapper" id="sub-page">
-      <div class="root-content">
-        <h1>Writing</h1>
-        <h2>Yeah I guess its a blog</h2>
-
-        <ul>
-          {
-            posts.map((post) => (
-              <a class="blog-link" href={post.url}>
-                <li>
-                  <div class="blog-datestamp-container">
-                    <p datetime={post.frontmatter.pubDate}>
-                      {new Date(post.frontmatter.pubDate).toLocaleDateString(
-                        "en-us",
-                        {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        }
-                      )}
-                    </p>
-                  </div>
-
-                  <div class="blog-description-container">
-                    <h3 class="description">{post.frontmatter.title}</h3>
-                    <p>{post.frontmatter.description}</p>
-                  </div>
-                </li>
-              </a>
-            ))
-          }
-        </ul>
-      </div>
-    </div>
   </body>
 </html>

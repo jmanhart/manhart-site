@@ -2,7 +2,6 @@
 import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import Header from "../components/Header.astro";
-import PageHeader from "../components/PageHeader.astro";
 ---
 
 <!DOCTYPE html>
@@ -11,16 +10,6 @@ import PageHeader from "../components/PageHeader.astro";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <script src="../toggle-state.js"></script>
   </head>
-  <style>
-    .social-media-icon {
-      width: 24px;
-      height: 24px;
-      background-color: gray;
-    }
-    .info-container {
-      margin-bottom: 2em;
-    }
-  </style>
   <body>
     <Header />
     <div class="root-wrapper" id="sub-page">
@@ -81,6 +70,7 @@ import PageHeader from "../components/PageHeader.astro";
           </div>
         `;
       });
+
       document.getElementById("social-media-cards").innerHTML =
         employeeCards.join("");
 

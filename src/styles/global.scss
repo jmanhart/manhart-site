@@ -39,9 +39,13 @@ p{
 		color: #7D7D7D;
 	}
 	a{
-		color: white;
+		color: #444;
 	}
 	a:hover{
+		color: white;
+	}
+	a.active {
+		font-weight: 500;
 		color: white;
 	}
 	button:hover{
@@ -63,6 +67,10 @@ p{
 	}
 	a:hover{
 		color: black;
+	}
+	a.active {
+		font-weight: 500;
+		color: #111;
 	}
 	button:hover{
 		background-color: #f2f2f2;
@@ -190,3 +198,7 @@ button{
 #sub-page{
 	padding-top: 8rem;
 }
+
+.info-container {
+	margin-bottom: 2em;
+  }
