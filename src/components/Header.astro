@@ -79,13 +79,13 @@ import HeaderLink from "./HeaderLink.astro";
     box-sizing: border-box;
     overflow-x: hidden;
     position: fixed;
-    bottom: 0;
+    top: 0;
     width: 100%;
     padding: 1em;
     display: flex;
     justify-content: flex-end;
-    border-bottom: 1px solid #e6e6e6;
-    backdrop-filter: blur(12px);
+    border-bottom: 1px solid;
+    // backdrop-filter: blur(12px);
     @include sm {
       border-bottom: 0px;
       position: fixed;
@@ -121,32 +121,3 @@ import HeaderLink from "./HeaderLink.astro";
     background-color: gray;
   }
 </style>
-
-<!-- <script>
-  document.getElementById("toggle-button").addEventListener("click", () => {
-    // Set the default theme
-    let currentTheme = localStorage.getItem("theme");
-
-    // If the theme is not set, set the default theme to light-theme
-    if (!currentTheme) {
-      currentTheme = "light-theme";
-    }
-
-    const body = document.body;
-    switch (currentTheme) {
-      case "light-theme":
-        body.classList.toggle("light-theme", false);
-        body.classList.toggle("dark-theme", true);
-        currentTheme = "dark-theme";
-        localStorage.setItem("theme", currentTheme);
-        break;
-      case "dark-theme":
-        body.classList.toggle("dark-theme", false);
-        body.classList.toggle("light-theme", true);
-        currentTheme = "light-theme";
-        localStorage.setItem("theme", currentTheme);
-        break;
-    }
-    console.log(localStorage);
-  });
-</script> -->

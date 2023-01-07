@@ -52,12 +52,15 @@ p{
 		background-color: #222;		
 	}
 	header{
-		background-color: #000000;
-		border: 1px solid #333;
+		background-color: #111111;
+		border-color: #333;
 		@include sm {
-			z-index: 999;
+			z-index: 999;		
+			background-color: transparent;
+			// border: 1px solid #;
 		}
 	}
+
 }
 
 .light-theme {
@@ -83,16 +86,16 @@ p{
 	}
 	header{
 		background-color: white;
-		border-top: 1px solid #e6e6e6;
+		border-color: #e6e6e6;
 		@include sm {
-			background-color: white;
+			background-color: transparent;
 			z-index: 999;
 			border-top: 0px;
 		}
 	}
 }
 body {
-	// transition: background-color 0.15s ease-in-out;
+	// transition: background-color 0.25s ease-in-out;
 	font-family: Work Sans,sans-serif;
 	margin: auto;
 	width: 100vw;
@@ -213,7 +216,7 @@ button{
 }
 
 #sub-page{
-	padding-top: 3rem;
+	padding-top: 6rem;
 	@include sm {
 		padding-top: 8rem;
 	}
