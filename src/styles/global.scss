@@ -52,7 +52,8 @@ p{
 		background-color: #222;		
 	}
 	header{
-		background-color: #111111;
+		background-color: #000000;
+		border: 1px solid #333;
 		@include sm {
 			z-index: 999;
 		}
@@ -101,9 +102,9 @@ body {
 	overflow-wrap: break-word;
 	line-height: 1.5;
 }
-nav a {
-	margin-right: 10px;
-}
+// nav a {
+// 	margin-right: 10px;
+// }
 textarea {
 	width: 100%;
 	font-size: 16px;
@@ -200,12 +201,15 @@ button{
   }
   .root-content {
 	width: 90%;
-	max-width: 60rem;
+	max-width: 50em;
 	padding-bottom: 3em;
   }
 
 #hero{
-	padding-top: 16rem;
+	padding-top: 8rem;
+	@include sm{
+		padding-top: 16rem;
+	}
 }
 
 #sub-page{

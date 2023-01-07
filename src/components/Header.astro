@@ -9,23 +9,72 @@ import HeaderLink from "./HeaderLink.astro";
     <HeaderLink href="/social">Social</HeaderLink>
     <button id="toggle-button">
       <img
+        src="/public/icon-moon.svg"
+        class="icon-moon"
+        alt="moon"
+        id="toggle-button-icon"
+      />
+      <img
         src="/public/icon-sun.svg"
-        class="icon"
-        alt="Button icon"
+        class="icon-sun"
+        alt="sun"
         id="toggle-button-icon"
       />
     </button>
   </nav>
+  <script type="text/javascript">
+    const storedTheme = localStorage.getItem("theme") || "light-theme";
+    document.body.classList.add(storedTheme);
+  </script>
   <script>
-    import { toggleTheme } from "../toggle-state.js";
-    document
-      .getElementById("toggle-button")
-      .addEventListener("click", toggleTheme);
+    document.getElementById("toggle-button").addEventListener("click", () => {
+      // Set the default theme
+      let currentTheme = localStorage.getItem("theme");
+
+      // If the theme is not set, set the default theme to light-theme
+      if (!currentTheme) {
+        currentTheme = "light-theme";
+      }
+
+      const body = document.body;
+      switch (currentTheme) {
+        case "light-theme":
+          body.classList.toggle("light-theme", false);
+          body.classList.toggle("dark-theme", true);
+          currentTheme = "dark-theme";
+          localStorage.setItem("theme", currentTheme);
+          break;
+        case "dark-theme":
+          body.classList.toggle("dark-theme", false);
+          body.classList.toggle("light-theme", true);
+          currentTheme = "light-theme";
+          localStorage.setItem("theme", currentTheme);
+          break;
+      }
+      console.log(localStorage);
+    });
   </script>
 </header>
 
 <style lang="scss">
   @import "../styles/_mixins.scss";
+  #toggle-button {
+    position: relative;
+    height: 1.2em;
+    width: 1.2em;
+    margin-top: 0.25rem;
+    cursor: pointer;
+    .icon-moon,
+    .icon-sun {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
+    }
+  }
   header {
     box-sizing: border-box;
     overflow-x: hidden;
@@ -36,6 +85,7 @@ import HeaderLink from "./HeaderLink.astro";
     display: flex;
     justify-content: flex-end;
     border-bottom: 1px solid #e6e6e6;
+    backdrop-filter: blur(12px);
     @include sm {
       border-bottom: 0px;
       position: fixed;
@@ -45,6 +95,12 @@ import HeaderLink from "./HeaderLink.astro";
       height: min-content;
     }
   }
+  body.light-theme #toggle-button > .icon-sun {
+    visibility: visible;
+  }
+  body.dark-theme #toggle-button > .icon-moon {
+    visibility: visible;
+  }
   nav {
     box-sizing: content-box;
     display: flex;
@@ -52,6 +108,9 @@ import HeaderLink from "./HeaderLink.astro";
     align-items: center;
     justify-content: space-between;
     @include sm {
+      a {
+        margin-right: 1em;
+      }
       display: flex;
       justify-content: flex-end;
     }
@@ -62,3 +121,32 @@ import HeaderLink from "./HeaderLink.astro";
     background-color: gray;
   }
 </style>
+
+<!-- <script>
+  document.getElementById("toggle-button").addEventListener("click", () => {
+    // Set the default theme
+    let currentTheme = localStorage.getItem("theme");
+
+    // If the theme is not set, set the default theme to light-theme
+    if (!currentTheme) {
+      currentTheme = "light-theme";
+    }
+
+    const body = document.body;
+    switch (currentTheme) {
+      case "light-theme":
+        body.classList.toggle("light-theme", false);
+        body.classList.toggle("dark-theme", true);
+        currentTheme = "dark-theme";
+        localStorage.setItem("theme", currentTheme);
+        break;
+      case "dark-theme":
+        body.classList.toggle("dark-theme", false);
+        body.classList.toggle("light-theme", true);
+        currentTheme = "light-theme";
+        localStorage.setItem("theme", currentTheme);
+        break;
+    }
+    console.log(localStorage);
+  });
+</script> -->
