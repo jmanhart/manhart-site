@@ -56,6 +56,24 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
         width: 75%;
         max-width: 65ch;
       }
+      .root-info-container {
+        max-width: 40em;
+      }
+      .root-social-container {
+        display: flex;
+        flex-direction: column;
+        padding-top: 1em;
+        gap: 1em;
+        @include sm {
+          padding-top: 3em;
+          flex-direction: row;
+        }
+      }
+      .root-social-links {
+        font-size: 1.5em;
+        // padding-right: 1em;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -64,11 +82,27 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
       <div class="root-content">
         <img src="self-02.png" class="hero-image" />
         <h1>Hi, I'm John!!</h1>
-        <h2>
-          A <a href="/product-designer">Product Designer</a> living in
-          <a>Seattle</a>. <br />
-          Currently at <a href="/about">Sentry</a>
-        </h2>
+        <div class="root-info-container">
+          <h2>
+            A Product Designer living in Seattle. Currently at <a
+              href="https://sentry.io/welcome/">Sentry</a
+            >.
+          </h2>
+        </div>
+        <div class="root-social-container">
+          <a href="https://twitter.com/JohnManhart">
+            <span class="root-social-links">Twitter</span>
+          </a>
+          <a href="https://www.linkedin.com/in/john-manhart/">
+            <span class="root-social-links">Linkedin</span>
+          </a>
+          <a href="https://github.com/jmanhart">
+            <span class="root-social-links">Github</span>
+          </a>
+          <a href="https://letterboxd.com/manhart/">
+            <span class="root-social-links">Letterboxd</span>
+          </a>
+        </div>
       </div>
     </div>
   </body>
