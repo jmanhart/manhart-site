@@ -2,6 +2,7 @@
 layout: "../../layouts/BlogPost.astro"
 title: "Lets go dark!"
 description: "My journey building a dark mode toggle for this site"
+heroImage: "/post-images/dark-mode/dark-mode.png"
 pubDate: "Jan 15, 2022"
 location: "Seattle"
 ---

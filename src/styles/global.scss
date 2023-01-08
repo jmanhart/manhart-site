@@ -26,14 +26,26 @@ p{
 	margin: 0 0 ;
 }
 
+.astro-code{
+	border-radius: 0.25em;
+}
 
 .dark-theme {
     background-color: #111111;
-	h1,h3{
+	h1{
 		color: white;
 	}
 	h2{
 		color: #7D7D7D;
+	}
+	h3{
+		color: #7D7D7D;
+	}
+	ol{
+		color: #7D7D7D;
+		li{
+			color: #7D7D7D;
+		}
 	}
 	p{
 		color: #7D7D7D;
@@ -66,13 +78,25 @@ p{
 
 .light-theme {
     background-color: white;
-	h1,h2,h3{
+	h1{
 		color: #111;
 	}
 	h2{
 		color: #444;
 	}
-	p,a{
+	h3{
+		color: #7D7D7D;
+	}
+	ol{
+		color: #444;
+		li{
+			color: #444;
+		}
+	}
+	p{
+		color: #444;
+	}
+	a{
 		color: #7D7D7D;
 	}
 	a:hover{
