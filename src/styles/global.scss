@@ -118,7 +118,7 @@ p{
 		}
 	}
 	p{
-		color: var(--gray300);
+		color: var(--gray400);
 	}
 	a{
 		color: var(--gray300);
@@ -234,7 +234,7 @@ button{
 	  }
 }
 
-
+.root{}
 
 .root-wrapper {
 	display: flex;
@@ -274,3 +274,7 @@ button{
 .info-container {
 	margin-bottom: 2em;
   }
+
+.text-page{
+	max-width: 40em;
+}
