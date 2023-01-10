@@ -3,6 +3,30 @@
 @import '_mixins.scss';
 
 
+
+html {  
+	// Dark Mode Color Variables Start
+	--darkSurface100: #1A141F;  
+	--darkSurface200: #221B28; 
+	--darkSurface300: #29232F; 
+
+	// Light Mode Color Variable Start
+	--lightSurface100: #FAF9FB; 
+	--lightSurface200: #ffffff; 
+	--lightSurface300: #FFFFFF; 
+	
+	--gray100: #EDEDED;
+	--gray200: #D1D1D1;
+	--gray300: #888888;
+	--gray400: #444444;
+	--gray500: #222222;
+
+	--white: #ffffff;
+	--black: #000000;
+}
+
+
+
 h1{
 	font-size: 3rem;
 	font-weight: 400;
@@ -26,34 +50,46 @@ p{
 	margin: 0 0 ;
 }
 
+.astro-code{
+	border-radius: 0.25em;
+}
 
 .dark-theme {
-    background-color: #111111;
-	h1,h3{
-		color: white;
+    background-color: var(--darkSurface100);
+	h1{
+		color: var(--gray100);
 	}
 	h2{
-		color: #7D7D7D;
+		color: var(--gray300);
+	}
+	h3{
+		color: var(--gray300);
+	}
+	ol{
+		color: var(--gray300);
+		li{
+			color: var(--gray300);
+		}
 	}
 	p{
-		color: #7D7D7D;
+		color: var(--gray300);
 	}
 	a{
-		color: #444;
+		color: var(--gray400);
 	}
 	a:hover{
-		color: white;
+		color: var(--white);
 	}
 	a.active {
 		font-weight: 500;
-		color: white;
+		color: var(--white);
 	}
 	button:hover{
-		background-color: #222;		
+		background-color: var(--gray500);		
 	}
 	header{
-		background-color: #111111;
-		border-color: #333;
+		background-color: var(--darkSurface100);
+		border-color: var(--gray400);;
 		@include sm {
 			z-index: 999;		
 			background-color: transparent;
@@ -65,25 +101,37 @@ p{
 }
 
 .light-theme {
-    background-color: white;
-	h1,h2,h3{
-		color: #111;
+    background-color: var(--lightSurface100);
+	h1{
+		color: var(--gray500);
 	}
 	h2{
-		color: #444;
+		color: var(--gray400);
 	}
-	p,a{
-		color: #7D7D7D;
+	h3{
+		color: var(--gray300);
+	}
+	ol{
+		color: var(--gray300);
+		li{
+			color: var(--gray300);
+		}
+	}
+	p{
+		color: var(--gray400);
+	}
+	a{
+		color: var(--gray300);
 	}
 	a:hover{
-		color: black;
+		color: var(--black);
 	}
 	a.active {
 		font-weight: 500;
-		color: #111;
+		color: var(--gray500);
 	}
 	button:hover{
-		background-color: #f2f2f2;
+		background-color: var(--lightSurface100);
 	}
 	header{
 		background-color: white;
@@ -186,7 +234,7 @@ button{
 	  }
 }
 
-
+.root{}
 
 .root-wrapper {
 	display: flex;
@@ -226,3 +274,7 @@ button{
 .info-container {
 	margin-bottom: 2em;
   }
+
+.text-page{
+	max-width: 40em;
+}

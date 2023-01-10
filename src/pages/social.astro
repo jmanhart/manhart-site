@@ -13,7 +13,7 @@ import Header from "../components/Header.astro";
   <body>
     <Header />
     <div class="root-wrapper" id="sub-page">
-      <div class="root-content">
+      <div class="root-content text-page">
         <div class="info-container">
           <h1>Social Links</h1>
           <h2>All the forms of social media</h2>
@@ -65,9 +65,11 @@ import Header from "../components/Header.astro";
 
       const employeeCards = socialMediaAccounts.map(function (account) {
         return `
+        <a href="${account.url}" target="_blank" rel="noopener noreferrer">
           <div class="card">
             <h3>${account.name}</h3>
           </div>
+        </a>
         `;
       });
 
@@ -83,13 +85,14 @@ import Header from "../components/Header.astro";
           gap: 1em;
         }
         .card {
-          width: 250px;
-          height: 300px;
+          width: 200px;
+          height: 200px;
           border-radius: 0.25em;
           border: 1px solid #999;
           display: flex;
           align-items: center;
           justify-content: center;
+          flex: 2 2 auto;
         }
       `;
       document.head.appendChild(style);
