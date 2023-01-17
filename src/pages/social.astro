@@ -10,6 +10,56 @@ import Header from "../components/Header.astro";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <script src="../toggle-state.js"></script>
   </head>
+  <style lang="scss">
+    @import "../styles/_mixins.scss";
+    header {
+      @include sm {
+        background-color: transparent;
+        border-bottom: 0px;
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+      }
+      box-sizing: border-box;
+      overflow-x: hidden;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1em;
+      display: flex;
+      justify-content: flex-end;
+      border-bottom: 1px solid #e6e6e6;
+    }
+    nav {
+      box-sizing: content-box;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .personal-logo {
+      width: 24px;
+      height: 24px;
+      background-color: gray;
+    }
+    .hero-content {
+      width: 75%;
+      max-width: 65ch;
+    }
+    .root-info-container {
+      max-width: 40em;
+    }
+    .root-social-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    .root-social-links {
+      font-size: 1.5em;
+      // padding-right: 1em;
+      cursor: pointer;
+    }
+  </style>
   <body>
     <Header />
     <div class="root-wrapper" id="sub-page">
@@ -18,11 +68,34 @@ import Header from "../components/Header.astro";
           <h1>Social Links</h1>
           <h2>All the forms of social media</h2>
         </div>
-        <div class="cards" id="social-media-cards"></div>
+
+        <div class="root-social-container" id="social-media-cards"></div>
+
+        <!-- <div class="root-social-container">
+          <a href="https://twitter.com/JohnManhart">
+            <span class="root-social-links">Twitter</span>
+          </a>
+          <a href="https://www.linkedin.com/in/john-manhart/">
+            <span class="root-social-links">Linkedin</span>
+          </a>
+          <a href="https://github.com/jmanhart">
+            <span class="root-social-links">Github</span>
+          </a>
+          <a href="https://letterboxd.com/manhart/">
+            <span class="root-social-links">Letterboxd</span>
+          </a>
+        </div> -->
+
+        <!-- <div class="cards" id="social-media-cards"></div> -->
       </div>
     </div>
     <script>
       const socialMediaAccounts = [
+        {
+          name: "Chess.com",
+          url: "https://www.chess.com/member/itsmanhart",
+          icon: "dribbble",
+        },
         {
           name: "Dribbble",
           url: "https://dribbble.com/manhart",
@@ -66,9 +139,7 @@ import Header from "../components/Header.astro";
       const employeeCards = socialMediaAccounts.map(function (account) {
         return `
         <a href="${account.url}" target="_blank" rel="noopener noreferrer">
-          <div class="card">
-            <h3>${account.name}</h3>
-          </div>
+            <span class="root-social-links">${account.name}</span>
         </a>
         `;
       });
@@ -78,21 +149,10 @@ import Header from "../components/Header.astro";
 
       const style = document.createElement("style");
       style.textContent = `
-        .cards {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          gap: 1em;
-        }
-        .card {
-          width: 200px;
-          height: 200px;
-          border-radius: 0.25em;
-          border: 1px solid #999;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex: 2 2 auto;
+
+        .root-social-links {
+          font-size: 1.5em;
+          cursor: pointer;
         }
       `;
       document.head.appendChild(style);
