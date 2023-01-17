@@ -40,14 +40,47 @@ h2{
 	padding: 0 0;
 	line-height: 3rem;
 }
+h3{
+	font-size: 1.5rem;
+	font-weight: 400;
+	margin: 0 0 ;
+	padding: 0 0;
+	line-height: 2rem;
+}
+h4{
+	font-size: 1.2rem;
+	font-weight: 400;
+	margin: 0 0 ;
+	padding: 0 0;
+	line-height: 2rem;
+}
+h5{
+	font-size: 1rem;
+	font-weight: 400;
+	margin: 0 0 ;
+	padding: 0 0;
+	line-height: 2rem;
+}
+h6{
+	font-size: 0.8rem;
+	font-weight: 400;
+	margin: 0 0 ;
+	padding: 0 0;
+	line-height: 2rem;
+}
 a{
 	text-decoration: none;
+}
+ol{
+	li{
+		font-size: 1.2rem;
+	}
 }
 p{
 	font-size: 1.2rem;
 	font-weight: 400;
 	line-height: 2rem;
-	margin: 0 0 ;
+	// margin: 0 0 ;
 }
 
 .astro-code{
@@ -63,10 +96,26 @@ p{
 		color: var(--gray300);
 	}
 	h3{
-		color: var(--gray300);
+		color: var(--gray200);
+	}
+	h4, h5, h6{
+		color: var(--gray200);
 	}
 	ol{
 		color: var(--gray300);
+		li{
+			color: var(--gray300);
+		}
+	}
+	ul{
+		li{
+			border-color: var(--gray400);
+		}
+		li:hover{
+			border-color: var(--gray300);
+		}
+	}
+	ol{
 		li{
 			color: var(--gray300);
 		}
@@ -109,12 +158,20 @@ p{
 		color: var(--gray400);
 	}
 	h3{
+		color: var(--gray500);
+	}
+	h4, h5, h6{
 		color: var(--gray300);
 	}
 	ol{
-		color: var(--gray300);
+		color: var(--gray400);
 		li{
-			color: var(--gray300);
+			color: var(--gray400);
+		}
+	}
+	ul{
+		li:hover{
+			border-color: var(--gray200);
 		}
 	}
 	p{

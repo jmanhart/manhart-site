@@ -21,22 +21,12 @@ const {
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
-    <style>
-      .title {
-        font-size: 2em;
-        margin: 0.25em 0 0;
-      }
-      hr {
-        border-top: 1px solid #ddd;
-        margin: 1rem 0;
-      }
-    </style>
   </head>
 
   <body>
     <Header />
     <div class="root-wrapper" id="sub-page">
-      <div class="root-content">
+      <div class="root-content text-page">
         <main>
           <article>
             {
@@ -47,8 +37,10 @@ const {
             <h1 class="title">{title}</h1>
             {
               pubDate && (
-                <div>
-                  <h3>{pubDate}</h3> <h3>{location}</h3>
+                <div class="secondary-info-container">
+                  <h4>
+                    {pubDate} | {location}
+                  </h4>
                 </div>
               )
             }
@@ -59,11 +51,27 @@ const {
                 </div>
               )
             }
-            <hr />
             <slot />
           </article>
         </main>
       </div>
     </div>
+    <style>
+      .title {
+        font-size: 2em;
+        margin: 0.25em 0 0;
+      }
+      hr {
+        border-top: 1px solid #ddd;
+        margin: 1rem 0;
+      }
+      .secondary-info-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 0 0 0.5em 0;
+      }
+    </style>
   </body>
 </html>

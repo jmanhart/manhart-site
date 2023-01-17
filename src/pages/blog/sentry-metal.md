@@ -2,7 +2,7 @@
 layout: "../../layouts/BlogPost.astro"
 title: "Sentry goes metal"
 heroImage: "/post-images/sentry-metal/sentry-metal-outline.png"
-description: "I have always been a metalhead – black, speed, Norwegian, death, DOOM I love it all. This year for our annual hackweek I decided to Metalify the Sentry logo."
+description: "The most metal thing you have ever seen"
 pubDate: "Dec 9, 2022"
 location: "Seattle"
 ---

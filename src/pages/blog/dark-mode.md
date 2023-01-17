@@ -2,13 +2,15 @@
 layout: "../../layouts/BlogPost.astro"
 title: "Lets go dark!"
 description: "My journey building a dark mode toggle for this site"
-heroImage: "/post-images/dark-mode/dark-mode.png"
+# heroImage: "/post-images/dark-mode/dark-mode.png"
 pubDate: "Jan 15, 2022"
 location: "Seattle"
 ---
 A few months back I finally jumped on to team dark-mode. Before that every application I opend was like a great beacon that could be seen from across the country. Embracing dark mode has changed my life and my tan is starting to fade. But sometimes I do like the blast of light-mode to flood my face like the beacon's of gondor. So I decided to build a little toggle to do so.
 
-In early December I also decided to re-build my personal site (this site you are currently on and reading). I am using astro because it is kinda a blank slate for me. I'll be honest my JavaScript skills have always been umm rough. Astro was the perfect blank slate for me and its very flexiable. With the goal of using vanilla JavaScript I started my journey of building this theme toggle.
+In early December I also decided to re-build my personal site _(this site you are currently on and reading)_. I felt my JS skills had gotten soft over the year and a personal goal of mine was to use the least amount of fluff possible. I wanted to get back to the basics of writing vanilla JavaScript.
+
+So this is the process I went thru for building 
 
 I knew 
 
@@ -19,7 +21,7 @@ I knew
 
 
 
-
+#### JavaScript 
 ```js
     document.getElementById("toggle-button").addEventListener("click", () => {
       // Set the default theme
@@ -46,4 +48,27 @@ I knew
           break;
       }
       console.log(localStorage);
+    });
+```
+#### HTML 
+```html
+  <nav>
+    <HeaderLink href="/blog">Writing</HeaderLink>
+    <HeaderLink href="/about">About</HeaderLink>
+    <HeaderLink href="/social">Social Links</HeaderLink>
+    <button id="toggle-button">
+      <img
+        src="/icon-moon.svg"
+        class="icon-moon"
+        alt="moon"
+        id="toggle-button-icon"
+      />
+      <img
+        src="/icon-sun.svg"
+        class="icon-sun"
+        alt="sun"
+        id="toggle-button-icon"
+      />
+    </button>
+  </nav>
 ```
