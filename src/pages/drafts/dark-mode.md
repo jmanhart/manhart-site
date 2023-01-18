@@ -5,6 +5,7 @@ description: "My journey building a dark mode toggle for this site"
 # heroImage: "/post-images/dark-mode/dark-mode.png"
 pubDate: "Jan 15, 2022"
 location: "Seattle"
+count: "002"
 ---
 A few months back I finally jumped on to team dark-mode. Before that every application I opend was like a great beacon that could be seen from across the country. Embracing dark mode has changed my life and my tan is starting to fade. But sometimes I do like the blast of light-mode to flood my face like the beacon's of gondor. So I decided to build a little toggle to do so.
 

@@ -10,11 +10,20 @@ export interface Props {
     updatedDate?: string;
     heroImage?: string;
     location?: string;
+    count?: number;
   };
 }
 
 const {
-  content: { title, description, pubDate, updatedDate, heroImage, location },
+  content: {
+    title,
+    description,
+    pubDate,
+    updatedDate,
+    heroImage,
+    location,
+    count,
+  },
 } = Astro.props;
 ---
 
@@ -39,7 +48,7 @@ const {
               pubDate && (
                 <div class="secondary-info-container">
                   <h4>
-                    {pubDate} | {location}
+                    {pubDate} | {location} | {count}
                   </h4>
                 </div>
               )

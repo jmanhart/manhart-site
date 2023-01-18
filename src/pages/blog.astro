@@ -1,7 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
-import PageHeader from "../components/PageHeader.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
@@ -15,26 +14,26 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <script src="../toggle-state.js"></script>
   </head>
   <body>
     <Header />
     <div class="root-wrapper" id="sub-page">
       <div class="root-content text-page">
         <div class="info-container">
-          <h1>Writingz</h1>
-          <h2>Yeah I guess its a blog</h2>
+          <h1>Writing</h1>
+          <!-- <h2>Yeah I guess its a blog</h2> -->
         </div>
         <ul>
           {
             posts.map((post) => (
               <a class="blog-link" href={post.url}>
                 <li>
-                  <div class="blog-datestamp-container">
-                    <p
+                  <div>
+                    <h5
                       class="blog-date-stamp"
                       datetime={post.frontmatter.pubDate}
                     >
+                      {post.frontmatter.count} |
                       {new Date(post.frontmatter.pubDate).toLocaleDateString(
                         "en-us",
                         {
@@ -43,10 +42,8 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
                           day: "numeric",
                         }
                       )}
-                    </p>
-                  </div>
+                    </h5>
 
-                  <div class="blog-description-container">
                     <h3 class="description">{post.frontmatter.title}</h3>
                     <p class="blog-short-description">
                       {post.frontmatter.description}
@@ -64,26 +61,18 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
         list-style-type: none;
         padding: unset;
       }
-      ul li {
+      li {
         display: flex;
-        /* padding: 1em 0; */
-        gap: 2rem;
-        margin: 1em 0;
-        padding: 1em;
-        border: 1px solid #e6e6e6;
-        border-radius: 0.25em;
-        display: flex;
+        margin: 0 0 1.5em 0;
         flex-direction: row;
-        justify-content: baseline;
+        gap: 1em;
       }
       .blog-datestamp-container {
-        // background-color: yellow;
         display: flex;
         flex: 2 2 0;
         justify-content: flex-end;
       }
       .blog-description-container {
-        // background-color: pink;
         display: flex;
         flex-direction: column;
         flex: 6;
@@ -96,7 +85,13 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
         margin: 0 0 0 0;
       }
       .blog-date-stamp {
-        margin: 0 0 1em 0;
+        margin: 0 0 0 0;
+      }
+      .blog-number-count-container {
+        display: flex;
+      }
+      .blog-number-count {
+        margin: 0 0;
       }
     </style>
   </body>
