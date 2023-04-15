@@ -1,13 +1,11 @@
 ---
 layout: "../../layouts/BlogPost.astro"
 title: "I finally adopted the shadows"
-heroImage: "..."
 description: "Adding a dark and light mode toggle to this site."
 pubDate: "April 15, 2022"
 location: "Seattle"
 count: "002"
 ---
-# Draft 02 April 2023
 I have always been a light mode guy. In fact I love full eye-ball melting brightness for all my rectanlges. Well maybe after ten years of drawing boxes professionally my eyes have partially melted who knows, but recently I decided to make the switch and embrace dark mode. 
 
 It first started with Figma my daily driver design tool _(like everyother designer in 2023)_. But that slowly rippled out to other tools slack, github, sentry and eventually after a few weeks I was fully in the shadows. 
