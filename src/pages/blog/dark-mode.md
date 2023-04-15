@@ -4,6 +4,7 @@ title: "I finally adopted the shadows"
 description: "Adding a dark and light mode toggle to this site."
 pubDate: "April 15, 2022"
 location: "Seattle"
+weather: "🌧️"
 count: "002"
 ---
 I have always been a light mode guy. In fact I love full eye-ball melting brightness for all my rectanlges. Well maybe after ten years of drawing boxes professionally my eyes have partially melted who knows, but recently I decided to make the switch and embrace dark mode. 

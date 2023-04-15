@@ -10,6 +10,7 @@ export interface Props {
     updatedDate?: string;
     heroImage?: string;
     location?: string;
+    weather?: string;
     count?: number;
   };
 }
@@ -22,6 +23,7 @@ const {
     updatedDate,
     heroImage,
     location,
+    weather,
     count,
   },
 } = Astro.props;
@@ -48,7 +50,7 @@ const {
               pubDate && (
                 <div class="secondary-info-container">
                   <h4>
-                    {pubDate} | {location} | {count}
+                    {pubDate} | {location} {weather} | {count}
                   </h4>
                 </div>
               )
