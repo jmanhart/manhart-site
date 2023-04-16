@@ -6,8 +6,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
   (a, b) =>
-    new Date(a.frontmatter.pubDate).valueOf() -
-    new Date(b.frontmatter.pubDate).valueOf()
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
 );
 ---
 
@@ -21,7 +21,6 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
       <div class="root-content text-page">
         <div class="info-container">
           <h1>Writing</h1>
-          <!-- <h2>Yeah I guess its a blog</h2> -->
         </div>
         <ul>
           {
