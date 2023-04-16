@@ -1,4 +1,7 @@
-# My Site
+# manhart.io
 
-Ripping out the astro stuff and getting it ready for my shit.
+### Build
+- `npm run dev`
+
+
 

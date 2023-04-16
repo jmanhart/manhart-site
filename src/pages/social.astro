@@ -30,25 +30,6 @@ import Header from "../components/Header.astro";
       justify-content: flex-end;
       border-bottom: 1px solid #e6e6e6;
     }
-    nav {
-      box-sizing: content-box;
-      display: flex;
-      width: 100%;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .personal-logo {
-      width: 24px;
-      height: 24px;
-      background-color: gray;
-    }
-    .hero-content {
-      width: 75%;
-      max-width: 65ch;
-    }
-    .root-info-container {
-      max-width: 40em;
-    }
     .root-social-container {
       display: flex;
       flex-direction: column;
@@ -56,7 +37,6 @@ import Header from "../components/Header.astro";
     }
     .root-social-links {
       font-size: 1.5em;
-      // padding-right: 1em;
       cursor: pointer;
     }
   </style>
@@ -66,7 +46,6 @@ import Header from "../components/Header.astro";
       <div class="root-content text-page">
         <div class="info-container">
           <h1>Social Links</h1>
-          <!-- <h2>All the forms of social media</h2> -->
         </div>
         <div class="root-social-container" id="social-media-cards"></div>
       </div>
@@ -111,6 +90,14 @@ import Header from "../components/Header.astro";
         {
           name: "Twitch",
           url: "https://www.twitch.tv/itsmanhart",
+        },
+        {
+          name: "Steam",
+          url: "https://steamcommunity.com/id/ItsManhart/",
+        },
+        {
+          name: "Strava",
+          url: "https://www.strava.com/athletes/2083068",
         },
         {
           name: "Youtube",
