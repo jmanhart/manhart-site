@@ -2,7 +2,7 @@
 layout: "../../layouts/BlogPost.astro"
 title: "Sentry goes metal"
 heroImage: "/post-images/sentry-metal/sentry-metal-outline.png"
-description: "The most metal thing you have ever seen"
+description: "The most metal thing you have ever seen."
 pubDate: "Dec 9, 2022"
 location: "Seattle"
 count: "001"

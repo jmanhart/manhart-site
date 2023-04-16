@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/BlogPost.astro"
 title: "I finally adopted the shadows"
-description: "Adding a dark and light mode toggle to this site."
+description: "Adding a dark and light mode toggle to this site!"
 pubDate: "April 15, 2023"
 location: "Seattle"
 weather: "🌧️"
