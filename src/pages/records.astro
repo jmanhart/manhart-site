@@ -1,0 +1,71 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import Header from "../components/Header.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <script src="../toggle-state.js"></script>
+  </head>
+  <style lang="scss">
+    @import "../styles/_mixins.scss";
+    .records-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    h3 {
+      margin: 0 0;
+      padding: 0 0;
+    }
+  </style>
+  <body>
+    <Header />
+    <div class="root-wrapper" id="sub-page">
+      <div class="root-content text-page">
+        <div class="info-container">
+          <h1>🎶 All Records</h1>
+        </div>
+        <table>
+          <thead> </thead>
+          <tbody id="all-records"> </tbody>
+        </table>
+      </div>
+      <script>
+        import allRecords from "../data/allRecords";
+        const sortedRecords = allRecords.sort((a, b) => {
+          return a.artist.localeCompare(b.artist);
+        });
+        const allRecordsRow = sortedRecords.map(function (entry) {
+          return `
+            <tr>
+                <td>
+                    <i><h3>${entry.albumName}</h3></i>
+                    <p>${entry.artist}<p>
+                </td>
+            </tr>
+          `;
+        });
+        document.getElementById("all-records").innerHTML =
+          allRecordsRow.join("");
+        const style = document.createElement("style");
+        style.textContent = `
+            td {
+                padding-bottom: 1em;
+            }
+            h3 {
+                margin: 0 0;
+                padding: 0 0;
+            }
+            p{
+                margin: 0 0 0 0;
+            }
+        `;
+        document.head.appendChild(style);
+      </script>
+    </div>
+  </body>
+</html>
