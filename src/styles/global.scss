@@ -124,7 +124,7 @@ p{
 		color: var(--gray300);
 	}
 	a{
-		color: var(--gray400);
+		color: var(--gray200);
 	}
 	a:hover{
 		color: var(--white);
@@ -148,6 +148,15 @@ p{
 	.divider {
         color: var(--gray400);
     }
+	#internal-link.active{
+		color: white;
+	}
+	#internal-link.hover{
+		color: white;
+	}
+	#internal-link{
+		color: var(--gray400);
+	}
 
 }
 
@@ -177,10 +186,10 @@ p{
 		}
 	}
 	p{
-		color: var(--gray400);
+		color: var(--gray300);
 	}
 	a{
-		color: var(--gray300);
+		color: var(--gray400);
 	}
 	a:hover{
 		color: var(--black);
@@ -204,7 +213,18 @@ p{
 	.divider {
         color: var(--gray200);
     }
+	#internal-link.active{
+		color: var(--gray400);
+	}
+	#internal-link.hover{
+		color: var(--gray400);
+	}
+	#internal-link{
+		color: var(--gray300);
+	}
 }
+
+
 body {
 	// transition: background-color 0.25s ease-in-out;
 	font-family: Work Sans,sans-serif;
