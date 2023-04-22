@@ -161,6 +161,9 @@ p{
 }
 
 .light-theme {
+	::selection {
+		background: red;
+	  }
     background-color: var(--lightSurface100);
 	h1{
 		color: var(--gray500);
