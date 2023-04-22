@@ -88,6 +88,9 @@ p{
 }
 
 .dark-theme {
+	::selection {
+		background: white;
+	  }
     background-color: var(--darkSurface100);
 	h1{
 		color: var(--gray100);
@@ -162,7 +165,7 @@ p{
 
 .light-theme {
 	::selection {
-		background: red;
+		background: black;
 	  }
     background-color: var(--lightSurface100);
 	h1{
@@ -190,6 +193,7 @@ p{
 	}
 	p{
 		color: var(--gray300);
+		
 	}
 	a{
 		color: var(--gray400);
