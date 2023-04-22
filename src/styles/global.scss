@@ -1,6 +1,7 @@
 
 
 @import '_mixins.scss';
+@import 'dark-theme.scss';
 
 
 
@@ -24,8 +25,6 @@ html {
 	--white: #ffffff;
 	--black: #000000;
 }
-
-
 
 h1{
 	font-size: 3rem;
@@ -70,6 +69,7 @@ h6{
 }
 a{
 	text-decoration: none;
+
 }
 ol{
 	li{
@@ -88,60 +88,57 @@ p{
 }
 
 .dark-theme {
-	::selection {
-		background: white;
-	  }
-    background-color: var(--darkSurface100);
+    background-color: $darkSurface100;
 	h1{
-		color: var(--gray100);
+		color: $gray100;
 	}
 	h2{
-		color: var(--gray300);
+		color: $gray300;
 	}
 	h3{
-		color: var(--gray200);
+		color: $gray200;
 	}
 	h4, h5, h6{
-		color: var(--gray200);
+		color: $gray200;
 	}
 	ol{
-		color: var(--gray300);
+		color: $gray300;
 		li{
-			color: var(--gray300);
+			color: $gray300;
 		}
 	}
 	ul{
 		li{
-			border-color: var(--gray400);
+			border-color: $gray400;
 		}
 		li:hover{
-			border-color: var(--gray300);
+			border-color: $gray300;
 		}
 	}
 	ol{
 		li{
-			color: var(--gray300);
+			color: $gray300;
 		}
 	}
 	p{
-		color: var(--gray300);
+		color: $gray300;
 	}
 	a{
-		color: var(--gray200);
+		color: $gray200;
 	}
 	a:hover{
-		color: var(--white);
+		color: $white;
 	}
 	a.active {
 		font-weight: 500;
-		color: var(--white);
+		color: $white;
 	}
 	button:hover{
-		background-color: var(--gray500);		
+		background-color: $gray500;		
 	}
 	header{
-		background-color: var(--darkSurface100);
-		border-color: var(--gray400);;
+		background-color: $darkSurface100;
+		border-color: $gray400;
 		@include sm {
 			z-index: 999;		
 			background-color: transparent;
@@ -149,67 +146,67 @@ p{
 		}
 	}
 	.divider {
-        color: var(--gray400);
+        color: $gray400;
     }
 	#internal-link.active{
-		color: white;
+		color: $white;
 	}
 	#internal-link.hover{
-		color: white;
+		color: $white;
 	}
 	#internal-link{
-		color: var(--gray400);
+		color: $gray400;
+	}
+	::selection {
+		color: $white;
 	}
 
 }
 
 .light-theme {
-	::selection {
-		background: black;
-	  }
     background-color: var(--lightSurface100);
 	h1{
-		color: var(--gray500);
+		color: $gray500; 
 	}
 	h2{
-		color: var(--gray400);
+		color: $gray400;
 	}
 	h3{
-		color: var(--gray500);
+		color: $gray500;
 	}
 	h4, h5, h6{
-		color: var(--gray300);
+		color: $gray300;
 	}
 	ol{
-		color: var(--gray400);
+		color: $gray400;
 		li{
-			color: var(--gray400);
+			color: $gray400;
 		}
 	}
 	ul{
 		li:hover{
-			border-color: var(--gray200);
+			border-color: $gray200;
 		}
 	}
 	p{
-		color: var(--gray300);
+		color: $gray300;
 		
 	}
 	a{
-		color: var(--gray400);
+		color: $gray400;
 	}
 	a:hover{
-		color: var(--black);
+		color: $black;
 	}
 	a.active {
 		font-weight: 500;
-		color: var(--gray500);
+		color: $gray500;
 	}
 	button:hover{
 		background-color: var(--lightSurface100);
 	}
 	header{
-		background-color: white;
+		background-color: $white;
 		border-color: #e6e6e6;
 		@include sm {
 			background-color: transparent;
@@ -218,16 +215,19 @@ p{
 		}
 	}
 	.divider {
-        color: var(--gray200);
+        color: $gray200;
     }
 	#internal-link.active{
-		color: var(--gray400);
+		color: $gray400;
 	}
 	#internal-link.hover{
-		color: var(--gray400);
+		color: $gray400;
 	}
 	#internal-link{
-		color: var(--gray300);
+		color: $gray300;
+	}
+	::selection {
+		background: $black;
 	}
 }
 
