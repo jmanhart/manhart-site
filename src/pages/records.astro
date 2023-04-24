@@ -4,68 +4,81 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import Header from "../components/Header.astro";
 ---
 
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <script src="../toggle-state.js"></script>
   </head>
-  <style lang="scss">
-    @import "../styles/_mixins.scss";
-    .records-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-    }
-    h3 {
-      margin: 0 0;
-      padding: 0 0;
-    }
-  </style>
   <body>
     <Header />
     <div class="root-wrapper" id="sub-page">
       <div class="root-content text-page">
         <div class="info-container">
           <h1>🎶 All Records</h1>
+          <p id="collection-count"></p>
+          <div id="collection-list"></div>
         </div>
-        <table>
-          <thead> </thead>
-          <tbody id="all-records"> </tbody>
-        </table>
       </div>
-      <script>
-        import allRecords from "../data/allRecords";
-        const sortedRecords = allRecords.sort((a, b) => {
-          return a.artist.localeCompare(b.artist);
-        });
-        const allRecordsRow = sortedRecords.map(function (entry) {
-          return `
-            <tr>
-                <td>
-                    <i><h3>${entry.albumName}</h3></i>
-                    <p>${entry.artist}<p>
-                </td>
-            </tr>
-          `;
-        });
-        document.getElementById("all-records").innerHTML =
-          allRecordsRow.join("");
-        const style = document.createElement("style");
-        style.textContent = `
-            td {
-                padding-bottom: 1em;
-            }
-            h3 {
-                margin: 0 0;
-                padding: 0 0;
-            }
-            p{
-                margin: 0 0 0 0;
-            }
-        `;
-        document.head.appendChild(style);
-      </script>
     </div>
+    <script>
+      // Define the Discogs API endpoint and your API key
+      const apiKey = "gdwepfPQNcopsETkwGKDqIYyjRhyAEDvdrrHaUXE";
+      const apiUrl =
+        "https://api.discogs.com/users/manhartjohn/collection/folders/0/releases?per_page=250";
+
+      // Initialize an empty array to store the collection data
+      let collection = [];
+
+      // Fetch the collection data from the Discogs API
+      const fetchCollection = async () => {
+        const response = await fetch(apiUrl, {
+          headers: {
+            Authorization: `Discogs token=${apiKey}`,
+          },
+        });
+
+        const data = await response.json();
+        collection = data.releases;
+        renderCollection();
+      };
+
+      // Render the collection data in the template
+      const renderCollection = () => {
+        const collectionCount = document.getElementById("collection-count");
+        const collectionList = document.getElementById("collection-list");
+
+        // Display the total number of releases in the collection
+        collectionCount.textContent = `Album Count: ${collection.length}`;
+
+        collection.forEach((release) => {
+          // Extract the artist, album name, and length from the release object
+          const artist = release.basic_information.artists[0].name;
+          const albumName = release.basic_information.title;
+
+          // Create the artist element and text node
+          const artistElem = document.createElement("p");
+          const artistText = document.createTextNode(artist);
+          artistElem.appendChild(artistText);
+          artistElem.style.margin = "0";
+
+          // Create the album element and text node
+          const albumElem = document.createElement("h3");
+          const albumText = document.createTextNode(albumName);
+          albumElem.appendChild(albumText);
+          albumElem.style.fontStyle = "italic";
+
+          // Create a container element for the release and append the artist and album elements
+          const releaseElem = document.createElement("div");
+          releaseElem.appendChild(albumElem);
+          releaseElem.appendChild(artistElem);
+          releaseElem.style.paddingBottom = "1em";
+
+          // Append the container element to the collection list
+          collectionList.appendChild(releaseElem);
+        });
+      };
+
+      // Call the `fetchCollection` function when the page loads
+      window.onload = fetchCollection;
+    </script>
   </body>
 </html>
