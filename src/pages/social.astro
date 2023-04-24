@@ -10,24 +10,6 @@ import Header from "../components/Header.astro";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style lang="scss">
       @import "../styles/_mixins.scss";
-      header {
-        @include sm {
-          background-color: transparent;
-          border-bottom: 0px;
-          position: fixed;
-          width: 100%;
-          z-index: 999;
-        }
-        box-sizing: border-box;
-        overflow-x: hidden;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        padding: 1em;
-        display: flex;
-        justify-content: flex-end;
-        border-bottom: 1px solid #e6e6e6;
-      }
       .root-social-container {
         display: flex;
         flex-direction: column;
