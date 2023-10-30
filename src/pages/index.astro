@@ -8,17 +8,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
   <head>
     <link rel="stylesheet" href="../styles/global.scss" />
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <script>
-      import * as Sentry from "@sentry/browser";
-      import { BrowserTracing } from "@sentry/tracing";
-
-      Sentry.init({
-        dsn: "https://c61e7197f1d94c0ca64c31b4d54a8acd@o4504409046908928.ingest.sentry.io/4504409048154112",
-        integrations: [new BrowserTracing()],
-        tracesSampleRate: 1.0,
-        release: "<release_name>",
-      });
-    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5VVGRENYE8"
     ></script>
     <script>
