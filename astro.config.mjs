@@ -8,7 +8,7 @@ import vercelStatic from "@astrojs/vercel/static";
 export default defineConfig({
   site: "https://manhart.io",
   integrations: [mdx(), sitemap()],
-  output: "static",
+  output: "server",
   adapter: node({
     mode: "standalone",
   }),
