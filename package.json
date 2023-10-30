@@ -16,6 +16,7 @@
     "@astrojs/node": "^6.0.3",
     "@astrojs/rss": "^1.0.3",
     "@astrojs/sitemap": "^1.4.0",
+    "@astrojs/vercel": "^5.1.0",
     "astro": "^3.4.0",
     "react": "^18.2.0",
     "sass": "^1.56.1",
