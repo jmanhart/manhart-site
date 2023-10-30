@@ -5,7 +5,7 @@ import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://manhart.io",
   integrations: [mdx(), sitemap()],
   output: "server",
   adapter: node({
