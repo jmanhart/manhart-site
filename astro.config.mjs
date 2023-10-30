@@ -13,10 +13,6 @@ export default defineConfig({
     sitemap(),
     sentry({
       dsn: "https://7468cd688dfc227a1af9a98dc502857a@o4506140624879616.ingest.sentry.io/4506140741730304",
-      sourceMapsUploadOptions: {
-        project: "opposite-orbit",
-        authToken: process.env.SENTRY_AUTH_TOKEN,
-      },
     }),
   ],
   output: "server",
