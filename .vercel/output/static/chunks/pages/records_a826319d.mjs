@@ -1,6 +1,6 @@
 import { c as createAstro, a as createComponent, r as renderTemplate, e as renderComponent, f as renderHead } from '../astro_145b4cb1.mjs';
 import 'clsx';
-import { $ as $$BaseHead, a as $$Header, S as SITE_TITLE, b as SITE_DESCRIPTION } from './about_472aee53.mjs';
+import { $ as $$BaseHead, a as $$Header, S as SITE_TITLE, b as SITE_DESCRIPTION } from './about_9eb0682c.mjs';
 import 'html-escaper';
 /* empty css                               *//* empty css                           */
 const $$Astro = createAstro();

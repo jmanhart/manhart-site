@@ -30,7 +30,7 @@ const $$Header = createComponent(async ($$result, $$props, $$slots) => {
   return renderTemplate(_a || (_a = __template(["", "<header data-astro-cid-3ef6ksr2><nav data-astro-cid-3ef6ksr2>", "", "", '<button id="toggle-button" data-astro-cid-3ef6ksr2><img src="/icon-moon.svg" class="icon-moon" alt="moon" id="toggle-button-icon" data-astro-cid-3ef6ksr2><img src="/icon-sun.svg" class="icon-sun" alt="sun" id="toggle-button-icon" data-astro-cid-3ef6ksr2></button></nav><script type="text/javascript">\n    const storedTheme = localStorage.getItem("theme") || "light-theme";\n    document.body.classList.add(storedTheme);\n  <\/script></header>'])), maybeRenderHead(), renderComponent($$result, "HeaderLink", $$HeaderLink, { "href": "/blog", "data-astro-cid-3ef6ksr2": true }, { "default": ($$result2) => renderTemplate`Writing` }), renderComponent($$result, "HeaderLink", $$HeaderLink, { "href": "/about", "data-astro-cid-3ef6ksr2": true }, { "default": ($$result2) => renderTemplate`About` }), renderComponent($$result, "HeaderLink", $$HeaderLink, { "href": "/social", "data-astro-cid-3ef6ksr2": true }, { "default": ($$result2) => renderTemplate`Social Links` }));
 }, "/Users/johnmanhart/code/opposite-orbit/src/components/Header.astro", void 0);
 
-const SITE_TITLE = "Manhart.";
+const SITE_TITLE = "Manhart Site";
 const SITE_DESCRIPTION = "Welcome to my website!";
 
 const $$Astro = createAstro();

@@ -11,6 +11,8 @@
     "sass": "^1.54.5"
   },
   "dependencies": {
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.3",
     "@astrojs/vercel": "^5.1.0",
     "astro": "^3.4.0",
     "react": "^18.2.0",

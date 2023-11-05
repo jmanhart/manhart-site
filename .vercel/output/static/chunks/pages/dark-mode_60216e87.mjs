@@ -1,6 +1,6 @@
 import { c as createAstro, a as createComponent, r as renderTemplate, e as renderComponent, f as renderHead, b as addAttribute, d as renderSlot, u as unescapeHTML } from '../astro_145b4cb1.mjs';
 import 'clsx';
-import { $ as $$BaseHead, a as $$Header } from './about_472aee53.mjs';
+import { $ as $$BaseHead, a as $$Header } from './about_9eb0682c.mjs';
 /* empty css                               */
 const $$Astro = createAstro();
 const $$BlogPost = createComponent(async ($$result, $$props, $$slots) => {
