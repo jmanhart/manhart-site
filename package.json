@@ -13,6 +13,9 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/vercel": "^5.1.0",
+    "@sentry/astro": "^7.85.0",
+    "@spotlightjs/astro": "^1.0.0",
+    "@spotlightjs/spotlight": "^1.0.0",
     "astro": "^3.4.0",
     "react": "^18.2.0",
     "sass": "^1.56.1",
