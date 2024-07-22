@@ -411,3 +411,14 @@ button {
 .record-page {
   max-width: 60em;
 }
+
+.blog-post-wrapper {
+  min-height: 100vh;
+  margin: 0 auto;
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4em;
+  display: flex;
+  align-items: center;
+}
