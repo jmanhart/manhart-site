@@ -19,6 +19,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
       gtag("config", "G-5VVGRENYE8");
     </script>
+
+
     <style lang="scss">
       @import "../styles/_mixins.scss";
 
@@ -74,6 +76,41 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
         // padding-right: 1em;
         cursor: pointer;
       }
+      .greeting-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+      }
+      #greeting {
+        opacity: 0;
+        animation: fadeIn 500ms forwards;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      #name {
+        opacity: 0;
+        animation: fadeIn 500ms forwards;
+      }
+      @keyframes fadeInName {
+        0% {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
   </head>
   <body>
@@ -81,7 +118,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
     <div class="about-wrapper">
       <section class="landing-page">
         <img src="self-02.png" class="hero-image" />
-        <h1>Hi, I'm John!</h1>
+        <div class="greeting-wrapper"><h1 id="greeting"></h1> <h1 id="name"> I'm John!</h1></div>
         <div class="root-info-container">
           <h2>
             A Product Design Manager living in Seattle. Currently at <a
@@ -105,5 +142,32 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
         </div>
       </section>
     </div>
+    <script>
+      const greetings = [
+        "Hello,",
+        "Hi,",
+        "Howdy,",
+        "Hiya,",
+        "Yo,",
+        "Aloha,",
+        "Sup,",
+        "Hullo,",
+        "Hola,",
+        "Hallo,",
+        "Ciao,",
+        "👋🏻",
+        "Hej,",
+        "Bonjour,",
+        "Oh hey,",
+        "여보세요,",
+        "Salut,"
+      ];
+
+      function getRandomGreeting() {
+        const randomIndex = Math.floor(Math.random() * greetings.length);
+        return greetings[randomIndex];
+      }
+      document.getElementById('greeting').textContent = getRandomGreeting();
+    </script>
   </body>
 </html>
