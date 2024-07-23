@@ -156,7 +156,8 @@ p {
     color: $gray300;
   }
   ::selection {
-    color: $white;
+    color: $black;
+    background-color: $white;
   }
 }
 
@@ -225,7 +226,8 @@ p {
     color: $gray300;
   }
   ::selection {
-    background: $black;
+    background-color: $gray100;
+    color: $gray500;
   }
 }
 
