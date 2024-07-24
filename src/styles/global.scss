@@ -224,7 +224,7 @@ p {
   }
   header {
     background-color: $white;
-    border-color: #e6e6e6;
+    border-color: $gray200;
     @include sm {
       background-color: transparent;
       z-index: 999;
