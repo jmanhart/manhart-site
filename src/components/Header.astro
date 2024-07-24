@@ -1,26 +1,30 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
+import BackButton from '../components/BackButton.astro';
 ---
 
 <header>
   <nav>
-    <HeaderLink href="/blog">Writing</HeaderLink>
-    <HeaderLink href="/about">About</HeaderLink>
-    <HeaderLink href="/social">All The Links</HeaderLink>
-    <button id="toggle-button">
-      <img
-        src="/icon-moon.svg"
-        class="icon-moon"
-        alt="moon"
-        id="toggle-button-icon"
-      />
-      <img
-        src="/icon-sun.svg"
-        class="icon-sun"
-        alt="sun"
-        id="toggle-button-icon"
-      />
-    </button>
+    <BackButton />
+    <div class="right-side">
+      <HeaderLink href="/blog">Writing</HeaderLink>
+      <HeaderLink href="/about">About</HeaderLink>
+      <HeaderLink href="/social">All The Links</HeaderLink>
+      <button id="toggle-button">
+        <img
+          src="/icon-moon.svg"
+          class="icon-moon"
+          alt="moon"
+          id="toggle-button-icon"
+        />
+        <img
+          src="/icon-sun.svg"
+          class="icon-sun"
+          alt="sun"
+          id="toggle-button-icon"
+        />
+      </button>
+    </div>
   </nav>
   <script type="text/javascript">
     const storedTheme = localStorage.getItem("theme") || "light-theme";
@@ -106,7 +110,7 @@ import HeaderLink from "./HeaderLink.astro";
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     @include sm {
       a {
         margin-right: 1em;
@@ -119,5 +123,9 @@ import HeaderLink from "./HeaderLink.astro";
     width: 24px;
     height: 24px;
     background-color: gray;
+  }
+  .right-side{
+    display: flex;
+    align-items: center;
   }
 </style>

@@ -133,6 +133,15 @@ p {
   button:hover {
     background-color: $gray500;
   }
+  .back-button {
+    color: $gray300;
+    // border: 1px solid #ccc;
+    // padding: 2px 1px;
+    cursor: pointer;
+    font-size: 16px;
+    // border-radius: 5px;
+    // transition: background-color 0.3s ease;
+  }
   header {
     background-color: $darkSurface100;
     border-color: $gray400;
@@ -203,6 +212,15 @@ p {
   }
   button:hover {
     background-color: var(--lightSurface100);
+  }
+  .back-button {
+    color: $gray300;
+    // border: 1px solid #ccc;
+    // padding: 2px 1px;
+    cursor: pointer;
+    font-size: 16px;
+    // border-radius: 5px;
+    // transition: background-color 0.3s ease;
   }
   header {
     background-color: $white;

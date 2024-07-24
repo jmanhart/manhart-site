@@ -1,0 +1,23 @@
+---
+import "../styles/global.scss";
+
+const { pathname } = Astro.url;
+const hideOnPaths = ['/']; // Paths where the button should be hidden
+const shouldHideButton = hideOnPaths.includes(pathname);
+---
+
+{!shouldHideButton && (
+  <div class="back-button" onclick="window.history.back()">       
+    <img src="/Backarrow.svg"/>
+    </div>
+)}
+
+<style>
+    .back-button {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1em;
+    }
+
+</style>
