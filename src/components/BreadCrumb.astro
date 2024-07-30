@@ -1,0 +1,26 @@
+---
+import "../styles/global.scss";
+
+const { pathname } = Astro.url;
+const hideOnPaths = ['/']; // Paths where the button should be hidden
+const shouldHideButton = hideOnPaths.includes(pathname);
+---
+
+{!shouldHideButton && (
+    <div class="breadcrumb" onclick="window.history.back()">       
+        <span class="styled-pathname">{pathname}</span>
+    </div>
+)}
+
+<style>
+    .breadcrumb {
+        position: fixed;
+        top: 0;
+        left: 4em;
+        padding: 1em 0em;
+    }
+    .styled-pathname {
+        font-size: 1em;
+    }
+
+</style>

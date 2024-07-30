@@ -1,13 +1,15 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import BackButton from '../components/BackButton.astro';
+import BreadCrumb from '../components/BreadCrumb.astro';
 ---
 
 <header>
   <nav>
     <BackButton />
+    <BreadCrumb />
     <div class="right-side">
-      <HeaderLink href="/blog">Writing</HeaderLink>
+      <HeaderLink href="/writing">Writing</HeaderLink>
       <HeaderLink href="/about">About</HeaderLink>
       <HeaderLink href="/social">All The Links</HeaderLink>
       <button id="toggle-button">
@@ -88,16 +90,16 @@ import BackButton from '../components/BackButton.astro';
     padding: 1em;
     display: flex;
     justify-content: flex-end;
-    border-bottom: 1px solid $gray300;
+
     // backdrop-filter: blur(12px);
-    @include sm {
-      border-bottom: 0px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 999;
-      height: min-content;
-    }
+    // @include sm {
+    //   border-bottom: 1px;
+    //   position: fixed;
+    //   top: 0;
+    //   width: 100%;
+    //   z-index: 999;
+    //   height: min-content;
+    // }
   }
   body.light-theme #toggle-button > .icon-sun {
     visibility: visible;
@@ -131,3 +133,6 @@ import BackButton from '../components/BackButton.astro';
     gap: 1em;
   }
 </style>
+
+
+
