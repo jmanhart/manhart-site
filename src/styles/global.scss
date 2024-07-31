@@ -171,6 +171,12 @@ p {
   .styled-pathname {
     color: $gray300;
   }
+  .social-link-container {
+    background-color: $gray500;
+    border-radius: 0.5em;
+    border: 1px solid #999;
+    padding: 0.5em 0.5em;
+  }
 }
 
 .light-theme {
@@ -252,6 +258,12 @@ p {
   }
   .styled-pathname {
     color: $gray300;
+  }
+  .social-link-container {
+    background-color: $white;
+    border-radius: 0.5em;
+    border: 1px solid #999;
+    padding: 0.5em 0.5em;
   }
 }
 

@@ -30,7 +30,7 @@ import Header from "../components/Header.astro";
     <div class="sub-page-wrapper" id="sub-page">
       <div class="root-content text-page">
         <div class="info-container">
-          <h2>All The Links</h2>
+          <h2>Social Links</h2>
         </div>
         <div class="root-social-container" id="social-media-cards"></div>
       </div>
@@ -111,7 +111,10 @@ import Header from "../components/Header.astro";
       const employeeCards = socialMediaAccounts.map(function (account) {
         return `
         <a href="${account.url}" target="_blank" rel="noopener noreferrer">
+          <div class="social-link-container">
             <span class="root-social-links">${account.name}</span>
+          </div>
+            
         </a>
         `;
       });
@@ -121,9 +124,8 @@ import Header from "../components/Header.astro";
 
       const style = document.createElement("style");
       style.textContent = `
-
         .root-social-links {
-          font-size: 1.5em;
+          font-size: 1em;
           cursor: pointer;
         }
       `;

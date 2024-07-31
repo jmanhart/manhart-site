@@ -1,0 +1,34 @@
+---
+import "../styles/global.scss";
+const buttonId = "increaseTextSizeButton";
+const textClass = "resizableText";
+---
+
+
+
+<button id={buttonId}>Increase Text Size</button>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('{{ buttonId }}');
+    let currentSize = 16;
+
+    button.addEventListener('click', () => {
+      currentSize += 2;
+      const elements = document.getElementsByClassName('{{ textClass }}');
+      for (const element of elements) {
+        element.style.fontSize = `${currentSize}px`;
+      }
+    });
+  });
+</script>
+
+<style>
+    button{
+        background-color: white;
+        width: 100px;
+        border: 1px solid black;
+        cursor: pointer;
+    }
+</style>

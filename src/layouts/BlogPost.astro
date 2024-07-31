@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
+import TextStyleButton from "../components/TextStyleButton.astro";
 
 export interface Props {
   content: {
@@ -27,6 +28,8 @@ const {
     count,
   },
 } = Astro.props;
+
+
 ---
 
 <html lang="en">
@@ -38,6 +41,7 @@ const {
     <Header />
     <div class="blog-post-wrapper" id="sub-page">
       <div class="root-content text-page">
+        <TextStyleButton />
         <main>
           <article>
             {
