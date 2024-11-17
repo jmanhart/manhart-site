@@ -1,10 +1,9 @@
 import { defineConfig } from "astro/config";
-import vercelStatic from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel/serverless"; // Change from 'static' to 'serverless'
 import sitemap from "@astrojs/sitemap";
 
-// https://astro.build/config
 export default defineConfig({
-  output: "static",
-  adapter: vercelStatic(),
+  output: "server", // Change from 'static' to 'server'
+  adapter: vercel(),
   integrations: [sitemap()],
 });
