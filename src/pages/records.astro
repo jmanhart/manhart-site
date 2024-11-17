@@ -1,12 +1,22 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import Header from "../components/Header.astro";
+import { fetchCollection } from "../utils/discogsApi";
+const apiKey = import.meta.env.PUBLIC_DISCOGS_API_TOKEN;
+
+let collection = await fetchCollection(apiKey);
+
+// Sort the collection alphabetically by artist name (A-Z)
+collection.sort((a, b) => {
+  const artistA = a.basic_information.artists[0].name.toLowerCase();
+  const artistB = b.basic_information.artists[0].name.toLowerCase();
+  return artistA < artistB ? -1 : artistA > artistB ? 1 : 0;
+});
 ---
 
 <html lang="en">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title="All Records" />
   </head>
   <body>
     <Header />
@@ -14,72 +24,40 @@ import Header from "../components/Header.astro";
       <div class="root-content text-page">
         <div class="info-container">
           <h1>🎶 All Records</h1>
-          <p id="collection-count"></p>
-          <div id="collection-list"></div>
-
+          <p>Album Count: {collection.length}</p>
+          <div id="collection-list">
+            {
+              collection.map((release) => (
+                <div
+                  class="release"
+                  key={release.id}
+                  style="display: flex; align-items: center; margin-bottom: 15px;"
+                >
+                  {release.basic_information.cover_image ? (
+                    <img
+                      src={release.basic_information.cover_image}
+                      alt={`Cover of ${release.basic_information.title}`}
+                      style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px; border-radius: 5px;"
+                    />
+                  ) : (
+                    <div style="width: 50px; height: 50px; background-color: gray; display: flex; align-items: center; justify-content: center; margin-right: 15px; border-radius: 5px; color: white; font-size: 12px;">
+                      :(
+                    </div>
+                  )}
+                  <div>
+                    <h3 style="font-style: italic; margin: 0;">
+                      {release.basic_information.title}
+                    </h3>
+                    <p style="margin: 0;">
+                      {release.basic_information.artists[0].name}
+                    </p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>
-    <script>
-      // Define the Discogs API endpoint and your API key
-      const apiKey = import.meta.env.PUBLIC_DISCOGS_API_TOKEN;
-      const apiUrl =
-        "https://api.discogs.com/users/manhartjohn/collection/folders/0/releases?per_page=250";
-
-      // Initialize an empty array to store the collection data
-      let collection = [];
-
-      // Fetch the collection data from the Discogs API
-      const fetchCollection = async () => {
-        const response = await fetch(apiUrl, {
-          headers: {
-            Authorization: `Discogs token=${apiKey}`,
-          },
-        });
-
-        const data = await response.json();
-        collection = data.releases;
-        renderCollection();
-      };
-
-      // Render the collection data in the template
-      const renderCollection = () => {
-        const collectionCount = document.getElementById("collection-count");
-        const collectionList = document.getElementById("collection-list");
-
-        // Display the total number of releases in the collection
-        collectionCount.textContent = `Album Count: ${collection.length}`;
-
-        collection.forEach((release) => {
-          // Extract the artist, album name, and length from the release object
-          const artist = release.basic_information.artists[0].name;
-          const albumName = release.basic_information.title;
-
-          // Create the artist element and text node
-          const artistElem = document.createElement("p");
-          const artistText = document.createTextNode(artist);
-          artistElem.appendChild(artistText);
-          artistElem.style.margin = "0";
-
-          // Create the album element and text node
-          const albumElem = document.createElement("h3");
-          const albumText = document.createTextNode(albumName);
-          albumElem.appendChild(albumText);
-          albumElem.style.fontStyle = "italic";
-
-          // Create a container element for the release and append the artist and album elements
-          const releaseElem = document.createElement("div");
-          releaseElem.appendChild(albumElem);
-          releaseElem.appendChild(artistElem);
-          releaseElem.style.paddingBottom = "1em";
-
-          // Append the container element to the collection list
-          collectionList.appendChild(releaseElem);
-        });
-      };
-
-      // Call the `fetchCollection` function when the page loads
-      window.onload = fetchCollection;
-    </script>
   </body>
 </html>
