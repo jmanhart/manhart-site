@@ -1,7 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
-import { fetchCollection } from "../utils/discogsApi";
+import { fetchCollection } from "../utils/discogsApi.js";
 const apiKey = import.meta.env.PUBLIC_DISCOGS_API_TOKEN;
 
 let collection = await fetchCollection(apiKey);
@@ -16,7 +16,7 @@ collection.sort((a, b) => {
 
 <html lang="en">
   <head>
-    <BaseHead title="All Records" />
+    <BaseHead title="All Records" description="My record collection" />
   </head>
   <body>
     <Header />
