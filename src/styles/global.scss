@@ -308,6 +308,8 @@ pre {
 }
 pre > code {
   all: unset;
+  white-space: pre-wrap; /* Wrap lines */
+  word-break: break-word; /* Break long words */
 }
 blockquote {
   border: 1px solid #999;
@@ -460,7 +462,7 @@ button {
 
 .blog-post-wrapper {
   min-height: 100vh;
-  margin: 3em 2em;
+  margin: 6em 2em;
   display: flex;
   align-items: center;
   @include sm {
