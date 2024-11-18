@@ -71,6 +71,15 @@ ol {
     font-size: 1.2rem;
   }
 }
+ul {
+  list-style-type: circle; /* Add the default disc back */
+  margin: 20px; /* Set custom margin */
+  padding: 0; /* Remove default padding if needed */
+
+  li {
+    font-size: 1.2rem;
+  }
+}
 p {
   font-size: 1.2rem;
   font-weight: 400;
@@ -79,7 +88,7 @@ p {
 }
 
 .astro-code {
-  border-radius: 0.25em;
+  border-radius: 0.5em;
 }
 
 .dark-theme {
@@ -107,6 +116,7 @@ p {
   ul {
     li {
       border-color: $gray400;
+      color: $gray300;
     }
     li:hover {
       border-color: $gray300;
@@ -202,12 +212,15 @@ p {
     }
   }
   ul {
+    li {
+      color: $gray500;
+    }
     li:hover {
       border-color: $gray200;
     }
   }
   p {
-    color: $gray300;
+    color: $gray400;
   }
   a {
     color: $gray400;
