@@ -394,23 +394,6 @@ button {
   align-items: center;
 }
 
-.about-wrapper {
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  //   // justify-content: center;
-  //   height: 100vh;
-  //   background-color: pink;
-  //   width: 100vw;
-  min-height: 100vh;
-  margin: 0 auto;
-  max-width: 85%;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  align-items: center;
-}
-
 .sub-page-wrapper {
   //   display: flex;
   //   flex-direction: column;
@@ -482,4 +465,58 @@ button {
     width: 85%;
     margin-left: 5em;
   }
+}
+
+// TOOL TIP SHIT
+// .tooltip-container {
+//   position: relative; /* This positions the tooltip relative to its parent */
+//   display: inline-block; /* Allow inline behavior for tooltips */
+// }
+
+// .tooltip-content {
+//   display: none; /* Hide the tooltip by default */
+//   position: absolute;
+//   top: 100%; /* Position it below the parent */
+//   left: 50%;
+//   transform: translateX(-50%);
+//   background-color: #333; /* Dark background */
+//   color: #fff; /* White text */
+//   padding: 0.5em;
+//   border-radius: 4px;
+//   white-space: nowrap;
+//   z-index: 1000; /* Ensure it's above other elements */
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow */
+// }
+
+// .tooltip-container:hover .tooltip-content {
+//   display: block; /* Show the tooltip on hover */
+// }
+
+.root-social-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1em;
+  gap: 1em;
+  @include sm {
+    padding-top: 3em;
+    flex-direction: row;
+  }
+}
+.root-social-links {
+  font-size: 1.5em;
+  // padding-right: 1em;
+  cursor: pointer;
+}
+
+.personal-logo {
+  width: 24px;
+  height: 24px;
+  background-color: gray;
+}
+.hero-content {
+  width: 75%;
+  max-width: 65ch;
+}
+.root-info-container {
+  max-width: 45em;
 }

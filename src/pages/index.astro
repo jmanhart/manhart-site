@@ -2,14 +2,17 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import { greetings } from "../data/allGreetings.js";
+
+// Select a random greeting server-side
+const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
 ---
 
 <html lang="en">
   <head>
     <link rel="stylesheet" href="../styles/global.scss" />
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5VVGRENYE8"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5VVGRENYE8"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -19,155 +22,154 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
       gtag("config", "G-5VVGRENYE8");
     </script>
-
-
     <style lang="scss">
       @import "../styles/_mixins.scss";
 
-      header {
-        @include sm {
-          background-color: transparent;
-          border-bottom: 0px;
-          position: fixed;
-          width: 100%;
-          z-index: 999;
-        }
-        box-sizing: border-box;
-        overflow-x: hidden;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        padding: 1em;
-        display: flex;
-        justify-content: flex-end;
-        border-bottom: 1px solid #e6e6e6;
-      }
-      nav {
-        box-sizing: content-box;
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .personal-logo {
-        width: 24px;
-        height: 24px;
-        background-color: gray;
-      }
-      .hero-content {
-        width: 75%;
-        max-width: 65ch;
-      }
-      .root-info-container {
-        max-width: 45em;
-      }
-      .root-social-container {
-        display: flex;
-        flex-direction: column;
-        padding-top: 1em;
-        gap: 1em;
-        @include sm {
-          padding-top: 3em;
-          flex-direction: row;
-        }
-      }
-      .root-social-links {
-        font-size: 1.5em;
-        // padding-right: 1em;
-        cursor: pointer;
-      }
-      .greeting-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 1em;
-      }
-      #greeting {
-        opacity: 0;
-        animation: fadeIn 500ms forwards;
-      }
+      /* Your existing styles */
+
       @keyframes fadeIn {
         0% {
           opacity: 0;
           transform: translateY(-10px);
         }
-
         100% {
           opacity: 1;
           transform: translateY(0);
         }
       }
-      #name {
-        opacity: 0;
-        animation: fadeIn 500ms forwards;
-      }
+
       @keyframes fadeInName {
         0% {
           opacity: 0;
           transform: translateY(10px);
         }
-
         100% {
           opacity: 1;
           transform: translateY(0);
         }
       }
+
+      .tooltip {
+        display: flex;
+        gap: 1em;
+        position: relative; /* Establish positioning context */
+      }
+      .tooltip-content {
+        position: absolute;
+        top: 120%; /* Adjust position below the trigger */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333; /* Dark background */
+        color: #fff; /* White text */
+        padding: 0.5em;
+        border-radius: 4px; /* Rounded corners */
+        white-space: nowrap; /* Prevent wrapping */
+        z-index: 1000; /* Ensure it's above other elements */
+        opacity: 0; /* Hidden by default */
+        visibility: hidden; /* Prevent interaction when hidden */
+        transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth fade-in/out */
+      }
+
+      .about-wrapper {
+        width: 100vw;
+        min-height: 100vh;
+        max-width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .hero__greeting {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        width: auto;
+       
+      }
+      .greeting_name_wrapper {
+        display: flex;
+   
+      }
+      #greeting {
+        opacity: 0;
+        animation: fadeIn 500ms forwards;
+  
+        width: fit-content;
+      }
+      #hero__image {
+        width: 8rem;
+        height: 8rem;
+        object-fit: cover;
+        object-position: center;
+      }
+      #name {
+ 
+        width: fit-content;
+      }
     </style>
   </head>
   <body>
     <Header title={SITE_TITLE} />
-    <div class="about-wrapper">
-      <section class="landing-page">
-        <img src="self-02.png" class="hero-image" />
-        <div class="greeting-wrapper"><h1 id="greeting"></h1> <h1 id="name"> I'm John!</h1></div>
-        <div class="root-info-container">
-          <h2>
-            A Product Design Manager living in Seattle. Currently at <a
-              href="https://sentry.io/welcome/">Sentry</a
-            >.
-          </h2>
-        </div>
-        <div class="root-social-container">
-          <a href="https://read.cv/manhart">
-            <span class="root-social-links">Read.cv</span>
-          </a>
-          <a href="https://github.com/jmanhart">
-            <span class="root-social-links">Github</span>
-          </a>
-          <a href="https://www.linkedin.com/in/john-manhart/">
-            <span class="root-social-links">Linkedin</span>
-          </a>
-          <a href="https://letterboxd.com/manhart/">
-            <span class="root-social-links">Letterboxd</span>
-          </a>
+    <!-- Main Block -->
+    <main class="about-wrapper">
+      <section class="hero__greeting">
+        <img id="hero__image" src="self-02.png" alt="Self portrait" />
+        <div class="tooltip">
+          <h1 id="greeting">{randomGreeting.text}</h1>
+          <div class="tooltip-content">
+            That's hello in {randomGreeting.language}
+          </div>
+          <h1 id="name">I'm John!</h1>
         </div>
       </section>
-    </div>
-    <script>
-      const greetings = [
-        "Hello,",
-        "Hi,",
-        "Howdy,",
-        "Hiya,",
-        "Yo,",
-        "Aloha,",
-        "Sup,",
-        "Hullo,",
-        "Hola,",
-        "Hallo,",
-        "Ciao,",
-        "👋🏻",
-        "Hej,",
-        "Bonjour,",
-        "Oh hey,",
-        "여보세요,",
-        "Salut,"
-      ];
-
-      function getRandomGreeting() {
-        const randomIndex = Math.floor(Math.random() * greetings.length);
-        return greetings[randomIndex];
-      }
-      document.getElementById('greeting').textContent = getRandomGreeting();
-    </script>
+      <section>
+        <h2>
+          A Product Design Manager living in Seattle. </br>Currently at
+          <a href="https://sentry.io/welcome/">Sentry</a>.
+        </h2>
+      </section>
+      <!-- Primary Social Media Block -->
+      <section class="root-social-container">
+        <a href="https://read.cv/manhart"><span class="root-social-links">Read.cv</span></a>
+        <a href="https://github.com/jmanhart"><span class="root-social-links">Github</span></a>
+        <a href="https://www.linkedin.com/in/john-manhart/"><span class="root-social-links">Linkedin</span></a>
+        <a href="https://letterboxd.com/manhart"><span class="root-social-links">Letterboxd</span></a>
+      </section>
+    </main>
   </body>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("DOM fully loaded"); // Verify the DOM is loaded
+
+      const tooltip = document.querySelector(".tooltip");
+      if (!tooltip) {
+        console.log("Tooltip element not found!"); // Check if .tooltip exists
+        return;
+      }
+      console.log("Tooltip element found:", tooltip);
+
+      const tooltipContent = tooltip.querySelector(".tooltip-content");
+      if (!tooltipContent) {
+        console.log("Tooltip content not found!"); // Check if .tooltip-content exists
+        return;
+      }
+      console.log("Tooltip content found:", tooltipContent);
+
+      // Add event listeners to control tooltip visibility
+      tooltip.addEventListener("mouseover", () => {
+        console.log("Mouseover event triggered"); // Log when mouseover occurs
+        tooltipContent.style.opacity = "1";
+        tooltipContent.style.visibility = "visible";
+      });
+
+      tooltip.addEventListener("mouseout", () => {
+        console.log("Mouseout event triggered"); // Log when mouseout occurs
+        tooltipContent.style.opacity = "0";
+        tooltipContent.style.visibility = "hidden";
+      });
+    });
+  </script>
+
 </html>
