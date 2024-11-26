@@ -3,13 +3,35 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
-// Use Astro.glob() to fetch all posts, and then sort them by date.
+// Fetch all posts and sort them by date
 const posts = (await Astro.glob("./writing/*.{md,mdx}")).sort(
   (a, b) =>
     new Date(b.frontmatter.pubDate).valueOf() -
     new Date(a.frontmatter.pubDate).valueOf()
 );
+
+// Calculate category counts
+const categoryCounts = posts.reduce((acc, post) => {
+  (post.frontmatter.categories || []).forEach((category) => {
+    acc[category] = (acc[category] || 0) + 1;
+  });
+  return acc;
+}, {});
+
+// Get the selected category from the query string
+const selectedCategory = new URLSearchParams(Astro.url.search).get("category");
+
+// Filter posts based on the selected category
+const filteredPosts = selectedCategory
+  ? posts.filter((post) =>
+      post.frontmatter.categories?.includes(selectedCategory)
+    )
+  : posts;
+
+// Get a unique list of categories
+const allCategories = Object.keys(categoryCounts);
 ---
+
 
 <html lang="en">
   <head>
@@ -19,39 +41,66 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}")).sort(
     <Header />
     <div class="sub-page-wrapper" id="sub-page">
       <div class="root-content text-page">
-        <ul>
-          {
-            posts.map((post) => (
-              <a class="blog-link" href={post.url}>
-                <li>
-                  <div>
-                    <h5
-                      class="blog-date-stamp"
-                      datetime={post.frontmatter.pubDate}
-                    >
-                      {post.frontmatter.count} <span class="divider"> | </span>
-                      {new Date(post.frontmatter.pubDate).toLocaleDateString(
-                        "en-us",
-                        {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        }
-                      )}
-                    </h5>
 
-                    <h3 class="description">{post.frontmatter.title}</h3>
-                    <p class="blog-short-description">
-                      {post.frontmatter.description}
-                    </p>
-                  </div>
-                </li>
+        <!-- Category FilterS -->
+        <div class="filter">
+          <ul class="category-list">
+            <li class={!selectedCategory ? "category category-active" : "category category-inactive"}>
+              <a href="/writing" class="category-link">
+                All <span class="category-count">{filteredPosts.length ? posts.length : 0}</span>
               </a>
-            ))
-          }
-        </ul>
+            </li>
+
+            {allCategories.map((category) => (
+              <li class={selectedCategory === category ? "category category-active" : "category category-inactive"}>
+                <a href={`/writing?category=${encodeURIComponent(category)}`} class="category-link">
+                  {category} <span class="category-count">{categoryCounts[category]}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Blog List -->
+      <ul>
+        {filteredPosts.map((post) => (
+          <a class="blog-link" href={post.url}>
+            <li>
+              <div>
+                <h5
+                  class="blog-date-stamp"
+                  datetime={post.frontmatter.pubDate}
+                >
+                  {post.frontmatter.count}</span>
+                  {new Date(post.frontmatter.pubDate).toLocaleDateString(
+                    "en-us",
+                    {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    }
+                  )}
+                </h5>
+
+                <h3 class="description">{post.frontmatter.title}</h3>
+                <p class="blog-short-description">
+                  {post.frontmatter.description}
+                </p>
+
+                <div class="blog-categories">
+                  {post.frontmatter.categories?.map((category) => (
+                    <span class="category">{category}</span>
+                  ))}
+                </div>
+              </div>
+            </li>
+          </a>
+        ))}
+      </ul>
+
       </div>
     </div>
+
     <style lang="scss">
       ul {
         list-style-type: none;
@@ -89,6 +138,12 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}")).sort(
       .blog-number-count {
         margin: 0 0;
       }
+
+      /* Filter Styles */
+      .filter {
+        margin-bottom: 2rem;
+      }
+
     </style>
   </body>
 </html>

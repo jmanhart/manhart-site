@@ -73,7 +73,7 @@ ol {
 }
 ul {
   list-style-type: circle; /* Add the default disc back */
-  margin: 20px; /* Set custom margin */
+  // margin: 20px; /* Set custom margin */
   padding: 0; /* Remove default padding if needed */
 
   li {
@@ -89,6 +89,69 @@ p {
 
 .astro-code {
   border-radius: 0.5em;
+}
+
+.category-large {
+  border-radius: 2em;
+  border-width: 1px;
+  border: solid;
+  padding: 2px 14px;
+  font-size: 18px;
+}
+
+.category {
+  border-radius: 2em;
+  border-width: 1px;
+  border: solid;
+  padding: 2px 8px;
+  font-size: 14px;
+}
+.active-category {
+  border-radius: 2em;
+  border-width: 1px;
+  border: solid;
+  padding: 2px 8px;
+  font-size: 14px;
+}
+
+.category-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.category-count {
+  font-size: 14px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+}
+
+.category-inactive {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.category-active {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.category-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  gap: 10px;
+  padding: 0px 8px;
 }
 
 .dark-theme {
@@ -187,6 +250,32 @@ p {
     border: 1px solid #999;
     padding: 0.5em 0.5em;
   }
+
+  .category {
+    color: $gray300;
+    border-color: $gray300;
+  }
+  a.active-category {
+    // font-weight: bold;
+    color: white;
+  }
+
+  .category-inactive {
+    color: $gray300;
+    border-color: $gray300;
+  }
+  .category-active {
+    color: $gray300;
+    border-color: $gray100;
+    font-weight: bold;
+  }
+  .category-count {
+    // color: yellow;
+    background-color: $gray300;
+  }
+  .category-large {
+    border-color: $gray300;
+  }
 }
 
 .light-theme {
@@ -247,11 +336,6 @@ p {
   header {
     background-color: $white;
     border-bottom: 1px solid $gray200;
-    // @include sm {
-    //   background-color: transparent;
-    //   z-index: 999;
-    //   border-top: 0px;
-    // }
   }
   .divider {
     color: $gray200;
@@ -277,6 +361,31 @@ p {
     border-radius: 0.5em;
     border: 1px solid #999;
     padding: 0.5em 0.5em;
+  }
+
+  .category {
+    color: $gray300;
+    border-color: $gray300;
+  }
+  a.active-category {
+    // font-weight: bold;
+    color: white;
+  }
+
+  .category-inactive {
+    color: $gray300;
+    border-color: $gray200;
+  }
+  .category-active {
+    color: $gray200;
+    border-color: $gray300;
+    font-weight: bold;
+  }
+  .category-count {
+    background-color: $gray200;
+  }
+  .category-large {
+    border-color: $gray300;
   }
 }
 

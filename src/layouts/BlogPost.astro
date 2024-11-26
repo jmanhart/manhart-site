@@ -12,7 +12,7 @@ export interface Props {
     heroImage?: string;
     location?: string;
     weather?: string;
-    count?: number;
+    categories?: string[]; // Add categories field to content props
   };
 }
 
@@ -25,11 +25,9 @@ const {
     heroImage,
     location,
     weather,
-    count,
+    categories = [], // Default to empty array if no categories
   },
 } = Astro.props;
-
-
 ---
 
 <html lang="en">
@@ -53,8 +51,12 @@ const {
               pubDate && (
                 <div class="secondary-info-container">
                   <h4>
-                    {count} <span class="divider">|</span> {pubDate} <span class="divider">|</span> {location}{" "}
-                    {weather}  
+                    {pubDate} 
+                    <span class="divider">|</span> 
+                    {location}{" "} {weather}
+                    <span class="divider">|</span> 
+                    {categories.map((category) => (<span class="category">{category}</span>))}
+  
                   </h4>
                 </div>
               )
@@ -66,6 +68,7 @@ const {
                 </div>
               )
             }
+
             <slot />
           </article>
         </main>
@@ -87,6 +90,11 @@ const {
         align-items: flex-start;
         margin: 0 0 0.5em 0;
       }
+      /* .blog-categories {
+        margin-top: 1em;
+        font-size: 1.1em;
+      } */
+
     </style>
   </body>
 </html>
