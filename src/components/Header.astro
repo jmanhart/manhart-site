@@ -6,74 +6,84 @@ import BreadCrumb from '../components/BreadCrumb.astro';
 
 <header>
   <nav>
+    <!-- Back and Breadcrumb navigation -->
     <BackButton />
     <BreadCrumb />
-    <div class="right-side">
-      <HeaderLink href="/writing">Writing</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
-      <HeaderLink href="/social">All The Links</HeaderLink>
-      <button id="toggle-button">
+    <div class="header-actions">
+      <!-- Mobile menu toggle button -->
+      <button id="menu-toggle" aria-label="Toggle menu" class="overflow-menu-toggle">
+        ☰
+      </button>
+
+      <!-- Navigation links (hidden on mobile, toggleable) -->
+      <div id="menu" class="menu">
+        <HeaderLink href="/writing">Writing</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+        <HeaderLink href="/social">All The Links</HeaderLink>
+      </div>
+
+      <!-- Theme toggle button -->
+      <button id="theme-toggle" aria-label="Toggle theme" class="theme-toggle">
         <img
           src="/icon-moon.svg"
           class="icon-moon"
-          alt="moon"
-          id="toggle-button-icon"
+          alt="moon icon"
         />
         <img
           src="/icon-sun.svg"
           class="icon-sun"
-          alt="sun"
-          id="toggle-button-icon"
+          alt="sun icon"
         />
       </button>
     </div>
   </nav>
+
+  <!-- JavaScript: Theme and menu toggle functionality -->
   <script type="text/javascript">
+    // Apply stored theme on page load
     const storedTheme = localStorage.getItem("theme") || "light-theme";
     document.body.classList.add(storedTheme);
-  </script>
-  <script>
-    document.getElementById("toggle-button").addEventListener("click", () => {
-      // Set the default theme
-      let currentTheme = localStorage.getItem("theme");
 
-      // If the theme is not set, set the default theme to light-theme
-      if (!currentTheme) {
-        currentTheme = "light-theme";
-      }
-
+    // Theme toggle functionality
+    document.getElementById("theme-toggle").addEventListener("click", () => {
       const body = document.body;
-      switch (currentTheme) {
-        case "light-theme":
-          body.classList.toggle("light-theme", false);
-          body.classList.toggle("dark-theme", true);
-          currentTheme = "dark-theme";
-          localStorage.setItem("theme", currentTheme);
-          break;
-        case "dark-theme":
-          body.classList.toggle("dark-theme", false);
-          body.classList.toggle("light-theme", true);
-          currentTheme = "light-theme";
-          localStorage.setItem("theme", currentTheme);
-          break;
+      const currentTheme = body.classList.contains("light-theme")
+        ? "light-theme"
+        : "dark-theme";
+      const newTheme = currentTheme === "light-theme" ? "dark-theme" : "light-theme";
+      body.classList.replace(currentTheme, newTheme);
+      localStorage.setItem("theme", newTheme);
+    });
+
+    // Menu toggle functionality
+    document.getElementById("menu-toggle").addEventListener("click", () => {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("open");
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (event) => {
+      const menu = document.getElementById("menu");
+      const menuToggle = document.getElementById("menu-toggle");
+      if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+        menu.classList.remove("open");
       }
-      console.log(localStorage);
     });
   </script>
 </header>
 
 <style lang="scss">
   @import "../styles/_mixins.scss";
-  #toggle-button {
+
+  /* Theme toggle button */
+  .theme-toggle {
     position: relative;
-    height: 1.25em;
-    width: 1.25em;
-    margin-top: 0rem;
+    height: 1.5em;
+    width: 1.5em;
     cursor: pointer;
+
     .icon-moon,
     .icon-sun {
-      width: 100%;
-      height: 100%;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -81,58 +91,88 @@ import BreadCrumb from '../components/BreadCrumb.astro';
       visibility: hidden;
     }
   }
+
+  body.light-theme .theme-toggle .icon-sun {
+    visibility: visible;
+  }
+
+  body.dark-theme .theme-toggle .icon-moon {
+    visibility: visible;
+  }
+
+  /* Header styling */
   header {
-    box-sizing: border-box;
-    overflow-x: hidden;
     position: fixed;
     top: 0;
     width: 100%;
     padding: 1em;
-    display: flex;
-    justify-content: flex-end;
+    box-sizing: border-box;
+    min-height: 65px;
 
-    // backdrop-filter: blur(12px);
-    // @include sm {
-    //   border-bottom: 1px;
-    //   position: fixed;
-    //   top: 0;
-    //   width: 100%;
-    //   z-index: 999;
-    //   height: min-content;
-    // }
-  }
-  body.light-theme #toggle-button > .icon-sun {
-    visibility: visible;
-  }
-  body.dark-theme #toggle-button > .icon-moon {
-    visibility: visible;
-  }
-  nav {
-    box-sizing: content-box;
     display: flex;
-    width: 100%;
-    align-items: center;
     justify-content: flex-end;
-    @include sm {
-      a {
-        // margin-right: 1em;
-      }
+    z-index: 1000;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    // width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+  }
+
+  /* Menu styles */
+  .menu {
+    display: flex;
+    gap: 1em;
+    font-size: 1em;
+    
+
+    @media (max-width: 768px) {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      // background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      gap: 2em;
+      z-index: 9999;
+    }
+
+    &.open {
       display: flex;
-      justify-content: flex-end;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
     }
   }
-  .personal-logo {
-    width: 24px;
-    height: 24px;
-    background-color: gray;
-  }
-  .right-side{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 1em;
+
+  /* Menu toggle button (visible on mobile) */
+  .overflow-menu-toggle {
+    display: none;
+    // background: none;
+    border: none;
+    font-size: 1.5rem;
+    // cursor: pointer;
+    // color: white;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
   }
 </style>
-
-
-

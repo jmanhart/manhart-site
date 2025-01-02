@@ -91,6 +91,9 @@ p {
   border-radius: 0.5em;
 }
 
+///////////////////////////
+// DARK THEME START
+//////////////////////////
 .dark-theme {
   background-color: $darkSurface100;
   h1 {
@@ -187,8 +190,20 @@ p {
     border: 1px solid #999;
     padding: 0.5em 0.5em;
   }
+  .overflow-menu-toggle {
+    color: $white;
+  }
+  .menu {
+    background-color: $gray500;
+  }
 }
+///////////////////////////
+// DARK THEME END
+//////////////////////////
 
+///////////////////////////
+// LIGHT THEME START
+//////////////////////////
 .light-theme {
   background-color: var(--lightSurface100);
   h1 {
@@ -237,21 +252,12 @@ p {
   }
   .back-button {
     color: $gray300;
-    // border: 1px solid #ccc;
-    // padding: 2px 1px;
     cursor: pointer;
     font-size: 16px;
-    // border-radius: 5px;
-    // transition: background-color 0.3s ease;
   }
   header {
     background-color: $white;
     border-bottom: 1px solid $gray200;
-    // @include sm {
-    //   background-color: transparent;
-    //   z-index: 999;
-    //   border-top: 0px;
-    // }
   }
   .divider {
     color: $gray200;
@@ -278,7 +284,16 @@ p {
     border: 1px solid #999;
     padding: 0.5em 0.5em;
   }
+  .overflow-menu-toggle {
+    color: $gray500;
+  }
+  .menu {
+    background-color: $white;
+  }
 }
+///////////////////////////
+// LIGHT THEME END
+//////////////////////////
 
 body {
   // transition: background-color 0.25s ease-in-out;
@@ -425,7 +440,7 @@ button {
   object-position: center;
 }
 .root-content {
-  width: 90%;
+  width: 100%;
   max-width: 50em;
   padding-bottom: 3em;
 }
