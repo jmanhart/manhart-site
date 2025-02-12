@@ -2,10 +2,11 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
-import { greetings } from "../data/allGreetings.js";
+import { greetings, images } from "../data/allGreetings.js";
 
 // Select a random greeting server-side
 const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+const randomImage = images[Math.floor(Math.random() * images.length)];
 ---
 
 <html lang="en">
@@ -19,55 +20,14 @@ const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-5VVGRENYE8");
     </script>
     <style lang="scss">
       @import "../styles/_mixins.scss";
 
-      /* Your existing styles */
-
       @keyframes fadeIn {
-        0% {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes fadeInName {
-        0% {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .tooltip {
-        display: flex;
-        gap: 1em;
-        position: relative; /* Establish positioning context */
-      }
-      .tooltip-content {
-        position: absolute;
-        top: 120%; /* Adjust position below the trigger */
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #333; /* Dark background */
-        color: #fff; /* White text */
-        padding: 0.5em;
-        border-radius: 4px; /* Rounded corners */
-        white-space: nowrap; /* Prevent wrapping */
-        z-index: 1000; /* Ensure it's above other elements */
-        opacity: 0; /* Hidden by default */
-        visibility: hidden; /* Prevent interaction when hidden */
-        transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth fade-in/out */
+        0% { opacity: 0; transform: translateY(-10px); }
+        100% { opacity: 1; transform: translateY(0); }
       }
 
       .about-wrapper {
@@ -80,56 +40,54 @@ const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
         justify-content: center;
         flex-direction: column;
       }
+      
       .hero__greeting {
         display: flex;
         flex-direction: column;
         height: auto;
         width: auto;
-       
       }
-      .greeting_name_wrapper {
-        display: flex;
-   
-      }
+
       #greeting {
         opacity: 0;
         animation: fadeIn 500ms forwards;
-  
         width: fit-content;
       }
+
       #hero__image {
         width: 8rem;
         height: 8rem;
         object-fit: cover;
         object-position: center;
+        border-radius: 50%;
+        animation: fadeIn 500ms forwards;
       }
+
       #name {
- 
         width: fit-content;
+      }
+      .greeting__wrapper{
+        display: flex;
+        gap: 16px;
       }
     </style>
   </head>
   <body>
     <Header title={SITE_TITLE} />
-    <!-- Main Block -->
     <main class="about-wrapper">
       <section class="hero__greeting">
-        <img id="hero__image" src="self-02.png" alt="Self portrait" />
-        <div class="tooltip">
+        <img id="hero__image" src={randomImage} alt="Self portrait" />
+        <div class="greeting__wrapper">
           <h1 id="greeting">{randomGreeting.text}</h1>
-          <!-- <div class="tooltip-content">
-            That's hello in {randomGreeting.language}
-          </div> -->
           <h1 id="name">I'm John!</h1>
         </div>
-      </section>
+      </section>      
       <section>
         <h2>
           A Product Design Manager living in Seattle. </br>Currently at
           <a href="https://sentry.io/welcome/">Sentry</a>.
         </h2>
       </section>
-      <!-- Primary Social Media Block -->
       <section class="root-social-container">
         <a href="https://read.cv/manhart"><span class="root-social-links">Read.cv</span></a>
         <a href="https://github.com/jmanhart"><span class="root-social-links">Github</span></a>
@@ -139,50 +97,20 @@ const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
     </main>
   </body>
 
-  <!-- <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      console.log("DOM fully loaded"); // Verify the DOM is loaded
-
-      const tooltip = document.querySelector(".tooltip");
-      if (!tooltip) {
-        console.log("Tooltip element not found!"); // Check if .tooltip exists
-        return;
-      }
-      console.log("Tooltip element found:", tooltip);
-
-      const tooltipContent = tooltip.querySelector(".tooltip-content");
-      if (!tooltipContent) {
-        console.log("Tooltip content not found!"); // Check if .tooltip-content exists
-        return;
-      }
-      console.log("Tooltip content found:", tooltipContent);
-
-      // Add event listeners to control tooltip visibility
-      tooltip.addEventListener("mouseover", () => {
-        console.log("Mouseover event triggered"); // Log when mouseover occurs
-        tooltipContent.style.opacity = "1";
-        tooltipContent.style.visibility = "visible";
-      });
-
-      tooltip.addEventListener("mouseout", () => {
-        console.log("Mouseout event triggered"); // Log when mouseout occurs
-        tooltipContent.style.opacity = "0";
-        tooltipContent.style.visibility = "hidden";
-      });
-    });
-  </script> -->
   <script>
     console.log(
       "%cWhat are you doing in here?! 🕵️‍♂️",
       "color: #888; font-size: 16px; font-weight: bold;"
     );
     console.log(
-      "%cThis site was built with astro over a few hundred commits in my free time. It could always be better but thats life.",
+      "%cThis site was built with Astro over a few hundred commits in my free time. It could always be better but thats life.",
       "color: #008080; font-size: 14px;"
     );
-    console.log(
-      "If you wanna see some code: https://github.com/jmanhart/"
-    );
+    console.log("If you wanna see some code: https://github.com/jmanhart/");
   </script>
-
 </html>
+
+
+
+
+
