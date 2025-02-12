@@ -2,6 +2,7 @@
 import HeaderLink from "./HeaderLink.astro";
 import BackButton from '../components/BackButton.astro';
 import BreadCrumb from '../components/BreadCrumb.astro';
+import HamburgerIcon from '../components/icons/HamburgerIcon.astro';
 ---
 
 <header>
@@ -12,7 +13,7 @@ import BreadCrumb from '../components/BreadCrumb.astro';
     <div class="header-actions">
       <!-- Mobile menu toggle button -->
       <button id="menu-toggle" aria-label="Toggle menu" class="overflow-menu-toggle">
-        ☰
+        <HamburgerIcon />
       </button>
 
       <!-- Navigation links (hidden on mobile, toggleable) -->
@@ -117,7 +118,6 @@ import BreadCrumb from '../components/BreadCrumb.astro';
   nav {
     display: flex;
     align-items: center;
-    // width: 100%;
     justify-content: flex-end;
     align-items: center;
   }
@@ -144,7 +144,6 @@ import BreadCrumb from '../components/BreadCrumb.astro';
       left: 0;
       width: 100%;
       height: 100vh;
-      // background-color: rgba(0, 0, 0, 0.9);
       justify-content: center;
       align-items: center;
       gap: 2em;
@@ -159,20 +158,22 @@ import BreadCrumb from '../components/BreadCrumb.astro';
       color: white;
       text-decoration: none;
       font-size: 1rem;
+      @media (max-width: 768px) {
+        font-size: 2em;
+      }
     }
   }
 
   /* Menu toggle button (visible on mobile) */
   .overflow-menu-toggle {
     display: none;
-    // background: none;
     border: none;
     font-size: 1.5rem;
-    // cursor: pointer;
-    // color: white;
-
     @media (max-width: 768px) {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
     }
   }
 </style>

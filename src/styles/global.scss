@@ -195,6 +195,9 @@ p {
   }
   .menu {
     // background-color: $gray500;
+    @media (max-width: 768px) {
+      background-color: $gray500;
+    }
   }
 }
 ///////////////////////////
