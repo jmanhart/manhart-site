@@ -139,7 +139,7 @@ const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
     </main>
   </body>
 
-  <script>
+  <!-- <script>
     document.addEventListener("DOMContentLoaded", () => {
       console.log("DOM fully loaded"); // Verify the DOM is loaded
 
@@ -170,6 +170,19 @@ const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
         tooltipContent.style.visibility = "hidden";
       });
     });
+  </script> -->
+  <script>
+    console.log(
+      "%cWhat are you doing in here?! 🕵️‍♂️",
+      "color: #888; font-size: 16px; font-weight: bold;"
+    );
+    console.log(
+      "%cThis site was built with astro over a few hundred commits in my free time. It could always be better but thats life.",
+      "color: #008080; font-size: 14px;"
+    );
+    console.log(
+      "If you wanna see some code: https://github.com/jmanhart/manhart-site"
+    );
   </script>
 
 </html>
