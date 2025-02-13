@@ -73,7 +73,7 @@ ol {
 }
 ul {
   list-style-type: circle; /* Add the default disc back */
-  margin: 20px; /* Set custom margin */
+  // margin: 20px; /* Set custom margin */
   padding: 0; /* Remove default padding if needed */
 
   li {
@@ -413,27 +413,13 @@ button {
 }
 
 .sub-page-wrapper {
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  //   // justify-content: center;
-  //   height: 100vh;
-  // background-color: pink;
-  //   width: 100vw;
-  // margin: 3em 2em;
-  // min-height: 50vh;
-  // margin: 0 auto;
-  // width: 50%;
   margin-left: 4em;
-  // max-width: 85%;
-  // margin-left: auto;
-  // margin-right: auto;
   margin-top: 5em;
   display: flex;
   align-items: start;
-  @include sm {
-    width: 85%;
-    margin-left: 4em;
+  @media (max-width: 768px) {
+    margin-top: 65px;
+    margin-left: 1em;
   }
 }
 .hero-image {
@@ -481,7 +467,7 @@ button {
   align-items: center;
   @include sm {
     width: 85%;
-    margin-left: 5em;
+    margin-left: 4em;
   }
 }
 
