@@ -395,31 +395,22 @@ button {
 }
 
 .root-wrapper {
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  //   // justify-content: center;
-  //   height: 100vh;
-  //   background-color: pink;
-  //   width: 100vw;
   min-height: 100vh;
-  margin: 0 auto;
   max-width: 85%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10em;
+  margin: 10em auto 0;
   display: flex;
   align-items: center;
 }
 
 .sub-page-wrapper {
-  margin-left: 4em;
-  margin-top: 5em;
+  padding: 6rem 0 0 4rem; /* Top padding first for header spacing */
   display: flex;
-  align-items: start;
+  align-items: flex-start;
+
   @media (max-width: 768px) {
-    margin-top: 65px;
-    margin-left: 1em;
+    padding-top: 6rem; /* Reduce top padding on smaller screens */
+    padding-left: 1.5rem; /* Adjust side spacing */
+    padding-right: 1.5rem;
   }
 }
 .hero-image {
@@ -462,12 +453,15 @@ button {
 
 .blog-post-wrapper {
   min-height: 100vh;
-  margin: 6em 2em;
+  margin: clamp(4em, 6vw, 6em) auto; /* Responsive margin */
   display: flex;
   align-items: center;
+  max-width: 85%; /* Avoids overly wide content on large screens */
+  padding: 2rem; /* Internal spacing */
+
   @include sm {
-    width: 85%;
-    margin-left: 4em;
+    max-width: 85%;
+    padding: 1.5rem;
   }
 }
 

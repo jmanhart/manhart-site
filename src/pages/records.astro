@@ -26,11 +26,11 @@ try {
   </head>
   <body>
     <Header />
-    <div class="root-wrapper" id="sub-page">
+    <div class="sub-page-wrapper" id="sub-page">
       <div class="root-content text-page">
         <div class="info-container">
-          <h1>🎶 All Records</h1>
-          <p>Album Count: {collection.length}</p>
+          <h2>🎶 All Records</h2>
+          <p class="blog-short-description">Album Count: {collection.length}</p>
           <div id="collection-list">
             {collection.length > 0 ? (
               collection.map((release) => (
