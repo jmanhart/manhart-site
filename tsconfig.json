@@ -12,7 +12,8 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "verbatimModuleSyntax": false // ✅ Disables the issue-causing setting
+    "verbatimModuleSyntax": false, // ✅ Disables import issues
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
