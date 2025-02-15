@@ -1,354 +1,141 @@
-@import "_mixins.scss";
-@import "dark-theme.scss";
+/* ===========================================
+ *  GLOBAL THEME SETUP (Light Mode by Default)
+ * =========================================== */
 
-html {
-  // Dark Mode Color Variables Start
-  --darkSurface100: #1a141f;
-  --darkSurface200: #221b28;
-  --darkSurface300: #29232f;
+:root {
+  /* Light Mode Colors */
+  --surface100: #faf9fb; /* Background */
+  --surface200: #ffffff; /* Secondary background */
+  --surface300: #ffffff; /* Tertiary background */
 
-  // Light Mode Color Variable Start
-  --lightSurface100: #faf9fb;
-  --lightSurface200: #ffffff;
-  --lightSurface300: #ffffff;
+  --text-primary: #222222; /* Main text */
+  --text-secondary: #444444; /* Secondary text */
+  --text-tertiary: #888888; /* Tertiary text */
 
-  --gray100: #ededed;
-  --gray200: #d1d1d1;
-  --gray300: #888888;
-  --gray400: #444444;
-  --gray500: #222222;
+  --divider: #d1d1d1; /* Borders & dividers */
+  --link: #444444; /* Default link color */
+  --link-hover: #000000; /* Link hover color */
+}
 
-  --white: #ffffff;
-  --black: #000000;
+/* ===========================================
+ *  DARK MODE SETUP
+ *  Applied when `.dark-theme` is on <body>
+ * =========================================== */
+
+.dark-theme {
+  --surface100: #1a141f;
+  --surface200: #221b28;
+  --surface300: #29232f;
+
+  --text-primary: #ededed;
+  --text-secondary: #d1d1d1;
+  --text-tertiary: #888888;
+
+  --divider: #444444;
+  --link: #d1d1d1;
+  --link-hover: #ffffff;
+}
+
+/* ===========================================
+ *  GLOBAL BASE STYLES
+ * =========================================== */
+
+body {
+  background-color: var(--surface100);
+  color: var(--text-primary);
+  font-family: "Work Sans", sans-serif;
+  margin: auto;
+  width: 100%;
+  min-height: 100vh;
+  text-align: left;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+}
+
+/* ===========================================
+ *  TYPOGRAPHY
+ * =========================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
   font-size: 3rem;
   font-weight: 400;
-  margin: 0 0;
-  padding: 0 0;
 }
 h2 {
   font-size: 2rem;
   font-weight: 400;
-  margin: 0 0;
-  padding: 0 0;
   line-height: 3rem;
 }
 h3 {
   font-size: 1.5rem;
   font-weight: 400;
-  margin: 0 0;
-  padding: 0 0;
   line-height: 2rem;
 }
 h4 {
   font-size: 1.2rem;
   font-weight: 400;
-  margin: 0 0;
-  padding: 0 0;
   line-height: 2rem;
 }
 h5 {
   font-size: 1rem;
   font-weight: 400;
-  margin: 0 0;
-  padding: 0 0;
   line-height: 2rem;
 }
 h6 {
   font-size: 0.8rem;
   font-weight: 400;
-  margin: 0 0;
-  padding: 0 0;
   line-height: 2rem;
 }
-a {
-  text-decoration: none;
-}
-ol {
-  li {
-    font-size: 1.2rem;
-  }
-}
-ul {
-  list-style-type: circle; /* Add the default disc back */
-  // margin: 20px; /* Set custom margin */
-  padding: 0; /* Remove default padding if needed */
 
-  li {
-    font-size: 1.2rem;
-  }
-}
 p {
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 2rem;
-  // margin: 0 0 ;
+  color: var(--text-secondary);
 }
 
-.astro-code {
-  border-radius: 0.5em;
+/* ===========================================
+ *  LINKS & LISTS
+ * =========================================== */
+
+a {
+  color: var(--link);
+  text-decoration: none;
 }
 
-///////////////////////////
-// DARK THEME START
-//////////////////////////
-.dark-theme {
-  background-color: $darkSurface100;
-  h1 {
-    color: $gray100;
-  }
-  h2 {
-    color: $gray100;
-  }
-  h3 {
-    color: $gray200;
-  }
-  h4,
-  h5,
-  h6 {
-    color: $gray200;
-  }
-  ol {
-    color: $gray300;
-    li {
-      color: $gray300;
-    }
-  }
-  ul {
-    li {
-      border-color: $gray400;
-      color: $gray300;
-    }
-    li:hover {
-      border-color: $gray300;
-    }
-  }
-  ol {
-    li {
-      color: $gray300;
-    }
-  }
-  p {
-    color: $gray300;
-  }
-  a {
-    color: $gray200;
-  }
-  a:hover {
-    color: $white;
-  }
-  a.active {
-    font-weight: 500;
-    color: $white;
-  }
-  button:hover {
-    background-color: $gray500;
-  }
-  .back-button {
-    color: $gray300;
-    // border: 1px solid #ccc;
-    // padding: 2px 1px;
-    cursor: pointer;
-    font-size: 16px;
-    // border-radius: 5px;
-    // transition: background-color 0.3s ease;
-  }
-  header {
-    background-color: $darkSurface100;
-    border-bottom: 1px solid $gray400;
-    // @include sm {
-    //   z-index: 999;
-    //   background-color: transparent;
-    //   // border: 1px solid #;
-    // }
-  }
-  .divider {
-    color: $gray400;
-  }
+a:hover {
+  color: var(--link-hover);
+}
 
-  #internal-link.active {
-    color: $white;
-  }
-  #internal-link.hover {
-    color: $white;
-  }
-  #internal-link {
-    color: $gray300;
-  }
-  ::selection {
-    color: $black;
-    background-color: $white;
-  }
-  .styled-pathname {
-    color: $gray300;
-  }
-  .social-link-container {
-    background-color: $gray500;
-    border-radius: 0.5em;
-    border: 1px solid #999;
-    padding: 0.5em 0.5em;
-  }
-  .overflow-menu-toggle {
-    color: $white;
-  }
-  .menu {
-    // background-color: $gray500;
-    @media (max-width: 768px) {
-      background-color: $gray500;
-    }
-  }
+ul,
+ol {
+  padding: 0;
+  color: var(--text-tertiary);
 }
-///////////////////////////
-// DARK THEME END
-//////////////////////////
 
-///////////////////////////
-// LIGHT THEME START
-//////////////////////////
-.light-theme {
-  background-color: var(--lightSurface100);
-  h1 {
-    color: $gray500;
-  }
-  h2 {
-    color: $gray400;
-  }
-  h3 {
-    color: $gray500;
-  }
-  h4,
-  h5,
-  h6 {
-    color: $gray300;
-  }
-  ol {
-    color: $gray400;
-    li {
-      color: $gray400;
-    }
-  }
-  ul {
-    li {
-      color: $gray500;
-    }
-    li:hover {
-      border-color: $gray200;
-    }
-  }
-  p {
-    color: $gray400;
-  }
-  a {
-    color: $gray400;
-  }
-  a:hover {
-    color: $black;
-  }
-  a.active {
-    font-weight: 500;
-    color: $gray500;
-  }
-  button:hover {
-    background-color: var(--lightSurface100);
-  }
-  .back-button {
-    color: $gray300;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  header {
-    background-color: $white;
-    border-bottom: 1px solid $gray200;
-  }
-  .divider {
-    color: $gray200;
-  }
-  #internal-link.active {
-    color: $gray400;
-  }
-  #internal-link.hover {
-    color: $gray400;
-  }
-  #internal-link {
-    color: $gray300;
-  }
-  ::selection {
-    background-color: $gray100;
-    color: $gray500;
-  }
-  .styled-pathname {
-    color: $gray300;
-  }
-  .social-link-container {
-    background-color: $white;
-    border-radius: 0.5em;
-    border: 1px solid #999;
-    padding: 0.5em 0.5em;
-  }
-  .overflow-menu-toggle {
-    color: $gray500;
-  }
-  .menu {
-    background-color: $white;
-  }
+ul li,
+ol li {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
 }
-///////////////////////////
-// LIGHT THEME END
-//////////////////////////
 
-body {
-  // transition: background-color 0.25s ease-in-out;
-  font-family: Work Sans, sans-serif;
-  margin: auto;
-  width: 100%;
-  min-height: 100vh;
-  text-align: left;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  line-height: 1.5;
-  // box-shadow: inset 0px 0px 0px 8px $gray300;
+ul li:hover {
+  border-color: var(--divider);
 }
-// nav a {
-// 	margin-right: 10px;
-// }
-textarea {
-  width: 100%;
-  font-size: 16px;
-}
-input {
-  font-size: 16px;
-}
-content {
-  line-height: 1.6;
-}
-table {
-  width: 100%;
-}
-img {
-  max-width: 100%;
-  height: auto;
-}
-code {
-  padding: 2px 5px;
-  background-color: #f2f2f2;
-}
-pre {
-  padding: 1rem;
-}
-pre > code {
-  all: unset;
-  white-space: pre-wrap; /* Wrap lines */
-  word-break: break-word; /* Break long words */
-}
-blockquote {
-  border: 1px solid #999;
-  color: #222;
-  padding: 2px 0px 2px 20px;
-  margin: 0px;
-  font-style: italic;
-}
+
+/* ===========================================
+ *  COMMON CONTAINER STYLES
+ * =========================================== */
 
 .wrapper {
   display: flex;
@@ -358,152 +145,156 @@ blockquote {
   padding-top: 5em;
 }
 
-.content {
+.root-content {
   width: 75%;
   max-width: 65ch;
-}
-
-button {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  font-size: 100%;
-  vertical-align: baseline;
-  font-family: inherit;
-  font-weight: inherit;
-  color: inherit;
-  appearance: none;
-  box-sizing: border-box;
-  // background-color: #f2f2f2;
-  height: 2rem;
-  width: 2rem;
-  border-radius: 32px;
-  &:hover {
-    border-radius: 32px;
-  }
-  .icon {
-    // background-image: url('icon.svg');
-    width: 24px;
-    height: 24px;
-    display: inline-block;
-    vertical-align: middle;
+  @media (max-width: 768px) {
+    width: 95%;
   }
 }
 
-.root {
-}
-
-.root-wrapper {
-  min-height: 100vh;
-  max-width: 85%;
-  margin: 10em auto 0;
-  display: flex;
-  align-items: center;
-}
-
-.sub-page-wrapper {
-  padding: 6rem 0 0 4rem; /* Top padding first for header spacing */
+/* Sub-page and Blog Post Wrappers */
+.sub-page-wrapper,
+.blog-post-wrapper {
+  padding: 5rem 0 0 4rem;
   display: flex;
   align-items: flex-start;
 
   @media (max-width: 768px) {
-    padding-top: 6rem; /* Reduce top padding on smaller screens */
-    padding-left: 1.5rem; /* Adjust side spacing */
-    padding-right: 1.5rem;
+    padding: 4rem 1.5rem 0;
   }
 }
+
+/* ===========================================
+ *  HEADER & NAVIGATION
+ * =========================================== */
+
+header {
+  background-color: var(--surface100);
+  border-bottom: 1px solid var(--divider);
+}
+
+/* Internal Links */
+#internal-link {
+  color: var(--text-tertiary);
+}
+
+#internal-link.active,
+#internal-link:hover {
+  color: var(--link-hover);
+}
+
+/* ===========================================
+ *  FORMS & INPUTS
+ * =========================================== */
+
+textarea,
+input {
+  font-size: 16px;
+  width: 100%;
+}
+
+content {
+  line-height: 1.6;
+}
+
+/* ===========================================
+ *  IMAGES & MEDIA
+ * =========================================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===========================================
+ *  BUTTONS
+ * =========================================== */
+
+button {
+  color: inherit;
+  background: none;
+  font-size: 100%;
+  border: 0;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 32px;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background-color: var(--link);
+}
+
+/* ===========================================
+ *  SELECTION STYLING
+ * =========================================== */
+
+::selection {
+  background-color: var(--divider);
+  color: var(--text-primary);
+}
+
+/* ===========================================
+ *  FOOTER & MISC. SECTIONS
+ * =========================================== */
+
+.social-link-container {
+  background-color: var(--divider);
+  border-radius: 0.5em;
+  border: 1px solid #999;
+  padding: 0.5em 0.5em;
+}
+
+/* ===========================================
+ *  TOOLTIP (HIDDEN BY DEFAULT)
+ * =========================================== */
+
+.tooltip-container {
+  position: relative; /* This positions the tooltip relative to its parent */
+  display: inline-block; /* Allow inline behavior for tooltips */
+}
+
+.tooltip-content {
+  display: none; /* Hide the tooltip by default */
+  position: absolute;
+  top: 100%; /* Position it below the parent */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333; /* Dark background */
+  color: #fff; /* White text */
+  padding: 0.5em;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 1000; /* Ensure it's above other elements */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow */
+}
+
+.tooltip-container:hover .tooltip-content {
+  display: block; /* Show the tooltip on hover */
+}
+
+/* ===========================================
+ *  FINAL CLEANUP (EXTRA STYLES)
+ * =========================================== */
+
 .hero-image {
   width: 8rem;
   height: 8rem;
   object-fit: cover;
   object-position: center;
 }
-.root-content {
-  width: 100%;
-  max-width: 50em;
-  padding-bottom: 3em;
-}
-
-#hero {
-  //   padding-top: 8rem;
-  //   @include sm {
-  //     padding-top: 16rem;
-  //   }
-}
-
-// #sub-page {
-//   //   padding-top: 6rem;
-//   background-color: yellow;
-//   @include sm {
-//     padding-top: 8rem;
-//   }
-// }
-
-.info-container {
-  margin-bottom: 2em;
-}
-
-.text-page {
-  max-width: 40em;
-}
-.record-page {
-  max-width: 60em;
-}
-
-.blog-post-wrapper {
-  min-height: 100vh;
-  margin: clamp(4em, 6vw, 6em) auto; /* Responsive margin */
-  display: flex;
-  align-items: center;
-  max-width: 85%; /* Avoids overly wide content on large screens */
-  padding: 2rem; /* Internal spacing */
-
-  @include sm {
-    max-width: 85%;
-    padding: 1.5rem;
-  }
-}
-
-// TOOL TIP SHIT
-// .tooltip-container {
-//   position: relative; /* This positions the tooltip relative to its parent */
-//   display: inline-block; /* Allow inline behavior for tooltips */
-// }
-
-// .tooltip-content {
-//   display: none; /* Hide the tooltip by default */
-//   position: absolute;
-//   top: 100%; /* Position it below the parent */
-//   left: 50%;
-//   transform: translateX(-50%);
-//   background-color: #333; /* Dark background */
-//   color: #fff; /* White text */
-//   padding: 0.5em;
-//   border-radius: 4px;
-//   white-space: nowrap;
-//   z-index: 1000; /* Ensure it's above other elements */
-//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow */
-// }
-
-// .tooltip-container:hover .tooltip-content {
-//   display: block; /* Show the tooltip on hover */
-// }
 
 .root-social-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding-top: 1em;
   gap: 1em;
-  @include sm {
-    padding-top: 3em;
-    flex-direction: row;
+
+  @media (max-width: 768px) {
+    padding-top: 1em;
+    flex-direction: column;
   }
-}
-.root-social-links {
-  font-size: 1.5em;
-  // padding-right: 1em;
-  cursor: pointer;
 }
 
 .personal-logo {
@@ -511,10 +302,82 @@ button {
   height: 24px;
   background-color: gray;
 }
-.hero-content {
-  width: 75%;
-  max-width: 65ch;
+
+/* Menu styles */
+.menu {
+  display: flex;
+  gap: 1em;
+  font-size: 1em;
+
+  /* Apply theme background dynamically */
+  background-color: var(--surface100);
+
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    z-index: 9999;
+  }
+
+  /* Show menu when 'open' class is added */
+  &.open {
+    display: flex;
+  }
+
+  /* Menu links */
+  a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 2em;
+    }
+  }
 }
-.root-info-container {
-  max-width: 45em;
+
+/* Menu toggle button (visible on mobile) */
+.overflow-menu-toggle {
+  display: none;
+  border: none;
+  font-size: 1.5rem;
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+button {
+  background: none !important;
+  background-color: transparent !important;
+  border: none;
+  outline: none;
+  color: inherit; /* Ensures it inherits text color */
+}
+
+/* Prevent background color on focus & active */
+button:focus,
+button:active {
+  background-color: transparent !important;
+}
+
+.root-link {
+  color: var(--text-primary);
+  font-size: 1.5em;
+  text-decoration: none; /* Remove underline if needed */
+  cursor: pointer !important; /* Ensure pointer cursor works */
+  pointer-events: auto !important; /* Ensure clicks are not blocked */
+}
+
+.root-social-container {
+  pointer-events: auto !important; /* Make sure the parent allows clicks */
 }
