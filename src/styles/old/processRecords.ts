@@ -1,6 +1,6 @@
-import { fetchDiscogsRecords } from "./fetchDiscogs";
-import { getExistingImages } from "./checkSupabaseStorage";
-import { uploadImageToSupabase } from "./uploadToSupabase";
+import { fetchDiscogsRecords } from "./fetchDiscogs.ts";
+import { getExistingImages } from "./checkSupabaseStorage.ts";
+import { uploadImageToSupabase } from "./uploadToSupabase.ts";
 import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
 

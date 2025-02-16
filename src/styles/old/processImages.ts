@@ -1,5 +1,5 @@
-import { getExistingImages, uploadImageToSupabase } from "./supabaseStorage";
-import { fetchDiscogsRecords } from "./fetchDiscogs";
+import { getExistingImages, uploadImageToSupabase } from "./supabaseStorage.ts";
+import { fetchDiscogsRecords } from "./fetchDiscogs.ts";
 
 /**
  * ✅ Process records: Check storage, fetch missing images, upload, update DB.
