@@ -10,66 +10,93 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const TABLE_NAME = "records";
 
-export async function updateSupabaseRecords(records: DiscogsRecord[]) {
-  if (records.length === 0) {
-    console.log("⚠️ No records to update.");
+export async function updateSupabaseRecords(supabase, records) {
+  if (!Array.isArray(records)) {
+    console.error("❌ Records is not an array:", records);
     return;
   }
 
-  console.log("📦 Updating Supabase with Discogs records...");
+  console.log(
+    `📦 Preparing to insert ${records.length} records into Supabase...`
+  );
 
-  for (const record of records) {
-    const { id, title, artist, release_id, image_url } = record;
-
-    // Check if record exists
-    const { data: existingRecord, error: fetchError } = await supabase
-      .from(TABLE_NAME)
-      .select("id")
-      .eq("release_id", release_id)
-      .single();
-
-    if (fetchError && fetchError.code !== "PGRST116") {
-      console.error(
-        `❌ Error checking record ${release_id}:`,
-        fetchError.message
-      );
-      continue;
-    }
-
-    if (existingRecord) {
-      // Update existing record
-      const { error: updateError } = await supabase
-        .from(TABLE_NAME)
-        .update({ title, artist, image_url })
-        .eq("release_id", release_id);
-
-      if (updateError) {
-        console.error(
-          `❌ Failed to update record ${release_id}:`,
-          updateError.message
-        );
-      } else {
-        console.log(`🔄 Updated record ${release_id}: ${title}`);
-      }
-    } else {
-      // Insert new record
-      const { error: insertError } = await supabase
-        .from(TABLE_NAME)
-        .insert([{ id, title, artist, release_id, image_url }]);
-
-      if (insertError) {
-        console.error(
-          `❌ Failed to insert record ${release_id}:`,
-          insertError.message
-        );
-      } else {
-        console.log(`✅ Inserted new record ${release_id}: ${title}`);
-      }
-    }
+  if (records.length === 0) {
+    console.warn("⚠️ No records to insert. Skipping Supabase update.");
+    return;
   }
 
-  console.log("🎉 Supabase records update complete.");
+  const { error } = await supabase.from("records").upsert(records, {
+    onConflict: ["release_id"],
+  });
+
+  if (error) {
+    console.error("❌ Supabase insert error:", error);
+    return;
+  }
+
+  console.log("✅ Supabase update successful!");
 }
+
+// export async function updateSupabaseRecords(records: DiscogsRecord[]) {
+//   if (records.length === 0) {
+//     console.log("⚠️ No records to update.");
+//     return;
+//   }
+
+//   console.log("📦 Updating Supabase with Discogs records...");
+
+//   for (const record of records) {
+//     const { id, title, artist, release_id, image_url } = record;
+
+//     // Check if record exists
+//     const { data: existingRecord, error: fetchError } = await supabase
+//       .from(TABLE_NAME)
+//       .select("id")
+//       .eq("release_id", release_id)
+//       .single();
+
+//     if (fetchError && fetchError.code !== "PGRST116") {
+//       console.error(
+//         `❌ Error checking record ${release_id}:`,
+//         fetchError.message
+//       );
+//       continue;
+//     }
+
+//     if (existingRecord) {
+//       // Update existing record
+//       const { error: updateError } = await supabase
+//         .from(TABLE_NAME)
+//         .update({ title, artist, image_url })
+//         .eq("release_id", release_id);
+
+//       if (updateError) {
+//         console.error(
+//           `❌ Failed to update record ${release_id}:`,
+//           updateError.message
+//         );
+//       } else {
+//         console.log(`🔄 Updated record ${release_id}: ${title}`);
+//       }
+//     } else {
+//       // Insert new record
+//       const { error: insertError } = await supabase
+//         .from(TABLE_NAME)
+//         .insert([{ id, title, artist, release_id, image_url }]);
+
+//       if (insertError) {
+//         console.error(
+//           `❌ Failed to insert record ${release_id}:`,
+//           insertError.message
+//         );
+//       } else {
+//         console.log(`✅ Inserted new record ${release_id}: ${title}`);
+//       }
+//     }
+//   }
+
+//   console.log("🎉 Supabase records update complete.");
+// }
 
 /**
  * updateSupabase.ts

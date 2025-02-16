@@ -1,0 +1,406 @@
+ℹ️ [INFO] [2025-02-16T17:48:36.055Z]: 📡 Fetching records from Discogs API...
+ℹ️ [INFO] [2025-02-16T17:48:36.364Z]: ✅ Successfully fetched 100 records.
+ℹ️ [INFO] [2025-02-16T17:48:36.365Z]: 📸 Checking and downloading images...
+ℹ️ [INFO] [2025-02-16T17:48:36.776Z]: ⬇️ Downloading image for Waves...
+ℹ️ [INFO] [2025-02-16T17:48:36.777Z]: 🔍 Checking if image exists in Supabase storage: covers/7133403.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:36.996Z]: ✅ Image already exists: covers/7133403.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:36.996Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/7133403.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:37.099Z]: 🔍 Checking if image exists in Supabase storage: covers/990950.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:37.099Z]: ⬇️ Downloading image for The Ozark Mountain Daredevils...
+ℹ️ [INFO] [2025-02-16T17:48:37.310Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/990950.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:37.310Z]: ✅ Image already exists: covers/990950.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:37.441Z]: ⬇️ Downloading image for Close To You...
+ℹ️ [INFO] [2025-02-16T17:48:37.441Z]: 🔍 Checking if image exists in Supabase storage: covers/2095408.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:37.606Z]: ✅ Image already exists: covers/2095408.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:37.606Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/2095408.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:37.811Z]: ⬇️ Downloading image for Tapestry...
+ℹ️ [INFO] [2025-02-16T17:48:37.812Z]: 🔍 Checking if image exists in Supabase storage: covers/387851.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:37.943Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/387851.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:37.943Z]: ✅ Image already exists: covers/387851.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:38.158Z]: ⬇️ Downloading image for 'Get Yer Ya-Ya's Out!' The Rolling Stones In Concert...
+ℹ️ [INFO] [2025-02-16T17:48:38.159Z]: 🔍 Checking if image exists in Supabase storage: covers/23836325.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:38.375Z]: ✅ Image already exists: covers/23836325.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:38.375Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/23836325.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:38.522Z]: ⬇️ Downloading image for In Sweden 1950...
+ℹ️ [INFO] [2025-02-16T17:48:38.523Z]: 🔍 Checking if image exists in Supabase storage: covers/4062017.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:38.660Z]: ✅ Image already exists: covers/4062017.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:38.660Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/4062017.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:38.801Z]: ⬇️ Downloading image for The Big Come Up...
+ℹ️ [INFO] [2025-02-16T17:48:38.801Z]: 🔍 Checking if image exists in Supabase storage: covers/7043223.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:38.938Z]: ✅ Image already exists: covers/7043223.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:38.938Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/7043223.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:39.062Z]: ⬇️ Downloading image for Every Damn Time...
+ℹ️ [INFO] [2025-02-16T17:48:39.062Z]: 🔍 Checking if image exists in Supabase storage: covers/1454102.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:39.233Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/1454102.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:39.233Z]: ✅ Image already exists: covers/1454102.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:39.354Z]: ⬇️ Downloading image for The Rise And Fall Of A Midwest Princess...
+ℹ️ [INFO] [2025-02-16T17:48:39.354Z]: 🔍 Checking if image exists in Supabase storage: covers/28365832.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:39.481Z]: ✅ Image already exists: covers/28365832.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:39.481Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/28365832.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:39.589Z]: ⬇️ Downloading image for Let It Be...
+ℹ️ [INFO] [2025-02-16T17:48:39.590Z]: 🔍 Checking if image exists in Supabase storage: covers/377554.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:39.684Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/377554.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:39.684Z]: ✅ Image already exists: covers/377554.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:39.793Z]: 🔍 Checking if image exists in Supabase storage: covers/1574307.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:39.793Z]: ⬇️ Downloading image for Magic Christian Music...
+ℹ️ [INFO] [2025-02-16T17:48:40.000Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/1574307.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:40.000Z]: ✅ Image already exists: covers/1574307.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:40.150Z]: ⬇️ Downloading image for Ghostbusters (Original Soundtrack Album)...
+ℹ️ [INFO] [2025-02-16T17:48:40.150Z]: 🔍 Checking if image exists in Supabase storage: covers/15229038.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:40.287Z]: ✅ Image already exists: covers/15229038.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:40.287Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/15229038.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:40.418Z]: 🔍 Checking if image exists in Supabase storage: covers/1300351.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:40.417Z]: ⬇️ Downloading image for Excitable Boy...
+ℹ️ [INFO] [2025-02-16T17:48:40.551Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/1300351.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:40.551Z]: ✅ Image already exists: covers/1300351.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:40.688Z]: ⬇️ Downloading image for Interaction...
+ℹ️ [INFO] [2025-02-16T17:48:40.689Z]: 🔍 Checking if image exists in Supabase storage: covers/13505187.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:40.824Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/13505187.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:40.824Z]: ✅ Image already exists: covers/13505187.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:40.962Z]: 🔍 Checking if image exists in Supabase storage: covers/26240321.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:40.962Z]: ⬇️ Downloading image for 24 Hours A Day...
+ℹ️ [INFO] [2025-02-16T17:48:41.437Z]: ✅ Image already exists: covers/26240321.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:41.438Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/26240321.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:41.580Z]: ⬇️ Downloading image for Contractual Obligations...
+ℹ️ [INFO] [2025-02-16T17:48:41.580Z]: 🔍 Checking if image exists in Supabase storage: covers/31177270.gif
+ℹ️ [INFO] [2025-02-16T17:48:41.713Z]: ✅ Image already exists: covers/31177270.gif, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:41.714Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/31177270.gif
+ℹ️ [INFO] [2025-02-16T17:48:41.823Z]: 🔍 Checking if image exists in Supabase storage: covers/27368748.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:41.821Z]: ⬇️ Downloading image for Emotional Contracts...
+ℹ️ [INFO] [2025-02-16T17:48:41.937Z]: ✅ Image already exists: covers/27368748.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:41.937Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/27368748.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:42.054Z]: ⬇️ Downloading image for High Risk Behaviour...
+ℹ️ [INFO] [2025-02-16T17:48:42.054Z]: 🔍 Checking if image exists in Supabase storage: covers/14962141.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:42.164Z]: ✅ Image already exists: covers/14962141.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:42.164Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/14962141.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:42.279Z]: ⬇️ Downloading image for Get Fucked...
+ℹ️ [INFO] [2025-02-16T17:48:42.279Z]: 🔍 Checking if image exists in Supabase storage: covers/24234656.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:42.402Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/24234656.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:42.402Z]: ✅ Image already exists: covers/24234656.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:42.516Z]: ⬇️ Downloading image for Perch Patchwork...
+ℹ️ [INFO] [2025-02-16T17:48:42.516Z]: 🔍 Checking if image exists in Supabase storage: covers/2379457.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:42.665Z]: ✅ Image already exists: covers/2379457.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:42.665Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/2379457.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:42.776Z]: ⬇️ Downloading image for Labor Days...
+ℹ️ [INFO] [2025-02-16T17:48:42.776Z]: 🔍 Checking if image exists in Supabase storage: covers/21029242.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:42.975Z]: ✅ Image already exists: covers/21029242.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:42.976Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/21029242.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:43.173Z]: ⬇️ Downloading image for Black Sabbath...
+ℹ️ [INFO] [2025-02-16T17:48:43.173Z]: 🔍 Checking if image exists in Supabase storage: covers/10374059.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:43.309Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/10374059.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:43.309Z]: ✅ Image already exists: covers/10374059.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:43.437Z]: ⬇️ Downloading image for Brain Cream...
+ℹ️ [INFO] [2025-02-16T17:48:43.437Z]: 🔍 Checking if image exists in Supabase storage: covers/7172803.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:43.578Z]: ✅ Image already exists: covers/7172803.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:43.578Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/7172803.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:43.685Z]: ⬇️ Downloading image for Street Machine...
+ℹ️ [INFO] [2025-02-16T17:48:43.686Z]: 🔍 Checking if image exists in Supabase storage: covers/2686987.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:43.796Z]: ✅ Image already exists: covers/2686987.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:43.796Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/2686987.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:43.890Z]: 🔍 Checking if image exists in Supabase storage: covers/5552990.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:43.889Z]: ⬇️ Downloading image for Salad Days...
+ℹ️ [INFO] [2025-02-16T17:48:44.082Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/5552990.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:44.082Z]: ✅ Image already exists: covers/5552990.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:44.193Z]: 🔍 Checking if image exists in Supabase storage: covers/10022995.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:44.193Z]: ⬇️ Downloading image for This Old Dog...
+ℹ️ [INFO] [2025-02-16T17:48:44.299Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/10022995.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:44.299Z]: ✅ Image already exists: covers/10022995.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:44.473Z]: 🔍 Checking if image exists in Supabase storage: covers/25087453.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:44.473Z]: ⬇️ Downloading image for 2...
+ℹ️ [INFO] [2025-02-16T17:48:44.611Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/25087453.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:44.610Z]: ✅ Image already exists: covers/25087453.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:44.863Z]: ⬇️ Downloading image for Floating Coffin...
+ℹ️ [INFO] [2025-02-16T17:48:44.871Z]: 🔍 Checking if image exists in Supabase storage: covers/4450748.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:45.054Z]: ✅ Image already exists: covers/4450748.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:45.054Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/4450748.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:45.169Z]: ⬇️ Downloading image for I'm In Your Mind Fuzz...
+ℹ️ [INFO] [2025-02-16T17:48:45.169Z]: 🔍 Checking if image exists in Supabase storage: covers/6377274.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:45.317Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/6377274.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:45.317Z]: ✅ Image already exists: covers/6377274.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:45.539Z]: ⬇️ Downloading image for Thick As A Brick...
+ℹ️ [INFO] [2025-02-16T17:48:45.540Z]: 🔍 Checking if image exists in Supabase storage: covers/918621.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:45.646Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/918621.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:45.646Z]: ✅ Image already exists: covers/918621.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:45.758Z]: ⬇️ Downloading image for Reverberation...
+ℹ️ [INFO] [2025-02-16T17:48:45.759Z]: 🔍 Checking if image exists in Supabase storage: covers/20190169.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:45.893Z]: ✅ Image already exists: covers/20190169.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:45.893Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/20190169.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:46.033Z]: ⬇️ Downloading image for Greatest Hits...
+ℹ️ [INFO] [2025-02-16T17:48:46.033Z]: 🔍 Checking if image exists in Supabase storage: covers/2965191.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:46.212Z]: ✅ Image already exists: covers/2965191.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:46.212Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/2965191.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:46.657Z]: ⬇️ Downloading image for Jazz Goes To College...
+ℹ️ [INFO] [2025-02-16T17:48:46.657Z]: 🔍 Checking if image exists in Supabase storage: covers/1696796.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:46.812Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/1696796.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:46.812Z]: ✅ Image already exists: covers/1696796.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:46.911Z]: ⬇️ Downloading image for In Concert...
+ℹ️ [INFO] [2025-02-16T17:48:46.912Z]: 🔍 Checking if image exists in Supabase storage: covers/6091558.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:47.070Z]: ✅ Image already exists: covers/6091558.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:47.070Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/6091558.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:47.190Z]: ⬇️ Downloading image for Bridge Over Troubled Water...
+ℹ️ [INFO] [2025-02-16T17:48:47.190Z]: 🔍 Checking if image exists in Supabase storage: covers/605328.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:47.322Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/605328.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:47.322Z]: ✅ Image already exists: covers/605328.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:47.415Z]: ⬇️ Downloading image for Wish You Were Here...
+ℹ️ [INFO] [2025-02-16T17:48:47.415Z]: 🔍 Checking if image exists in Supabase storage: covers/3354750.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:47.526Z]: ✅ Image already exists: covers/3354750.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:47.526Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/3354750.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:47.632Z]: ⬇️ Downloading image for Memories...
+ℹ️ [INFO] [2025-02-16T17:48:47.633Z]: 🔍 Checking if image exists in Supabase storage: covers/1766802.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:47.762Z]: ✅ Image already exists: covers/1766802.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:47.762Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/1766802.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:47.878Z]: 🔍 Checking if image exists in Supabase storage: covers/9216088.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:47.877Z]: ⬇️ Downloading image for Random Access Memories...
+ℹ️ [INFO] [2025-02-16T17:48:48.018Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/9216088.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:48.018Z]: ✅ Image already exists: covers/9216088.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:48.151Z]: ⬇️ Downloading image for Kind Of Blue...
+ℹ️ [INFO] [2025-02-16T17:48:48.151Z]: 🔍 Checking if image exists in Supabase storage: covers/2825456.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:48.292Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/2825456.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:48.292Z]: ✅ Image already exists: covers/2825456.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:48.458Z]: ⬇️ Downloading image for Violent Femmes...
+ℹ️ [INFO] [2025-02-16T17:48:48.458Z]: 🔍 Checking if image exists in Supabase storage: covers/17800651.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:48.602Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/17800651.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:48.602Z]: ✅ Image already exists: covers/17800651.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:48.714Z]: ⬇️ Downloading image for Live From Fort Adams...
+ℹ️ [INFO] [2025-02-16T17:48:48.714Z]: 🔍 Checking if image exists in Supabase storage: covers/20210761.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:48.827Z]: ✅ Image already exists: covers/20210761.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:48.828Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/20210761.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:49.004Z]: ⬇️ Downloading image for The Sophtware Slump...
+ℹ️ [INFO] [2025-02-16T17:48:49.004Z]: 🔍 Checking if image exists in Supabase storage: covers/26535725.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:49.133Z]: ✅ Image already exists: covers/26535725.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:49.133Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/26535725.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:49.239Z]: ⬇️ Downloading image for Beggars Banquet...
+ℹ️ [INFO] [2025-02-16T17:48:49.239Z]: 🔍 Checking if image exists in Supabase storage: covers/2165840.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:49.390Z]: ✅ Image already exists: covers/2165840.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:49.390Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/2165840.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:49.515Z]: ⬇️ Downloading image for Sweet Disarray...
+ℹ️ [INFO] [2025-02-16T17:48:49.516Z]: 🔍 Checking if image exists in Supabase storage: covers/5564792.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:49.664Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/5564792.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:49.664Z]: ✅ Image already exists: covers/5564792.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:49.809Z]: 🔍 Checking if image exists in Supabase storage: covers/7068027.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:49.809Z]: ⬇️ Downloading image for A Little Street Music...
+ℹ️ [INFO] [2025-02-16T17:48:49.955Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/7068027.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:49.955Z]: ✅ Image already exists: covers/7068027.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:50.078Z]: ⬇️ Downloading image for Odelay...
+ℹ️ [INFO] [2025-02-16T17:48:50.079Z]: 🔍 Checking if image exists in Supabase storage: covers/9436179.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:50.171Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/9436179.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:50.171Z]: ✅ Image already exists: covers/9436179.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:50.271Z]: 🔍 Checking if image exists in Supabase storage: covers/10844247.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:50.271Z]: ⬇️ Downloading image for Time Out...
+ℹ️ [INFO] [2025-02-16T17:48:50.370Z]: ✅ Image already exists: covers/10844247.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:50.370Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/10844247.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:50.476Z]: 🔍 Checking if image exists in Supabase storage: covers/23616278.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:50.475Z]: ⬇️ Downloading image for Wet Leg...
+ℹ️ [INFO] [2025-02-16T17:48:50.575Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/23616278.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:50.575Z]: ✅ Image already exists: covers/23616278.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:50.715Z]: ⬇️ Downloading image for Manipulator...
+ℹ️ [INFO] [2025-02-16T17:48:50.716Z]: 🔍 Checking if image exists in Supabase storage: covers/6019037.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:50.826Z]: ✅ Image already exists: covers/6019037.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:50.826Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/6019037.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:50.929Z]: ⬇️ Downloading image for No Time For Dreaming...
+ℹ️ [INFO] [2025-02-16T17:48:50.930Z]: 🔍 Checking if image exists in Supabase storage: covers/2681475.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:51.086Z]: ✅ Image already exists: covers/2681475.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:51.086Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/2681475.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:51.198Z]: ⬇️ Downloading image for Cavalo...
+ℹ️ [INFO] [2025-02-16T17:48:51.198Z]: 🔍 Checking if image exists in Supabase storage: covers/6117480.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:51.309Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/6117480.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:51.309Z]: ✅ Image already exists: covers/6117480.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:51.407Z]: 🔍 Checking if image exists in Supabase storage: covers/2147575.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:51.407Z]: ⬇️ Downloading image for A Good Feelin' To Know...
+ℹ️ [INFO] [2025-02-16T17:48:51.534Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/2147575.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:51.534Z]: ✅ Image already exists: covers/2147575.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:51.720Z]: ⬇️ Downloading image for Thickfreakness...
+ℹ️ [INFO] [2025-02-16T17:48:51.721Z]: 🔍 Checking if image exists in Supabase storage: covers/2981783.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:51.873Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/2981783.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:51.872Z]: ✅ Image already exists: covers/2981783.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:52.032Z]: ⬇️ Downloading image for Because The Internet...
+ℹ️ [INFO] [2025-02-16T17:48:52.033Z]: 🔍 Checking if image exists in Supabase storage: covers/16233494.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:52.139Z]: ✅ Image already exists: covers/16233494.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:52.139Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/16233494.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:52.231Z]: ⬇️ Downloading image for Eating Us...
+ℹ️ [INFO] [2025-02-16T17:48:52.232Z]: 🔍 Checking if image exists in Supabase storage: covers/6173334.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:52.382Z]: ✅ Image already exists: covers/6173334.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:52.383Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/6173334.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:52.509Z]: 🔍 Checking if image exists in Supabase storage: covers/28142506.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:52.509Z]: ⬇️ Downloading image for Data Doom...
+ℹ️ [INFO] [2025-02-16T17:48:52.621Z]: ✅ Image already exists: covers/28142506.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:52.621Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/28142506.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:52.734Z]: ⬇️ Downloading image for American Anthems And Circus Marches...
+ℹ️ [INFO] [2025-02-16T17:48:52.734Z]: 🔍 Checking if image exists in Supabase storage: covers/3329043.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:52.868Z]: ✅ Image already exists: covers/3329043.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:52.868Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/3329043.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:52.983Z]: ⬇️ Downloading image for “Limited Edition” - Vol. 1 & Vol. 2...
+ℹ️ [INFO] [2025-02-16T17:48:52.984Z]: 🔍 Checking if image exists in Supabase storage: covers/25568572.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:53.114Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/25568572.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:53.114Z]: ✅ Image already exists: covers/25568572.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:53.239Z]: ⬇️ Downloading image for The Dark Side Of The Moon...
+ℹ️ [INFO] [2025-02-16T17:48:53.240Z]: 🔍 Checking if image exists in Supabase storage: covers/367104.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:53.345Z]: ✅ Image already exists: covers/367104.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:53.345Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/367104.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:53.464Z]: ⬇️ Downloading image for The Double EP: A Sea Of Split Peas...
+ℹ️ [INFO] [2025-02-16T17:48:53.465Z]: 🔍 Checking if image exists in Supabase storage: covers/5601696.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:53.929Z]: ✅ Image already exists: covers/5601696.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:53.930Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/5601696.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:54.037Z]: 🔍 Checking if image exists in Supabase storage: covers/1694416.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:54.036Z]: ⬇️ Downloading image for What's For Dinner?...
+ℹ️ [INFO] [2025-02-16T17:48:54.157Z]: ✅ Image already exists: covers/1694416.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:54.158Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/1694416.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:54.273Z]: ⬇️ Downloading image for Never Twice ...
+ℹ️ [INFO] [2025-02-16T17:48:54.273Z]: 🔍 Checking if image exists in Supabase storage: covers/9120695.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:54.406Z]: ✅ Image already exists: covers/9120695.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:54.406Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/9120695.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:54.559Z]: 🔍 Checking if image exists in Supabase storage: covers/4245199.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:54.559Z]: ⬇️ Downloading image for II...
+ℹ️ [INFO] [2025-02-16T17:48:54.705Z]: ✅ Image already exists: covers/4245199.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:54.705Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/4245199.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:54.828Z]: ⬇️ Downloading image for My Baby Just Cares For Me...
+ℹ️ [INFO] [2025-02-16T17:48:54.828Z]: 🔍 Checking if image exists in Supabase storage: covers/11915831.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:54.956Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/11915831.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:54.956Z]: ✅ Image already exists: covers/11915831.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:55.050Z]: ⬇️ Downloading image for Either / Or...
+ℹ️ [INFO] [2025-02-16T17:48:55.050Z]: 🔍 Checking if image exists in Supabase storage: covers/706098.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:55.157Z]: ✅ Image already exists: covers/706098.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:55.157Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/706098.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:55.275Z]: ⬇️ Downloading image for Out Of The Blue...
+ℹ️ [INFO] [2025-02-16T17:48:55.281Z]: 🔍 Checking if image exists in Supabase storage: covers/8572856.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:55.441Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/8572856.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:55.440Z]: ✅ Image already exists: covers/8572856.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:55.587Z]: ⬇️ Downloading image for Christmas...
+ℹ️ [INFO] [2025-02-16T17:48:55.587Z]: 🔍 Checking if image exists in Supabase storage: covers/1542557.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:55.708Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/1542557.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:55.708Z]: ✅ Image already exists: covers/1542557.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:55.809Z]: 🔍 Checking if image exists in Supabase storage: covers/2131760.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:55.809Z]: ⬇️ Downloading image for Twenty Greatest Hits...
+ℹ️ [INFO] [2025-02-16T17:48:55.918Z]: ✅ Image already exists: covers/2131760.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:55.918Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/2131760.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:56.035Z]: 🔍 Checking if image exists in Supabase storage: covers/6131666.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:56.035Z]: ⬇️ Downloading image for Sadnecessary...
+ℹ️ [INFO] [2025-02-16T17:48:56.172Z]: ✅ Image already exists: covers/6131666.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:56.172Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/6131666.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:56.268Z]: ⬇️ Downloading image for Let It Bleed...
+ℹ️ [INFO] [2025-02-16T17:48:56.268Z]: 🔍 Checking if image exists in Supabase storage: covers/443148.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:57.484Z]: ✅ Image already exists: covers/443148.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:57.484Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/443148.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:57.612Z]: ⬇️ Downloading image for Five Easy Hot Dogs...
+ℹ️ [INFO] [2025-02-16T17:48:57.615Z]: 🔍 Checking if image exists in Supabase storage: covers/27366222.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:58.025Z]: ✅ Image already exists: covers/27366222.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:58.025Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/27366222.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:58.149Z]: ⬇️ Downloading image for Bachman-Turner Overdrive II...
+ℹ️ [INFO] [2025-02-16T17:48:58.150Z]: 🔍 Checking if image exists in Supabase storage: covers/700498.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:58.263Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/700498.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:58.262Z]: ✅ Image already exists: covers/700498.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:58.366Z]: 🔍 Checking if image exists in Supabase storage: covers/12753004.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:58.365Z]: ⬇️ Downloading image for In The Aeroplane Over The Sea...
+ℹ️ [INFO] [2025-02-16T17:48:58.485Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/12753004.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:58.485Z]: ✅ Image already exists: covers/12753004.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:59.032Z]: ⬇️ Downloading image for MCIII...
+ℹ️ [INFO] [2025-02-16T17:48:59.032Z]: 🔍 Checking if image exists in Supabase storage: covers/6963285.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:59.138Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/6963285.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:59.138Z]: ✅ Image already exists: covers/6963285.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:59.282Z]: ⬇️ Downloading image for Sometimes I Sit And Think, And Sometimes I Just Sit...
+ℹ️ [INFO] [2025-02-16T17:48:59.282Z]: 🔍 Checking if image exists in Supabase storage: covers/6808830.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:59.413Z]: ✅ Image already exists: covers/6808830.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:59.413Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/6808830.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:59.523Z]: ⬇️ Downloading image for Live At Easy Street...
+ℹ️ [INFO] [2025-02-16T17:48:59.523Z]: 🔍 Checking if image exists in Supabase storage: covers/13485627.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:59.659Z]: ✅ Image already exists: covers/13485627.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:48:59.659Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/13485627.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:59.756Z]: ⬇️ Downloading image for Solo Monk...
+ℹ️ [INFO] [2025-02-16T17:48:59.759Z]: 🔍 Checking if image exists in Supabase storage: covers/5554961.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:59.908Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/5554961.jpeg
+ℹ️ [INFO] [2025-02-16T17:48:59.908Z]: ✅ Image already exists: covers/5554961.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:00.066Z]: ⬇️ Downloading image for Magic Potion...
+ℹ️ [INFO] [2025-02-16T17:49:00.066Z]: 🔍 Checking if image exists in Supabase storage: covers/1779487.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:00.213Z]: ✅ Image already exists: covers/1779487.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:00.213Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/1779487.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:00.347Z]: ⬇️ Downloading image for Let's Rock...
+ℹ️ [INFO] [2025-02-16T17:49:00.348Z]: 🔍 Checking if image exists in Supabase storage: covers/13812915.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:00.499Z]: ✅ Image already exists: covers/13812915.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:00.499Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/13812915.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:00.644Z]: ⬇️ Downloading image for Raw Delta Blues...
+ℹ️ [INFO] [2025-02-16T17:49:00.645Z]: 🔍 Checking if image exists in Supabase storage: covers/3234844.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:00.787Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/3234844.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:00.786Z]: ✅ Image already exists: covers/3234844.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:00.884Z]: ⬇️ Downloading image for Françoise Hardy...
+ℹ️ [INFO] [2025-02-16T17:49:00.885Z]: 🔍 Checking if image exists in Supabase storage: covers/24142475.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:00.978Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/24142475.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:00.978Z]: ✅ Image already exists: covers/24142475.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:01.122Z]: ⬇️ Downloading image for Bonnie Koloc...
+ℹ️ [INFO] [2025-02-16T17:49:01.122Z]: 🔍 Checking if image exists in Supabase storage: covers/413016.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:01.292Z]: ✅ Image already exists: covers/413016.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:01.293Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/413016.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:01.411Z]: ⬇️ Downloading image for Live In Las Vegas...
+ℹ️ [INFO] [2025-02-16T17:49:01.412Z]: 🔍 Checking if image exists in Supabase storage: covers/723002.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:01.813Z]: ✅ Image already exists: covers/723002.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:01.813Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/723002.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:02.834Z]: ⬇️ Downloading image for Born On Flag Day...
+ℹ️ [INFO] [2025-02-16T17:49:02.835Z]: 🔍 Checking if image exists in Supabase storage: covers/4969532.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:03.002Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/4969532.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:03.001Z]: ✅ Image already exists: covers/4969532.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:03.304Z]: 🔍 Checking if image exists in Supabase storage: covers/28180618.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:03.303Z]: ⬇️ Downloading image for The Black Dirt Sessions...
+ℹ️ [INFO] [2025-02-16T17:49:03.460Z]: ✅ Image already exists: covers/28180618.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:03.460Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/28180618.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:03.606Z]: 🔍 Checking if image exists in Supabase storage: covers/3566933.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:03.605Z]: ⬇️ Downloading image for Diamond Rugs...
+ℹ️ [INFO] [2025-02-16T17:49:03.776Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/3566933.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:03.776Z]: ✅ Image already exists: covers/3566933.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:03.940Z]: ⬇️ Downloading image for War Elephant...
+ℹ️ [INFO] [2025-02-16T17:49:03.941Z]: 🔍 Checking if image exists in Supabase storage: covers/1649633.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:04.547Z]: ✅ Image already exists: covers/1649633.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:04.547Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/1649633.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:04.688Z]: ⬇️ Downloading image for Divine Providence...
+ℹ️ [INFO] [2025-02-16T17:49:04.688Z]: 🔍 Checking if image exists in Supabase storage: covers/3190006.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:04.795Z]: ✅ Image already exists: covers/3190006.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:04.795Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/3190006.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:04.950Z]: ⬇️ Downloading image for Negativity...
+ℹ️ [INFO] [2025-02-16T17:49:04.950Z]: 🔍 Checking if image exists in Supabase storage: covers/4929194.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:05.057Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/4929194.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:05.056Z]: ✅ Image already exists: covers/4929194.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:05.150Z]: ⬇️ Downloading image for Vol. 2...
+ℹ️ [INFO] [2025-02-16T17:49:05.151Z]: 🔍 Checking if image exists in Supabase storage: covers/10717712.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:05.266Z]: ✅ Image already exists: covers/10717712.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:05.267Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/10717712.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:05.413Z]: ⬇️ Downloading image for Mayonnaise...
+ℹ️ [INFO] [2025-02-16T17:49:05.414Z]: 🔍 Checking if image exists in Supabase storage: covers/13145359.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:05.704Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/13145359.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:05.704Z]: ✅ Image already exists: covers/13145359.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:05.824Z]: 🔍 Checking if image exists in Supabase storage: covers/3126020.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:05.823Z]: ⬇️ Downloading image for The Singing Nun...
+ℹ️ [INFO] [2025-02-16T17:49:05.957Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/3126020.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:05.957Z]: ✅ Image already exists: covers/3126020.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:06.070Z]: 🔍 Checking if image exists in Supabase storage: covers/24104555.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:06.070Z]: ⬇️ Downloading image for Animals...
+ℹ️ [INFO] [2025-02-16T17:49:06.206Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/24104555.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:06.206Z]: ✅ Image already exists: covers/24104555.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:06.363Z]: ⬇️ Downloading image for Being No One, Going Nowhere...
+ℹ️ [INFO] [2025-02-16T17:49:06.363Z]: 🔍 Checking if image exists in Supabase storage: covers/9283492.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:06.470Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/9283492.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:06.470Z]: ✅ Image already exists: covers/9283492.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:06.575Z]: ⬇️ Downloading image for Barry Goudreau...
+ℹ️ [INFO] [2025-02-16T17:49:06.576Z]: 🔍 Checking if image exists in Supabase storage: covers/2363745.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:06.705Z]: ✅ Image already exists: covers/2363745.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:06.705Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/2363745.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:06.818Z]: 🔍 Checking if image exists in Supabase storage: covers/963568.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:06.818Z]: ⬇️ Downloading image for The Best Of Sam Cooke...
+ℹ️ [INFO] [2025-02-16T17:49:06.939Z]: ✅ Image already exists: covers/963568.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:06.939Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/963568.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:07.107Z]: ⬇️ Downloading image for The Best Of Eddy Arnold...
+ℹ️ [INFO] [2025-02-16T17:49:07.108Z]: 🔍 Checking if image exists in Supabase storage: covers/1626912.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:07.246Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/1626912.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:07.246Z]: ✅ Image already exists: covers/1626912.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:07.356Z]: ⬇️ Downloading image for This Is Glenn Miller...
+ℹ️ [INFO] [2025-02-16T17:49:07.357Z]: 🔍 Checking if image exists in Supabase storage: covers/2685808.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:07.469Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/2685808.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:07.469Z]: ✅ Image already exists: covers/2685808.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:07.563Z]: ⬇️ Downloading image for Their Ultimate Collection...
+ℹ️ [INFO] [2025-02-16T17:49:07.563Z]: 🔍 Checking if image exists in Supabase storage: covers/23301983.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:07.682Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/23301983.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:07.682Z]: ✅ Image already exists: covers/23301983.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:07.956Z]: ⬇️ Downloading image for Harvest...
+ℹ️ [INFO] [2025-02-16T17:49:07.957Z]: 🔍 Checking if image exists in Supabase storage: covers/13798684.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:08.082Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/13798684.jpeg
+ℹ️ [INFO] [2025-02-16T17:49:08.082Z]: 📸 Image processing complete.
+ℹ️ [INFO] [2025-02-16T17:49:08.082Z]: ✅ Image already exists: covers/13798684.jpeg, skipping upload.
+ℹ️ [INFO] [2025-02-16T17:49:08.083Z]: ✅ Processed 100 records.
+ℹ️ [INFO] [2025-02-16T17:49:08.261Z]: ✅ Successfully updated Supabase records.
