@@ -1,131 +1,45 @@
-import { createClient } from "@supabase/supabase-js";
+// src/utils/fetchDiscogs.ts
+import fetch from "node-fetch";
 import dotenv from "dotenv";
-import fs from "fs";
-import path from "path";
 
 dotenv.config();
 
-const DISCOGS_API_URL =
-  "https://api.discogs.com/users/manhartjohn/collection/folders/0/releases";
-const DISCOGS_API_TOKEN = process.env.PUBLIC_DISCOGS_API_TOKEN;
+const DISCOGS_API_KEY = process.env.DISCOGS_API_KEY!;
+const DISCOGS_BASE_URL = "https://api.discogs.com/releases/";
 
-const supabase = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY! // Use Service Role Key for Storage Uploads
-);
-
-async function fetchModule() {
-  const fetch = (await import("node-fetch")).default; // ✅ Fix: Dynamic Import
-  return fetch;
-}
-
-async function uploadImageToSupabase(imageUrl: string, recordId: number) {
+export async function fetchDiscogsImage(
+  releaseId: string
+): Promise<string | null> {
   try {
-    const fetch = await fetchModule(); // ✅ Fix: Use the dynamically imported fetch
-    const response = await fetch(imageUrl);
-    if (!response.ok)
-      throw new Error(`Failed to download image from ${imageUrl}`);
+    const url = `${DISCOGS_BASE_URL}${releaseId}`;
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Discogs token ${DISCOGS_API_KEY}`,
+        "User-Agent": "YourAppName/1.0",
+      },
+    });
 
-    const buffer = await response.buffer();
-    const filePath = `record-images/${recordId}.jpg`;
-
-    const { data, error } = await supabase.storage
-      .from("record-images")
-      .upload(filePath, buffer, {
-        contentType: "image/jpeg",
-        upsert: true,
-      });
-
-    if (error) {
-      console.error("❌ Failed to upload image to Supabase:", error);
+    if (!response.ok) {
+      console.error(
+        `❌ Discogs API error: ${response.status} - ${response.statusText}`
+      );
       return null;
     }
 
-    return `${process.env.SUPABASE_URL}/storage/v1/object/public/${filePath}`;
-  } catch (err) {
-    console.error("❌ Image Upload Error:", err);
+    const data = await response.json();
+    const imageUrl =
+      data.images?.find((img: any) => img.type === "primary")?.resource_url ||
+      null;
+
+    if (!imageUrl) {
+      console.warn(`⚠️ No primary image found for release ID: ${releaseId}`);
+      return null;
+    }
+
+    console.log(`✅ Fetched image for release ${releaseId}: ${imageUrl}`);
+    return imageUrl;
+  } catch (error) {
+    console.error(`❌ Error fetching from Discogs:`, error);
     return null;
   }
 }
-
-async function fetchAllDiscogsRecords() {
-  console.log("Fetching all records from Discogs...");
-  const fetch = await fetchModule(); // ✅ Fix: Use the dynamically imported fetch
-
-  let allRecords: any[] = [];
-  let page = 1;
-  let totalPages = 1;
-
-  while (page <= totalPages) {
-    console.log(`📦 Fetching page ${page}...`);
-
-    const response = await fetch(
-      `${DISCOGS_API_URL}?per_page=100&page=${page}`,
-      {
-        headers: { Authorization: `Discogs token ${DISCOGS_API_TOKEN}` },
-      }
-    );
-
-    if (!response.ok) {
-      console.error("❌ Failed to fetch from Discogs:", response.status);
-      return [];
-    }
-
-    const json = (await response.json()) as {
-      releases: any[];
-      pagination: { items: number };
-    };
-
-    if (page === 1) {
-      totalPages = Math.ceil(json.pagination.items / 100);
-      console.log(`📦 Total Pages: ${totalPages}`);
-    }
-
-    for (const record of json.releases) {
-      const supabaseImageUrl = await uploadImageToSupabase(
-        record.basic_information.cover_image,
-        record.id
-      );
-
-      allRecords.push({
-        id: record.id,
-        title: record.basic_information.title,
-        artist: record.basic_information.artists[0].name,
-        year: record.basic_information.year,
-        genre: record.basic_information.genres,
-        image_url: supabaseImageUrl || record.basic_information.cover_image, // ✅ Fallback to Discogs if upload fails
-        discogs_url: record.basic_information.resource_url,
-        last_updated: new Date().toISOString(),
-      });
-    }
-
-    page++;
-  }
-
-  console.log(`✅ Fetched ${allRecords.length} total records from Discogs.`);
-  return allRecords;
-}
-
-async function updateSupabaseRecords() {
-  const records = await fetchAllDiscogsRecords();
-
-  if (records.length === 0) {
-    console.log("No records found or failed to fetch.");
-    return;
-  }
-
-  console.log(`🔄 Updating ${records.length} records in Supabase...`);
-
-  const { data, error } = await supabase.from("records").upsert(records, {
-    onConflict: "id",
-  });
-
-  if (error) {
-    console.error("❌ Error updating records in Supabase:", error);
-  } else {
-    console.log("✅ Records updated successfully in Supabase!");
-  }
-}
-
-// Run the script
-updateSupabaseRecords();
