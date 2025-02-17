@@ -22,8 +22,20 @@ export async function GET() {
 
     if (error) throw error;
 
-    console.log(`✅ Retrieved ${data.length} records from Supabase.`);
-    return new Response(JSON.stringify(data), { status: 200 });
+    // Construct the full Supabase Storage URL dynamically
+    const SUPABASE_STORAGE_URL = `${SUPABASE_URL}/storage/v1/object/public/record-images/covers/`;
+
+    const records = data.map((record) => ({
+      ...record,
+      supabase_image_url:
+        record.supabase_image_url &&
+        !record.supabase_image_url.startsWith(SUPABASE_STORAGE_URL)
+          ? `${SUPABASE_STORAGE_URL}${record.supabase_image_url}`
+          : record.supabase_image_url, // Use the existing value if it's already correct
+    }));
+
+    console.log(`✅ Retrieved ${records.length} records from Supabase.`);
+    return new Response(JSON.stringify(records), { status: 200 });
   } catch (err) {
     console.error("❌ API Error fetching records:", err);
     return new Response(
