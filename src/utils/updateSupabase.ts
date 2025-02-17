@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
 import { DiscogsRecord } from "./fetchDiscogs";
 
@@ -6,107 +6,60 @@ dotenv.config();
 
 const SUPABASE_URL = process.env.SUPABASE_URL!;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const TABLE_NAME = "records";
-
-export async function updateSupabaseRecords(supabase, records) {
-  if (!Array.isArray(records)) {
-    console.error("❌ Records is not an array:", records);
-    return;
-  }
-
-  console.log(
-    `📦 Preparing to insert ${records.length} records into Supabase...`
-  );
-
-  if (records.length === 0) {
-    console.warn("⚠️ No records to insert. Skipping Supabase update.");
-    return;
-  }
-
-  const { error } = await supabase.from("records").upsert(records, {
-    onConflict: ["release_id"],
-  });
-
-  if (error) {
-    console.error("❌ Supabase insert error:", error);
-    return;
-  }
-
-  console.log("✅ Supabase update successful!");
+// ✅ Ensure required environment variables exist
+if (!SUPABASE_URL || !SUPABASE_KEY) {
+  throw new Error("❌ Supabase environment variables are missing!");
 }
 
-// export async function updateSupabaseRecords(records: DiscogsRecord[]) {
-//   if (records.length === 0) {
-//     console.log("⚠️ No records to update.");
-//     return;
-//   }
+// ✅ Initialize Supabase client
+const supabase: SupabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-//   console.log("📦 Updating Supabase with Discogs records...");
-
-//   for (const record of records) {
-//     const { id, title, artist, release_id, image_url } = record;
-
-//     // Check if record exists
-//     const { data: existingRecord, error: fetchError } = await supabase
-//       .from(TABLE_NAME)
-//       .select("id")
-//       .eq("release_id", release_id)
-//       .single();
-
-//     if (fetchError && fetchError.code !== "PGRST116") {
-//       console.error(
-//         `❌ Error checking record ${release_id}:`,
-//         fetchError.message
-//       );
-//       continue;
-//     }
-
-//     if (existingRecord) {
-//       // Update existing record
-//       const { error: updateError } = await supabase
-//         .from(TABLE_NAME)
-//         .update({ title, artist, image_url })
-//         .eq("release_id", release_id);
-
-//       if (updateError) {
-//         console.error(
-//           `❌ Failed to update record ${release_id}:`,
-//           updateError.message
-//         );
-//       } else {
-//         console.log(`🔄 Updated record ${release_id}: ${title}`);
-//       }
-//     } else {
-//       // Insert new record
-//       const { error: insertError } = await supabase
-//         .from(TABLE_NAME)
-//         .insert([{ id, title, artist, release_id, image_url }]);
-
-//       if (insertError) {
-//         console.error(
-//           `❌ Failed to insert record ${release_id}:`,
-//           insertError.message
-//         );
-//       } else {
-//         console.log(`✅ Inserted new record ${release_id}: ${title}`);
-//       }
-//     }
-//   }
-
-//   console.log("🎉 Supabase records update complete.");
-// }
+const TABLE_NAME = "records";
+const SUPABASE_STORAGE_URL = `${SUPABASE_URL}/storage/v1/object/public/record-images/covers/`;
 
 /**
- * updateSupabase.ts
+ * Updates the Supabase `records` table with new records from Discogs.
+ * - Ensures only new/missing records are added.
+ * - Updates missing `supabase_image_url` values.
  *
- * This module handles updating the Supabase database with new or modified Discogs data.
- * - It checks for existing records and updates them if necessary.
- * - It inserts new records if they are not found.
- * - It ensures that only changed data is updated.
- *
- * Expected Functions:
- * - `syncRecordsWithSupabase(records: any[])`: Updates the Supabase table with Discogs records.
- * - `updateRecord(record: any)`: Updates a single record in Supabase.
+ * @param {DiscogsRecord[]} records - The records to insert/update in Supabase.
  */
+export async function updateSupabaseRecords(records: DiscogsRecord[]) {
+  try {
+    if (!Array.isArray(records)) {
+      console.error("❌ Records input is not an array:", records);
+      return;
+    }
+
+    console.log(
+      `📦 Preparing to insert ${records.length} records into Supabase...`
+    );
+
+    if (records.length === 0) {
+      console.warn("⚠️ No records to insert. Skipping Supabase update.");
+      return;
+    }
+
+    // ✅ Ensure `supabase_image_url` is correctly formatted
+    const cleanedRecords = records.map((record) => ({
+      ...record,
+      supabase_image_url: record.supabase_image_url
+        ? `${SUPABASE_STORAGE_URL}${record.release_id}.jpeg`
+        : null, // Ensure correct formatting
+    }));
+
+    // ✅ Insert/update records, avoiding duplicates
+    const { error } = await supabase.from(TABLE_NAME).upsert(cleanedRecords, {
+      onConflict: ["release_id"],
+    });
+
+    if (error) {
+      throw new Error(`❌ Supabase insert error: ${error.message}`);
+    }
+
+    console.log("✅ Supabase update successful!");
+  } catch (error) {
+    console.error("❌ Error updating Supabase records:", error);
+  }
+}

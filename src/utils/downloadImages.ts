@@ -1,12 +1,3 @@
-/**
- * downloadImages.ts
- *
- * This module handles downloading album images from Discogs and uploading them to Supabase Storage.
- * - Downloads images from Discogs using the record’s `image_url`.
- * - Uploads images to Supabase Storage.
- * - Checks if an image already exists to prevent duplicate uploads.
- */
-
 import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
 import fetch from "node-fetch";
@@ -37,26 +28,27 @@ export async function downloadImages(releases: any[]) {
         continue;
       }
 
-      // Extract file extension (default to .jpg if unknown)
-      const extension =
-        path.extname(new URL(discogsImageUrl).pathname) || ".jpg";
+      // ✅ Ensure correct `.jpeg` extension
+      let extension = path.extname(new URL(discogsImageUrl).pathname);
+      if (!extension || extension === ".jpg") extension = ".jpeg"; // Use `.jpeg`
+
       const storagePath = `covers/${releaseId}${extension}`;
 
-      // Check if the image already exists in Supabase Storage
-      const { data: existingFiles, error: checkError } = await supabase.storage
+      // ✅ Check if image exists in Supabase Storage
+      const { data: fileData, error: fileCheckError } = await supabase.storage
         .from(STORAGE_BUCKET)
-        .list("covers");
+        .list("covers", { search: `${releaseId}` });
 
-      if (checkError) {
-        logError(`❌ Error checking existing file for ${title}`, checkError);
+      if (fileCheckError) {
+        logError(
+          `❌ Error checking existing file for ${title}`,
+          fileCheckError
+        );
         continue;
       }
 
-      // If image exists, skip download
-      const fileExists = existingFiles.some(
-        (file) => file.name === `${releaseId}${extension}`
-      );
-      if (fileExists) {
+      // ✅ Skip downloading if the image already exists
+      if (fileData.some((file) => file.name === `${releaseId}${extension}`)) {
         logInfo(`✅ Image already exists for ${title}, skipping...`);
         continue;
       }

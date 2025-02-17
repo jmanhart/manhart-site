@@ -404,3 +404,106 @@
 ℹ️ [INFO] [2025-02-16T17:49:08.082Z]: ✅ Image already exists: covers/13798684.jpeg, skipping upload.
 ℹ️ [INFO] [2025-02-16T17:49:08.083Z]: ✅ Processed 100 records.
 ℹ️ [INFO] [2025-02-16T17:49:08.261Z]: ✅ Successfully updated Supabase records.
+ℹ️ [INFO] [2025-02-17T05:02:46.510Z]: 📡 Fetching all records from Discogs API...
+ℹ️ [INFO] [2025-02-17T05:02:46.510Z]: 📄 Fetching page 1 of Discogs records...
+ℹ️ [INFO] [2025-02-17T05:02:46.954Z]: 🔄 Total pages to fetch: 2
+ℹ️ [INFO] [2025-02-17T05:02:46.955Z]: 📄 Fetching page 2 of Discogs records...
+ℹ️ [INFO] [2025-02-17T05:02:47.141Z]: ✅ Successfully fetched 127 records from Discogs.
+ℹ️ [INFO] [2025-02-17T05:02:47.490Z]: ✅ No new records to add. Everything is already up-to-date.
+ℹ️ [INFO] [2025-02-17T05:03:08.955Z]: 📄 Fetching page 1 of Discogs records...
+ℹ️ [INFO] [2025-02-17T05:03:08.955Z]: 📡 Fetching all records from Discogs API...
+ℹ️ [INFO] [2025-02-17T05:03:09.247Z]: 🔄 Total pages to fetch: 2
+ℹ️ [INFO] [2025-02-17T05:03:09.247Z]: 📄 Fetching page 2 of Discogs records...
+ℹ️ [INFO] [2025-02-17T05:03:09.417Z]: ✅ Successfully fetched 127 records from Discogs.
+ℹ️ [INFO] [2025-02-17T05:03:09.605Z]: ✅ No new records to add. Everything is already up-to-date.
+ℹ️ [INFO] [2025-02-17T05:07:10.882Z]: 🚀 Starting Discogs-to-Supabase sync...
+ℹ️ [INFO] [2025-02-17T05:07:10.883Z]: 📡 Fetching all records from Discogs API...
+ℹ️ [INFO] [2025-02-17T05:07:10.883Z]: 📄 Fetching page 1 of Discogs records...
+ℹ️ [INFO] [2025-02-17T05:07:11.190Z]: 🔄 Total pages to fetch: 2
+ℹ️ [INFO] [2025-02-17T05:07:11.190Z]: 📄 Fetching page 2 of Discogs records...
+ℹ️ [INFO] [2025-02-17T05:07:11.350Z]: ✅ Successfully fetched 127 records from Discogs.
+ℹ️ [INFO] [2025-02-17T05:07:11.685Z]: ✅ No new records to add. Everything is already up-to-date.
+ℹ️ [INFO] [2025-02-17T05:07:11.685Z]: ✅ No new records to add. Everything is already up-to-date.
+ℹ️ [INFO] [2025-02-17T05:07:11.685Z]: ✅ Sync complete.
+ℹ️ [INFO] [2025-02-17T05:10:55.174Z]: 🚀 Starting Discogs-to-Supabase sync...
+ℹ️ [INFO] [2025-02-17T05:10:55.174Z]: 📡 Fetching all records from Discogs API...
+ℹ️ [INFO] [2025-02-17T05:10:55.174Z]: 📄 Fetching page 1 of Discogs records...
+ℹ️ [INFO] [2025-02-17T05:10:55.560Z]: 📄 Fetching page 2 of Discogs records...
+ℹ️ [INFO] [2025-02-17T05:10:55.560Z]: 🔄 Total pages to fetch: 2
+ℹ️ [INFO] [2025-02-17T05:10:55.758Z]: ✅ Successfully fetched 127 records from Discogs.
+ℹ️ [INFO] [2025-02-17T05:10:56.240Z]: ✅ No new records to add. Everything is already up-to-date.
+ℹ️ [INFO] [2025-02-17T05:10:56.240Z]: ✅ Sync complete.
+ℹ️ [INFO] [2025-02-17T05:10:56.240Z]: ✅ No new records to add. Everything is already up-to-date.
+ℹ️ [INFO] [2025-02-17T05:35:04.618Z]: 🚀 Starting Discogs-to-Supabase sync...
+ℹ️ [INFO] [2025-02-17T05:35:04.619Z]: 📡 Fetching all records from Discogs API...
+ℹ️ [INFO] [2025-02-17T05:35:04.619Z]: 📄 Fetching page 1 of Discogs records...
+ℹ️ [INFO] [2025-02-17T05:35:04.925Z]: 📄 Fetching page 2 of Discogs records...
+ℹ️ [INFO] [2025-02-17T05:35:04.925Z]: 🔄 Total pages to fetch: 2
+ℹ️ [INFO] [2025-02-17T05:35:05.096Z]: ✅ Successfully fetched 127 records from Discogs.
+ℹ️ [INFO] [2025-02-17T05:35:05.425Z]: 🆕 Found 0 new records.
+ℹ️ [INFO] [2025-02-17T05:35:05.425Z]: 📸 Image processing complete.
+ℹ️ [INFO] [2025-02-17T05:35:05.425Z]: 📸 Found 27 records missing images.
+ℹ️ [INFO] [2025-02-17T05:35:05.425Z]: 📸 Checking and downloading images...
+ℹ️ [INFO] [2025-02-17T05:35:06.479Z]: 🖼️ Image was missing for Exile On Main St. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:07.334Z]: 🖼️ Image was missing for Modern Vampires Of The City. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:08.019Z]: 🖼️ Image was missing for Black And Blue. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:09.047Z]: 🖼️ Image was missing for Some Girls. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:10.073Z]: 🖼️ Image was missing for Love You Live. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:10.683Z]: 🖼️ Image was missing for Sticky Fingers. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:11.364Z]: 🖼️ Image was missing for Scramble. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:11.723Z]: 🖼️ Image was missing for Contractual Obligations. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:12.388Z]: 🖼️ Image was missing for Oh, Inverted World. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:12.940Z]: 🖼️ Image was missing for 6 Feet Beneath The Moon. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:13.549Z]: 🖼️ Image was missing for Water. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:14.212Z]: 🖼️ Image was missing for Benny Goodman Plays World Favorites In High-Fidelity. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:14.790Z]: 🖼️ Image was missing for Undercurrent. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:15.403Z]: 🖼️ Image was missing for Jazz At Massey Hall. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:16.075Z]: 🖼️ Image was missing for JR JR. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:16.637Z]: 🖼️ Image was missing for Madvillainy. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:17.299Z]: 🖼️ Image was missing for (Moving). Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:17.949Z]: 🖼️ Image was missing for Half The City. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:18.662Z]: 🖼️ Image was missing for American Beauty. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:19.210Z]: 🖼️ Image was missing for Time's All Gone. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:19.863Z]: 🖼️ Image was missing for Music From And Inspired By Disney Pixar’s “Soul”. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:20.495Z]: 🖼️ Image was missing for Holly. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:21.076Z]: 🖼️ Image was missing for Rust Never Sleeps. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:21.634Z]: 🖼️ Image was missing for Workingman's Dead. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:22.266Z]: 🖼️ Image was missing for Electric Ladyland. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:22.825Z]: 🖼️ Image was missing for Painted Shut. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:23.549Z]: 🖼️ Image was missing for Let The Good Times Roll. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:35:23.550Z]: ✅ Processed 0 new records.
+❌ [ERROR] [2025-02-17T05:35:23.550Z]: ❌ Records input is not an array
+ℹ️ [INFO] [2025-02-17T05:41:15.339Z]: 🚀 Starting Discogs-to-Supabase sync...
+ℹ️ [INFO] [2025-02-17T05:41:15.340Z]: 📡 Fetching all records from Discogs API...
+ℹ️ [INFO] [2025-02-17T05:41:15.340Z]: 📄 Fetching page 1 of Discogs records...
+ℹ️ [INFO] [2025-02-17T05:41:15.686Z]: 🔄 Total pages to fetch: 2
+ℹ️ [INFO] [2025-02-17T05:41:15.687Z]: 📄 Fetching page 2 of Discogs records...
+ℹ️ [INFO] [2025-02-17T05:41:15.848Z]: ✅ Successfully fetched 130 records from Discogs.
+ℹ️ [INFO] [2025-02-17T05:41:16.071Z]: 🆕 Found 3 new records.
+ℹ️ [INFO] [2025-02-17T05:41:16.071Z]: 📸 Found 0 records missing images.
+ℹ️ [INFO] [2025-02-17T05:41:16.071Z]: 📸 Checking and downloading images...
+ℹ️ [INFO] [2025-02-17T05:41:16.329Z]: ⬇️ Downloading image for Smooth Sailing...
+ℹ️ [INFO] [2025-02-17T05:41:17.273Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/2843706.jpeg
+ℹ️ [INFO] [2025-02-17T05:41:17.395Z]: ⬇️ Downloading image for Bird In Kansas City...
+ℹ️ [INFO] [2025-02-17T05:41:18.094Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/32237577.jpeg
+ℹ️ [INFO] [2025-02-17T05:41:18.214Z]: ⬇️ Downloading image for Somethin' Else...
+ℹ️ [INFO] [2025-02-17T05:41:18.954Z]: ✅ Successfully uploaded: https://bwrsabjywxnrvorxoizc.supabase.co/storage/v1/object/public/record-images/covers/3799216.jpeg
+ℹ️ [INFO] [2025-02-17T05:41:18.954Z]: 📸 Image processing complete.
+ℹ️ [INFO] [2025-02-17T05:41:18.955Z]: ✅ Processed 3 new records.
+ℹ️ [INFO] [2025-02-17T05:41:19.070Z]: ✅ Successfully updated Supabase with new records.
+❌ [ERROR] [2025-02-17T05:41:19.071Z]: ❌ Records input is not an array
+ℹ️ [INFO] [2025-02-17T05:43:20.114Z]: 🚀 Starting Discogs-to-Supabase sync...
+ℹ️ [INFO] [2025-02-17T05:43:20.114Z]: 📡 Fetching all records from Discogs API...
+ℹ️ [INFO] [2025-02-17T05:43:20.114Z]: 📄 Fetching page 1 of Discogs records...
+ℹ️ [INFO] [2025-02-17T05:43:20.424Z]: 🔄 Total pages to fetch: 2
+ℹ️ [INFO] [2025-02-17T05:43:20.424Z]: 📄 Fetching page 2 of Discogs records...
+ℹ️ [INFO] [2025-02-17T05:43:20.590Z]: ✅ Successfully fetched 130 records from Discogs.
+ℹ️ [INFO] [2025-02-17T05:43:20.881Z]: 🆕 Found 0 new records.
+ℹ️ [INFO] [2025-02-17T05:43:20.881Z]: 📸 Found 3 records missing images.
+ℹ️ [INFO] [2025-02-17T05:43:20.881Z]: 📸 Checking and downloading images...
+ℹ️ [INFO] [2025-02-17T05:43:20.881Z]: 📸 Image processing complete.
+ℹ️ [INFO] [2025-02-17T05:43:21.464Z]: 🖼️ Image was missing for Smooth Sailing. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:43:21.864Z]: 🖼️ Image was missing for Bird In Kansas City. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:43:22.263Z]: 🖼️ Image was missing for Somethin' Else. Downloaded & updated in Supabase.
+ℹ️ [INFO] [2025-02-17T05:43:22.264Z]: ✅ Processed 0 new records.
+❌ [ERROR] [2025-02-17T05:43:22.264Z]: ❌ Records input is not an array

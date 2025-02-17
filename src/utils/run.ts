@@ -1,24 +1,31 @@
-/**
- * run.ts
- *
- * The master script that orchestrates all modules.
- * - Fetches Discogs data.
- * - Updates Supabase with the latest records.
- * - Downloads and stores images if needed.
- * - Ensures robust logging for debugging.
- */
-
 import { fetchDiscogsRecords } from "./fetchDiscogs";
 import { updateSupabaseRecords } from "./updateSupabase";
+import { logInfo, logError } from "./log";
 
 async function main() {
-  console.log("🚀 Starting Discogs-to-Supabase sync...");
+  try {
+    logInfo("🚀 Starting Discogs-to-Supabase sync...");
 
-  const records = await fetchDiscogsRecords();
-  await updateSupabaseRecords(records);
+    // ✅ Fetch records from Discogs
+    const records = await fetchDiscogsRecords();
 
-  console.log("✅ Sync complete.");
+    // ✅ Ensure `records` is an array
+    if (!Array.isArray(records)) {
+      logError("❌ Records input is not an array", records);
+      return;
+    }
+
+    // ✅ Update Supabase if new records exist
+    if (records.length > 0) {
+      await updateSupabaseRecords(records);
+    } else {
+      logInfo("✅ No new records to add. Everything is already up-to-date.");
+    }
+
+    logInfo("✅ Sync complete.");
+  } catch (error) {
+    logError("❌ Unexpected error in sync process", error);
+  }
 }
 
-// Run the script
-main().catch((err) => console.error("❌ Unexpected error:", err));
+main();

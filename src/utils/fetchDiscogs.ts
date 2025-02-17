@@ -2,7 +2,8 @@ import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
 import fetch from "node-fetch";
 import { downloadImages } from "./downloadImages"; // Import image handling
-import { logInfo, logError } from "./log";
+import { uploadImageToSupabase } from "./uploadImageToSupabase"; // Import image uploader
+import { logInfo, logWarn, logError } from "./log";
 
 dotenv.config();
 
@@ -15,31 +16,114 @@ const DISCOGS_API_KEY = process.env.PUBLIC_DISCOGS_API_TOKEN;
 const DISCOGS_USER = process.env.DISCOGS_USER;
 const DISCOGS_COLLECTION_URL = `https://api.discogs.com/users/${DISCOGS_USER}/collection/folders/0/releases?per_page=100`;
 
+/**
+ * Fetch all records from Discogs API, handling pagination.
+ */
 export async function fetchDiscogsRecords() {
   try {
-    logInfo("📡 Fetching records from Discogs API...");
+    logInfo("📡 Fetching all records from Discogs API...");
 
-    const response = await fetch(DISCOGS_COLLECTION_URL, {
-      headers: { Authorization: `Discogs token=${DISCOGS_API_KEY}` },
-    });
+    let allRecords = [];
+    let page = 1;
+    let totalPages = 1; // Placeholder, will update dynamically
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch Discogs data: ${response.statusText}`);
+    do {
+      logInfo(`📄 Fetching page ${page} of Discogs records...`);
+
+      const response = await fetch(
+        `https://api.discogs.com/users/${DISCOGS_USER}/collection/folders/0/releases?per_page=100&page=${page}`,
+        {
+          headers: { Authorization: `Discogs token=${DISCOGS_API_KEY}` },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch Discogs data: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      allRecords.push(...data.releases);
+
+      // Update total pages dynamically
+      if (page === 1) {
+        totalPages = Math.ceil(data.pagination.items / 100);
+        logInfo(`🔄 Total pages to fetch: ${totalPages}`);
+      }
+
+      page++;
+    } while (page <= totalPages);
+
+    logInfo(
+      `✅ Successfully fetched ${allRecords.length} records from Discogs.`
+    );
+
+    // Step 2: Fetch existing records from Supabase to avoid duplicates
+    const { data: existingRecords, error } = await supabase
+      .from("records")
+      .select("release_id, supabase_image_url");
+
+    if (error) throw error;
+
+    const existingIds = new Set(existingRecords.map((r) => r.release_id));
+    const missingImageRecords = existingRecords.filter(
+      (record) => !record.supabase_image_url
+    );
+
+    // Step 3: Filter only new records
+    const newRecords = allRecords.filter(
+      (release) => !existingIds.has(release.id)
+    );
+
+    if (newRecords.length === 0 && missingImageRecords.length === 0) {
+      logInfo(
+        "✅ No new records to add and no missing images to fix. Everything is already up-to-date."
+      );
+      return;
     }
 
-    const data = await response.json();
-    logInfo(`✅ Successfully fetched ${data.releases.length} records.`);
+    logInfo(`🆕 Found ${newRecords.length} new records.`);
+    logInfo(`📸 Found ${missingImageRecords.length} records missing images.`);
 
-    // Download images first
-    await downloadImages(data.releases);
+    // Step 4: Download only missing images
+    await downloadImages(newRecords);
 
-    const records = data.releases.map((release) => {
+    // Step 5: Process missing images and update them in Supabase
+    for (const record of missingImageRecords) {
+      const release = allRecords.find((r) => r.id === record.release_id);
+      if (!release) continue;
+
+      const discogsImageUrl = release.basic_information?.cover_image || "";
+      if (!discogsImageUrl) continue;
+
+      // Upload to Supabase
+      const uploadedUrl = await uploadImageToSupabase(
+        discogsImageUrl,
+        record.release_id
+      );
+      if (uploadedUrl) {
+        await supabase
+          .from("records")
+          .update({ supabase_image_url: uploadedUrl })
+          .eq("release_id", record.release_id);
+
+        logInfo(
+          `🖼️ Image was missing for ${release.basic_information?.title}. Downloaded & updated in Supabase.`
+        );
+      } else {
+        logWarn(
+          `⚠️ Image was missing for ${release.basic_information?.title}, but failed to upload.`
+        );
+      }
+    }
+
+    // Step 6: Prepare new records for insertion
+    const recordsToInsert = newRecords.map((release) => {
       const releaseId = release.id;
       const title = release.basic_information?.title || "Unknown Title";
       const artist =
         release.basic_information?.artists?.[0]?.name || "Unknown Artist";
 
-      // Construct Supabase image URL (assuming images are stored in `/covers/`)
+      // Construct Supabase image URL
       const supabaseImageUrl = supabase.storage
         .from("records")
         .getPublicUrl(`covers/${releaseId}.jpg`).publicURL;
@@ -53,15 +137,17 @@ export async function fetchDiscogsRecords() {
       };
     });
 
-    logInfo(`✅ Processed ${records.length} records.`);
+    logInfo(`✅ Processed ${recordsToInsert.length} new records.`);
 
-    // Insert into Supabase
-    const { error } = await supabase
-      .from("records")
-      .upsert(records, { onConflict: ["release_id"] });
+    // Step 7: Insert new records into Supabase
+    if (recordsToInsert.length > 0) {
+      const { error: upsertError } = await supabase
+        .from("records")
+        .upsert(recordsToInsert, { onConflict: ["release_id"] });
 
-    if (error) throw error;
-    logInfo("✅ Successfully updated Supabase records.");
+      if (upsertError) throw upsertError;
+      logInfo("✅ Successfully updated Supabase with new records.");
+    }
   } catch (error) {
     logError("❌ Error in fetchDiscogsRecords", error);
   }
