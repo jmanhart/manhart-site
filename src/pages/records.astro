@@ -3,7 +3,9 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 
 const isServer = import.meta.env.SSR;
-const baseUrl = isServer ? import.meta.env.PUBLIC_SITE_URL || "http://localhost:4321" : "";
+const baseUrl = import.meta.env.MODE === "development"
+  ? "http://localhost:4321"
+  : "https://manhart.io"; 
 const apiUrl = `${baseUrl}/api/records`;
 
 console.log("📡 Fetching from:", apiUrl);
