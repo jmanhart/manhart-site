@@ -1,16 +1,19 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
+import SearchBar from "../components/SearchBar.astro";
 
 const isServer = import.meta.env.SSR;
 const baseUrl = import.meta.env.MODE === "development"
   ? "http://localhost:4321"
-  : "https://manhart.io"; 
+  : "https://manhart.io";
 const apiUrl = `${baseUrl}/api/records`;
 
 console.log("📡 Fetching from:", apiUrl);
 
 let collection = [];
+let filteredCollection = [];
+
 try {
   const response = await fetch(apiUrl);
   console.log("📡 API response status:", response.status);
@@ -26,16 +29,51 @@ try {
     const artistB = b.artist?.toLowerCase() || '';
     return artistA < artistB ? -1 : artistA > artistB ? 1 : 0;
   });
+
+  filteredCollection = collection;
 } catch (error) {
   console.error("❌ Error fetching collection:", error);
-  collection = []; // Fallback to an empty array
+  collection = [];
+  filteredCollection = [];
 }
 ---
 
 <html lang="en">
   <head>
     <BaseHead title="All Records" description="My record collection" />
+    <script client:load>
+      let collection = [];
+      let filteredCollection = [];
+
+      function updateList(event) {
+        filteredCollection = event.detail || [];
+        const collectionList = document.getElementById("collection-list");
+
+        collectionList.innerHTML = filteredCollection.length > 0
+          ? filteredCollection.map((release) => `
+              <div class="release" style="display: flex; align-items: center; margin-bottom: 15px;">
+                ${release.supabase_image_url 
+                  ? `<img src="${release.supabase_image_url}" alt="Cover of ${release.title}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px; border-radius: 5px;">` 
+                  : '<div> No Image </div>'}
+                <div>
+                  <h3 style="font-style: italic; margin: 0;">${release.title}</h3>
+                  <p style="margin: 0;">${release.artist || 'Unknown Artist'}</p>
+                </div>
+              </div>`
+            ).join("")
+          : "<p>No records found.</p>";
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        collection = JSON.parse(document.getElementById("collection-data").textContent);
+        filteredCollection = collection;
+        updateList({ detail: collection });
+
+        window.addEventListener("updateList", updateList);
+      });
+    </script>
   </head>
+
   <body>
     <Header />
     <div class="sub-page-wrapper" id="sub-page">
@@ -43,43 +81,17 @@ try {
         <div class="info-container">
           <h2>🎶 All Records</h2>
           <p class="blog-short-description">Album Count: {collection.length}</p>
-          <div id="collection-list">
-            {collection.length > 0 ? (
-              <>
-                {collection.map((release) => (
-                  <div
-                    class="release"
-                    style="display: flex; align-items: center; margin-bottom: 15px;"
-                  >
-                    {release.supabase_image_url ? (
-                      <img
-                        src={release.supabase_image_url} // ✅ Correct reference
-                        alt={`Cover of ${release.title}`}
-                        style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px; border-radius: 5px;"
-                      />
-                    ) : (
-                      <div> No Image </div>
-                    )}
-                    <div>
-                      <h3 style="font-style: italic; margin: 0;">
-                        {release.title}
-                      </h3>
-                      <p style="margin: 0;">
-                        {release.artist || 'Unknown Artist'}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </>
-            ) : (
-              <p>No records found.</p>
-            )}
-          </div>
+
+          <!-- ✅ Inject SearchBar Component -->
+          <SearchBar client:load/>
+
+          <!-- ✅ Hidden JSON for Filtering -->
+          <div id="collection-data" style="display: none;">{JSON.stringify(collection)}</div>
+
+          <!-- ✅ Collection List -->
+          <div id="collection-list"></div>
         </div>
       </div>
     </div>
   </body>
 </html>
-
-
-
