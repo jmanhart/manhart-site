@@ -5,70 +5,87 @@ export let onSearch;
 ---
 
 <div class="search-bar autocomplete-container">
-  <label for="searchInput">Search:</label>
   <input
     type="text"
     id="searchInput"
     placeholder="Search by artist or album title"
     autocomplete="off"
   />
-  <div id="autocomplete-list" class="autocomplete-list"></div>
+
+  <!-- ✅ Static test elements to verify styles -->
+  <div id="autocomplete-list" class="autocomplete-list">
+
+  </div>
 </div>
 
 <script client:load>
+  console.log("✅ SearchBar component loaded");
+
   let autocompleteSuggestions = [];
-  let selectedIndex = -1; // Track selected index for navigation
-  const maxSuggestions = 5; // Limit number of suggestions
+  let selectedIndex = -1;
+  const maxSuggestions = 10;
+
+  // ✅ Ensure elements exist before attaching events
+  const searchInput = document.getElementById("searchInput");
+  const autocompleteList = document.getElementById("autocomplete-list");
+
+  if (!searchInput || !autocompleteList) {
+    console.error("❌ Search input or autocomplete list not found");
+  }
 
   // ✅ Handle Search Filter
   function handleSearch() {
-    const searchInput = document.getElementById("searchInput").value.toLowerCase();
+    console.log("🔎 Searching...");
+    const searchInputValue = searchInput.value.toLowerCase();
     const records = JSON.parse(document.getElementById("collection-data").textContent);
 
     const filteredCollection = records.filter((record) => {
       return (
-        record.artist.toLowerCase().includes(searchInput) ||
-        record.title.toLowerCase().includes(searchInput)
+        record.artist.toLowerCase().includes(searchInputValue) ||
+        record.title.toLowerCase().includes(searchInputValue)
       );
     });
 
-    // ✅ Unique autocomplete suggestions (no duplicates)
+    // ✅ Unique autocomplete suggestions
     autocompleteSuggestions = Array.from(
       new Set(
         records
-          .map(record => record.artist)
-          .filter(artist => artist.toLowerCase().includes(searchInput))
+          .map((record) => record.artist)
+          .filter((artist) => artist.toLowerCase().includes(searchInputValue))
       )
     ).slice(0, maxSuggestions);
 
-    selectedIndex = -1; // Reset selection
+    selectedIndex = -1;
     updateAutocomplete();
     window.dispatchEvent(new CustomEvent("updateList", { detail: filteredCollection }));
   }
 
   // ✅ Update the autocomplete dropdown
   function updateAutocomplete() {
-    const autocompleteList = document.getElementById("autocomplete-list");
-    autocompleteList.innerHTML = autocompleteSuggestions
-      .map((suggestion, index) => `
-        <div 
-          class="autocomplete-item ${index === selectedIndex ? 'selected' : ''}"
-          onclick="selectSuggestion('${suggestion}')"
-          onmouseover="highlightItem(${index})"
-          data-index="${index}">
-          ${suggestion}
-        </div>`)
-      .join("");
+    autocompleteList.innerHTML = "";
+
+    autocompleteSuggestions.forEach((suggestion, index) => {
+      const item = document.createElement("div");
+      item.classList.add("autocomplete-item");
+      if (index === selectedIndex) item.classList.add("selected");
+      item.textContent = suggestion;
+
+      item.onclick = () => selectSuggestion(suggestion);
+      item.onmouseover = () => highlightItem(index);
+      autocompleteList.appendChild(item);
+    });
+
     autocompleteList.style.display = autocompleteSuggestions.length ? "block" : "none";
+    console.log("📋 Autocomplete updated:", autocompleteSuggestions);
   }
 
   // ✅ Select a suggestion
   function selectSuggestion(suggestion) {
-    const input = document.getElementById("searchInput");
-    input.value = suggestion;
-    input.focus(); // Keep focus after selection
+    searchInput.value = suggestion;
+    searchInput.focus();
     closeAutocomplete();
     handleSearch();
+    console.log(`✅ Selected: ${suggestion}`);
   }
 
   // ✅ Highlight item on hover
@@ -79,7 +96,8 @@ export let onSearch;
 
   // ✅ Close the autocomplete list
   function closeAutocomplete() {
-    document.getElementById("autocomplete-list").style.display = "none";
+    autocompleteList.style.display = "none";
+    console.log("❌ Autocomplete closed");
   }
 
   // ✅ Keyboard navigation (Arrow Up/Down and Enter)
@@ -95,8 +113,11 @@ export let onSearch;
         selectedIndex = (selectedIndex - 1 + listLength) % listLength; // Loop up
         updateAutocomplete();
         event.preventDefault();
-      } else if (event.key === "Enter" && selectedIndex >= 0) {
-        selectSuggestion(autocompleteSuggestions[selectedIndex]);
+      } else if (event.key === "Enter") {
+        if (selectedIndex >= 0) {
+          selectSuggestion(autocompleteSuggestions[selectedIndex]);
+        }
+        closeAutocomplete(); // ✅ Close menu after hitting Enter
         event.preventDefault();
       }
     }
@@ -111,20 +132,19 @@ export let onSearch;
 
   // ✅ Initialize events
   document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("searchInput").addEventListener("input", handleSearch);
+    searchInput.addEventListener("input", handleSearch);
+    console.log("🔁 Event listeners attached");
   });
 </script>
 
-<!-- ✅ CSS Styles for Search Component -->
 <style>
-  /* ✅ Search bar container */
-  .search-bar {
+  /* ✅ Global styles to avoid Astro scoping issues */
+  :global(.search-bar) {
     position: relative;
     margin-bottom: 15px;
   }
 
-  /* ✅ Input field */
-  input {
+  :global(input) {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -133,26 +153,24 @@ export let onSearch;
     transition: border-color 0.3s;
   }
 
-  input:focus {
+  :global(input:focus) {
     border-color: #007bff;
     outline: none;
   }
 
-  /* ✅ Autocomplete list */
-  .autocomplete-list {
+  :global(.autocomplete-list) {
     position: absolute;
-    border: 1px solid #ccc;
-    background: #fff;
+    /* border: 1px solid #ccc; */
+    background: white;
     width: 100%;
     border-radius: 8px;
     overflow: hidden;
     z-index: 10;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
   }
 
-  /* ✅ Autocomplete item */
-  .autocomplete-item {
-    padding: 12px;
+  :global(.autocomplete-item) {
+    padding: 12px 12px;
     cursor: pointer;
     border-bottom: 1px solid #ddd;
     font-size: 14px;
@@ -160,21 +178,18 @@ export let onSearch;
     color: #333;
   }
 
-  /* ✅ Last item no border */
-  .autocomplete-item:last-child {
+  :global(.autocomplete-item:last-child) {
     border-bottom: none;
   }
 
-  /* ✅ Hover and keyboard selection */
-  .autocomplete-item:hover,
-  .autocomplete-item.selected {
+  :global(.autocomplete-item:hover),
+  :global(.autocomplete-item.selected) {
     background-color: #007bff;
     color: white;
   }
 
-  /* ✅ Mobile touch-friendly */
   @media (hover: none) {
-    .autocomplete-item {
+    :global(.autocomplete-item) {
       padding: 16px;
       font-size: 16px;
     }
