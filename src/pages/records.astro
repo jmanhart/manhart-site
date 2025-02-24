@@ -41,7 +41,7 @@ try {
 <html lang="en">
   <head>
     <BaseHead title="All Records" description="My record collection" />
-    <script client:load>
+    <script client:only="astro">
       let collection = [];
       let filteredCollection = [];
 
@@ -83,7 +83,8 @@ try {
           <p class="blog-short-description">Album Count: {collection.length}</p>
 
           <!-- ✅ Inject SearchBar Component -->
-          <SearchBar client:load/>
+          <SearchBar />
+          
 
           <!-- ✅ Hidden JSON for Filtering -->
           <div id="collection-data" style="display: none;">{JSON.stringify(collection)}</div>
