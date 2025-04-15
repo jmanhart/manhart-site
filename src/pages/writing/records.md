@@ -1,6 +1,6 @@
 ---
 layout: "../../layouts/BlogPost.astro"
-title: "How I Ended My Vinyl Buying Anxiety"
+title: "How I Ended My Vinyl Buying Anxiety (part I)"
 description: "A project to make sure I never buy the same record twice."
 pubDate: "Nov 17, 2024"
 location: "Seattle"
