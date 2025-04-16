@@ -17,11 +17,11 @@ import "../styles/global.scss";
         <HamburgerIcon />
       </button>
 
-      <!-- Navigation links (hidden on mobile, toggleable) -->
+      <!-- Navigation links dropdown menu -->
       <div id="menu" class="menu">
         <HeaderLink href="/writing">Writing</HeaderLink>
         <HeaderLink href="/about">About</HeaderLink>
-        <HeaderLink href="/social">Links</HeaderLink>
+        <HeaderLink href="/social">Social Links</HeaderLink>
       </div>
 
       <!-- Theme toggle button -->
@@ -75,6 +75,18 @@ import "../styles/global.scss";
   // Menu toggle functionality
   document.getElementById("menu-toggle").addEventListener("click", () => {
     document.getElementById("menu").classList.toggle("open");
+  });
+
+  // Close menu when clicking close button or menu items
+  document.querySelector(".menu-close").addEventListener("click", () => {
+    document.getElementById("menu").classList.remove("open");
+  });
+
+  // Close menu when clicking menu items
+  document.querySelectorAll("#menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.getElementById("menu").classList.remove("open");
+    });
   });
 
   // Close menu when clicking outside
@@ -147,53 +159,67 @@ import "../styles/global.scss";
     width: 100%;
   }
 
-  // /* Menu styles */
-  // .menu {
-  //   display: flex;
-  //   gap: 1em;
-  //   font-size: 1em;
-  //   background-color: null;
-    
+  .menu {
+    display: flex;
+    gap: 1em;
+    align-items: center;
 
-  //   @media (max-width: 768px) {
-  //     display: none;
-  //     flex-direction: column;
-  //     position: fixed;
-  //     top: 0;
-  //     left: 0;
-  //     width: 100%;
-  //     height: 100vh;
-  //     justify-content: center;
-  //     align-items: center;
-  //     gap: 2em;
-  //     z-index: 9999;
-  //     background-color: green;
-  //   }
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      position: absolute;
+      top: 3em;
+      right: 4em;
+      background-color: var(--surface100);
+      border: 1px solid var(--divider);
+      border-radius: 0.5em;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 0.75em;
+      min-width: 180px;
+      display: none;
+      flex-direction: column;
+      gap: 0.5em;
+      z-index: 9999;
 
-  //   &.open {
-  //     display: flex;
-  //   }
+      &.open {
+        display: flex;
+      }
 
-  //   a {
-  //     color: white;
-  //     text-decoration: none;
-  //     font-size: 1rem;
-  //     @media (max-width: 768px) {
-  //       font-size: 2em;
-  //     }
-  //   }
-  // }
+      a {
+        padding: 0.75em 1em;
+        border-radius: 0.25em;
+        text-decoration: none;
+        color: var(--text-primary);
+        white-space: nowrap;
+        transition: all 0.2s ease;
+        font-size: 1.1em;
 
-  // /* Menu toggle button (visible on mobile) */
-  // .overflow-menu-toggle {
-  //   display: none;
-  //   border: none;
-  //   font-size: 1.5rem;
-  //   @media (max-width: 768px) {
-  //     display: flex;
-  //     justify-content: center;
-  //     align-items: center;
+        &:hover {
+          background-color: var(--surface200);
+          transform: translateX(2px);
+        }
+      }
+    }
+  }
 
-  //   }
-  // }
+  .overflow-menu-toggle {
+    display: none;
+    @media (max-width: 768px) {
+      display: flex;
+      background: none;
+      border: none;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+      
+      &:hover {
+        transform: scale(1.1);
+      }
+      
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
 </style>

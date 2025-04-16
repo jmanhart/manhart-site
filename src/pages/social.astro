@@ -12,15 +12,40 @@ import Header from "../components/Header.astro";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style lang="scss">
-     
-      .root-social-container {
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-      }
-      .root-social-links {
-        font-size: 2.5em;
-        cursor: pointer;
+      #sub-page {
+        .root-social-container {
+          display: flex;
+          flex-direction: column;
+          gap: 1em;
+        }
+
+        #social-media-cards {
+          .social-link {
+            text-decoration: none;
+            display: block;
+          }
+
+          .social-link-container {
+            background-color: var(--surface200) !important;
+            border: 1px solid var(--divider) !important;
+            border-radius: 0.5em;
+            padding: 1em;
+            transition: all 0.2s ease;
+            cursor: pointer;
+
+            &:hover {
+              background-color: var(--surface300) !important;
+              transform: translateX(4px);
+            }
+          }
+
+          .root-social-links {
+            font-size: 1.2em;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: block;
+          }
+        }
       }
     </style>
   </head>
@@ -110,26 +135,18 @@ import Header from "../components/Header.astro";
 
       const employeeCards = socialMediaAccounts.map(function (account) {
         return `
-        <a href="${account.url}" target="_blank" rel="noopener noreferrer">
-          <div class="social-link-container">
-            <span class="root-social-links">${account.name}</span>
-          </div>
-            
-        </a>
+          <a href="${account.url}" target="_blank" rel="noopener noreferrer" class="social-link">
+            <div class="social-link-container">
+              <span class="root-social-links">${account.name}</span>
+            </div>
+          </a>
         `;
       });
 
-      document.getElementById("social-media-cards").innerHTML =
-        employeeCards.join("");
-
-      const style = document.createElement("style");
-      style.textContent = `
-        .root-social-links {
-          font-size: 1em;
-          cursor: pointer;
-        }
-      `;
-      document.head.appendChild(style);
+      const socialCardsContainer = document.getElementById("social-media-cards");
+      if (socialCardsContainer) {
+        socialCardsContainer.innerHTML = employeeCards.join("");
+      }
     </script>
   </body>
 </html>

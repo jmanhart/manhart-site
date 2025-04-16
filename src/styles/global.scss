@@ -119,14 +119,17 @@ a:hover {
 
 ul,
 ol {
-  padding: 0;
+  padding: 0 0;
   color: var(--text-tertiary);
+  list-style-position: inside;
 }
 
 ul li,
 ol li {
   font-size: 1.2rem;
   color: var(--text-secondary);
+  padding-left: 1.25em; /* Push content block right */
+  text-indent: -1.25em; /* Pull first line (incl. marker) left */
 }
 
 ul li:hover {
@@ -308,40 +311,6 @@ button:hover {
   display: flex;
   gap: 1em;
   font-size: 1em;
-
-  /* Apply theme background dynamically */
-  background-color: var(--surface100);
-
-  /* Mobile styles */
-  @media (max-width: 768px) {
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-    z-index: 9999;
-  }
-
-  /* Show menu when 'open' class is added */
-  &.open {
-    display: flex;
-  }
-
-  /* Menu links */
-  a {
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: 1rem;
-
-    @media (max-width: 768px) {
-      font-size: 2em;
-    }
-  }
 }
 
 /* Menu toggle button (visible on mobile) */
@@ -380,4 +349,9 @@ button:active {
 
 .root-social-container {
   pointer-events: auto !important; /* Make sure the parent allows clicks */
+}
+
+pre {
+  padding: 1em;
+  border-radius: 0.5em;
 }
