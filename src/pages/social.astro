@@ -12,38 +12,41 @@ import Header from "../components/Header.astro";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style lang="scss">
-      #sub-page {
-        .root-social-container {
+      #social-page {
+        .social-container {
           display: flex;
           flex-direction: column;
-          gap: 1em;
+          gap: 0.75rem;
+          padding: 1.5rem;
+          max-width: 600px;
+          margin: 0 auto;
         }
 
-        #social-media-cards {
-          .social-link {
-            text-decoration: none;
-            display: block;
+        .social-card {
+          text-decoration: none;
+          display: block;
+          background: var(--surface100);
+          border: 1px solid var(--divider);
+          border-radius: 8px;
+          padding: 1rem 1.25rem;
+          transition: all 0.15s ease;
+          cursor: pointer;
+
+          &:hover {
+            background: var(--surface200);
+            transform: translateX(4px);
           }
 
-          .social-link-container {
-            background-color: var(--surface200) !important;
-            border: 1px solid var(--divider) !important;
-            border-radius: 0.5em;
-            padding: 1em;
-            transition: all 0.2s ease;
-            cursor: pointer;
-
-            &:hover {
-              background-color: var(--surface300) !important;
-              transform: translateX(4px);
-            }
+          &:active {
+            background: var(--surface300);
+            transform: translateX(2px);
           }
 
-          .root-social-links {
-            font-size: 1.2em;
+          .social-name {
+            font-size: 1rem;
+            font-weight: 500;
             color: var(--text-primary);
-            text-decoration: none;
-            display: block;
+            margin: 0;
           }
         }
       }
@@ -52,12 +55,12 @@ import Header from "../components/Header.astro";
 
   <body>
     <Header />
-    <div class="sub-page-wrapper" id="sub-page">
+    <div class="sub-page-wrapper" id="social-page">
       <div class="root-content text-page">
         <div class="info-container">
           <h2>Social Links</h2>
         </div>
-        <div class="root-social-container" id="social-media-cards"></div>
+        <div class="social-container" id="social-media-cards"></div>
       </div>
     </div>
     <script>
@@ -135,10 +138,8 @@ import Header from "../components/Header.astro";
 
       const employeeCards = socialMediaAccounts.map(function (account) {
         return `
-          <a href="${account.url}" target="_blank" rel="noopener noreferrer" class="social-link">
-            <div class="social-link-container">
-              <span class="root-social-links">${account.name}</span>
-            </div>
+          <a href="${account.url}" target="_blank" rel="noopener noreferrer" class="social-card">
+            <span class="social-name">${account.name}</span>
           </a>
         `;
       });
