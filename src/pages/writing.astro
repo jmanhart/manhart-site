@@ -29,7 +29,7 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}")).sort(
                       class="blog-date-stamp"
                       datetime={post.frontmatter.pubDate}
                     >
-                      {post.frontmatter.count} <span class="divider"> | </span>
+                       </span>
                       {new Date(post.frontmatter.pubDate).toLocaleDateString(
                         "en-us",
                         {

@@ -5,7 +5,6 @@ description: "Making my record purchasing experience even less stressful."
 pubDate: "April 15, 2025"
 location: "Seattle"
 weather: "🌤️"
-count: "004"
 ---
 
 A few months ago, I built a simple web app to track my record collection because one of my greatest fears is holding a record in a store and not remembering if I already own it. My first attempt was a static list, but that was boring and a pain to maintain. Then I discovered Discogs has a public API, which made fetching my collection easy.
@@ -17,7 +16,7 @@ Too many API requests, making the setup fragile.
 Missing images if Discogs changed a URL or removed a record.
 So, it was time for V2 of my record tracker, and this update is a game changer. The new system automates everything, stores my collection locally, and makes it faster while keeping the fun of building dumb personal projects.
 
-## What's New in Version
+### What's New in Version
 
 Instead of pulling my collection every single time from Discogs, my app now:
 
@@ -73,13 +72,13 @@ Now, my app only loads from Supabase, making it significantly faster.
 
 Now, my app only loads from Supabase, making it significantly faster.
 
-### 🎨 Storing & Serving Album Images Locally
+### Storing & Serving Album Images Locally
 
 One of the biggest changes was handling album cover images.
 
 Before, my site relied on Discogs-hosted images. But if Discogs ever removed a record or changed a URL, my images would break. To fix this, I download and store images in Supabase Storage so I always have them.
 
-**The image pipeline works like this:**
+The image pipeline works like this:
 
 1. Check if an album image already exists in Supabase Storage
 2. If not, download the image from Discogs
