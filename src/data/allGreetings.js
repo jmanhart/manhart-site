@@ -52,4 +52,9 @@ export const greetings = [
   // { text: "Sain baina uu,", language: "Mongolian" },
 ];
 
-export const images = ["self-01.png", "self-02.png", "self-03.png"];
+export const images = [
+  "self-01.png",
+  "self-02.png",
+  "self-03.png",
+  "self-04.png",
+];

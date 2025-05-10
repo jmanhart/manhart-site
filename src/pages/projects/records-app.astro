@@ -1,0 +1,25 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
+import Header from "../../components/Header.astro";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <div class="sub-page-wrapper">
+      <div class="root-content text-page">
+        <div>
+          <h2>Records App</h2>
+          <p>Have you ever just wanted to add a special message to your commit for the fun of it?</p>
+          <a href="https://records.manhart.io">Records App</a>
+            <a href="https://github.com/jmanhart/record-collection">Github</a>
+        </div>
+ 
+      </div>
+    </div>
+  </body>
+</html>

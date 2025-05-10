@@ -2,6 +2,8 @@
 import BaseHead from "../../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
 import Header from "../../components/Header.astro";
+import CardSmall from "../../components/card-small.astro";
+import CardMini from "../../components/card-mini.astro";
 ---
 
 <html lang="en">
@@ -14,9 +16,14 @@ import Header from "../../components/Header.astro";
       <div class="root-content text-page">
         <div>
           <h2>Trad Directory</h2>
+          <h4>My current tattoo count 9 and counting</h4>
           <p>This is a project to help people find the best artists by location for traditional tattoos</p>
-          <a href="https://www.trad-directory.com/">Trad Directory</a>
-          <a href="https://github.com/manhartjohn/trad-directory">Github</a>
+          <p>I started my tattoo journy in 2023 after years of sitting on the fence. As I began getting them I wanted more and more. I want to use multiple artists but finiding an artist is difficult.</p>
+          <p>This project started as a way for me to just keep track of solid artists. Basically every tattoo artist in this day and age has an instagram. But the instagram search isnt not the best for location.</p>
+          <p>Essentially this is a database with a solid search for finding artists I have logged and found on Instagram. Its as simple as that.</p>
+    
+          <CardMini href="https://github.com/manhartjohn/trad-directory" title="Github" description="See the code." />
+          <CardMini href="https://www.trad-directory.com/" title="www.trad-directory.com" description="See the live site" />
         </div>
       </div>
     </div>

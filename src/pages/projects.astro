@@ -2,6 +2,32 @@
 import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import Header from "../components/Header.astro";
+import CardHero from "../components/card-hero.astro";
+// import CardSmall from "../components/card-small.astro";
+// import CardMini from "../components/card-mini.astro";
+
+const projects = [
+  {
+    href: "/projects/age-when-made",
+    title: "Age When Made",
+    description: "See how old actors were when movies were made and now.",
+  },
+  {
+    href: "/projects/trad-directory",
+    title: "The Trad Directory",
+    description: "A directory for trad climbing resources.",
+  },
+  {
+    href: "/projects/commit-vibes",
+    title: "Commit Vibes",
+    description: "Track your commit streaks and vibes.",
+  },
+  {
+    href: "/projects/records-app",
+    title: "Records App",
+    description: "Track your commit streaks and vibes.",
+  },
+];
 ---
 
 <html lang="en">
@@ -15,20 +41,16 @@ import Header from "../components/Header.astro";
         <div>
           <h2>Projects</h2>
           <p>Here are some silly things I have been working on over the past few months</p>
-            <div class="project-cards">
-            <a class="project-card" href="/projects/age-when-made">
-                <h3>Age When Made</h3>
-                <p>See how old actors were when movies were made and now.</p>
-            </a>
-            <a class="project-card" href="/projects/trad-directory">
-                <h3>The Trad Directory</h3>
-                <p>A directory for trad climbing resources.</p>
-            </a>
-            <a class="project-card" href="/projects/commit-vibes">
-                <h3>Commit Vibes</h3>
-                <p>Track your commit streaks and vibes.</p>
-            </a>
-            </div>
+          <div class="project-cards">
+            {projects.map(project => (
+              <CardHero {...project} />
+            ))}
+          </div>
+          {/**
+          Example usage for CardSmall and CardMini:
+          <CardSmall href="/projects/example" title="Small Card" description="A small card example." />
+          <CardMini href="/projects/example-mini" title="Mini Card" description="A mini card example." />
+          */}
         </div>
       </div>
     </div>

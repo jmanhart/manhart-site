@@ -386,10 +386,11 @@ pre {
   width: 100%;
   padding: 1.5em;
   background: var(--surface200);
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: var(--text-primary);
   text-decoration: none;
   color: var(--card-text);
+  border: 1px solid var(--divider);
   // transition:
   //   box-shadow 0.2s,
   //   background 0.2s;
@@ -405,6 +406,99 @@ pre {
 }
 
 .project-card p {
+  margin: 0;
+  color: var(--card-text);
+}
+
+.card-hero {
+  display: block;
+  width: 100%;
+  padding: 2.5em 2em;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  text-decoration: none;
+  color: var(--card-text);
+  border: 1.5px solid var(--divider);
+  font-size: 1.25em;
+  margin-bottom: 1.5em;
+  transition:
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.card-hero:hover {
+  background: var(--card-bg-hover);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card-hero h3 {
+  margin: 0 0 0.5em 0;
+  color: var(--text-secondary);
+}
+
+.card-hero p {
+  margin: 0;
+  color: var(--card-text);
+}
+
+.card-small {
+  display: block;
+  width: 100%;
+  padding: 1em 1em;
+  background: var(--surface200);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  text-decoration: none;
+  color: var(--card-text);
+  border: 1px solid var(--divider);
+  font-size: 1em;
+  margin-bottom: 1em;
+  transition:
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.card-small:hover {
+  background: var(--surface300);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card-small h4 {
+  margin: 0 0 0.5em 0;
+  color: var(--text-tertiary);
+}
+
+.card-small p {
+  margin: 0;
+  color: var(--card-text);
+}
+
+.card-mini {
+  display: block;
+  width: 100%;
+  padding: 0.5em 0.75em;
+  background: var(--surface200);
+  border-radius: 6px;
+  box-shadow: none;
+  text-decoration: none;
+  color: var(--card-text);
+  border: 1px solid var(--divider);
+  font-size: 0.9em;
+  margin-bottom: 0.75em;
+  transition: background 0.2s;
+}
+
+.card-mini:hover {
+  background: var(--surface300);
+}
+
+.card-mini h5 {
+  margin: 0 0 0.25em 0;
+  color: var(--text-tertiary);
+}
+
+.card-mini p {
   margin: 0;
   color: var(--card-text);
 }
