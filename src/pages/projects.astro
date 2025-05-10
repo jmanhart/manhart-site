@@ -7,27 +7,6 @@ import Header from "../components/Header.astro";
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style>
-      h1 {
-        padding: 0;
-        margin: 0;
-      }
-      a {
-        text-decoration: underline;
-      }
-
-      .mobile-nav-wrapper {
-        background-color: white;
-        width: 100%;
-        height: 4em;
-        position: fixed;
-        bottom: 0;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        border-top: 1px solid #999;
-      }
-    </style>
   </head>
   <body>
     <Header />
@@ -35,13 +14,22 @@ import Header from "../components/Header.astro";
       <div class="root-content text-page">
         <div>
           <h2>Projects</h2>
-          <div class="sub-nav">
-            <a href="/projects/age-when-made">Age When Made</a>
-            <a href="/projects/trad-directory">The Trad Directory</a>
-            <a href="/projects/commit-vibes">commit Vibes</a>
+          <p>Here are some silly things I have been working on over the past few months</p>
+            <div class="project-cards">
+            <a class="project-card" href="/projects/age-when-made">
+                <h3>Age When Made</h3>
+                <p>See how old actors were when movies were made and now.</p>
+            </a>
+            <a class="project-card" href="/projects/trad-directory">
+                <h3>The Trad Directory</h3>
+                <p>A directory for trad climbing resources.</p>
+            </a>
+            <a class="project-card" href="/projects/commit-vibes">
+                <h3>Commit Vibes</h3>
+                <p>Track your commit streaks and vibes.</p>
+            </a>
+            </div>
         </div>
-        </div>
- 
       </div>
     </div>
   </body>
