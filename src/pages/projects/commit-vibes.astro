@@ -1,0 +1,25 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
+import Header from "../../components/Header.astro";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <div class="sub-page-wrapper">
+      <div class="root-content text-page">
+        <div>
+          <h2>Commit Vibes</h2>
+          <p>Have you ever just wanted to add a special message to your commit for the fun of it?</p>
+          <a href="https://www.npmjs.com/package/commit-vibes">Npm Package</a>
+        <a href="https://github.com/manhartjohn/commit-vibes">Github</a>
+        </div>
+ 
+      </div>
+    </div>
+  </body>
+</html>

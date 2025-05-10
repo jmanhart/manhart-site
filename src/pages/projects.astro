@@ -1,0 +1,48 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import Header from "../components/Header.astro";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      h1 {
+        padding: 0;
+        margin: 0;
+      }
+      a {
+        text-decoration: underline;
+      }
+
+      .mobile-nav-wrapper {
+        background-color: white;
+        width: 100%;
+        height: 4em;
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-top: 1px solid #999;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <div class="sub-page-wrapper">
+      <div class="root-content text-page">
+        <div>
+          <h2>Projects</h2>
+          <div class="sub-nav">
+            <a href="/projects/age-when-made">Age When Made</a>
+            <a href="/projects/trad-directory">The Trad Directory</a>
+            <a href="/projects/commit-vibes">commit Vibes</a>
+        </div>
+        </div>
+ 
+      </div>
+    </div>
+  </body>
+</html>
