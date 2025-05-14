@@ -19,6 +19,8 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}")).sort(
     <Header />
     <div class="sub-page-wrapper" id="sub-page">
       <div class="root-content text-page">
+        <h2>Writing</h2>
+        <p>A little bit of this and a little bit of that.</p>
         <ul>
           {
             posts.map((post) => (

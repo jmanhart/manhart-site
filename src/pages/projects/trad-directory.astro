@@ -1,0 +1,32 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
+import Header from "../../components/Header.astro";
+import CardHero from "../../components/card-hero.astro";
+
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <div class="sub-page-wrapper">
+      <div class="root-content text-page">
+        <div>
+          <h5>Personal Project</h5>
+          <h2>The Trad Directory</h2>
+          <h4>My current tattoo count 9 and counting</h4>
+          <p>This project helps people find top traditional tattoo artists by location.</p>
+          <p>I started getting tattoos in 2023 and quickly wanted more—but finding great artists wasn't easy. Most are on Instagram, but searching by location there is rough.</p>
+          <p>This is just a searchable database of artists I've found and logged. Simple as that.</p>
+          <div class="project-cards">
+            <CardHero href="https://www.trad-directory.com/" title="www.trad-directory.com" description="See how old actors were when movies were made and now." />
+            <CardHero href="https://github.com/manhartjohn/trad-directory" title="Github" description="See the code for the project." />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

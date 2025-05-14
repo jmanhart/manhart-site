@@ -1,0 +1,29 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
+import Header from "../../components/Header.astro";
+import CardHero from "../../components/card-hero.astro";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <div class="sub-page-wrapper">
+      <div class="root-content text-page">
+        <div>
+          <h5>Personal Project</h5>
+          <h2>Records App</h2>
+          <p>I like records. I don't like forgetting what I have at home when I'm standing in a record store about to make a purchase. This simple app helps me keep a pulse on my collection and makes sure I never buy a duplicate.</p>
+          <div class="project-cards">
+            <CardHero href="https://records.manhart.io" title="Records App" description="See how old actors were when movies were made and now." />
+            <CardHero href="https://github.com/jmanhart/record-collection" title="Github" description="See the code for the project." />
+          </div>
+        </div>
+ 
+      </div>
+    </div>
+  </body>
+</html>

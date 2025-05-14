@@ -6,7 +6,7 @@
   /* Light Mode Colors */
   --surface100: #faf9fb; /* Background */
   --surface200: #ffffff; /* Secondary background */
-  --surface300: #ffffff; /* Tertiary background */
+  --surface300: #e9e8e8; /* Tertiary background */
 
   --text-primary: #222222; /* Main text */
   --text-secondary: #4c4c4c; /* Secondary text */
@@ -15,6 +15,12 @@
   --divider: #d1d1d1; /* Borders & dividers */
   --link: #444444; /* Default link color */
   --link-hover: #000000; /* Link hover color */
+
+  --card-bg: #f8f8f8;
+  --card-bg-hover: #eaeaea;
+  --card-text: #222;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 /* ===========================================
@@ -34,6 +40,12 @@
   --divider: #444444;
   --link: #d1d1d1;
   --link-hover: #ffffff;
+
+  --card-bg: #23272f;
+  --card-bg-hover: #2c313a;
+  --card-text: #f3f3f3;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.6);
 }
 
 /* ===========================================
@@ -360,4 +372,135 @@ pre {
   padding: 1.5em 1em;
   border-radius: 0.5em;
   white-space: pre-wrap;
+}
+
+.project-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  margin-top: 2em;
+}
+
+.project-card {
+  display: block;
+  width: 100%;
+  padding: 1.5em;
+  background: var(--surface200);
+  border-radius: 8px;
+  box-shadow: var(--text-primary);
+  text-decoration: none;
+  color: var(--card-text);
+  border: 1px solid var(--divider);
+  // transition:
+  //   box-shadow 0.2s,
+  //   background 0.2s;
+}
+
+.project-card:hover {
+  background: var(--surface300);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.project-card h3 {
+  margin: 0 0 0.5em 0;
+}
+
+.project-card p {
+  margin: 0;
+  color: var(--text-tertiary);
+}
+
+.card-hero {
+  display: block;
+  // width: 100%;
+  padding: 1em 1.5em;
+  // background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  text-decoration: none;
+  color: var(--text-tertiary);
+  border: 1.5px solid var(--divider);
+  font-size: 1.25em;
+  // margin-bottom: 1.5em;
+  // transition:
+  //   box-shadow 0.2s,
+  //   background 0.2s;
+}
+
+.card-hero:hover {
+  p {
+    color: var(--text-secondary);
+  }
+  background: var(--card-bg-hover);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card-hero h3 {
+  // margin: 0 0 0.5em 0;
+  color: var(--text-secondary);
+}
+
+.card-hero p {
+  margin: 0;
+  color: var(--text-tertiary);
+}
+
+.card-small {
+  display: block;
+  width: 100%;
+  padding: 1em 1em;
+  background: var(--surface200);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  text-decoration: none;
+  color: var(--card-text);
+  border: 1px solid var(--divider);
+  font-size: 1em;
+  margin-bottom: 1em;
+  transition:
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.card-small:hover {
+  background: var(--surface300);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card-small h4 {
+  margin: 0 0 0.5em 0;
+  color: var(--text-tertiary);
+}
+
+.card-small p {
+  margin: 0;
+  color: var(--card-text);
+}
+
+.card-mini {
+  display: block;
+  width: 100%;
+  padding: 0.5em 0.75em;
+  background: var(--surface200);
+  border-radius: 6px;
+  box-shadow: none;
+  text-decoration: none;
+  color: var(--card-text);
+  border: 1px solid var(--divider);
+  font-size: 0.9em;
+  transition: background 0.2s;
+}
+
+.card-mini:hover {
+  background: var(--surface300);
+}
+
+.card-mini h5 {
+  margin: 0 0 0.25em 0;
+  color: var(--text-tertiary);
+}
+
+.card-mini p {
+  margin: 0;
+  color: var(--card-text);
 }
