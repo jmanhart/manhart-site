@@ -407,39 +407,42 @@ pre {
 
 .project-card p {
   margin: 0;
-  color: var(--card-text);
+  color: var(--text-tertiary);
 }
 
 .card-hero {
   display: block;
-  width: 100%;
-  padding: 2.5em 2em;
-  background: var(--card-bg);
+  // width: 100%;
+  padding: 1em 1.5em;
+  // background: var(--card-bg);
   border-radius: 12px;
   box-shadow: var(--card-shadow);
   text-decoration: none;
-  color: var(--card-text);
+  color: var(--text-tertiary);
   border: 1.5px solid var(--divider);
   font-size: 1.25em;
-  margin-bottom: 1.5em;
-  transition:
-    box-shadow 0.2s,
-    background 0.2s;
+  // margin-bottom: 1.5em;
+  // transition:
+  //   box-shadow 0.2s,
+  //   background 0.2s;
 }
 
 .card-hero:hover {
+  p {
+    color: var(--text-secondary);
+  }
   background: var(--card-bg-hover);
   box-shadow: var(--card-shadow-hover);
 }
 
 .card-hero h3 {
-  margin: 0 0 0.5em 0;
+  // margin: 0 0 0.5em 0;
   color: var(--text-secondary);
 }
 
 .card-hero p {
   margin: 0;
-  color: var(--card-text);
+  color: var(--text-tertiary);
 }
 
 .card-small {
@@ -485,7 +488,6 @@ pre {
   color: var(--card-text);
   border: 1px solid var(--divider);
   font-size: 0.9em;
-  margin-bottom: 0.75em;
   transition: background 0.2s;
 }
 

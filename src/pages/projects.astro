@@ -8,24 +8,28 @@ import CardHero from "../components/card-hero.astro";
 
 const projects = [
   {
+    category: "Personal Project",
     href: "/projects/age-when-made",
     title: "Age When Made",
     description: "See how old actors were when movies were made and now.",
   },
   {
+    category: "Personal Project",
     href: "/projects/trad-directory",
     title: "The Trad Directory",
     description: "A directory for trad climbing resources.",
   },
   {
+    category: "Personal Project",
     href: "/projects/commit-vibes",
     title: "Commit Vibes",
-    description: "Track your commit streaks and vibes.",
+    description: "An npm package to commit your vibes",
   },
   {
+    category: "Personal Project",
     href: "/projects/records-app",
-    title: "Records App",
-    description: "Track your commit streaks and vibes.",
+    title: "My Record Collection",
+    description: "Keeping my vinyl collection in order",
   },
 ];
 ---
@@ -40,7 +44,7 @@ const projects = [
       <div class="root-content text-page">
         <div>
           <h2>Projects</h2>
-          <p>Here are some silly things I have been working on over the past few months</p>
+          <p>Here is a list of silly things I have been working on over the past few months to stay sharp and learn new things.</p>
           <div class="project-cards">
             {projects.map(project => (
               <CardHero {...project} />
