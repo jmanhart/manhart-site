@@ -4,6 +4,6 @@ const { href, title, description, category, children } = Astro.props;
 <a class="card-hero" href={href}>
   <h5>{category}</h5>
   <h3>{title}</h3>
-  <p>{description}</p>
+  {description && <p>{description}</p>}
   {children}
 </a> 

@@ -2,11 +2,27 @@
 import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import Header from "../components/Header.astro";
+import CardHero from "../components/card-hero.astro";
+
+const socialMediaAccounts = [
+  { name: "Bluesky", url: "https://staging.bsky.app/profile/manhart.bsky.social" },
+  { name: "Chess.com", url: "https://www.chess.com/member/harthartman" },
+  { name: "Dribbble", url: "https://dribbble.com/manhart" },
+  { name: "Discogs", url: "https://www.discogs.com/user/manhartjohn" },
+  { name: "Figma", url: "https://www.figma.com/@manhart" },
+  { name: "Github", url: "https://github.com/jmanhart" },
+  { name: "Instagram", url: "https://github.com/jmanhart" },
+  { name: "Letterboxd", url: "https://letterboxd.com/manhart/" },
+  { name: "Linkedin", url: "https://www.linkedin.com/in/john-manhart/" },
+  { name: "Read.cv", url: "https://read.cv/manhart" },
+  { name: "Steam", url: "https://steamcommunity.com/id/ItsManhart/" },
+  { name: "Strava", url: "https://www.strava.com/athletes/2083068" },
+  { name: "Twitter", url: "https://twitter.com/JohnManhart" },
+  { name: "Threads", url: "https://www.threads.net/@johnmanhart" },
+  { name: "Twitch", url: "https://www.twitch.tv/itsmanhart" },
+  { name: "Youtube", url: "https://www.youtube.com/channel/UCdgLTD7oNCCi5Y1sPVqDkwQ" },
+];
 ---
-
-
-
-
 
 <html lang="en">
   <head>
@@ -17,37 +33,9 @@ import Header from "../components/Header.astro";
           display: flex;
           flex-direction: column;
           gap: 0.75rem;
-          padding: 1.5rem;
+          
           max-width: 600px;
-          margin: 0 auto;
-        }
-
-        .social-card {
-          text-decoration: none;
-          display: block;
-          background: var(--surface100);
-          border: 1px solid var(--divider);
-          border-radius: 8px;
-          padding: 1rem 1.25rem;
-          transition: all 0.15s ease;
-          cursor: pointer;
-
-          &:hover {
-            background: var(--surface200);
-            transform: translateX(4px);
-          }
-
-          &:active {
-            background: var(--surface300);
-            transform: translateX(2px);
-          }
-
-          .social-name {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            margin: 0;
-          }
+         
         }
       }
     </style>
@@ -59,96 +47,15 @@ import Header from "../components/Header.astro";
       <div class="root-content text-page">
         <div class="info-container">
           <h2>Social Links</h2>
+          <p>Look at all the silly social media accounts I use. </p>
         </div>
-        <div class="social-container" id="social-media-cards"></div>
+        <div class="social-container">
+          {socialMediaAccounts.map(account => (
+            <CardHero href={account.url} title={account.name}  />
+          ))}
+        </div>
       </div>
     </div>
-    <script>
-      const socialMediaAccounts = [
-        {
-          name: "Bluesky",
-          url: "https://staging.bsky.app/profile/manhart.bsky.social",
-          icon: "bluesky",
-        },
-        {
-          name: "Chess.com",
-          url: "https://www.chess.com/member/harthartman",
-          icon: "dribbble",
-        },
-        {
-          name: "Dribbble",
-          url: "https://dribbble.com/manhart",
-          icon: "dribbble",
-        },
-        {
-          name: "Discogs",
-          url: "https://www.discogs.com/user/manhartjohn",
-          icon: "discogs",
-        },
-        {
-          name: "Figma",
-          url: "https://www.figma.com/@manhart",
-          icon: "figma",
-        },
-        {
-          name: "Github",
-          url: "https://github.com/jmanhart",
-        },
-        {
-          name: "Instagram",
-          url: "https://github.com/jmanhart",
-        },
-        {
-          name: "Letterboxd",
-          url: "https://letterboxd.com/manhart/",
-        },
-        {
-          name: "Linkedin",
-          url: "https://www.linkedin.com/in/john-manhart/",
-        },
-        {
-          name: "Read.cv",
-          url: "https://read.cv/manhart",
-        },
-        {
-          name: "Steam",
-          url: "https://steamcommunity.com/id/ItsManhart/",
-        },
-        {
-          name: "Strava",
-          url: "https://www.strava.com/athletes/2083068",
-        },
-        {
-          name: "Twitter",
-          url: "https://twitter.com/JohnManhart",
-        },
-        {
-          name: "Threads",
-          url: "https://www.threads.net/@johnmanhart",
-        },
-        {
-          name: "Twitch",
-          url: "https://www.twitch.tv/itsmanhart",
-        },
-        {
-          name: "Youtube",
-          url: "https://www.youtube.com/channel/UCdgLTD7oNCCi5Y1sPVqDkwQ",
-        },
-      ];
-
-      const employeeCards = socialMediaAccounts.map(function (account) {
-        return `
-          <a href="${account.url}" target="_blank" rel="noopener noreferrer" class="social-card">
-            <span class="social-name">${account.name}</span>
-          </a>
-        `;
-      });
-
-      const socialCardsContainer = document.getElementById("social-media-cards");
-      if (socialCardsContainer) {
-        socialCardsContainer.innerHTML = employeeCards.join("");
-      }
-    </script>
   </body>
 </html>
 
