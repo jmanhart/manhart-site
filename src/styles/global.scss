@@ -419,7 +419,7 @@ pre {
   box-shadow: var(--card-shadow);
   text-decoration: none;
   color: var(--text-tertiary);
-  border: 1.5px solid var(--divider);
+  border: 0.5px solid var(--divider);
   font-size: 1.25em;
   // margin-bottom: 1.5em;
   // transition:
@@ -428,11 +428,12 @@ pre {
 }
 
 .card-hero:hover {
-  p {
-    color: var(--text-secondary);
-  }
-  background: var(--card-bg-hover);
+  // p {
+  //   color: var(--text-secondary);
+  // }
+  // background: var(--card-bg-hover);
   box-shadow: var(--card-shadow-hover);
+  border-color: var(--link-hover);
 }
 
 .card-hero h3 {
