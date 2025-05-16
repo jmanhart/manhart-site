@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import CardHero from "../components/card-hero.astro";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./writing/*.{md,mdx}")).sort(
@@ -21,37 +22,25 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}")).sort(
       <div class="root-content text-page">
         <h2>Writing</h2>
         <p>A little bit of this and a little bit of that.</p>
-        <ul>
+        <div class="blog-cards">
           {
             posts.map((post) => (
-              <a class="blog-link" href={post.url}>
-                <li>
-                  <div>
-                    <h5
-                      class="blog-date-stamp"
-                      datetime={post.frontmatter.pubDate}
-                    >
-                       </span>
-                      {new Date(post.frontmatter.pubDate).toLocaleDateString(
-                        "en-us",
-                        {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        }
-                      )}
-                    </h5>
-
-                    <h3 class="description">{post.frontmatter.title}</h3>
-                    <p class="blog-short-description">
-                      {post.frontmatter.description}
-                    </p>
-                  </div>
-                </li>
-              </a>
+              <CardHero
+                href={post.url}
+                title={post.frontmatter.title}
+                description={post.frontmatter.description}
+                category={new Date(post.frontmatter.pubDate).toLocaleDateString(
+                  "en-us",
+                  {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  }
+                )}
+              />
             ))
           }
-        </ul>
+        </div>
       </div>
     </div>
     <style lang="scss">
@@ -94,6 +83,12 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}")).sort(
       }
       .blog-number-count {
         margin: 0 0;
+      }
+      .blog-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+        margin-top: 2em;
       }
     </style>
   </body>
