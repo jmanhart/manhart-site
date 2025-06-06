@@ -134,7 +134,8 @@ p {
     font-size: 1.25rem;
   }
   h4 {
-    font-size: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.95rem;
   }
   h5 {
     font-size: 0.9rem;
@@ -185,6 +186,19 @@ hr {
   height: 0;
   margin: 2em 0;
 }
+
+blockquote {
+  border-left: 4px solid var(--divider);
+  padding: 0.125em 1em;
+  margin: 0.5em 0;
+}
+
+blockquote p {
+  margin: 0.125em 0;
+  font-style: italic;
+  font-weight: 600;
+}
+
 /* ===========================================
  *  COMMON CONTAINER STYLES
  * =========================================== */
