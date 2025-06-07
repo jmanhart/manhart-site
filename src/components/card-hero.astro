@@ -2,8 +2,8 @@
 const { href, title, description, category, children, tag } = Astro.props;
 ---
 <a class="card-hero" href={href}>
-  {tag && <div class="card-hero__tag">{tag}</div>}
-  {category && <div class="card-hero__date">{category}</div>}
+  <div class="details-container">{tag && <div class="card-hero__tag">{tag}</div>}
+  {category && <div class="card-hero__date">{category}</div>}</div>
   <h3>{title}</h3>
   {description}
   {children}
