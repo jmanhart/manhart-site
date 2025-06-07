@@ -5,6 +5,7 @@ heroImage: "/post-images/sentry-metal/sentry-metal-outline.png"
 description: "The most metal thing you have ever seen."
 pubDate: "Dec 9, 2022"
 location: "Seattle"
+tag: "Design"
 ---
 
 I have always been a metalhead – black, speed, Norwegian, death, DOOM I love it all. So, this year for our annual hackweek I decided to Metalify (is that even a word?) the Sentry logo.

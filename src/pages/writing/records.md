@@ -5,6 +5,7 @@ description: "A project to make sure I never buy the same record twice."
 pubDate: "Nov 17, 2024"
 location: "Seattle"
 weather: "🌙"
+tag: "Coding"
 ---
 
 One of my greatest fears is holding a record at a record store and not remembering if I already have it. Well, a few weeks ago, I set out to solve this problem and put these fears to rest for good.

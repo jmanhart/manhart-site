@@ -5,6 +5,7 @@ description: "Adding a dark and light mode toggle to this site!"
 pubDate: "April 15, 2023"
 location: "Seattle"
 weather: "🌧️"
+tag: "Personal"
 ---
 
 I have always been a light mode guy. In fact, I love full eyeball-melting brightness for all my rectangles. Well, maybe after ten years of drawing boxes professionally, my eyes have partially melted. Who knows, but recently I decided to make the switch and embrace dark mode.

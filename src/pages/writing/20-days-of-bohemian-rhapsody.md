@@ -4,6 +4,7 @@ title: "20 Days of Bohemian Rhapsody"
 description: "I listened to Bohemian Rhapsody every day for 20 days straight. Here's what happened."
 pubDate: "May 28, 2025"
 location: "Seattle"
+tag: "Personal"
 ---
 
 #### I decided todo this challenge not sure if thats the right word to descibe it but thats what I am picking. The gist of what you are about to read is for 20 days I decided to listen to Bohemian Rhapsody by Queen once a day and jot down what I was feeling and where my headspace was on that day during that listen.

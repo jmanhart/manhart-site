@@ -469,12 +469,13 @@ pre {
 }
 
 .card-hero:hover {
-  // p {
-  //   color: var(--text-secondary);
-  // }
-  // background: var(--card-bg-hover);
   box-shadow: var(--card-shadow-hover);
   border-color: var(--link-hover);
+  color: var(--text-tertiary);
+}
+
+.card-hero a:hover {
+  color: var(--link-hover);
 }
 
 .card-hero-content {
@@ -557,4 +558,19 @@ pre {
 .card-mini p {
   margin: 0;
   color: var(--card-text);
+}
+
+.card-hero__tag {
+  background-color: var(--surface300);
+  border-radius: 6px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.65em;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 0.15em 0.5em;
+  width: auto;
+  margin-bottom: 0.5em;
+  border: 1px solid var(--divider);
 }

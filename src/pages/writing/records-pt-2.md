@@ -5,6 +5,7 @@ description: "Making my record purchasing experience even less stressful."
 pubDate: "April 15, 2025"
 location: "Seattle"
 weather: "🌤️"
+tag: "Coding"
 ---
 
 A few months ago, I built a simple web app to track my record collection because one of my greatest fears is holding a record in a store and not remembering if I already own it. My first attempt was a static list, but that was boring and a pain to maintain. Then I discovered Discogs has a public API, which made fetching my collection easy.

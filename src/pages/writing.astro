@@ -29,6 +29,7 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}")).sort(
                 href={post.url}
                 title={post.frontmatter.title}
                 description={post.frontmatter.description}
+                tag={post.frontmatter.tag}
                 category={new Date(post.frontmatter.pubDate).toLocaleDateString(
                   "en-us",
                   {
@@ -37,6 +38,7 @@ const posts = (await Astro.glob("./writing/*.{md,mdx}")).sort(
                     day: "numeric",
                   }
                 )}
+                
               />
             ))
           }
