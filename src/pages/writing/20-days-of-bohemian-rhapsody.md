@@ -1,15 +1,20 @@
 ---
 layout: "../../layouts/BlogPost.astro"
-title: "20 Days of Bohemian Rhapsody"
-description: "I listened to Bohemian Rhapsody every day for 20 days straight. Here's what happened."
+title: "My 20 Days with Bohemian Rhapsody"
+heroImage: "/post-images/20-days-of-br/br-headbang.gif"
+description: "One listen a day for 20 days and here are my notes along the way"
 pubDate: "May 28, 2025"
 location: "Seattle"
 tag: "Personal"
 ---
 
-#### I decided todo this challenge not sure if thats the right word to descibe it but thats what I am picking. The gist of what you are about to read is for 20 days I decided to listen to Bohemian Rhapsody by Queen once a day and jot down what I was feeling and where my headspace was on that day during that listen.
+### For 20 days, I listened to Bohemian Rhapsody once a day _(sometimes more)_. I took notes along the way just to see where it would take me.
 
-#### **Make sense good lets go. Buckle up.**
+I decided to do the “challenge” after listening to the latest episode of The Rewatchables podcast, where they were covering the movie Wayne’s World. They mentioned how the movie was often a gateway for people to discover Queen—and this magical song.
+
+I remember back when I was an intern, I’d sometimes start my day with a listen, and honestly, it was a lot of fun. This song never fails to put me in a good mood.
+
+**Make sense? Good. Let's go.**
 
 ---
 
@@ -17,11 +22,9 @@ tag: "Personal"
 
 ##### 02/18/2025
 
-I was listening to the latest Rewatchables episode about the movie _Wayne's World_ and they mentioned how the song Bohemian Rhapsody was the gateway for many people to experience Queen.
-
-I remember back when I was an intern I would start every day listening to this song and it was fun.
-
 So here I am on the C Line riding into work on a packed bus. I'm standing in the movable glue part between two bus segments, listening to it as the bus speeds north down 99. This is the first time I’ve listened to this song in a few years and it’s just amazing. I love it. The song has everything and never fails to put a smile on my face. It’s nearly six minutes of pure joy.
+
+This might not be that hard of a challenge. Feeling good.
 
 **#Youtube Music** **#Airpods** **#Bus** **#Studio-Album** **#Commute**
 
