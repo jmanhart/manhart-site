@@ -10,7 +10,7 @@ tag: "Personal"
 
 ### For 20 days, I listened to Bohemian Rhapsody once a day _(sometimes more)_. I took notes along the way just to see where it would take me.
 
-I decided to do the “challenge” after listening to the latest episode of The Rewatchables podcast, where they were covering the movie Wayne’s World. They mentioned how the movie was often a gateway for people to discover Queen—and this magical song.
+I decided to do the “challenge” after listening to the latest episode of The Rewatchables podcast, where they were covering the movie Wayne’s World. They mentioned how the movie was often a gateway for people to discover Queen and also this amazing song.
 
 I remember back when I was an intern, I’d sometimes start my day with a listen, and honestly, it was a lot of fun. This song never fails to put me in a good mood.
 
