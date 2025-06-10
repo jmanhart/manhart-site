@@ -1,6 +1,6 @@
 ---
 layout: "../../layouts/BlogPost.astro"
-title: "My 20 Days with Bohemian Rhapsody"
+title: "Twenty Days with Bohemian Rhapsody"
 heroImage: "/post-images/20-days-of-br/br-headbang.gif"
 description: "One listen a day for 20 days and here are my notes along the way"
 pubDate: "May 28, 2025"
@@ -10,7 +10,7 @@ tag: "Personal"
 
 ### For 20 days, I listened to Bohemian Rhapsody once a day _(sometimes more)_. I took notes along the way just to see where it would take me.
 
-I decided to do the “challenge” after listening to the latest episode of The Rewatchables podcast, where they were covering the movie Wayne’s World. They mentioned how the movie was often a gateway for people to discover Queen and also this amazing song.
+I decided to do the “challenge” after listening to the latest episode of The Rewatchables podcast, where they were covering the movie Wayne’s World. They mentioned how the movie was often a gateway for people to discover Queen and also this awesome song.
 
 I remember back when I was an intern, I’d sometimes start my day with a listen, and honestly, it was a lot of fun. This song never fails to put me in a good mood.
 
@@ -20,31 +20,36 @@ I remember back when I was an intern, I’d sometimes start my day with a listen
 
 ### Day 1
 
-##### 02/18/2025
-
 So here I am on the C Line riding into work on a packed bus. I'm standing in the movable glue part between two bus segments, listening to it as the bus speeds north down 99. This is the first time I’ve listened to this song in a few years and it’s just amazing. I love it. The song has everything and never fails to put a smile on my face. It’s nearly six minutes of pure joy.
 
 This might not be that hard of a challenge. Feeling good.
 
-**#Youtube Music** **#Airpods** **#Bus** **#Studio-Album** **#Commute**
+<div class="tag-container">
+  <div class="tag">#Youtube-Music</div>
+  <div class="tag">#Airpods</div>
+  <div class="tag">#Bus</div>
+  <div class="tag">#Studio-Album</div>
+  <div class="tag">#Commute</div>
+</div>
 
 ---
 
 ### Day 2
 
-##### 02/19/2025
-
 Decided to listen while I was walking to Olympia Coffee today. My walk from the townhouse to the coffee shop is the perfect distance to listen to it in its entirety. I was walking into the shop right as the piano started to fade away and Freddie was singing _"nothing really matters..."_. This little experiment is going to go great now knowing that I can walk from my house to the coffee shop and sneak in a listen. Perfect.
 
 It was raining today and I had both AirPods in while doing the listen this morning. It's still such a great song. Really starting to feel the three chapters as well. So much going on with the song. I do hate my AirPods though. They do this fucking thing where it gets louder for certain spots like no one on earth wants the stupid fucking feature sorry Tim Apple. I might need to carry my Audio-Technicas on my walk.
 
-**#Youtube Music** **#Airpods** **#Studio-Album** **#Walking**
+<div class="tag-container">
+  <div class="tag">#Youtube-Music</div>
+  <div class="tag">#Airpods</div>
+  <div class="tag">#Walking</div>
+  <div class="tag">#Studio-Album</div>
+</div>
 
 ---
 
 ### Day 3
-
-##### 02/20/2025
 
 Listening to this in a phone booth at work after telling Hubert about my silly littleproject. I was originally planning to do this one on the ferry home, but just got that itch to listen to it now. Fuck it its my challenge and I might listen to it again anyways.
 
@@ -52,13 +57,17 @@ Again this song is just amazing at uplifting my mood. I finally finished the pod
 
 I think I need to get this album on vinyl too because it would be an easy way to listen to it. I think Olive would get a big kick out of it too.
 
-**#Youtube Music** **#Airpods** **#PhoneBooth** **#Studio-Album** **#At-Work**
+<div class="tag-container">
+  <div class="tag">#Youtube-Music</div>
+  <div class="tag">#Airpods</div>
+  <div class="tag">#PhoneBooth</div>
+  <div class="tag">#Studio-Album</div>
+  <div class="tag">#At-Work</div>
+</div>
 
 ---
 
 ### Day 4
-
-##### 02/21/2025
 
 First listen doing this from my desk in the home office and with the nice headphones on. Waaaaay different experience. I also tried something new with this listen. I closed my eyes and did not move at all during the song. I was in a sorta a meditative state.
 
@@ -66,13 +75,16 @@ Shutting off other senses reallyDID amplify the experience. I am sure there is s
 
 I was able to hear new parts of the song too like there is some static on the recording during a single spot. I am listening to the studio version of this song as well. Very big change of pace from listning to this in the phone booth yesterday.
 
-**#Youtube Music** **#ATH-M50-Orange** **#Home-Office** **#Studio-Album**
+<div class="tag-container">
+  <div class="tag">#Youtube-Music</div>
+  <div class="tag">#ATH-M50-Orange</div>
+  <div class="tag">#Home-Office</div>
+  <div class="tag">#Studio-Album</div>
+</div>
 
 ---
 
 ### Day 5
-
-##### 02/22/2025
 
 This was the first time I watched the music video of this song. I also watched it in our living room with Olive and Li. Olive was very interested for sure. She didn’t really understand it but watched the whole thing. It was like a scared, curious, and interested face for sure. Li and I looked at each other a few times and thought telepathically _"..is she about to cry, laugh or scream?"_ but at the end she had a smile and dug it. I think this was her first listen ever which is cool.
 
@@ -80,13 +92,16 @@ After the song we actually watched more Queen music videos for a bit and she was
 
 This is a fun way to experience the song for sure. The video is fucking great as well. It’s half them with pin lights on their faces and the other half a "live"-ish version ofthem playing instruments. I had seen the video before but never like watched-watched it. I will be revisiting this way to listen to it for sure.
 
-**#Youtube** **#Music-Video** **#With-Olive** **#Living-room**
+<div class="tag-container">
+  <div class="tag">#Youtube</div>
+  <div class="tag">#Music-Video</div>
+  <div class="tag">#With-Olive</div>
+  <div class="tag">#Living-room</div>
+</div>
 
 ---
 
 ### Day 6
-
-##### 02/23/2025
 
 I finally told Li about my little experiment. Olive already knew but she didn’t ask questions. I told Li over coffee at Sound & Fog. This led us to go and pick up _A Night at The Opera_ from Easy Street.
 
@@ -100,35 +115,44 @@ Glad to have this album on vinyl. I have never really listened to the album befo
 
 ![Queen a night at the opera record](/post-images/20-days-of-br/queen-record.png)
 
-**#With-Olive** **#Living-room** **#Vinyl** **#With-Li**
+<div class="tag-container">
+  <div class="tag">#With-Olive</div>
+  <div class="tag">#Living-room</div>
+  <div class="tag">#Vinyl</div>
+  <div class="tag">#With-Li</div>
+</div>
 
 ---
 
 ### Day 7
 
-##### 02/24/2025
-
 Another sleepy walk into work. I did this one on my walk from the coffee shop to the bus stop. Honestly I didnt think to much about this listen other than it was rainy and I wasnt particalalry in a great mood.
 
-**#Youtube Music** **#Airpods** **#Walking** **#Studio-Album**
+<div class="tag-container">
+  <div class="tag">#Youtube-Music</div>
+  <div class="tag">#Airpods</div>
+  <div class="tag">#Walking</div>
+  <div class="tag">#Studio-Album</div>
+</div>
 
 ---
 
 ### Day 8
 
-##### 02/25/2025
-
 I like to listen to music in the shower. Get over it. This time after work and commuting all day in the rain I decided to try out listening to it while in the shower. I typically listen to music just to help me gauge the time passed to take shorter showers. This song is like the perfect length for a shower and 5 mins is a good amount of time to take in the shower.
 
 I think what sucked here is listening to it through my phone speakers which are utterly terrible. Not sure how to fix that. I think I will do this one more often too just because of how compact and the different song pacing throughout.
 
-**#Shower** **#Bad-mood** **#Youtube-Music** **#Phone-Speaker**
+<div class="tag-container">
+  <div class="tag">#Shower</div>
+  <div class="tag">#Bad-mood</div>
+  <div class="tag">#Youtube-Music</div>
+  <div class="tag">#Phone-Speaker</div>
+</div>
 
 ---
 
 ### Day 9
-
-##### 02/26/2025
 
 Well it was bound to happen. I found myself doing the daily listen while extremely annoyed. This whole day has been annoying, frustrating and just an absolute fucking shitshow slog. I started my day in a 1:1 at 6:30am and it just kept going after that. I think I video chatted with over 7 different people individually today and it was just a numb kinda day...it happens.
 
@@ -136,13 +160,15 @@ I found myself listening at the end of my day as I was writing my daily recap to
 
 Dumb long day full of lots and lots of meetings but it ended with an absolute banger.
 
-**#Youtube Music** **#ATH-M50-Orange** **#annoyed**
+<div class="tag-container">
+  <div class="tag">#Youtube-Music</div>
+  <div class="tag">#ATH-M50-Orange</div>
+  <div class="tag">#Annoyed</div>
+</div>
 
 ---
 
 ### Day 10
-
-##### 02/27/2025
 
 So I actually listened to this song 3.5 times today. I did half a listen in the car with Li and Olive on the way to ice skating lessons. I call this half time because we had to pivot during traffic and go home early. Fighting traffic in stressful situations requires no music and total concentration, like when you roll down the window when looking for an address.
 
@@ -150,13 +176,20 @@ The second time I was on the ferry coming home and it was awesome. It was an abo
 
 The last time was at home on the record player **loud** with Li and Olive. Olive loves this song. She loves running around the couch and going crazy. It’s pretty great. We had the door open as well and the neighborhood got a listen as well.
 
-**#With-Olive** **#Living-room** **#Vinyl** **#With-Li** **#Shower** **#Bad-mood** **#Youtube-Music** **#Phone-Speaker**
+<div class="tag-container">
+  <div class="tag">#With-Olive</div>
+  <div class="tag">#Living-room</div>
+  <div class="tag">#Vinyl</div>
+  <div class="tag">#With-Li</div>
+  <div class="tag">#Shower</div>
+  <div class="tag">#Bad-mood</div>
+  <div class="tag">#Youtube-Music</div>
+  <div class="tag">#Phone-Speaker</div>
+</div>
 
 ---
 
 ### Day 11
-
-##### 02/28/2025
 
 This was the first time doing a live version of this song. I was sitting on the couch while Li put Olive down. We had pizza tonight and I felt like a blob when trying to decide how to do my listen today. I felt like changing it up and doing a live version.
 
@@ -168,13 +201,16 @@ What is my mood like? Idk kinda feeling like WTF today. Today was the day when Z
 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/N0dbGGvsjf8?si=X0REYjKbwnDuUKxH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-**#Living-room** **#With-Li** **#Youtube** **#Live-Version**
+<div class="tag-container">
+  <div class="tag">#Living-room</div>
+  <div class="tag">#With-Li</div>
+  <div class="tag">#Youtube</div>
+  <div class="tag">#Live-Version</div>
+</div>
 
 ---
 
 ### Day 12
-
-##### 03/01/2025
 
 Another first with this little experiment. An early morning listen on the record player. Today is like the first fake spring in Seattle and its amazing weather today. It is in the 60s and the sun is out. I had to use some sunscreen before our walk to the coffee shop. I kinda prepped Olive with this one cause in the morning sometimes she gets umm spicy with sounds.
 
@@ -188,13 +224,16 @@ Another interesting thing that happened between the last entry is I was high and
 
 Either way I was a little high last night and was like fuck it. Let’s ask Jonah. It was a great talk and I didn't come at him hot either, it was just stating the facts: "you lean right, I lean left... what did you take from this?" I also mentioned that jeopardizing a relationship with family over something as silly as Donald Trump is not my vibe. It was a good text back and forth... but why in the fuck am I talking about this here.
 
-**#Living-room** **#With-Li** **#With-Olive** **#Vinyl**
+<div class="tag-container">
+  <div class="tag">#Living-room</div>
+  <div class="tag">#With-Li</div>
+  <div class="tag">#With-Olive</div>
+  <div class="tag">#Vinyl</div>
+</div>
 
 ---
 
 ### Day 13
-
-##### 03/02/2025
 
 We did not leave the house at all today. Well, I did to take out the trash 3 different times. Today was very much a spring cleaning kind of day, especially since we did so much yesterday we were like fuck it, let’s stay in. I finally tried that instant coffee bag I got a few weeks ago and it was pretty chill but not something I will repeat anytime soon.
 
@@ -202,13 +241,16 @@ Oh wait—Bohemian Rhapsody. The whole point of this experiment. We did another 
 
 I think the record is my fav way to listen to this song, but mostly because I get to share the listen with Olive and Li. Awwwww.
 
-**#Living-room** **#With-Li** **#With-Olive** **#Vinyl**
+<div class="tag-container">
+  <div class="tag">#Living-room</div>
+  <div class="tag">#With-Li</div>
+  <div class="tag">#With-Olive</div>
+  <div class="tag">#Vinyl</div>
+</div>
 
 ---
 
 ### Day 14
-
-##### 03/03/2025
 
 > Is this the real life? Is this just fantasy?
 
@@ -232,33 +274,44 @@ I lost it. Just started busting up like crazy. He didn’t light it though and i
 
 Dude’s a king. Great way to start the day.
 
-**#Youtube Music** **#Airpods** **#Bus** **#Studio-Album** **#Commute**
+<div class="tag-container">
+  <div class="tag">#Youtube-Music</div>
+  <div class="tag">#Airpods</div>
+  <div class="tag">#Bus</div>
+  <div class="tag">#Studio-Album</div>
+  <div class="tag">#Commute</div>
+</div>
 
 ---
 
 ### Day 15
 
-##### 03/04/2025
-
 Not much to say here about this listen. I was on the bus and it was a nice day.
 
-**#Youtube Music** **#Airpods** **#Bus** **#Studio-Album** **#Commute**
+<div class="tag-container">
+  <div class="tag">#Youtube-Music</div>
+  <div class="tag">#Airpods</div>
+  <div class="tag">#Bus</div>
+  <div class="tag">#Studio-Album</div>
+  <div class="tag">#Commute</div>
+</div>
 
 ---
 
 ### Day 16
 
-##### 03/05/2025
-
 This was another shower listen on my phone again this is the perfect length for a shower and especially to start the day. No real notes on this listen maybe the single 45 I ordered off of ebay will come in today. That will make record listens way easier since Bohemian Rhapsody is right in the middle of the album and dropping the needle in the right spot is kinda a pain in the ass.
 
-**#Youtube Music** **#Shower** **#Phone-Speaker** **#Studio-Album**
+<div class="tag-container">
+  <div class="tag">#Youtube-Music</div>
+  <div class="tag">#Shower</div>
+  <div class="tag">#Phone-Speaker</div>
+  <div class="tag">#Studio-Album</div>
+</div>
 
 ---
 
 ### Day 17
-
-##### 03/06/2025
 
 The 45 came! The 45 came! It finally arrived and it is way eaiser playing this way. To bad the B side on this is a song about a car which is just nutty, but I kinda dig it. This is a used 45 as well so there is some wear but it will do.
 We did the first listen with Olive and Li right after dinner and this little record is going to get a lot of play.
@@ -266,13 +319,18 @@ We did the first listen with Olive and Li right after dinner and this little rec
 The 45 still has the same static as on the record seriously how did this make it thru QA and mastering its wild.
 
 ![Queen a night at the opera record](/post-images/20-days-of-br/queen-45.png)
-**#Vinyl** **#45** **#Studio-Album** **#With-Olive** **#With-Li**
+
+<div class="tag-container">
+  <div class="tag">#Vinyl</div>
+  <div class="tag">#45</div>
+  <div class="tag">#Studio-Album</div>
+  <div class="tag">#With-Olive</div>
+  <div class="tag">#With-Li</div>
+</div>
 
 ---
 
 ### Day 18
-
-##### 03/07/2025
 
 I did two listens for this one today. The first was me while I was getting my full chest tattoo'ed. This was different than most because I was singing it in my head while bearing thru the outlines of a very large tattoo. I kept getting stuck on the "Is this real life..." and yes yes it was.
 
@@ -284,30 +342,42 @@ Yeah two very different listens today. Still the tattoo is rad as fuck and thank
 
 ![Awesome eagle and snake tattoo](/post-images/20-days-of-br/chest-tattoo-flash.png)
 
-Sorry not going to put a topless photo of me on here, but it was done by a dude named Trevor Taylor and it you dig you can find the photo of me topless but why would you want todo that? lol
+Sorry not going to put a topless photo of me on here, but it was done by a dude named Trevor Taylor and if you dig you can find the photo of me topless but why would you want todo that? lol
 
-**#my-head** **#getting-a-tattoo** **#ferry** **#Youtube Music** **#Airpods**
+<div class="tag-container">
+  <div class="tag">#my-head</div>
+  <div class="tag">#getting-a-tattoo</div>
+  <div class="tag">#ferry</div>
+  <div class="tag">#Youtube-Music</div>
+  <div class="tag">#Airpods</div>
+</div>
 
 ---
 
 ### Day 19
 
-##### 03/18/2025
-
 Did this listen after getting caffinated and walking from Olympia to the bus stop. The weather was nice here and it wasnt super early in the AM. Yesterday my walk in it was still very much dark.
 
 New guy Dan's first week is this week and its been great having a person IRL to work with deisgn stuff on.
 
-**#morning** **#walking** **#Youtube Music** **#Airpods**
+<div class="tag-container">
+  <div class="tag">#morning</div>
+  <div class="tag">#walking</div>
+  <div class="tag">#Youtube-Music</div>
+  <div class="tag">#Airpods</div>
+</div>
 
 ---
 
 ### Day 20
 
-##### 03/19/2025
-
 Another bus listen this time standup up which was nice. The driver today was a real cowboy behind the wheel so it felt like I was floating along during this listen. The bumps at time were in sync with the music and especially during the third act when the song really pops off.
 
 I only had 1 headphone in on this listen which made it really feel like half a listen. The bus was stupid crowded today too and made it feel very clostraphobic.
 
-**#Bus** **#commute** **#Youtube Music** **#Airpods**
+<div class="tag-container">
+  <div class="tag">#Bus</div>
+  <div class="tag">#commute</div>
+  <div class="tag">#Youtube-Music</div>
+  <div class="tag">#Airpods</div>
+</div>

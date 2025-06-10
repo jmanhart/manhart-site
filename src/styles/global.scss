@@ -586,3 +586,16 @@ pre {
   font-size: 0.8em;
   color: var(--text-tertiary);
 }
+
+.tag-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+.tag {
+  color: var(--text-tertiary);
+  font-family: monospace;
+  font-weight: 800;
+  font-size: 1.2em;
+  text-transform: lowercase;
+}
