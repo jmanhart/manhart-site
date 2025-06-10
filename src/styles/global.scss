@@ -4,13 +4,18 @@
 
 :root {
   /* Light Mode Colors */
-  --surface100: #faf9fb; /* Background */
-  --surface200: #ffffff; /* Secondary background */
+  --surface000: #ffffff; /* Background */
+  --surface100: #ededed; /* Background */
+  --surface200: #eeeeee; /* Secondary background */
   --surface300: #e9e8e8; /* Tertiary background */
 
   --text-primary: #222222; /* Main text */
   --text-secondary: #4c4c4c; /* Secondary text */
   --text-tertiary: #7c7c7c; /* Tertiary text */
+
+  --inverse: #000000;
+
+  --white: #ffffff;
 
   --divider: #d1d1d1; /* Borders & dividers */
   --link: #444444; /* Default link color */
@@ -33,7 +38,8 @@
  * =========================================== */
 
 .dark-theme {
-  --surface100: #1a141f;
+  --surface000: #000000;
+  --surface100: #171717;
   --surface200: #221b28;
   --surface300: #29232f;
 
@@ -41,6 +47,7 @@
   --text-secondary: #b3b3b3;
   --text-tertiary: #747474;
 
+  --inverse: #ffffff;
   --divider: #444444;
   --link: #d1d1d1;
   --link-hover: #ffffff;
@@ -61,7 +68,7 @@
  * =========================================== */
 
 body {
-  background-color: var(--surface100);
+  background-color: var(--surface000);
   color: var(--text-primary);
   font-family: "Work Sans", sans-serif;
   margin: auto;
@@ -469,6 +476,7 @@ pre {
   display: block;
   padding: 1em 1.5em;
   border-radius: 0.5em;
+  background-color: var(--surface100);
   box-shadow: var(--card-shadow);
   text-decoration: none;
   color: var(--text-tertiary);
@@ -609,4 +617,31 @@ pre {
   font-weight: 400;
   font-size: 1.35em;
   text-transform: lowercase;
+}
+
+.greeting__name {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.greeting__name::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+  width: 100%;
+  height: 2.5px;
+  background: var(--divider);
+  transition:
+    height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.4s;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+.greeting__name:hover::after {
+  height: 3px;
+
+  background: var(--inverse);
 }
