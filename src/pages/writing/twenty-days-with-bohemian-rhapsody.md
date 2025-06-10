@@ -25,11 +25,11 @@ So here I am on the C Line riding into work on a packed bus. I'm standing in the
 This might not be that hard of a challenge. Feeling good.
 
 <div class="tag-container">
-  <div class="tag">#Youtube-Music</div>
-  <div class="tag">#Airpods</div>
-  <div class="tag">#Bus</div>
-  <div class="tag">#Studio-Album</div>
-  <div class="tag">#Commute</div>
+  <h6 class="tag">#Youtube-Music</h6>
+  <h6 class="tag">#Airpods</h6>
+  <h6 class="tag">#Bus</h6>
+  <h6 class="tag">#Studio-Album</h6>
+  <h6 class="tag">#Commute</h6>
 </div>
 
 ---
@@ -41,10 +41,10 @@ Decided to listen while I was walking to Olympia Coffee today. My walk from the 
 It was raining today and I had both AirPods in while doing the listen this morning. It's still such a great song. Really starting to feel the three chapters as well. So much going on with the song. I do hate my AirPods though. They do this fucking thing where it gets louder for certain spots like no one on earth wants the stupid fucking feature sorry Tim Apple. I might need to carry my Audio-Technicas on my walk.
 
 <div class="tag-container">
-  <div class="tag">#Youtube-Music</div>
-  <div class="tag">#Airpods</div>
-  <div class="tag">#Walking</div>
-  <div class="tag">#Studio-Album</div>
+  <h6 class="tag">#Youtube-Music</h6>
+  <h6 class="tag">#Airpods</h6>
+  <h6 class="tag">#Walking</h6>
+  <h6 class="tag">#Studio-Album</h6>
 </div>
 
 ---
@@ -58,11 +58,11 @@ Again this song is just amazing at uplifting my mood. I finally finished the pod
 I think I need to get this album on vinyl too because it would be an easy way to listen to it. I think Olive would get a big kick out of it too.
 
 <div class="tag-container">
-  <div class="tag">#Youtube-Music</div>
-  <div class="tag">#Airpods</div>
-  <div class="tag">#PhoneBooth</div>
-  <div class="tag">#Studio-Album</div>
-  <div class="tag">#At-Work</div>
+  <h6 class="tag">#Youtube-Music</h6>
+  <h6 class="tag">#Airpods</h6>
+  <h6 class="tag">#PhoneBooth</h6>
+  <h6 class="tag">#Studio-Album</h6>
+  <h6 class="tag">#At-Work</h6>
 </div>
 
 ---
@@ -76,10 +76,10 @@ Shutting off other senses really DID amplify the experience. I am sure there is 
 I was able to hear new parts of the song too like there is some static on the recording during a single spot. I am listening to the studio version of this song as well. Very big change of pace from listning to this in the phone booth yesterday.
 
 <div class="tag-container">
-  <div class="tag">#Youtube-Music</div>
-  <div class="tag">#ATH-M50-Orange</div>
-  <div class="tag">#Home-Office</div>
-  <div class="tag">#Studio-Album</div>
+  <h6 class="tag">#Youtube-Music</h6>
+  <h6 class="tag">#ATH-M50-Orange</h6>
+  <h6 class="tag">#Home-Office</h6>
+  <h6 class="tag">#Studio-Album</h6>
 </div>
 
 ---
@@ -93,10 +93,10 @@ After the song we actually watched more Queen music videos for a bit and she was
 This is a fun way to experience the song for sure. The video is fucking great as well. It’s half them with pin lights on their faces and the other half a "live"-ish version ofthem playing instruments. I had seen the video before but never like watched-watched it. I will be revisiting this way to listen to it for sure.
 
 <div class="tag-container">
-  <div class="tag">#Youtube</div>
-  <div class="tag">#Music-Video</div>
-  <div class="tag">#With-Olive</div>
-  <div class="tag">#Living-room</div>
+  <h6 class="tag">#Youtube</h6>
+  <h6 class="tag">#Music-Video</h6>
+  <h6 class="tag">#With-Olive</h6>
+  <h6 class="tag">#Living-room</h6>
 </div>
 
 ---
@@ -118,10 +118,10 @@ Glad to have this album on vinyl. I have never really listened to the album befo
 ![Queen a night at the opera record](/post-images/20-days-of-br/queen-record.png)
 
 <div class="tag-container">
-  <div class="tag">#With-Olive</div>
-  <div class="tag">#Living-room</div>
-  <div class="tag">#Vinyl</div>
-  <div class="tag">#With-Li</div>
+  <h6 class="tag">#With-Olive</h6>
+  <h6 class="tag">#Living-room</h6>
+  <h6 class="tag">#Vinyl</h6>
+  <h6 class="tag">#With-Li</h6>
 </div>
 
 ---
@@ -131,10 +131,10 @@ Glad to have this album on vinyl. I have never really listened to the album befo
 Another sleepy walk into work. I did this one on my walk from the coffee shop to the bus stop. Honestly I didnt think to much about this listen other than it was rainy and I wasnt particalalry in a great mood.
 
 <div class="tag-container">
-  <div class="tag">#Youtube-Music</div>
-  <div class="tag">#Airpods</div>
-  <div class="tag">#Walking</div>
-  <div class="tag">#Studio-Album</div>
+  <h6 class="tag">#Youtube-Music</h6>
+  <h6 class="tag">#Airpods</h6>
+  <h6 class="tag">#Walking</h6>
+  <h6 class="tag">#Studio-Album</h6>
 </div>
 
 ---
@@ -146,10 +146,10 @@ I like to listen to music in the shower. Get over it. This time after work and c
 I think what sucked here is listening to it through my phone speakers which are utterly terrible. Not sure how to fix that. I think I will do this one more often too just because of how compact and the different song pacing throughout.
 
 <div class="tag-container">
-  <div class="tag">#Shower</div>
-  <div class="tag">#Bad-mood</div>
-  <div class="tag">#Youtube-Music</div>
-  <div class="tag">#Phone-Speaker</div>
+  <h6 class="tag">#Shower</h6>
+  <h6 class="tag">#Bad-mood</h6>
+  <h6 class="tag">#Youtube-Music</h6>
+  <h6 class="tag">#Phone-Speaker</h6>
 </div>
 
 ---
@@ -163,9 +163,9 @@ I found myself listening at the end of my day as I was writing my daily recap to
 Dumb long day full of lots and lots of meetings but it ended with an absolute banger.
 
 <div class="tag-container">
-  <div class="tag">#Youtube-Music</div>
-  <div class="tag">#ATH-M50-Orange</div>
-  <div class="tag">#Annoyed</div>
+  <h6 class="tag">#Youtube-Music</h6>
+  <h6 class="tag">#ATH-M50-Orange</h6>
+  <h6 class="tag">#Annoyed</h6>
 </div>
 
 ---
@@ -181,14 +181,14 @@ The second time I was on the ferry coming home and it was awesome. It was an abo
 The last time was at home on the record player **loud** with Li and Olive. Olive loves this song. She loves running around the couch and going crazy. It’s pretty great. We had the door open as well and the neighborhood got a listen as well.
 
 <div class="tag-container">
-  <div class="tag">#With-Olive</div>
-  <div class="tag">#Living-room</div>
-  <div class="tag">#Vinyl</div>
-  <div class="tag">#With-Li</div>
-  <div class="tag">#Shower</div>
-  <div class="tag">#Bad-mood</div>
-  <div class="tag">#Youtube-Music</div>
-  <div class="tag">#Phone-Speaker</div>
+  <h6 class="tag">#With-Olive</h6>
+  <h6 class="tag">#Living-room</h6>
+  <h6 class="tag">#Vinyl</h6>
+  <h6 class="tag">#With-Li</h6>
+  <h6 class="tag">#Shower</h6>
+  <h6 class="tag">#Bad-mood</h6>
+  <h6 class="tag">#Youtube-Music</h6>
+  <h6 class="tag">#Phone-Speaker</h6>
 </div>
 
 ---
@@ -206,10 +206,10 @@ What is my mood like? Idk kinda feeling like WTF today. Today was the day when Z
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/N0dbGGvsjf8?si=X0REYjKbwnDuUKxH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <div class="tag-container">
-  <div class="tag">#Living-room</div>
-  <div class="tag">#With-Li</div>
-  <div class="tag">#Youtube</div>
-  <div class="tag">#Live-Version</div>
+  <h6 class="tag">#Living-room</h6>
+  <h6 class="tag">#With-Li</h6>
+  <h6 class="tag">#Youtube</h6>
+  <h6 class="tag">#Live-Version</h6>
 </div>
 
 ---
@@ -225,10 +225,10 @@ Spoiler: that didn’t happen. I kept it sort of on a low volume and she was ver
 But dude, _A Night at the Opera_ is a terrible album _(other than Bohemian Rhapsody and Best Friend)_. It is totally unapproachable. I do not get the hype. But this was my initial thoughts with Grateful Dead and now I love 'em. The thing is I do not hate Queen, just this full album. I really feel like I should have got a greatest hits album. I mean I guess I still could.
 
 <div class="tag-container">
-  <div class="tag">#Living-room</div>
-  <div class="tag">#With-Li</div>
-  <div class="tag">#With-Olive</div>
-  <div class="tag">#Vinyl</div>
+  <h6 class="tag">#Living-room</h6>
+  <h6 class="tag">#With-Li</h6>
+  <h6 class="tag">#With-Olive</h6>
+  <h6 class="tag">#Vinyl</h6>
 </div>
 
 ---
@@ -242,10 +242,10 @@ Oh wait—Bohemian Rhapsody. The whole point of this experiment. We did another 
 I think the record is my fav way to listen to this song, but mostly because I get to share the listen with Olive and Li. Awwwww.
 
 <div class="tag-container">
-  <div class="tag">#Living-room</div>
-  <div class="tag">#With-Li</div>
-  <div class="tag">#With-Olive</div>
-  <div class="tag">#Vinyl</div>
+  <h6 class="tag">#Living-room</h6>
+  <h6 class="tag">#With-Li</h6>
+  <h6 class="tag">#With-Olive</h6>
+  <h6 class="tag">#Vinyl</h6>
 </div>
 
 ---
@@ -275,11 +275,11 @@ I lost it. Just started busting up like crazy. He didn’t light it though and i
 Dude’s a king. Great way to start the day.
 
 <div class="tag-container">
-  <div class="tag">#Youtube-Music</div>
-  <div class="tag">#Airpods</div>
-  <div class="tag">#Bus</div>
-  <div class="tag">#Studio-Album</div>
-  <div class="tag">#Commute</div>
+  <h6 class="tag">#Youtube-Music</h6>
+  <h6 class="tag">#Airpods</h6>
+  <h6 class="tag">#Bus</h6>
+  <h6 class="tag">#Studio-Album</h6>
+  <h6 class="tag">#Commute</h6>
 </div>
 
 ---
@@ -293,15 +293,15 @@ But when I got home today I decided to show Olive the Muppets version of this so
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY?si=uwJ-9r0UNrXUdsaN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <div class="tag-container">
-  <div class="tag">#Youtube-Music</div>
-  <div class="tag">#Airpods</div>
-  <div class="tag">#Bus</div>
-  <div class="tag">#Studio-Album</div>
-  <div class="tag">#Commute</div>
-  <div class="tag">#Muppets-version</div>
-  <div class="tag">#Living-room</div>
-  <div class="tag">#With-Li</div>
-  <div class="tag">#With-Olive</div>
+  <h6 class="tag">#Youtube-Music</h6>
+  <h6 class="tag">#Airpods</h6>
+  <h6 class="tag">#Bus</h6>
+  <h6 class="tag">#Studio-Album</h6>
+  <h6 class="tag">#Commute</h6>
+  <h6 class="tag">#Muppets-version</h6>
+  <h6 class="tag">#Living-room</h6>
+  <h6 class="tag">#With-Li</h6>
+  <h6 class="tag">#With-Olive</h6>
 </div>
 
 ---
@@ -311,10 +311,10 @@ But when I got home today I decided to show Olive the Muppets version of this so
 This was another shower listen on my phone again this is the perfect length for a shower and especially to start the day. No real notes on this listen maybe the single 45 I ordered off of ebay will come in today. That will make record listens way easier since Bohemian Rhapsody is right in the middle of the album and dropping the needle in the right spot is kinda a pain in the ass.
 
 <div class="tag-container">
-  <div class="tag">#Youtube-Music</div>
-  <div class="tag">#Shower</div>
-  <div class="tag">#Phone-Speaker</div>
-  <div class="tag">#Studio-Album</div>
+  <h6 class="tag">#Youtube-Music</h6>
+  <h6 class="tag">#Shower</h6>
+  <h6 class="tag">#Phone-Speaker</h6>
+  <h6 class="tag">#Studio-Album</h6>
 </div>
 
 ---
@@ -329,11 +329,11 @@ The 45 still has the same static as on the record seriously how did this make it
 ![Queen a night at the opera record](/post-images/20-days-of-br/queen-45.png)
 
 <div class="tag-container">
-  <div class="tag">#Vinyl</div>
-  <div class="tag">#45</div>
-  <div class="tag">#Studio-Album</div>
-  <div class="tag">#With-Olive</div>
-  <div class="tag">#With-Li</div>
+  <h6 class="tag">#Vinyl</h6>
+  <h6 class="tag">#45</h6>
+  <h6 class="tag">#Studio-Album</h6>
+  <h6 class="tag">#With-Olive</h6>
+  <h6 class="tag">#With-Li</h6>
 </div>
 
 ---
@@ -353,11 +353,11 @@ Yeah two very different listens today. Still the tattoo is rad as fuck and thank
 Sorry not going to put a topless photo of me on here, but it was done by a dude named Trevor Taylor and if you dig you can find the photo of me topless but why would you want todo that? lol
 
 <div class="tag-container">
-  <div class="tag">#my-head</div>
-  <div class="tag">#getting-a-tattoo</div>
-  <div class="tag">#ferry</div>
-  <div class="tag">#Youtube-Music</div>
-  <div class="tag">#Airpods</div>
+  <h6 class="tag">#my-head</h6>
+  <h6 class="tag">#getting-a-tattoo</h6>
+  <h6 class="tag">#ferry</h6>
+  <h6 class="tag">#Youtube-Music</h6>
+  <h6 class="tag">#Airpods</h6>
 </div>
 
 ---
@@ -369,10 +369,10 @@ Did this listen after getting caffinated and walking from Olympia to the bus sto
 New guy Dan's first week is this week and its been great having a person IRL to work with deisgn stuff on.
 
 <div class="tag-container">
-  <div class="tag">#morning</div>
-  <div class="tag">#walking</div>
-  <div class="tag">#Youtube-Music</div>
-  <div class="tag">#Airpods</div>
+  <h6 class="tag">#morning</h6>
+  <h6 class="tag">#walking</h6>
+  <h6 class="tag">#Youtube-Music</h6>
+  <h6 class="tag">#Airpods</h6>
 </div>
 
 ---
@@ -384,8 +384,8 @@ Another bus listen this time standup up which was nice. The driver today was a r
 I only had 1 headphone in on this listen which made it really feel like half a listen. The bus was stupid crowded today too and made it feel very clostraphobic.
 
 <div class="tag-container">
-  <div class="tag">#Bus</div>
-  <div class="tag">#commute</div>
-  <div class="tag">#Youtube-Music</div>
-  <div class="tag">#Airpods</div>
+  <h6 class="tag">#Bus</h6>
+  <h6 class="tag">#commute</h6>
+  <h6 class="tag">#Youtube-Music</h6>
+  <h6 class="tag">#Airpods</h6>
 </div>

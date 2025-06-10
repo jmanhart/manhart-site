@@ -21,6 +21,10 @@
   --card-text: #222;
   --card-shadow: 0 0 1px rgba(0, 0, 0, 0.04);
   --card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+  --red100: #c60202;
+  --red200: #ff8484;
+  --red300: #ffb3b3;
 }
 
 /* ===========================================
@@ -46,6 +50,10 @@
   --card-text: #f3f3f3;
   --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   --card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.6);
+
+  --red100: #c60202;
+  --red200: #ff8484;
+  --red300: #ffb3b3;
 }
 
 /* ===========================================
@@ -109,7 +117,7 @@ h5 {
   line-height: 2rem;
 }
 h6 {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 2rem;
 }
@@ -141,7 +149,7 @@ p {
     font-size: 0.9rem;
   }
   h6 {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   p {
     font-size: 1rem;
@@ -595,8 +603,10 @@ pre {
 }
 .tag {
   color: var(--text-tertiary);
+  letter-spacing: 0.025em;
+  font-kerning: normal;
   font-family: monospace;
-  font-weight: 800;
-  font-size: 1.2em;
+  font-weight: 400;
+  font-size: 1.35em;
   text-transform: lowercase;
 }
