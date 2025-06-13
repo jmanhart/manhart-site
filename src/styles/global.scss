@@ -616,6 +616,7 @@ pre {
   font-family: monospace;
   font-weight: 400;
   font-size: 1.35em;
+  line-height: 1.2;
   text-transform: lowercase;
 }
 
@@ -645,3 +646,17 @@ pre {
 
   background: var(--inverse);
 }
+
+// .truncate {
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+//   width: 200px; /* or any fixed width */
+// }
+
+// .pretty-path {
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+//   width: 20px; /* or any fixed width */
+// }
