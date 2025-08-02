@@ -2,26 +2,32 @@
 import Input from "./Input.astro";
 import Textarea from "./Textarea.astro";
 import Label from "./Label.astro";
+import Button from "./Button.astro";
 import "../styles/global.scss";
 ---
 
-<form class="contact-form" id="contact-form">
+<form class="contact-form" id="contact-form" novalidate>
   <div class="form-group">
     <Label for="name">Names</Label>
     <Input name="name" type="text" required />
+    <div class="field-error" id="name-error"></div>
   </div>
   
   <div class="form-group">
     <Label for="email">Email</Label>
     <Input name="email" type="email" required />
+    <div class="field-error" id="email-error"></div>
   </div>
   
   <div class="form-group">
     <Label for="message">Message</Label>
     <Textarea name="message" rows="5" required />
+    <div class="field-error" id="message-error"></div>
   </div>
   
-  <button type="submit" class="submit-btn">Send Message</button>
+  <Button type="submit" variant="primary" size="medium" class="submit-btn">
+    Send Message
+  </Button>
   <div id="form-message" class="form-message"></div>
 </form>
 
@@ -30,11 +36,142 @@ import "../styles/global.scss";
   const messageDiv = document.getElementById('form-message') as HTMLDivElement;
 
   if (form && messageDiv) {
+    // Track which fields have been touched (interacted with)
+    const touchedFields = new Set<string>();
+
+    // Validation functions
+    function isValidEmail(email: string): boolean {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    function validateForm(formData: FormData): Array<{field: string, message: string}> {
+      const errors = [];
+      
+      // Name validation - only if touched
+      const name = formData.get('name') as string;
+      if (touchedFields.has('name') && (!name || name.trim().length === 0)) {
+        errors.push({ field: 'name', message: 'Name is required' });
+      }
+      
+      // Email validation - only if touched
+      const email = formData.get('email') as string;
+      if (touchedFields.has('email')) {
+        if (!email || email.trim().length === 0) {
+          errors.push({ field: 'email', message: 'Email is required' });
+        } else if (!isValidEmail(email)) {
+          errors.push({ field: 'email', message: 'Please enter a valid email address' });
+        }
+      }
+      
+      // Message validation - only if touched
+      const message = formData.get('message') as string;
+      if (touchedFields.has('message')) {
+        if (!message || message.trim().length === 0) {
+          errors.push({ field: 'message', message: 'Message is required' });
+        } else if (message.trim().length < 10) {
+          errors.push({ field: 'message', message: 'Message must be at least 10 characters' });
+        }
+      }
+      
+      return errors;
+    }
+
+    function showValidationErrors(errors: Array<{field: string, message: string}>) {
+      // Clear previous error states
+      clearErrorStates();
+      
+      // Add error classes to inputs and show error messages
+      errors.forEach(error => {
+        const input = form.querySelector(`[name="${error.field}"]`) as HTMLElement;
+        const errorDiv = document.getElementById(`${error.field}-error`) as HTMLDivElement;
+        
+        if (input) {
+          input.classList.add('error');
+        }
+        
+        if (errorDiv) {
+          errorDiv.textContent = error.message;
+          errorDiv.style.display = 'block';
+        }
+      });
+    }
+
+    function clearErrorStates() {
+      // Remove error classes from all inputs
+      const inputs = form.querySelectorAll('.form-field');
+      inputs.forEach(input => {
+        input.classList.remove('error');
+      });
+      
+      // Clear all error messages
+      const errorDivs = form.querySelectorAll('.field-error');
+      errorDivs.forEach(div => {
+        (div as HTMLElement).textContent = '';
+        (div as HTMLElement).style.display = 'none';
+      });
+      
+      // Clear main message
+      messageDiv.textContent = '';
+      messageDiv.className = 'form-message';
+    }
+
+    function clearFieldError(fieldName: string) {
+      const input = form.querySelector(`[name="${fieldName}"]`) as HTMLElement;
+      const errorDiv = document.getElementById(`${fieldName}-error`) as HTMLDivElement;
+      
+      if (input) {
+        input.classList.remove('error');
+      }
+      
+      if (errorDiv) {
+        errorDiv.textContent = '';
+        errorDiv.style.display = 'none';
+      }
+    }
+
+    // Mark field as touched when user interacts with it
+    function markFieldAsTouched(fieldName: string) {
+      touchedFields.add(fieldName);
+    }
+
+    // Add input event listeners to clear errors on typing and mark as touched
+    const inputs = form.querySelectorAll('.form-field');
+    inputs.forEach(input => {
+      input.addEventListener('input', (e) => {
+        const target = e.target as HTMLInputElement | HTMLTextAreaElement;
+        markFieldAsTouched(target.name);
+        clearFieldError(target.name);
+      });
+      
+      // Also mark as touched on focus (in case they focus but don't type)
+      input.addEventListener('focus', (e) => {
+        const target = e.target as HTMLInputElement | HTMLTextAreaElement;
+        markFieldAsTouched(target.name);
+      });
+    });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
       // Get form data
       const formData = new FormData(form);
+      
+      // Only mark fields as touched if they have content or were previously touched
+      const allFields = ['name', 'email', 'message'];
+      allFields.forEach(field => {
+        const value = formData.get(field) as string;
+        if (value && value.trim().length > 0) {
+          touchedFields.add(field);
+        }
+      });
+      
+      // Validate form
+      const errors = validateForm(formData);
+      if (errors.length > 0) {
+        showValidationErrors(errors);
+        return;
+      }
       
       // Show loading state
       const submitBtn = form.querySelector('.submit-btn') as HTMLButtonElement;
@@ -43,6 +180,9 @@ import "../styles/global.scss";
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
       }
+      
+      // Clear any previous error states
+      clearErrorStates();
       
       try {
         // Send to API
@@ -58,6 +198,8 @@ import "../styles/global.scss";
           messageDiv.textContent = result.message || 'Message sent successfully!';
           messageDiv.className = 'form-message success';
           form.reset();
+          // Reset touched fields on successful submission
+          touchedFields.clear();
         } else {
           // Error
           messageDiv.textContent = result.error || 'Something went wrong. Please try again.';
@@ -76,4 +218,14 @@ import "../styles/global.scss";
       }
     });
   }
-</script> 
+</script>
+
+<style>
+  .field-error {
+    display: none;
+    font-size: 0.75rem;
+    color: var(--red500);
+    margin-top: 0.25rem;
+    line-height: 1.2;
+  }
+</style> 

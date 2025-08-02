@@ -1,4 +1,6 @@
 ---
+import "../styles/global.scss";
+
 const { 
   name, 
   id, 
@@ -27,5 +29,5 @@ const textareaId = id || name;
   rows={rows}
   cols={cols}
   maxlength={maxlength}
-  class={className}
+  class={`form-field ${className}`}
 ></textarea>

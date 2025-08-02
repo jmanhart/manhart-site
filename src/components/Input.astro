@@ -1,4 +1,6 @@
 ---
+import "../styles/global.scss";
+
 const { 
   name, 
   type = "text", 
@@ -25,5 +27,5 @@ const inputId = id || name;
   disabled={disabled}
   readonly={readonly}
   maxlength={maxlength}
-  class={className}
+  class={`form-field ${className}`}
 />
