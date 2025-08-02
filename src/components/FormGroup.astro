@@ -115,7 +115,15 @@ import "../styles/global.scss";
   }
   
   // Initialize Turnstile widget with retry logic
+  let turnstileInitialized = false;
+  
   function initTurnstile(): void {
+    // Prevent multiple initializations
+    if (turnstileInitialized) {
+      console.log('⚠️ Turnstile already initialized, skipping...');
+      return;
+    }
+    
     console.log('🔧 INITIALIZING TURNSTILE...');
     console.log('- TURNSTILE_SITE_KEY exists:', !!TURNSTILE_SITE_KEY);
     console.log('- TURNSTILE_SITE_KEY length:', TURNSTILE_SITE_KEY ? TURNSTILE_SITE_KEY.length : 0);
@@ -138,6 +146,7 @@ import "../styles/global.scss";
           }
         });
         console.log('✅ Turnstile widget rendered successfully');
+        turnstileInitialized = true;
       } catch (error) {
         console.error('❌ ERROR RENDERING TURNSTILE:', error);
       }
@@ -150,11 +159,13 @@ import "../styles/global.scss";
       }
       if (typeof (window as any).turnstile === 'undefined') {
         console.error('💡 Turnstile script may not have loaded properly');
-        // Retry after a delay
-        setTimeout(() => {
-          console.log('🔄 Retrying Turnstile initialization...');
-          initTurnstile();
-        }, 2000);
+        // Only retry once if not already initialized
+        if (!turnstileInitialized) {
+          setTimeout(() => {
+            console.log('🔄 Retrying Turnstile initialization...');
+            initTurnstile();
+          }, 2000);
+        }
       }
     }
   }
@@ -293,9 +304,6 @@ import "../styles/global.scss";
   
   // Try to initialize immediately
   initWithRetry();
-  
-  // Also try after a delay in case script loads late
-  setTimeout(initTurnstile, 1000);
 </script>
 
 <style>
