@@ -8,6 +8,7 @@
   --surface100: #ededed; /* Background */
   --surface200: #eeeeee; /* Secondary background */
   --surface300: #e9e8e8; /* Tertiary background */
+  --surface400: #c4c4c4; /* Quaternary background */
 
   --text-primary: #222222; /* Main text */
   --text-secondary: #4c4c4c; /* Secondary text */
@@ -42,6 +43,7 @@
   --surface100: #171717;
   --surface200: #221b28;
   --surface300: #29232f;
+  --surface400: #4e3f58;
 
   --text-primary: #ededed;
   --text-secondary: #b3b3b3;
@@ -515,8 +517,6 @@ button:hover {
 }
 
 button {
-  background: none !important;
-  background-color: transparent !important;
   border: none;
   outline: none;
   color: inherit; /* Ensures it inherits text color */

@@ -5,6 +5,7 @@ import Header from "../components/Header.astro";
 import Input from "components/Input.astro";
 import Textarea from "components/Textarea.astro";
 import Label from "components/Label.astro";
+import Button from "components/Button.astro";
 ---
 
 <html lang="en">
@@ -21,17 +22,50 @@ import Label from "components/Label.astro";
     <Header />
     <div class="sub-page-wrapper">
       <div class="root-content text-page">
-        <h2>Site Colophon</h2>
-        <h1>This is a title</h1>
-        <h2>This is a subtitle</h2>
-        <h3>This is another subtitle title</h3>
-        <h4>This is yet another subtitle title</h4>
-        <h5>This is and guess what another title</h5>
-        <h6>This is the last subtitle title</h6>
+        <h1>H1 This is a title</h1>
+        <h2>H2 This is a subtitle</h2>
+        <h3>H3 This is another subtitle title</h3>
+        <h4>H4 This is yet another subtitle title</h4>
+        <h5>H5 This is and guess what another title</h5>
+        <h6>h6 This is the last subtitle title</h6>
         <p>
-          I'm baby chicharrones heirloom aesthetic, blog mumblecore crucifix
+          P I'm baby chicharrones heirloom aesthetic, blog mumblecore crucifix
           literally live-edge everyday carry hammock cliche palo santo.Selfies schlitz VHS af, fingerstache austin hell of readymade selvage tousled banjo big mood scenester chillwave. Small batch humblebrag leggings waistcoat la croix celiac lomo 8-bit disrupt prism man braid. Enamel pin kombucha austin, shaman authentic etsy coloring book vaporware quinoa selvage man bun schlitz DIY same. Narwhal williamsburg plaid vape cliche roof party pour-over sartorial ugh pop-up mumblecore. Adaptogen hot chicken bodega boys, chambray beard neutra everyday carry.
         </p>
+
+        <h3>Buttons Primary</h3>
+        <Button variant="primary" size="large" >
+          Button Label
+        </Button>
+        <Button variant="primary" size="medium" >
+          Send Message
+        </Button>
+        <Button variant="primary" size="small" >
+          Send Message
+        </Button>
+
+        <h3>Buttons Secondary</h3>
+        <Button variant="secondary" size="large" >
+          Button Label
+        </Button>
+        <Button variant="secondary" size="medium" > 
+          Send Message
+        </Button>
+        <Button variant="secondary" size="small" >
+          Send Message
+        </Button>
+
+        <h3>Buttons Tertiary</h3>
+        <Button variant="tertiary" size="large" >
+          Button Label
+        </Button>
+        <Button variant="tertiary" size="medium" >
+          Send Message
+        </Button>
+        <Button variant="tertiary" size="small" >
+          Send Message
+        </Button>
+        <h3>Forms</h3>
         <Label for="name">Input</Label>
         <Input name="name" type="text" required />
         <Label for="message">Text Area</Label>
