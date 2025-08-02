@@ -1,0 +1,31 @@
+---
+const { 
+  name, 
+  id, 
+  placeholder, 
+  required = false,
+  value,
+  disabled = false,
+  readonly = false,
+  rows = 3,
+  cols,
+  maxlength,
+  class: className = ""
+} = Astro.props;
+
+const textareaId = id || name;
+---
+
+<textarea 
+  id={textareaId}
+  name={name}
+  placeholder={placeholder}
+  required={required}
+  value={value}
+  disabled={disabled}
+  readonly={readonly}
+  rows={rows}
+  cols={cols}
+  maxlength={maxlength}
+  class={className}
+></textarea>

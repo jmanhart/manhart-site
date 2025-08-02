@@ -1,22 +1,24 @@
 ---
-// Import any needed components or styles
+import Input from "./Input.astro";
+import Textarea from "./Textarea.astro";
+import Label from "./Label.astro";
 import "../styles/global.scss";
 ---
 
 <form class="contact-form" id="contact-form">
   <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required />
+    <Label for="name">Names</Label>
+    <Input name="name" type="text" required />
   </div>
   
   <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required />
+    <Label for="email">Email</Label>
+    <Input name="email" type="email" required />
   </div>
   
   <div class="form-group">
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
+    <Label for="message">Message</Label>
+    <Textarea name="message" rows="5" required />
   </div>
   
   <button type="submit" class="submit-btn">Send Message</button>
@@ -74,4 +76,4 @@ import "../styles/global.scss";
       }
     });
   }
-</script>
+</script> 

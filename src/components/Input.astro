@@ -1,0 +1,29 @@
+---
+const { 
+  name, 
+  type = "text", 
+  id, 
+  placeholder, 
+  required = false,
+  value,
+  disabled = false,
+  readonly = false,
+  maxlength,
+  class: className = ""
+} = Astro.props;
+
+const inputId = id || name;
+---
+
+<input 
+  type={type}
+  id={inputId}
+  name={name}
+  placeholder={placeholder}
+  required={required}
+  value={value}
+  disabled={disabled}
+  readonly={readonly}
+  maxlength={maxlength}
+  class={className}
+/>
