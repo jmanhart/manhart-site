@@ -20,8 +20,58 @@ import "../styles/global.scss";
   </div>
   
   <button type="submit" class="submit-btn">Send Message</button>
+  <div id="form-message" class="form-message"></div>
 </form>
 
 <script>
-  // Form handling JavaScript here
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const messageDiv = document.getElementById('form-message') as HTMLDivElement;
+
+  if (form && messageDiv) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(form);
+      
+      // Show loading state
+      const submitBtn = form.querySelector('.submit-btn') as HTMLButtonElement;
+      const originalText = submitBtn?.textContent || 'Send Message';
+      if (submitBtn) {
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+      }
+      
+      try {
+        // Send to API
+        const response = await fetch('/api/resend', {
+          method: 'POST',
+          body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok) {
+          // Success
+          messageDiv.textContent = result.message || 'Message sent successfully!';
+          messageDiv.className = 'form-message success';
+          form.reset();
+        } else {
+          // Error
+          messageDiv.textContent = result.error || 'Something went wrong. Please try again.';
+          messageDiv.className = 'form-message error';
+        }
+      } catch (error) {
+        // Network error
+        messageDiv.textContent = 'Network error. Please try again.';
+        messageDiv.className = 'form-message error';
+      } finally {
+        // Reset button
+        if (submitBtn) {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+      }
+    });
+  }
 </script>
