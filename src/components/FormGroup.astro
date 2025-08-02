@@ -269,37 +269,43 @@ import "../styles/global.scss";
     console.error('❌ Contact form not found');
   }
   
-  // Real-time validation with null checks
-  const inputs = document.querySelectorAll('input, textarea');
-  inputs.forEach(input => {
-    if (input) {
-      input.addEventListener('blur', function(this: HTMLInputElement | HTMLTextAreaElement) {
-        const fieldName = this.name;
-        const value = this.value.trim();
-        
-        if (value) {
-          this.classList.add('touched');
-          
-          // Validate specific field
-          if (fieldName === 'email' && !isValidEmail(value)) {
-            showValidationError('email', 'Please enter a valid email address');
-          } else if (fieldName === 'message' && value.length < 10) {
-            showValidationError('message', 'Message must be at least 10 characters long');
-          } else {
-            clearFieldError(fieldName);
-          }
-        }
-      });
-    }
-  });
-  
   // Initialize Turnstile when script loads with retry
   function initWithRetry() {
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initTurnstile);
+      document.addEventListener('DOMContentLoaded', function() {
+        initTurnstile();
+        setupRealTimeValidation();
+      });
     } else {
       initTurnstile();
+      setupRealTimeValidation();
     }
+  }
+  
+  // Setup real-time validation
+  function setupRealTimeValidation() {
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+      if (input) {
+        input.addEventListener('blur', function(this: HTMLInputElement | HTMLTextAreaElement) {
+          const fieldName = this.name;
+          const value = this.value.trim();
+          
+          if (value) {
+            this.classList.add('touched');
+            
+            // Validate specific field
+            if (fieldName === 'email' && !isValidEmail(value)) {
+              showValidationError('email', 'Please enter a valid email address');
+            } else if (fieldName === 'message' && value.length < 10) {
+              showValidationError('message', 'Message must be at least 10 characters long');
+            } else {
+              clearFieldError(fieldName);
+            }
+          }
+        });
+      }
+    });
   }
   
   // Try to initialize immediately
