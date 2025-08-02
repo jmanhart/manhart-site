@@ -1,0 +1,41 @@
+---
+import "../styles/global.scss";
+
+const { 
+  for: htmlFor, 
+  text,
+  class: className = ""
+} = Astro.props;
+---
+
+<label for={htmlFor} class={`form-label ${className}`}>
+  {text}
+  <slot />
+</label>
+
+<style>
+  .form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
+  /* Required field indicator */
+  .form-label.required::after {
+    content: " *";
+    color: var(--red200);
+  }
+
+  /* Error state */
+  .form-label.error {
+    color: var(--red500);
+  }
+
+  /* Success state */
+  .form-label.success {
+    color: var(--green500);
+  }
+</style>

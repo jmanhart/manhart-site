@@ -1,0 +1,317 @@
+---
+import Input from "./Input.astro";
+import Textarea from "./Textarea.astro";
+import Label from "./Label.astro";
+import Button from "./Button.astro";
+import "../styles/global.scss";
+---
+
+<form class="contact-form" id="contact-form" novalidate>
+  <div class="form-group">
+    <Label for="name">Name</Label>
+    <Input name="name" type="text" required />
+    <div class="field-error" id="name-error"></div>
+  </div>
+  
+  <div class="form-group">
+    <Label for="email">Email</Label>
+    <Input name="email" type="email" required />
+    <div class="field-error" id="email-error"></div>
+  </div>
+  
+  <div class="form-group">
+    <Label for="message">Message</Label>
+    <Textarea name="message" required />
+    <div class="field-error" id="message-error"></div>
+  </div>
+  
+  <!-- Turnstile widget container -->
+  <div id="turnstile-widget" class="turnstile-container"></div>
+  
+  <Button type="submit" variant="primary" size="medium" class="submit-btn">Send Message</Button>
+  <div id="form-message" class="form-message"></div>
+</form>
+
+<!-- Turnstile script -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script>
+  // Turnstile configuration
+  const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+  
+  // Debug environment variables
+  console.log('🔍 FRONTEND ENVIRONMENT VARIABLES CHECK:');
+  console.log('- import.meta.env keys:', Object.keys(import.meta.env));
+  console.log('- PUBLIC_TURNSTILE_SITE_KEY exists:', !!import.meta.env.PUBLIC_TURNSTILE_SITE_KEY);
+  console.log('- TURNSTILE_SITE_KEY variable:', TURNSTILE_SITE_KEY);
+  console.log('- TURNSTILE_SITE_KEY length:', TURNSTILE_SITE_KEY ? TURNSTILE_SITE_KEY.length : 0);
+  
+  // Form validation functions
+  function isValidEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+  
+  function validateForm(): boolean {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const nameInput = form.querySelector('input[name="name"]') as HTMLInputElement;
+    const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement;
+    const messageInput = form.querySelector('textarea[name="message"]') as HTMLTextAreaElement;
+    
+    let isValid = true;
+    
+    // Clear previous errors
+    clearErrorStates();
+    
+    // Validate name
+    if (!nameInput.value.trim()) {
+      showValidationError('name', 'Name is required');
+      isValid = false;
+    }
+    
+    // Validate email
+    if (!emailInput.value.trim()) {
+      showValidationError('email', 'Email is required');
+      isValid = false;
+    } else if (!isValidEmail(emailInput.value.trim())) {
+      showValidationError('email', 'Please enter a valid email address');
+      isValid = false;
+    }
+    
+    // Validate message
+    if (!messageInput.value.trim()) {
+      showValidationError('message', 'Message is required');
+      isValid = false;
+    } else if (messageInput.value.trim().length < 10) {
+      showValidationError('message', 'Message must be at least 10 characters long');
+      isValid = false;
+    }
+    
+    return isValid;
+  }
+  
+  function showValidationError(fieldName: string, message: string): void {
+    const errorElement = document.getElementById(`${fieldName}-error`) as HTMLDivElement;
+    if (errorElement) {
+      errorElement.textContent = message;
+      errorElement.style.display = 'block';
+    }
+  }
+  
+  function clearErrorStates(): void {
+    const errorElements = document.querySelectorAll('.field-error');
+    errorElements.forEach(element => {
+      (element as HTMLDivElement).textContent = '';
+      (element as HTMLDivElement).style.display = 'none';
+    });
+  }
+  
+  function clearFieldError(fieldName: string): void {
+    const errorElement = document.getElementById(`${fieldName}-error`) as HTMLDivElement;
+    if (errorElement) {
+      errorElement.textContent = '';
+      errorElement.style.display = 'none';
+    }
+  }
+  
+  // Initialize Turnstile widget
+  function initTurnstile(): void {
+    console.log('🔧 INITIALIZING TURNSTILE...');
+    console.log('- TURNSTILE_SITE_KEY exists:', !!TURNSTILE_SITE_KEY);
+    console.log('- TURNSTILE_SITE_KEY length:', TURNSTILE_SITE_KEY ? TURNSTILE_SITE_KEY.length : 0);
+    console.log('- TURNSTILE_SITE_KEY starts with 0x4AAAAAAA:', TURNSTILE_SITE_KEY ? TURNSTILE_SITE_KEY.startsWith('0x4AAAAAAA') : false);
+    console.log('- turnstile object exists:', typeof (window as any).turnstile !== 'undefined');
+    console.log('- window.turnstile:', (window as any).turnstile);
+    
+    if (typeof (window as any).turnstile !== 'undefined' && TURNSTILE_SITE_KEY) {
+      console.log('✅ Rendering Turnstile widget...');
+      try {
+        (window as any).turnstile.render('#turnstile-widget', {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: function(token: string): void {
+            console.log('✅ Turnstile callback triggered with token:', token.substring(0, 20) + '...');
+            // Store the token for form submission
+            (document.getElementById('contact-form') as HTMLFormElement).setAttribute('data-turnstile-token', token);
+          },
+          'expired-callback': function(): void {
+            console.log('⚠️ Turnstile token expired');
+          }
+        });
+        console.log('✅ Turnstile widget rendered successfully');
+      } catch (error) {
+        console.error('❌ ERROR RENDERING TURNSTILE:', error);
+      }
+    } else {
+      console.error('❌ TURNSTILE INITIALIZATION FAILED:');
+      console.error('- turnstile object available:', typeof (window as any).turnstile !== 'undefined');
+      console.error('- TURNSTILE_SITE_KEY available:', !!TURNSTILE_SITE_KEY);
+      if (!TURNSTILE_SITE_KEY) {
+        console.error('💡 Make sure PUBLIC_TURNSTILE_SITE_KEY is set in your .env file');
+      }
+      if (typeof (window as any).turnstile === 'undefined') {
+        console.error('💡 Turnstile script may not have loaded properly');
+      }
+    }
+  }
+  
+  // Form submission
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      console.log('📝 FORM SUBMISSION STARTED');
+      
+      const formElement = e.target as HTMLFormElement;
+      const submitBtn = formElement.querySelector('.submit-btn') as HTMLButtonElement;
+      const messageDiv = document.getElementById('form-message') as HTMLDivElement;
+      
+      // Mark fields with content as touched for validation
+      const inputs = formElement.querySelectorAll('input, textarea');
+      inputs.forEach(input => {
+        if ((input as HTMLInputElement | HTMLTextAreaElement).value.trim()) {
+          (input as HTMLInputElement | HTMLTextAreaElement).classList.add('touched');
+        }
+      });
+      
+      // Validate form
+      if (!validateForm()) {
+        console.log('❌ Form validation failed');
+        return;
+      }
+      
+      // Check for Turnstile token
+      const turnstileToken = formElement.getAttribute('data-turnstile-token');
+      console.log('🔍 TURNSTILE TOKEN CHECK:');
+      console.log('- Token exists:', !!turnstileToken);
+      console.log('- Token length:', turnstileToken ? turnstileToken.length : 0);
+      
+      if (!turnstileToken) {
+        console.log('❌ No Turnstile token found');
+        if (messageDiv) {
+          messageDiv.textContent = 'Please complete the security check';
+          messageDiv.className = 'form-message error';
+          messageDiv.style.display = 'block';
+        }
+        return;
+      }
+      
+      console.log('✅ Turnstile token found, proceeding with submission');
+      
+      // Show loading state
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('loading');
+        submitBtn.textContent = 'Sending...';
+      }
+      
+      try {
+        const formData = new FormData(formElement);
+        formData.append('turnstile-token', turnstileToken);
+        
+        console.log('📡 Sending request to /api/resend...');
+        const response = await fetch('/api/resend', {
+          method: 'POST',
+          body: formData
+        });
+        
+        console.log('📡 Response status:', response.status);
+        const result = await response.json();
+        console.log('📡 Response data:', result);
+        
+        if (result.success) {
+          if (messageDiv) {
+            messageDiv.textContent = result.message;
+            messageDiv.className = 'form-message success';
+          }
+          formElement.reset();
+          // Reset Turnstile
+          if (typeof (window as any).turnstile !== 'undefined') {
+            (window as any).turnstile.reset('#turnstile-widget');
+          }
+        } else {
+          if (messageDiv) {
+            messageDiv.textContent = result.error || 'Failed to send message';
+            messageDiv.className = 'form-message error';
+          }
+        }
+      } catch (error) {
+        console.error('❌ FETCH ERROR:', error);
+        if (messageDiv) {
+          messageDiv.textContent = 'An error occurred. Please try again.';
+          messageDiv.className = 'form-message error';
+        }
+      } finally {
+        if (messageDiv) {
+          messageDiv.style.display = 'block';
+        }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('loading');
+          submitBtn.textContent = 'Send Message';
+        }
+      }
+    });
+  } else {
+    console.error('❌ Contact form not found');
+  }
+  
+  // Real-time validation
+  document.querySelectorAll('input, textarea').forEach(input => {
+    input.addEventListener('blur', function(this: HTMLInputElement | HTMLTextAreaElement) {
+      const fieldName = this.name;
+      const value = this.value.trim();
+      
+      if (value) {
+        this.classList.add('touched');
+        
+        // Validate specific field
+        if (fieldName === 'email' && !isValidEmail(value)) {
+          showValidationError('email', 'Please enter a valid email address');
+        } else if (fieldName === 'message' && value.length < 10) {
+          showValidationError('message', 'Message must be at least 10 characters long');
+        } else {
+          clearFieldError(fieldName);
+        }
+      }
+    });
+  });
+  
+  // Initialize Turnstile when script loads
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTurnstile);
+  } else {
+    initTurnstile();
+  }
+</script>
+
+<style>
+  .field-error {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: none;
+  }
+  
+  .turnstile-container {
+    margin: 1rem 0;
+  }
+  
+  .form-message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    display: none;
+  }
+  
+  .form-message.success {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+  
+  .form-message.error {
+    background-color: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+  }
+</style> 
