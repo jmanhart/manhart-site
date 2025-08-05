@@ -12,22 +12,22 @@ import "../styles/global.scss";
     <Input name="name" type="text" required />
     <div class="field-error" id="name-error"></div>
   </div>
-  
+
   <div class="form-group">
     <Label for="email">Email</Label>
     <Input name="email" type="email" required />
     <div class="field-error" id="email-error"></div>
   </div>
-  
+
   <div class="form-group">
     <Label for="message">Message</Label>
     <Textarea name="message" rows="5" required />
     <div class="field-error" id="message-error"></div>
   </div>
-  
+
   <!-- Turnstile widget container -->
   <div id="turnstile-widget" class="turnstile-container"></div>
-  
+
   <Button type="submit" variant="primary" size="medium" class="submit-btn">Send Message</Button>
   <div id="form-message" class="form-message"></div>
 </form>
@@ -36,39 +36,42 @@ import "../styles/global.scss";
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <script>
+  // Import Sentry utilities
+  import { captureError, captureMessage, trackFormSubmission, addBreadcrumb } from '../utils/sentry.js';
+
   // Turnstile configuration
   const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
-  
+
   // Debug environment variables
   console.log('🔍 FRONTEND ENVIRONMENT VARIABLES CHECK:');
   console.log('- import.meta.env keys:', Object.keys(import.meta.env));
   console.log('- PUBLIC_TURNSTILE_SITE_KEY exists:', !!import.meta.env.PUBLIC_TURNSTILE_SITE_KEY);
   console.log('- TURNSTILE_SITE_KEY variable:', TURNSTILE_SITE_KEY);
   console.log('- TURNSTILE_SITE_KEY length:', TURNSTILE_SITE_KEY ? TURNSTILE_SITE_KEY.length : 0);
-  
+
   // Form validation functions
   function isValidEmail(email: string): boolean {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
-  
+
   function validateForm(): boolean {
     const form = document.getElementById('contact-form') as HTMLFormElement;
     const nameInput = form.querySelector('input[name="name"]') as HTMLInputElement;
     const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement;
     const messageInput = form.querySelector('textarea[name="message"]') as HTMLTextAreaElement;
-    
+
     let isValid = true;
-    
+
     // Clear previous errors
     clearErrorStates();
-    
+
     // Validate name
     if (!nameInput.value.trim()) {
       showValidationError('name', 'Name is required');
       isValid = false;
     }
-    
+
     // Validate email
     if (!emailInput.value.trim()) {
       showValidationError('email', 'Email is required');
@@ -77,7 +80,7 @@ import "../styles/global.scss";
       showValidationError('email', 'Please enter a valid email address');
       isValid = false;
     }
-    
+
     // Validate message
     if (!messageInput.value.trim()) {
       showValidationError('message', 'Message is required');
@@ -86,10 +89,10 @@ import "../styles/global.scss";
       showValidationError('message', 'Message must be at least 10 characters long');
       isValid = false;
     }
-    
+
     return isValid;
   }
-  
+
   function showValidationError(fieldName: string, message: string): void {
     const errorElement = document.getElementById(`${fieldName}-error`) as HTMLDivElement;
     if (errorElement) {
@@ -97,7 +100,7 @@ import "../styles/global.scss";
       errorElement.style.display = 'block';
     }
   }
-  
+
   function clearErrorStates(): void {
     const errorElements = document.querySelectorAll('.field-error');
     errorElements.forEach(element => {
@@ -105,7 +108,7 @@ import "../styles/global.scss";
       (element as HTMLDivElement).style.display = 'none';
     });
   }
-  
+
   function clearFieldError(fieldName: string): void {
     const errorElement = document.getElementById(`${fieldName}-error`) as HTMLDivElement;
     if (errorElement) {
@@ -113,24 +116,24 @@ import "../styles/global.scss";
       errorElement.style.display = 'none';
     }
   }
-  
+
   // Initialize Turnstile widget with retry logic
   let turnstileInitialized = false;
-  
+
   function initTurnstile(): void {
     // Prevent multiple initializations
     if (turnstileInitialized) {
       console.log('⚠️ Turnstile already initialized, skipping...');
       return;
     }
-    
+
     console.log('🔧 INITIALIZING TURNSTILE...');
     console.log('- TURNSTILE_SITE_KEY exists:', !!TURNSTILE_SITE_KEY);
     console.log('- TURNSTILE_SITE_KEY length:', TURNSTILE_SITE_KEY ? TURNSTILE_SITE_KEY.length : 0);
     console.log('- TURNSTILE_SITE_KEY starts with 0x4AAAAAAA:', TURNSTILE_SITE_KEY ? TURNSTILE_SITE_KEY.startsWith('0x4AAAAAAA') : false);
     console.log('- turnstile object exists:', typeof (window as any).turnstile !== 'undefined');
     console.log('- window.turnstile:', (window as any).turnstile);
-    
+
     if (typeof (window as any).turnstile !== 'undefined' && TURNSTILE_SITE_KEY) {
       console.log('✅ Rendering Turnstile widget...');
       try {
@@ -140,15 +143,20 @@ import "../styles/global.scss";
             console.log('✅ Turnstile callback triggered with token:', token.substring(0, 20) + '...');
             // Store the token for form submission
             (document.getElementById('contact-form') as HTMLFormElement).setAttribute('data-turnstile-token', token);
+            // Add Sentry breadcrumb
+            addBreadcrumb('Turnstile token received', 'security', { tokenLength: token.length });
           },
           'expired-callback': function(): void {
             console.log('⚠️ Turnstile token expired');
+            addBreadcrumb('Turnstile token expired', 'security');
           }
         });
         console.log('✅ Turnstile widget rendered successfully');
         turnstileInitialized = true;
+        addBreadcrumb('Turnstile widget initialized', 'security');
       } catch (error) {
         console.error('❌ ERROR RENDERING TURNSTILE:', error);
+        captureError(error as Error, { context: 'Turnstile initialization' });
       }
     } else {
       console.error('❌ TURNSTILE INITIALIZATION FAILED:');
@@ -169,18 +177,19 @@ import "../styles/global.scss";
       }
     }
   }
-  
+
   // Form submission with fallback for missing Turnstile
   const form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
       console.log('📝 FORM SUBMISSION STARTED');
-      
+      addBreadcrumb('Form submission started', 'form');
+
       const formElement = e.target as HTMLFormElement;
       const submitBtn = formElement.querySelector('.submit-btn') as HTMLButtonElement;
       const messageDiv = document.getElementById('form-message') as HTMLDivElement;
-      
+
       // Mark fields with content as touched for validation
       const inputs = formElement.querySelectorAll('input, textarea');
       inputs.forEach(input => {
@@ -188,50 +197,55 @@ import "../styles/global.scss";
           (input as HTMLInputElement | HTMLTextAreaElement).classList.add('touched');
         }
       });
-      
+
       // Validate form
       if (!validateForm()) {
         console.log('❌ Form validation failed');
+        trackFormSubmission('contact', false);
+        addBreadcrumb('Form validation failed', 'form');
         return;
       }
-      
+
       // Check for Turnstile token
       const turnstileToken = formElement.getAttribute('data-turnstile-token');
       console.log('🔍 TURNSTILE TOKEN CHECK:');
       console.log('- Token exists:', !!turnstileToken);
       console.log('- Token length:', turnstileToken ? turnstileToken.length : 0);
-      
+
       if (!turnstileToken) {
         console.log('❌ No Turnstile token found - proceeding without verification');
+        addBreadcrumb('No Turnstile token found', 'security');
         // Continue without Turnstile verification for now
         // In production, you might want to block this
       }
-      
+
       console.log('✅ Proceeding with submission');
-      
+
       // Show loading state
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.classList.add('loading');
         submitBtn.textContent = 'Sending...';
       }
-      
+
       try {
         const formData = new FormData(formElement);
         if (turnstileToken) {
           formData.append('turnstile-token', turnstileToken);
         }
-        
+
         console.log('📡 Sending request to /api/resend...');
+        addBreadcrumb('API request started', 'api', { endpoint: '/api/resend' });
+        
         const response = await fetch('/api/resend', {
           method: 'POST',
           body: formData
         });
-        
+
         console.log('📡 Response status:', response.status);
         const result = await response.json();
         console.log('📡 Response data:', result);
-        
+
         if (result.success) {
           if (messageDiv) {
             messageDiv.textContent = result.message;
@@ -242,33 +256,43 @@ import "../styles/global.scss";
           if (typeof (window as any).turnstile !== 'undefined') {
             (window as any).turnstile.reset('#turnstile-widget');
           }
+          trackFormSubmission('contact', true);
+          addBreadcrumb('Form submission successful', 'form');
+          captureMessage('Contact form submitted successfully', 'info');
         } else {
           if (messageDiv) {
             messageDiv.textContent = result.error || 'Failed to send message';
             messageDiv.className = 'form-message error';
           }
+          trackFormSubmission('contact', false);
+          addBreadcrumb('Form submission failed', 'form', { error: result.error });
+          captureMessage(`Contact form submission failed: ${result.error}`, 'error');
         }
-      } catch (error) {
-        console.error('❌ FETCH ERROR:', error);
-        if (messageDiv) {
-          messageDiv.textContent = 'An error occurred. Please try again.';
-          messageDiv.className = 'form-message error';
-        }
+              } catch (error) {
+          console.error('❌ FETCH ERROR:', error);
+          if (messageDiv) {
+            messageDiv.textContent = 'An error occurred. Please try again.';
+            messageDiv.className = 'form-message error';
+          }
+          trackFormSubmission('contact', false);
+          addBreadcrumb('Network error during form submission', 'api', { error: (error as Error).message });
+          captureError(error as Error, { context: 'Form submission network error' });
       } finally {
         if (messageDiv) {
           messageDiv.style.display = 'block';
         }
         if (submitBtn) {
+          submitBtn.textContent = 'Send Message';
           submitBtn.disabled = false;
           submitBtn.classList.remove('loading');
-          submitBtn.textContent = 'Send Message';
         }
       }
     });
   } else {
     console.error('❌ Contact form not found');
+    captureError(new Error('Contact form not found'), { context: 'Form initialization' });
   }
-  
+
   // Initialize Turnstile when script loads with retry
   function initWithRetry() {
     if (document.readyState === 'loading') {
@@ -281,7 +305,7 @@ import "../styles/global.scss";
       setupRealTimeValidation();
     }
   }
-  
+
   // Setup real-time validation
   function setupRealTimeValidation() {
     const inputs = document.querySelectorAll('input, textarea');
@@ -290,10 +314,10 @@ import "../styles/global.scss";
         input.addEventListener('blur', function(this: HTMLInputElement | HTMLTextAreaElement) {
           const fieldName = this.name;
           const value = this.value.trim();
-          
+
           if (value) {
             this.classList.add('touched');
-            
+
             // Validate specific field
             if (fieldName === 'email' && !isValidEmail(value)) {
               showValidationError('email', 'Please enter a valid email address');
@@ -307,7 +331,7 @@ import "../styles/global.scss";
       }
     });
   }
-  
+
   // Try to initialize immediately
   initWithRetry();
 </script>
@@ -319,24 +343,24 @@ import "../styles/global.scss";
     margin-top: 0.25rem;
     display: none;
   }
-  
+
   .turnstile-container {
     margin: 1rem 0;
   }
-  
+
   .form-message {
     margin-top: 1rem;
     padding: 0.75rem;
     border-radius: 0.375rem;
     display: none;
   }
-  
+
   .form-message.success {
     background-color: #dcfce7;
     color: #166534;
     border: 1px solid #bbf7d0;
   }
-  
+
   .form-message.error {
     background-color: #fef2f2;
     color: #dc2626;

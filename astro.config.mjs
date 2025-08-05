@@ -1,11 +1,16 @@
 import { defineConfig } from "astro/config";
 import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
+import sentry from "@sentry/astro";
+import { sentryConfig } from "./src/utils/sentry-config.js";
 
 export default defineConfig({
   output: "server",
   adapter: vercel(),
-  integrations: [sitemap()],
+  integrations: [
+    sitemap(),
+    sentry(sentryConfig),
+  ],
   vite: {
     root: process.cwd(), // Ensure Vite uses the root directory
     resolve: {

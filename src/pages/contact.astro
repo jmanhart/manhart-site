@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import Header from "../components/Header.astro";
 import FormGroup from "../components/FormGroup.astro";
+import ErrorBoundary from "../components/ErrorBoundary.astro";
 ---
 
 <html lang="en">
@@ -28,20 +29,139 @@ import FormGroup from "../components/FormGroup.astro";
         align-items: center;
         border-top: 1px solid #999;
       }
+
+      .test-section {
+        margin: 2rem 0;
+        padding: 1rem;
+        border: 1px solid var(--divider);
+        border-radius: 8px;
+        background: var(--surface100);
+      }
+
+      .test-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+      }
+
+      .test-btn {
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--divider);
+        border-radius: 4px;
+        background: var(--surface000);
+        color: var(--text-primary);
+        cursor: pointer;
+        font-size: 0.875rem;
+      }
+
+      .test-btn:hover {
+        background: var(--surface200);
+      }
+
+      .test-btn.danger {
+        background: var(--red100);
+        color: var(--red500);
+        border-color: var(--red200);
+      }
+
+      .test-btn.danger:hover {
+        background: var(--red200);
+      }
     </style>
   </head>
   <body>
     <Header />
+    <ErrorBoundary />
     <div class="sub-page-wrapper">
       <div class="root-content text-page">
         <div>
-          <h2>Contact</h2>
+          <h2>Get in Touch</h2>
         </div>
         <p>
-          Say hi I am always down to chat and I always respond. Just give me a few days to get back to you.
+          Have a question or want to work together? I'd love to hear from you.
         </p>
         <FormGroup />
+        
+        <!-- Sentry Testing Section -->
+        <div class="test-section">
+          <h3>Sentry Testing</h3>
+          <p>Use these buttons to test Sentry functionality:</p>
+          
+          <div class="test-buttons">
+            <button class="test-btn danger" onclick="testError()">
+              Test Error
+            </button>
+            <button class="test-btn" onclick="testMessage()">
+              Test Message
+            </button>
+            <button class="test-btn" onclick="testPerformance()">
+              Test Performance
+            </button>
+            <button class="test-btn" onclick="testBreadcrumb()">
+              Test Breadcrumb
+            </button>
+            <button class="test-btn" onclick="testFormSubmission()">
+              Test Form Tracking
+            </button>
+          </div>
+        </div>
       </div>
     </div>
+
+    <script>
+      // Import Sentry utilities
+      import { captureError, captureMessage, startTransaction, addBreadcrumb, trackFormSubmission } from '../utils/sentry.js';
+
+      // Test error monitoring
+      function testError() {
+        console.log('🧪 Testing Sentry error capture...');
+        try {
+          throw new Error('This is a test error for Sentry');
+        } catch (error) {
+          captureError(error as Error, { 
+            context: 'Sentry test',
+            testType: 'manual-error'
+          });
+        }
+        alert('Error sent to Sentry! Check your dashboard.');
+      }
+
+      // Test message capture
+      function testMessage() {
+        console.log('🧪 Testing Sentry message capture...');
+        captureMessage('This is a test message from the contact page', 'info');
+        alert('Message sent to Sentry! Check your dashboard.');
+      }
+
+      // Test performance monitoring
+      function testPerformance() {
+        console.log('🧪 Testing Sentry performance monitoring...');
+        const transaction = startTransaction('Test Performance Transaction', 'test');
+        
+        // Simulate some work
+        setTimeout(() => {
+          transaction.finish();
+          alert('Performance transaction sent to Sentry! Check your dashboard.');
+        }, 1000);
+      }
+
+      // Test breadcrumbs
+      function testBreadcrumb() {
+        console.log('🧪 Testing Sentry breadcrumbs...');
+        addBreadcrumb('User clicked test button', 'user-action', {
+          button: 'test-breadcrumb',
+          page: 'contact'
+        });
+        alert('Breadcrumb added! Check your dashboard.');
+      }
+
+      // Test form submission tracking
+      function testFormSubmission() {
+        console.log('🧪 Testing Sentry form tracking...');
+        trackFormSubmission('test-form', true);
+        alert('Form submission tracked! Check your dashboard.');
+      }
+    </script>
   </body>
 </html> 
