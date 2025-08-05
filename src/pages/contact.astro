@@ -9,66 +9,6 @@ import ErrorBoundary from "../components/ErrorBoundary.astro";
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style>
-      h1 {
-        padding: 0;
-        margin: 0;
-      }
-      a {
-        text-decoration: underline;
-      }
-
-      .mobile-nav-wrapper {
-        background-color: white;
-        width: 100%;
-        height: 4em;
-        position: fixed;
-        bottom: 0;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        border-top: 1px solid #999;
-      }
-
-      .test-section {
-        margin: 2rem 0;
-        padding: 1rem;
-        border: 1px solid var(--divider);
-        border-radius: 8px;
-        background: var(--surface100);
-      }
-
-      .test-buttons {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        margin-top: 1rem;
-      }
-
-      .test-btn {
-        padding: 0.5rem 1rem;
-        border: 1px solid var(--divider);
-        border-radius: 4px;
-        background: var(--surface000);
-        color: var(--text-primary);
-        cursor: pointer;
-        font-size: 0.875rem;
-      }
-
-      .test-btn:hover {
-        background: var(--surface200);
-      }
-
-      .test-btn.danger {
-        background: var(--red100);
-        color: var(--red500);
-        border-color: var(--red200);
-      }
-
-      .test-btn.danger:hover {
-        background: var(--red200);
-      }
-    </style>
   </head>
   <body>
     <Header />
@@ -83,29 +23,6 @@ import ErrorBoundary from "../components/ErrorBoundary.astro";
         </p>
         <FormGroup />
         
-        <!-- Sentry Testing Section -->
-        <div class="test-section">
-          <h3>Sentry Testing</h3>
-          <p>Use these buttons to test Sentry functionality:</p>
-          
-          <div class="test-buttons">
-            <button class="test-btn danger" onclick="testError()">
-              Test Error
-            </button>
-            <button class="test-btn" onclick="testMessage()">
-              Test Message
-            </button>
-            <button class="test-btn" onclick="testPerformance()">
-              Test Performance
-            </button>
-            <button class="test-btn" onclick="testBreadcrumb()">
-              Test Breadcrumb
-            </button>
-            <button class="test-btn" onclick="testFormSubmission()">
-              Test Form Tracking
-            </button>
-          </div>
-        </div>
       </div>
     </div>
 
