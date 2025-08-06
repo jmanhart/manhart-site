@@ -1,0 +1,69 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import Header from "../components/Header.astro";
+import SentryTester from "../components/SentryTester.astro";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      h1 {
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <div class="sub-page-wrapper">
+      <div class="root-content text-page">
+        <h1>Testing Environment</h1>
+        <p>
+          This is a private testing page for Sentry integration and other development tools. 
+          Only you know about this URL, so it's safe to test various features here.
+        </p>
+
+        <h2>Sentry Integration Testing</h2>
+        <p>
+          Use the Sentry tester below to verify error monitoring, performance tracking, 
+          session replay, and message capture are working correctly.
+        </p>
+
+        <SentryTester />
+
+        <h2>Environment Information</h2>
+        <p>
+          This page helps verify that Sentry is properly configured and capturing events 
+          from both development and production environments.
+        </p>
+
+        <h3>What to Test:</h3>
+        <ul>
+          <li><strong>Error Monitoring:</strong> Captures JavaScript errors and exceptions</li>
+          <li><strong>Performance Monitoring:</strong> Tracks page loads and transactions</li>
+          <li><strong>Session Replay:</strong> Records user interactions and DOM changes</li>
+          <li><strong>Message Capture:</strong> Sends custom messages to Sentry</li>
+          <li><strong>Breadcrumbs:</strong> Adds context to user journeys</li>
+        </ul>
+
+        <h3>How to Use:</h3>
+        <ol>
+          <li>Click any test button above</li>
+          <li>Check your browser console for confirmation messages</li>
+          <li>Visit your Sentry dashboard to see the events</li>
+          <li>Filter by environment (development/production) to see the separation</li>
+        </ol>
+
+        <h3>Dashboard Sections to Check:</h3>
+        <ul>
+          <li><strong>Issues:</strong> For errors and messages</li>
+          <li><strong>Performance:</strong> For transactions and timing data</li>
+          <li><strong>Replays:</strong> For session recordings</li>
+          <li><strong>Releases:</strong> For version tracking</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html> 

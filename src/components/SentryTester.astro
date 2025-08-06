@@ -1,0 +1,234 @@
+np---
+// Sentry Testing Component
+// Add this to any page for testing Sentry functionality
+---
+
+<div class="sentry-tester">
+  <div class="tester-header">
+    <h3>🧪 Sentry Testing</h3>
+    <p>Use these buttons to test different Sentry features:</p>
+  </div>
+  
+  <div class="tester-buttons">
+    <button class="test-btn error" data-test="error">
+      Test Error
+    </button>
+    <button class="test-btn message" data-test="message">
+      Test Message
+    </button>
+    <button class="test-btn performance" data-test="performance">
+      Test Performance
+    </button>
+    <button class="test-btn breadcrumb" data-test="breadcrumb">
+      Test Breadcrumb
+    </button>
+  </div>
+  
+  <div class="tester-info">
+    <p><strong>Environment:</strong> <span id="current-env">Loading...</span></p>
+    <p><strong>DSN:</strong> <span id="dsn-status">Loading...</span></p>
+  </div>
+</div>
+
+<script>
+  // Import Sentry utilities
+  import { captureError, captureMessage, startTransaction, addBreadcrumb } from '../utils/sentry.js';
+
+  // Display current environment info
+  function showEnvironmentInfo() {
+    const envElement = document.getElementById('current-env');
+    const dsnElement = document.getElementById('dsn-status');
+    
+    if (envElement) {
+      envElement.textContent = (import.meta as any).env.SENTRY_ENVIRONMENT || 'development';
+    }
+    
+    if (dsnElement) {
+      const dsn = (import.meta as any).env.PUBLIC_SENTRY_DSN;
+      dsnElement.textContent = dsn ? '✅ Configured' : '❌ Not configured';
+    }
+  }
+
+  // Test error monitoring
+  function testError() {
+    console.log('🧪 Testing Sentry error capture...');
+    try {
+      throw new Error('This is a test error for Sentry monitoring');
+    } catch (error) {
+      captureError(error as Error, { 
+        context: 'Sentry tester component',
+        testType: 'manual-error',
+        component: 'SentryTester'
+      });
+    }
+    alert('Error sent to Sentry! Check your dashboard.');
+  }
+
+  // Test message capture
+  function testMessage() {
+    console.log('🧪 Testing Sentry message capture...');
+    captureMessage('This is a test message from the Sentry tester component', 'info');
+    alert('Message sent to Sentry! Check your dashboard.');
+  }
+
+  // Test performance monitoring
+  function testPerformance() {
+    console.log('🧪 Testing Sentry performance monitoring...');
+    const transaction = startTransaction('Test Performance Transaction', 'test');
+    
+    // Simulate some work
+    setTimeout(() => {
+      transaction.finish();
+      alert('Performance transaction sent to Sentry! Check your dashboard.');
+    }, 1000);
+  }
+
+  // Test breadcrumbs
+  function testBreadcrumb() {
+    console.log('🧪 Testing Sentry breadcrumbs...');
+    addBreadcrumb('User clicked test button', 'user-action', {
+      button: 'test-breadcrumb',
+      component: 'SentryTester',
+      timestamp: new Date().toISOString()
+    });
+    alert('Breadcrumb added! Check your dashboard.');
+  }
+
+  // Initialize when component loads
+  showEnvironmentInfo();
+
+  // Add event listeners to buttons
+  document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.test-btn');
+    
+    buttons.forEach(button => {
+      button.addEventListener('click', function(this: HTMLElement) {
+        const testType = this.getAttribute('data-test');
+        
+        switch(testType) {
+          case 'error':
+            testError();
+            break;
+          case 'message':
+            testMessage();
+            break;
+          case 'performance':
+            testPerformance();
+            break;
+          case 'breadcrumb':
+            testBreadcrumb();
+            break;
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .sentry-tester {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border: 2px solid var(--divider);
+    border-radius: 8px;
+    background: var(--surface100);
+    max-width: 600px;
+  }
+
+  .tester-header h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+  }
+
+  .tester-header p {
+    margin: 0 0 1rem 0;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+
+  .tester-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .test-btn {
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--divider);
+    border-radius: 4px;
+    background: var(--surface000);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    min-width: fit-content;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    line-height: 1.2;
+  }
+
+  .test-btn:hover {
+    background: var(--surface200);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .test-btn.error {
+    background: var(--red100);
+    color: var(--red500);
+    border-color: var(--red200);
+  }
+
+  .test-btn.error:hover {
+    background: var(--red200);
+    border-color: var(--red300);
+  }
+
+  .test-btn.message {
+    background: var(--surface100);
+    color: var(--text-primary);
+  }
+
+  .test-btn.performance {
+    background: var(--surface100);
+    color: var(--text-primary);
+  }
+
+  .test-btn.breadcrumb {
+    background: var(--surface100);
+    color: var(--text-primary);
+  }
+
+  .tester-info {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: var(--surface000);
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+
+  .tester-info p {
+    margin: 0.25rem 0;
+    color: var(--text-secondary);
+  }
+
+  .tester-info strong {
+    color: var(--text-primary);
+  }
+
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .tester-buttons {
+      flex-direction: column;
+    }
+    
+    .test-btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style> 
