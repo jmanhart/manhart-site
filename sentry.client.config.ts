@@ -11,7 +11,11 @@ Sentry.init({
   replaysSessionSampleRate: 1.0, // Record 10% of sessions
   replaysOnErrorSampleRate: 1.0, // Record 100% of sessions with errors
 
-  enableLogs: true
+  enableLogs: true,
+
+  // Enable console logging
+  consoleLogging: true,
+
   // Configure beforeSend to filter out sensitive data
   beforeSend(event) {
     // Capture all events from both development and production
