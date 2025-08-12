@@ -18,3 +18,5 @@ Started doing this to mess around and setup codecov in the future
 
 - Using https://playwright.dev/
 - Look here https://docs.astro.build/en/guides/testing/
+
+hi chris

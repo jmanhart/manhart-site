@@ -120,6 +120,8 @@ import "../styles/global.scss";
     height: 1.5em;
     width: 1.5em;
     cursor: pointer;
+    background: none; /* Reset any inherited background */
+    border: none; /* Reset any inherited border */
 
     .icon-moon,
     .icon-sun {
@@ -128,6 +130,14 @@ import "../styles/global.scss";
       left: 50%;
       transform: translate(-50%, -50%);
       visibility: hidden;
+    }
+
+    /* Override global button:hover styles */
+    &:hover {
+      background-color: transparent !important; /* Override global hover */
+      /* Add your custom hover effects here */
+      transform: scale(1.05);
+      transition: transform 0.2s ease;
     }
   }
 
@@ -221,7 +231,9 @@ import "../styles/global.scss";
       justify-content: center;
       transition: transform 0.2s ease;
       
+      /* Override global button:hover styles */
       &:hover {
+        background-color: transparent !important; /* Override global hover */
         transform: scale(1.1);
       }
       
