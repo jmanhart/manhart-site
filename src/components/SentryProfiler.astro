@@ -1,0 +1,112 @@
+---
+// This component demonstrates how to use Sentry profiling
+---
+
+<div class="profiler-demo">
+  <div class="profiler-header">
+    <h3>📊 Sentry Profiling Demo</h3>
+    <p>Check your browser console and Sentry dashboard for profiling data.</p>
+  </div>
+  
+  <div class="profiler-buttons">
+    <button id="profile-button" class="profile-btn">Run Profiled Function</button>
+    <button id="profile-async-button" class="profile-btn">Run Profiled Async Function</button>
+  </div>
+</div>
+
+<script>
+  import { profileFunction, profileAsyncFunction, profileComponentRender } from '../utils/sentry';
+
+  // Example 1: Profile a synchronous function
+  document.getElementById('profile-button')?.addEventListener('click', () => {
+    const result = profileFunction('Button Click Handler', 'ui.interaction', () => {
+      // Simulate some work
+      let sum = 0;
+      for (let i = 0; i < 1000000; i++) {
+        sum += i;
+      }
+      console.log('Profiled function result:', sum);
+      return sum;
+    });
+  });
+
+  // Example 2: Profile an asynchronous function
+  document.getElementById('profile-async-button')?.addEventListener('click', async () => {
+    const result = await profileAsyncFunction('Async Button Click Handler', 'ui.interaction', async () => {
+      // Simulate async work
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log('Profiled async function completed');
+      return 'async result';
+    });
+  });
+
+  // Example 3: Profile component render (this would typically be in your component logic)
+  profileComponentRender('SentryProfiler');
+</script>
+
+<style lang="scss">
+  .profiler-demo {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border: 2px solid var(--divider);
+    border-radius: 8px;
+    background: var(--surface100);
+    max-width: 600px;
+  }
+
+  .profiler-header h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+  }
+
+  .profiler-header p {
+    margin: 0 0 1rem 0;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+
+  .profiler-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .profile-btn {
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--divider);
+    border-radius: 4px;
+    background: var(--surface000);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    min-width: fit-content;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    line-height: 1.2;
+    margin: 0.5rem;
+
+    &:hover {
+      background: var(--surface200);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .profiler-buttons {
+      flex-direction: column;
+    }
+    
+    .profile-btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style> 
