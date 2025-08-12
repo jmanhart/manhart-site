@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import Header from "../components/Header.astro";
 import SentryTester from "../components/SentryTester.astro";
+import SentryProfiler from "../components/SentryProfiler.astro";
 ---
 
 <html lang="en">
@@ -33,6 +34,14 @@ import SentryTester from "../components/SentryTester.astro";
 
         <SentryTester />
 
+        <h2>Profiling Testing</h2>
+        <p>
+          Use the profiling component below to test Sentry's performance profiling capabilities.
+          This will help verify that custom spans and performance monitoring are working correctly.
+        </p>
+
+        <SentryProfiler />
+
         <h2>Environment Information</h2>
         <p>
           This page helps verify that Sentry is properly configured and capturing events 
@@ -43,6 +52,7 @@ import SentryTester from "../components/SentryTester.astro";
         <ul>
           <li><strong>Error Monitoring:</strong> Captures JavaScript errors and exceptions</li>
           <li><strong>Performance Monitoring:</strong> Tracks page loads and transactions</li>
+          <li><strong>Profiling:</strong> Captures custom performance spans and CPU profiling</li>
           <li><strong>Session Replay:</strong> Records user interactions and DOM changes</li>
           <li><strong>Message Capture:</strong> Sends custom messages to Sentry</li>
           <li><strong>Breadcrumbs:</strong> Adds context to user journeys</li>
@@ -59,7 +69,7 @@ import SentryTester from "../components/SentryTester.astro";
         <h3>Dashboard Sections to Check:</h3>
         <ul>
           <li><strong>Issues:</strong> For errors and messages</li>
-          <li><strong>Performance:</strong> For transactions and timing data</li>
+          <li><strong>Performance:</strong> For transactions, timing data, and profiling</li>
           <li><strong>Replays:</strong> For session recordings</li>
           <li><strong>Releases:</strong> For version tracking</li>
         </ul>

@@ -7,14 +7,14 @@ Sentry.init({
   // We recommend adjusting this value in production
   tracesSampleRate: 1.0,
 
+  // Enable profiling - this is evaluated only once per SDK.init call
+  profilesSampleRate: 1.0, // Capture 100% of profiles
+
   // Enable session replay
   replaysSessionSampleRate: 1.0, // Record 10% of sessions
   replaysOnErrorSampleRate: 1.0, // Record 100% of sessions with errors
 
   enableLogs: true,
-
-  // Enable console logging
-  consoleLogging: true,
 
   // Configure beforeSend to filter out sensitive data
   beforeSend(event) {
@@ -30,7 +30,6 @@ Sentry.init({
 
   // Configure integrations
   integrations: [
-    Sentry.consoleLoggingIntegration({ levels: ["log", "error", "warn"] }),
     Sentry.replayIntegration({
       // Mask sensitive input fields
       maskAllInputs: false,
