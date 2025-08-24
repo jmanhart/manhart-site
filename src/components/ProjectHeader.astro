@@ -1,0 +1,184 @@
+---
+import Button from "./Button.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import GlobeIcon from "./icons/GlobeIcon.astro";
+import Tag from "./Tag.astro";
+interface Props {
+  title: string;
+  description: string;
+  height?: string; // Optional height override
+  variant?: 'default' | 'minimal' | 'featured'; // Style variants
+  liveUrl?: string; // Optional live site URL
+  githubUrl?: string; // Optional GitHub URL
+  showLiveButton?: boolean; // Whether to show the live site button
+  showGithubButton?: boolean; // Whether to show the GitHub button
+  liveSiteText?: string; // Text to show on the live site tag (e.g., "myproject.com")
+  githubText?: string; // Text to show on the GitHub tag (e.g., "View Code")
+}
+
+const { 
+  title, 
+  description, 
+  height = '180px', 
+  variant = 'default', 
+  liveUrl, 
+  githubUrl,
+  showLiveButton = true,
+  showGithubButton = true,
+  liveSiteText,
+  githubText
+} = Astro.props;
+---
+
+<div class={`project-header-wrapper ${variant}`} style={`--hero-height: ${height}`}>
+  <div class="hero-content">
+    <h3 class="hero-title">{title}</h3>
+    <p class="hero-description">{description}</p>
+    
+    
+          {/* Project Tags */}
+      {(liveUrl || githubUrl) && (
+        <div class="hero-tags">
+          {liveUrl && (
+            <Tag text={liveSiteText || "Live Site"} href={liveUrl} external={true} variant="secondary">
+              <GlobeIcon width="12" height="12" slot="icon" />
+            </Tag>
+          )}
+          {githubUrl && (
+            <Tag text={githubText || "GitHub Repo"} href={githubUrl} external={true} variant="secondary">
+              <GithubIcon width="12" height="12" slot="icon" />
+            </Tag>
+          )}
+        </div>
+      )}
+  </div>
+  <div class="hero-background"></div>
+</div>
+
+<style lang="scss">
+  @import "../styles/_mixins.scss";
+
+  .project-header-wrapper {
+    position: relative;
+    width: 100%;
+    height: var(--hero-height, 400px);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+    
+    // Default variant
+    &.default {
+      background: linear-gradient(135deg, var(--surface200) 0%, var(--surface300) 100%);
+      border: 1px solid var(--divider);
+      
+      .hero-background {
+        background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+        background-size: 200% 200%;
+        animation: shimmer 3s ease-in-out infinite;
+      }
+    }
+    
+    // Minimal variant
+    &.minimal {
+      background: var(--surface100);
+      border: 2px solid var(--divider);
+      
+      .hero-background {
+        display: none;
+      }
+    }
+    
+    // Featured variant
+    &.featured {
+      background: linear-gradient(135deg, var(--surface300) 0%, var(--surface400) 100%);
+      border: 2px solid var(--divider);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      
+      .hero-background {
+        background: radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+      }
+    }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0; /* Remove auto margins */
+   
+  }
+
+  .hero-title {
+
+    margin: 0 0 0rem 0;
+    color: var(--text-primary);
+    line-height: 1.2;
+    
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+    
+    @media (max-width: 768px) {
+      font-size: 1.1rem;
+    }
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    margin-top: .5rem;
+    flex-wrap: wrap;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .hero-actions a {
+    text-decoration: none;
+  }
+
+  .hero-tags {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0.6;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+</style>

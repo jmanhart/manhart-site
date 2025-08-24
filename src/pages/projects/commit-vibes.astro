@@ -3,6 +3,7 @@ import BaseHead from "../../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
 import Header from "../../components/Header.astro";
 import CardHero from "../../components/card-hero.astro";
+import ProjectHeader from "../../components/ProjectHeader.astro";
 ---
 
 <html lang="en">
@@ -14,13 +15,15 @@ import CardHero from "../../components/card-hero.astro";
     <div class="sub-page-wrapper">
       <div class="root-content text-page">
         <div>
-          <h5>Personal Project</h5>
-          <h2>Commit Vibes</h2>
+          <ProjectHeader 
+            title="Commit Vibes" 
+            description="Commit your vibes, with your vibe code" 
+            liveUrl="https://www.npmjs.com/package/commit-vibes"
+            liveSiteText="npm install commit-vibes"
+            githubUrl="https://github.com/jmanhart/commit-vibes"
+          />
           <p>Ever pushed a commit and wanted to add something fun to it? Or tag the song you were listening to when you made it? If so, this is the perfect package for you.</p>
-          <div class="project-cards">
-            <CardHero href="https://www.npmjs.com/package/commit-vibes" title="Commit-Vibes Npm Package" description="or run `npm i commit-vibes`" />
-            <CardHero href="https://github.com/jmanhart/commit-vibes" title="Github" description="See the code for the project." />
-          </div>
+          
         </div>
       </div>
     </div>

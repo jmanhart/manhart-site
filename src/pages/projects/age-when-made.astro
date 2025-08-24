@@ -3,6 +3,7 @@ import BaseHead from "../../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
 import Header from "../../components/Header.astro";
 import CardHero from "../../components/card-hero.astro";
+import ProjectHeader from "../../components/ProjectHeader.astro";
 ---
 
 <html lang="en">
@@ -14,16 +15,17 @@ import CardHero from "../../components/card-hero.astro";
     <div class="sub-page-wrapper">
       <div class="root-content text-page">
         <div>
-          <h5>Personal Project</h5>
-          <h2>Age when made</h2>
+          <ProjectHeader 
+            title="Age When Made" 
+            description="Because math and searching is hard." 
+            liveUrl="https://age-when-made.com"
+            liveSiteText="www.age-when-made.com"
+            githubUrl="https://github.com/jmanhart/age-when-made"
+          />
           <p>Have you ever been watching a movie and wondered how old the actors were when it was made—and how old they are now? This simple app helps you find that out. Before, you'd have to Google each actor, search through Wikipedia or IMDb, and do the math. It’s tedious.</p>
           <p>With this app, just search for a movie and get all that info at your fingertips.</p>
-          <div class="project-cards">
-            <CardHero href="https://age-when-made.com" title="www.age-when-made.com" description="See how old actors were when movies were made and now." />
-            <CardHero href="https://github.com/jmanhart/age-when-made" title="Github" description="See the code for the project." />
-          </div>
+
         </div>
- 
       </div>
     </div>
   </body>
