@@ -1,0 +1,164 @@
+---
+interface Props {
+  text: string;
+  href?: string; // Optional link - if internal route, just use path like "/projects"
+  external?: boolean; // Whether link opens in new tab (defaults to false for internal routes)
+  variant?: 'default' | 'primary' | 'secondary' | 'tertiary'; // Style variants
+  size?: 'small' | 'medium'; // Size variants
+}
+
+const { 
+  text, 
+  href, 
+  external = false, 
+  variant = 'default',
+  size = 'small'
+} = Astro.props;
+
+// Determine if this should be a link or just a span
+const isLink = !!href;
+const TagName = isLink ? 'a' : 'span';
+const linkProps = isLink ? {
+  href,
+  ...(external && { target: '_blank', rel: 'noopener noreferrer' })
+} : {};
+---
+
+<TagName 
+  class={`tag tag-${variant} tag-${size}`}
+  {...linkProps}
+>
+  <slot name="icon" />
+  <span class="tag-text">{text}</span>
+</TagName>
+
+<style lang="scss">
+  @import "../styles/_mixins.scss";
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+  
+    border: 1px solid transparent;
+    white-space: nowrap;
+    
+    // Small size (default)
+    &.tag-small {
+      padding: 0.25rem 0.5rem;
+      font-size: 11px;
+      gap: 0.2rem;
+    }
+    
+    // Medium size
+    &.tag-medium {
+      padding: 0.375rem 0.75rem;
+      font-size: 12px;
+      gap: 0.25rem;
+    }
+    
+    // Default variant
+    &.tag-default {
+      background: var(--surface200);
+      color: var(--text-secondary);
+      border-color: var(--divider);
+      
+      &:hover {
+        background: var(--surface300);
+        color: var(--text-primary);
+        border-color: var(--text-tertiary);
+        // transform: translateY(-1px);
+      }
+    }
+    
+    // Primary variant
+    &.tag-primary {
+      background: var(--surface300);
+      color: var(--text-primary);
+      border-color: var(--divider);
+      
+      &:hover {
+        background: var(--surface400);
+        border-color: var(--text-secondary);
+        // transform: translateY(-1px);
+      }
+    }
+    
+    // Secondary variant
+    &.tag-secondary {
+      background: transparent;
+      color: var(--text-secondary);
+      border-color: var(--divider);
+      
+      &:hover {
+        background: var(--surface100);
+        color: var(--text-primary);
+        border-color: var(--text-tertiary);
+        // transform: translateY(-1px);
+      }
+    }
+    
+    // Tertiary variant
+    &.tag-tertiary {
+      background: var(--surface100);
+      color: var(--text-tertiary);
+      border-color: transparent;
+      
+      &:hover {
+        background: var(--surface200);
+        color: var(--text-secondary);
+        transform: translateY(-1px);
+      }
+    }
+    
+    // Icon styling
+    slot[name="icon"] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-right: 0.25rem;
+      
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+    
+    // Hover effects for all variants
+    &:hover {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    // Focus states for accessibility
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--link);
+    }
+  }
+
+  // Dark mode adjustments
+  .dark-theme .tag {
+    &.tag-default:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    &.tag-primary:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    &.tag-secondary:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    &.tag-tertiary:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+  }
+</style>
