@@ -9,16 +9,13 @@ import "../styles/global.scss";
 <header>
   <nav>
     <!-- Back and Breadcrumb navigation -->
-    
     <BackButton />
     <BreadCrumb />
     <div class="header-actions">
-
       <!-- Mobile menu toggle button -->
       <button id="menu-toggle" aria-label="Toggle menu" class="overflow-menu-toggle">
         <HamburgerIcon />
       </button>
-
       <!-- Navigation links dropdown menu -->
       <div id="menu" class="menu">
         <HeaderLink href="/projects">Projects</HeaderLink>
@@ -26,7 +23,6 @@ import "../styles/global.scss";
         <HeaderLink href="/social">Links</HeaderLink>
         <HeaderLink href="/about">About</HeaderLink>
       </div>
-
       <!-- Theme toggle button -->
       <button id="theme-toggle" aria-label="Toggle theme" class="theme-toggle">
         <img
@@ -49,7 +45,6 @@ import "../styles/global.scss";
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-theme");
   }
-
   // Update icon visibility on page load
   updateThemeIcons();
 

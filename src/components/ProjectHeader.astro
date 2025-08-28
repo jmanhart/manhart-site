@@ -14,6 +14,7 @@ interface Props {
   showGithubButton?: boolean; // Whether to show the GitHub button
   liveSiteText?: string; // Text to show on the live site tag (e.g., "myproject.com")
   githubText?: string; // Text to show on the GitHub tag (e.g., "View Code")
+  href?: string; // Optional internal route link for the entire card
 }
 
 const { 
@@ -26,17 +27,45 @@ const {
   showLiveButton = true,
   showGithubButton = true,
   liveSiteText,
-  githubText
+  githubText,
+  href
 } = Astro.props;
 ---
 
-<div class={`project-header-wrapper ${variant}`} style={`--hero-height: ${height}`}>
-  <div class="hero-content">
-    <h3 class="hero-title">{title}</h3>
-    <p class="hero-description">{description}</p>
-    
-    
-          {/* Project Tags */}
+{/* Conditional wrapper - if href is provided, wrap in link */}
+{href ? (
+  <a href={href} class="project-header-link">
+    <div class={`project-header-wrapper ${variant}`} style={`--hero-height: ${height}`}>
+      <div class="hero-content">
+        <h3 class="hero-title">{title}</h3>
+        <p class="hero-description">{description}</p>
+        
+        {/* Project Tags */}
+        {(liveUrl || githubUrl) && (
+          <div class="hero-tags">
+            {liveUrl && (
+              <Tag text={liveSiteText || "Live Site"} href={liveUrl} external={true} variant="secondary">
+                <GlobeIcon width="12" height="12" slot="icon" />
+              </Tag>
+            )}
+            {githubUrl && (
+              <Tag text={githubText || "GitHub Repo"} href={githubUrl} external={true} variant="secondary">
+                <GithubIcon width="12" height="12" slot="icon" />
+              </Tag>
+              )}
+          </div>
+        )}
+      </div>
+      <div class="hero-background"></div>
+    </div>
+  </a>
+) : (
+  <div class={`project-header-wrapper ${variant}`} style={`--hero-height: ${height}`}>
+    <div class="hero-content">
+      <h3 class="hero-title">{title}</h3>
+      <p class="hero-description">{description}</p>
+      
+      {/* Project Tags */}
       {(liveUrl || githubUrl) && (
         <div class="hero-tags">
           {liveUrl && (
@@ -51,23 +80,62 @@ const {
           )}
         </div>
       )}
+    </div>
+    <div class="hero-background"></div>
   </div>
-  <div class="hero-background"></div>
-</div>
+)}
 
 <style lang="scss">
   @import "../styles/_mixins.scss";
+
+  .project-header-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    // margin-right: 0.5rem;
+    
+    &:hover {
+      .project-header-wrapper {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
 
   .project-header-wrapper {
     position: relative;
     width: 100%;
     height: var(--hero-height, 400px);
+    min-height: 200px; // Minimum height on all devices
     border-radius: 12px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     margin-bottom: 2rem;
+    
+    @media (max-width: 768px) {
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (max-width: 480px) {
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    // Responsive height adjustments
+    @media (max-width: 768px) {
+      height: auto !important; // Override inline height on mobile
+      min-height: 250px; // Taller minimum on mobile
+      padding: 0.5rem 0; // Add vertical padding for content breathing room
+    }
+    
+    @media (max-width: 480px) {
+      min-height: 280px; // Even taller on small mobile
+      padding: 2rem 0;
+    }
     
     // Default variant
     &.default {
@@ -110,30 +178,51 @@ const {
     padding: 2rem;
     max-width: 600px;
     margin: 0; /* Remove auto margins */
-   
+    
+    // Responsive padding adjustments
+    @media (max-width: 768px) {
+      padding: 1.5rem;
+      max-width: 100%; // Full width on mobile
+    }
+    
+    @media (max-width: 480px) {
+      padding: 1rem;
+    }
   }
 
   .hero-title {
-
-    margin: 0 0 0rem 0;
+    margin: 0 0 0.5rem 0;
     color: var(--text-primary);
     line-height: 1.2;
     
     @media (max-width: 768px) {
-      font-size: 2rem;
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
     }
   }
 
   .hero-description {
     font-size: 1.25rem;
     line-height: 1.6;
-    margin: 0;
+    margin: 0 0 1rem 0;
     color: var(--text-secondary);
     max-width: 500px;
-    margin: 0 auto;
     
     @media (max-width: 768px) {
       font-size: 1.1rem;
+      max-width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
     }
   }
 
@@ -162,8 +251,16 @@ const {
     flex-wrap: wrap;
     
     @media (max-width: 768px) {
-      flex-direction: column;
+      flex-direction: row;
       align-items: flex-start;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
     }
   }
 

@@ -2,8 +2,10 @@
 import BaseHead from "../../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../config";
 import Header from "../../components/Header.astro";
-import CardHero from "../../components/card-hero.astro";
 import ProjectHeader from "../../components/ProjectHeader.astro";
+import { getProjectBySlug } from "../../data/projects.js";
+
+const project = getProjectBySlug("age-when-made");
 ---
 
 <html lang="en">
@@ -16,11 +18,13 @@ import ProjectHeader from "../../components/ProjectHeader.astro";
       <div class="root-content text-page">
         <div>
           <ProjectHeader 
-            title="Age When Made" 
-            description="Because math and searching is hard." 
-            liveUrl="https://age-when-made.com"
-            liveSiteText="www.age-when-made.com"
-            githubUrl="https://github.com/jmanhart/age-when-made"
+            title={project.title}
+            description={project.description}
+            liveUrl={project.liveUrl}
+            liveSiteText={project.liveSiteText}
+            githubUrl={project.githubUrl}
+            variant="default"
+          
           />
           <p>Have you ever been watching a movie and wondered how old the actors were when it was made—and how old they are now? This simple app helps you find that out. Before, you'd have to Google each actor, search through Wikipedia or IMDb, and do the math. It’s tedious.</p>
           <p>With this app, just search for a movie and get all that info at your fingertips.</p>
