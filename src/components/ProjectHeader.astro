@@ -1,20 +1,27 @@
 ---
-import Button from "./Button.astro";
-import GithubIcon from "./icons/GithubIcon.astro";
-import GlobeIcon from "./icons/GlobeIcon.astro";
-import Tag from "./Tag.astro";
+import ProjectHeaderContent from "./ProjectHeaderContent.astro";
+
 interface Props {
+  // Core content
   title: string;
   description: string;
-  height?: string; // Optional height override
-  variant?: 'default' | 'minimal' | 'featured'; // Style variants
-  liveUrl?: string; // Optional live site URL
-  githubUrl?: string; // Optional GitHub URL
-  showLiveButton?: boolean; // Whether to show the live site button
-  showGithubButton?: boolean; // Whether to show the GitHub button
-  liveSiteText?: string; // Text to show on the live site tag (e.g., "myproject.com")
-  githubText?: string; // Text to show on the GitHub tag (e.g., "View Code")
-  href?: string; // Optional internal route link for the entire card
+  
+  // Layout
+  height?: string;
+  variant?: 'default' | 'minimal' | 'featured';
+  
+  // Links
+  href?: string; // Internal route for the entire card
+  links?: {
+    live?: { url: string; text?: string };
+    github?: { url: string; text?: string };
+  };
+  
+  // Legacy props for backward compatibility
+  liveUrl?: string;
+  githubUrl?: string;
+  liveSiteText?: string;
+  githubText?: string;
 }
 
 const { 
@@ -22,67 +29,57 @@ const {
   description, 
   height = '180px', 
   variant = 'default', 
-  liveUrl, 
+  href,
+  links,
+  // Legacy props
+  liveUrl,
   githubUrl,
-  showLiveButton = true,
-  showGithubButton = true,
+  liveSiteText,
+  githubText
+} = Astro.props;
+
+// Normalize link data - support both new and legacy formats
+const normalizedLinks = links || {
+  live: liveUrl ? { url: liveUrl, text: liveSiteText } : undefined,
+  github: githubUrl ? { url: githubUrl, text: githubText } : undefined
+};
+
+// Check if we have any links to show
+const hasLinks = !!(normalizedLinks.live || normalizedLinks.github);
+
+// Debug logging
+console.log('ProjectHeader Debug:', {
+  liveUrl,
+  githubUrl,
   liveSiteText,
   githubText,
-  href
-} = Astro.props;
+  normalizedLinks,
+  hasLinks
+});
+
 ---
 
-{/* Conditional wrapper - if href is provided, wrap in link */}
+{/* Conditional wrapper - wrap the entire content if href is provided */}
 {href ? (
-  <a href={href} class="project-header-link">
-    <div class={`project-header-wrapper ${variant}`} style={`--hero-height: ${height}`}>
-      <div class="hero-content">
-        <h3 class="hero-title">{title}</h3>
-        <p class="hero-description">{description}</p>
-        
-        {/* Project Tags */}
-        {(liveUrl || githubUrl) && (
-          <div class="hero-tags">
-            {liveUrl && (
-              <Tag text={liveSiteText || "Live Site"} href={liveUrl} external={true} variant="secondary">
-                <GlobeIcon width="12" height="12" slot="icon" />
-              </Tag>
-            )}
-            {githubUrl && (
-              <Tag text={githubText || "GitHub Repo"} href={githubUrl} external={true} variant="secondary">
-                <GithubIcon width="12" height="12" slot="icon" />
-              </Tag>
-              )}
-          </div>
-        )}
-      </div>
-      <div class="hero-background"></div>
-    </div>
+  <a href={href} class="project-header-link" aria-label={`View ${title} project`}>
+    <ProjectHeaderContent 
+      title={title}
+      description={description}
+      height={height}
+      variant={variant}
+      hasLinks={hasLinks}
+      normalizedLinks={normalizedLinks}
+    />
   </a>
 ) : (
-  <div class={`project-header-wrapper ${variant}`} style={`--hero-height: ${height}`}>
-    <div class="hero-content">
-      <h3 class="hero-title">{title}</h3>
-      <p class="hero-description">{description}</p>
-      
-      {/* Project Tags */}
-      {(liveUrl || githubUrl) && (
-        <div class="hero-tags">
-          {liveUrl && (
-            <Tag text={liveSiteText || "Live Site"} href={liveUrl} external={true} variant="secondary">
-              <GlobeIcon width="12" height="12" slot="icon" />
-            </Tag>
-          )}
-          {githubUrl && (
-            <Tag text={githubText || "GitHub Repo"} href={githubUrl} external={true} variant="secondary">
-              <GithubIcon width="12" height="12" slot="icon" />
-            </Tag>
-          )}
-        </div>
-      )}
-    </div>
-    <div class="hero-background"></div>
-  </div>
+  <ProjectHeaderContent 
+    title={title}
+    description={description}
+    height={height}
+    variant={variant}
+    hasLinks={hasLinks}
+    normalizedLinks={normalizedLinks}
+  />
 )}
 
 <style lang="scss">
@@ -92,7 +89,7 @@ const {
     text-decoration: none;
     color: inherit;
     display: block;
-    // margin-right: 0.5rem;
+    cursor: pointer;
     
     &:hover {
       .project-header-wrapper {
@@ -100,182 +97,16 @@ const {
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
       }
     }
-  }
-
-  .project-header-wrapper {
-    position: relative;
-    width: 100%;
-    height: var(--hero-height, 400px);
-    min-height: 200px; // Minimum height on all devices
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 2rem;
     
-    @media (max-width: 768px) {
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
+    &:focus {
+      outline: 2px solid var(--link);
+      outline-offset: 2px;
     }
     
-    @media (max-width: 480px) {
-      border-radius: 6px;
-      margin-bottom: 1rem;
-    }
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    
-    // Responsive height adjustments
-    @media (max-width: 768px) {
-      height: auto !important; // Override inline height on mobile
-      min-height: 250px; // Taller minimum on mobile
-      padding: 0.5rem 0; // Add vertical padding for content breathing room
-    }
-    
-    @media (max-width: 480px) {
-      min-height: 280px; // Even taller on small mobile
-      padding: 2rem 0;
-    }
-    
-    // Default variant
-    &.default {
-      background: linear-gradient(135deg, var(--surface200) 0%, var(--surface300) 100%);
-      border: 1px solid var(--divider);
-      
-      .hero-background {
-        background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-        background-size: 200% 200%;
-        animation: shimmer 3s ease-in-out infinite;
+    &:focus-visible {
+      .project-header-wrapper {
+        border-color: var(--link);
       }
     }
-    
-    // Minimal variant
-    &.minimal {
-      background: var(--surface100);
-      border: 2px solid var(--divider);
-      
-      .hero-background {
-        display: none;
-      }
-    }
-    
-    // Featured variant
-    &.featured {
-      background: linear-gradient(135deg, var(--surface300) 0%, var(--surface400) 100%);
-      border: 2px solid var(--divider);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      
-      .hero-background {
-        background: radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-      }
-    }
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: left;
-    padding: 2rem;
-    max-width: 600px;
-    margin: 0; /* Remove auto margins */
-    
-    // Responsive padding adjustments
-    @media (max-width: 768px) {
-      padding: 1.5rem;
-      max-width: 100%; // Full width on mobile
-    }
-    
-    @media (max-width: 480px) {
-      padding: 1rem;
-    }
-  }
-
-  .hero-title {
-    margin: 0 0 0.5rem 0;
-    color: var(--text-primary);
-    line-height: 1.2;
-    
-    @media (max-width: 768px) {
-      font-size: 1.75rem;
-      margin-bottom: 0.75rem;
-    }
-    
-    @media (max-width: 480px) {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-  }
-
-  .hero-description {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    margin: 0 0 1rem 0;
-    color: var(--text-secondary);
-    max-width: 500px;
-    
-    @media (max-width: 768px) {
-      font-size: 1.1rem;
-      max-width: 100%;
-      margin-bottom: 1.5rem;
-    }
-    
-    @media (max-width: 480px) {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin-bottom: 1.25rem;
-    }
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-start;
-    margin-top: .5rem;
-    flex-wrap: wrap;
-    
-    @media (max-width: 768px) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
-
-  .hero-actions a {
-    text-decoration: none;
-  }
-
-  .hero-tags {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: flex-start;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-    
-    @media (max-width: 768px) {
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
-    }
-    
-    @media (max-width: 480px) {
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 1.25rem;
-    }
-  }
-
-  .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    opacity: 0.6;
-  }
-
-  @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
   }
 </style>

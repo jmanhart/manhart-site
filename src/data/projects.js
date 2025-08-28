@@ -9,7 +9,7 @@ export const projects = [
     liveUrl: "https://age-when-made.com",
     liveSiteText: "www.age-when-made.com",
     githubUrl: "https://github.com/jmanhart/age-when-made",
-    variant: "featured",
+    variant: "default",
   },
   {
     slug: "trad-directory",

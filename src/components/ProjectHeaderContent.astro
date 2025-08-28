@@ -1,0 +1,219 @@
+---
+import GithubIcon from "./icons/GithubIcon.astro";
+import GlobeIcon from "./icons/GlobeIcon.astro";
+import Tag from "./Tag.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  height: string;
+  variant: string;
+  hasLinks: boolean;
+  normalizedLinks: {
+    live?: { url: string; text?: string };
+    github?: { url: string; text?: string };
+  };
+}
+
+const { title, description, height, variant, hasLinks, normalizedLinks } = Astro.props;
+
+// Debug logging
+console.log('ProjectHeaderContent Debug:', {
+  hasLinks,
+  normalizedLinks,
+  live: normalizedLinks.live,
+  github: normalizedLinks.github
+});
+
+---
+
+<div class={`project-header-wrapper ${variant}`} style={`--hero-height: ${height}`}>
+  <div class="hero-content">
+    <h3 class="hero-title">{title}</h3>
+    <p class="hero-description">{description}</p>
+    
+            {/* Project Tags - only render if we have links */}
+        {hasLinks && (
+      <div class="hero-tags">
+        {normalizedLinks.live && (
+          <Tag 
+            text={normalizedLinks.live.text || "Live Site"} 
+            href={normalizedLinks.live.url} 
+            external={true} 
+            variant="secondary"
+          >
+            <GlobeIcon width="12" height="12" slot="icon" />
+          </Tag>
+        )}
+        {normalizedLinks.github && (
+          <Tag 
+            text={normalizedLinks.github.text || "GitHub Repo"} 
+            href={normalizedLinks.github.url} 
+            external={true} 
+            variant="secondary"
+          >
+            <GithubIcon width="12" height="12" slot="icon" />
+          </Tag>
+        )}
+      </div>
+    )}
+  </div>
+  <div class="hero-background"></div>
+</div>
+
+<style lang="scss">
+  @import "../styles/_mixins.scss";
+
+  .project-header-wrapper {
+    position: relative;
+    width: 100%;
+    height: var(--hero-height, 400px);
+    min-height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform, box-shadow;
+    
+    @media (max-width: 768px) {
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      height: auto !important;
+      min-height: 250px;
+      padding: 0.5rem 0;
+    }
+    
+    @media (max-width: 480px) {
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      min-height: 280px;
+      padding: 2rem 0;
+    }
+    
+    // Variants
+    &.default {
+      background: linear-gradient(135deg, var(--surface200) 0%, var(--surface300) 100%);
+      border: 1px solid var(--divider);
+      
+      .hero-background {
+        background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+        background-size: 200% 200%;
+        @media (prefers-reduced-motion: no-preference) {
+          animation: shimmer 3s ease-in-out infinite;
+        }
+      }
+    }
+    
+    &.minimal {
+      background: var(--surface100);
+      border: 2px solid var(--divider);
+      
+      .hero-background {
+        display: none;
+      }
+    }
+    
+    &.featured {
+      background: linear-gradient(135deg, var(--surface300) 0%, var(--surface400) 100%);
+      border: 2px solid var(--divider);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      
+      .hero-background {
+        background: radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+      }
+    }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0;
+    
+    @media (max-width: 768px) {
+      padding: 1.5rem;
+      max-width: 100%;
+    }
+    
+    @media (max-width: 480px) {
+      padding: 1rem;
+    }
+  }
+
+  .hero-title {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+    line-height: 1.2;
+    
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+    color: var(--text-secondary);
+    max-width: 500px;
+    
+    @media (max-width: 768px) {
+      font-size: 1.1rem;
+      max-width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  .hero-tags {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    
+    @media (max-width: 768px) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0.6;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+</style>
