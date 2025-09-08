@@ -1,7 +1,7 @@
 ---
 import SlideLayout from "../layouts/SlideLayout.astro";
 
-export const title = "Reveal.js Presentation Demo";
+export const title = "Slide show";
 export const authors = ["John Manhart"];
 export const publishedAt = "2025-01-27";
 export const description = "A demonstration of Reveal.js integration with Astro";
@@ -10,28 +10,50 @@ export const draft = false;
 
 <SlideLayout {title} {authors} {description}>
   <section>
-    <h1>Reveal.js in Astro</h1>
-    <p>Presentations made simple</p>
+    <h1 class="custom-title">Reveal.js in Astro</h1>
+    <p class="custom-subtitle">Presentations made simple</p>
     <p>Built with <a href="https://revealjs.com">Reveal.js</a></p>
+    <div class="custom-card">
+      <p>This presentation uses our custom theme that integrates with your website's design system!</p>
+    </div>
   </section>
 
   <section>
     <h2>What is Reveal.js?</h2>
     <ul>
-      <li>The HTML Presentation Framework</li>
-      <li>Created by Hakim El Hattab</li>
-      <li>Open source and free to use</li>
-      <li>Used by thousands of developers worldwide</li>
+      <li class="fragment">The HTML Presentation Framework</li>
+      <li class="fragment">Created by Hakim El Hattab</li>
+      <li class="fragment">Open source and free to use</li>
+      <li class="fragment">Used by thousands of developers worldwide</li>
     </ul>
-  </section>
-
-  <section>
-    <p>Hello</p>
+    <div class="custom-highlight fragment">
+      Progressive disclosure with fragments!
+    </div>
   </section>
 
   <section>
     <h2>Code Examples</h2>
+    <div class="custom-card">
+      <p>Code blocks are styled consistently with your website's design system!</p>
+    </div>
+  </section>
 
+  <section>
+    <h2>Layout & Utilities</h2>
+    <div class="flex flex-center gap-2">
+      <div class="custom-card">
+        <h3>Card 1</h3>
+        <p>Flexbox layout</p>
+      </div>
+      <div class="custom-card">
+        <h3>Card 2</h3>
+        <p>With gaps</p>
+      </div>
+    </div>
+    <div class="flex flex-between mt-2">
+      <span class="text-secondary">Left content</span>
+      <span class="text-accent">Right content</span>
+    </div>
   </section>
 
   <section>
@@ -47,7 +69,6 @@ export const draft = false;
   <section>
     <h1>Thank You!</h1>
     <p>Questions?</p>
-    <p><a href="/slides">View All Slides</a></p>
     <p><a href="/">Back to Main Site</a></p>
   </section>
 </SlideLayout>

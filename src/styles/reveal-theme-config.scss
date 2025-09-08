@@ -1,0 +1,247 @@
+/* ===========================================
+ *  REVEAL.JS THEME CONFIGURATION
+ *  Easy customization of colors, typography, and layout
+ * =========================================== */
+
+/* ===========================================
+ *  COLOR THEMES
+ *  Uncomment one theme or create your own
+ * =========================================== */
+
+/* Default Theme (matches your website) */
+:root {
+  --reveal-bg: var(--surface000);
+  --reveal-text: var(--text-primary);
+  --reveal-text-secondary: var(--text-secondary);
+  --reveal-text-tertiary: var(--text-tertiary);
+  --reveal-link: var(--link);
+  --reveal-link-hover: var(--link-hover);
+  --reveal-accent: var(--red200);
+  --reveal-border: var(--divider);
+  --reveal-card-bg: var(--surface200);
+  --reveal-card-shadow: var(--card-shadow);
+  --reveal-card-shadow-hover: var(--card-shadow-hover);
+}
+
+/* Dark Theme Variant */
+/*
+:root {
+  --reveal-bg: #0a0a0a;
+  --reveal-text: #ffffff;
+  --reveal-text-secondary: #b3b3b3;
+  --reveal-text-tertiary: #808080;
+  --reveal-link: #4a9eff;
+  --reveal-link-hover: #6bb6ff;
+  --reveal-accent: #ff6b6b;
+  --reveal-border: #333333;
+  --reveal-card-bg: #1a1a1a;
+  --reveal-card-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --reveal-card-shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+*/
+
+/* Light Theme Variant */
+/*
+:root {
+  --reveal-bg: #ffffff;
+  --reveal-text: #222222;
+  --reveal-text-secondary: #4c4c4c;
+  --reveal-text-tertiary: #7c7c7c;
+  --reveal-link: #0066cc;
+  --reveal-link-hover: #004499;
+  --reveal-accent: #ff4444;
+  --reveal-border: #e0e0e0;
+  --reveal-card-bg: #f8f8f8;
+  --reveal-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --reveal-card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+*/
+
+/* ===========================================
+ *  TYPOGRAPHY CONFIGURATION
+ * =========================================== */
+
+:root {
+  /* Font Families */
+  --reveal-font-primary: "Work Sans", sans-serif;
+  --reveal-font-mono: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+
+  /* Font Sizes */
+  --reveal-font-size-base: 40px;
+  --reveal-font-size-h1: 3rem;
+  --reveal-font-size-h2: 2rem;
+  --reveal-font-size-h3: 1.5rem;
+  --reveal-font-size-h4: 1.2rem;
+  --reveal-font-size-h5: 1rem;
+  --reveal-font-size-h6: 1rem;
+  --reveal-font-size-body: 1.2rem;
+  --reveal-font-size-small: 0.9rem;
+
+  /* Line Heights */
+  --reveal-line-height-tight: 1.2;
+  --reveal-line-height-normal: 1.5;
+  --reveal-line-height-relaxed: 1.75;
+
+  /* Font Weights */
+  --reveal-font-weight-normal: 400;
+  --reveal-font-weight-medium: 500;
+  --reveal-font-weight-semibold: 600;
+  --reveal-font-weight-bold: 700;
+}
+
+/* ===========================================
+ *  LAYOUT CONFIGURATION
+ * =========================================== */
+
+:root {
+  /* Spacing */
+  --reveal-spacing-xs: 0.25rem;
+  --reveal-spacing-sm: 0.5rem;
+  --reveal-spacing-md: 1rem;
+  --reveal-spacing-lg: 1.5rem;
+  --reveal-spacing-xl: 2rem;
+  --reveal-spacing-2xl: 3rem;
+
+  /* Border Radius */
+  --reveal-radius-sm: 4px;
+  --reveal-radius-md: 8px;
+  --reveal-radius-lg: 12px;
+  --reveal-radius-xl: 16px;
+
+  /* Shadows */
+  --reveal-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --reveal-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --reveal-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+
+  /* Transitions */
+  --reveal-transition-fast: 0.15s ease;
+  --reveal-transition-normal: 0.3s ease;
+  --reveal-transition-slow: 0.5s ease;
+}
+
+/* ===========================================
+ *  COMPONENT-SPECIFIC OVERRIDES
+ * =========================================== */
+
+/* Customize specific components */
+.reveal .custom-title {
+  font-size: var(--reveal-font-size-h1);
+  color: var(--reveal-accent);
+  font-weight: var(--reveal-font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--reveal-spacing-xl);
+}
+
+.reveal .custom-subtitle {
+  font-size: var(--reveal-font-size-h2);
+  color: var(--reveal-text-secondary);
+  font-weight: var(--reveal-font-weight-medium);
+  text-align: center;
+  margin-bottom: var(--reveal-spacing-lg);
+}
+
+.reveal .custom-highlight {
+  background: var(--reveal-accent);
+  color: var(--reveal-bg);
+  padding: var(--reveal-spacing-sm) var(--reveal-spacing-md);
+  border-radius: var(--reveal-radius-md);
+  font-weight: var(--reveal-font-weight-semibold);
+}
+
+.reveal .custom-card {
+  background: var(--reveal-card-bg);
+  border: 1px solid var(--reveal-border);
+  border-radius: var(--reveal-radius-lg);
+  padding: var(--reveal-spacing-xl);
+  margin: var(--reveal-spacing-lg) 0;
+  box-shadow: var(--reveal-card-shadow);
+  transition: box-shadow var(--reveal-transition-normal);
+}
+
+.reveal .custom-card:hover {
+  box-shadow: var(--reveal-card-shadow-hover);
+}
+
+/* ===========================================
+ *  RESPONSIVE BREAKPOINTS
+ * =========================================== */
+
+:root {
+  --reveal-breakpoint-mobile: 768px;
+  --reveal-breakpoint-tablet: 1024px;
+  --reveal-breakpoint-desktop: 1200px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  :root {
+    --reveal-font-size-base: 32px;
+    --reveal-font-size-h1: 2.25rem;
+    --reveal-font-size-h2: 1.5rem;
+    --reveal-font-size-h3: 1.25rem;
+    --reveal-font-size-h4: 1.125rem;
+    --reveal-font-size-body: 1rem;
+  }
+}
+
+/* ===========================================
+ *  ANIMATION CONFIGURATION
+ * =========================================== */
+
+:root {
+  --reveal-animation-duration: 0.3s;
+  --reveal-animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal .fragment {
+  transition: all var(--reveal-animation-duration)
+    var(--reveal-animation-easing);
+}
+
+/* ===========================================
+ *  UTILITY CLASSES
+ * =========================================== */
+
+.reveal .text-accent {
+  color: var(--reveal-accent);
+}
+.reveal .text-primary {
+  color: var(--reveal-text);
+}
+.reveal .text-secondary {
+  color: var(--reveal-text-secondary);
+}
+.reveal .text-tertiary {
+  color: var(--reveal-text-tertiary);
+}
+
+.reveal .bg-accent {
+  background-color: var(--reveal-accent);
+}
+.reveal .bg-primary {
+  background-color: var(--reveal-bg);
+}
+.reveal .bg-card {
+  background-color: var(--reveal-card-bg);
+}
+
+.reveal .border {
+  border: 1px solid var(--reveal-border);
+}
+.reveal .border-accent {
+  border: 1px solid var(--reveal-accent);
+}
+
+.reveal .rounded {
+  border-radius: var(--reveal-radius-md);
+}
+.reveal .rounded-lg {
+  border-radius: var(--reveal-radius-lg);
+}
+
+.reveal .shadow {
+  box-shadow: var(--reveal-shadow-md);
+}
+.reveal .shadow-lg {
+  box-shadow: var(--reveal-shadow-lg);
+}
