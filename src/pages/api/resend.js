@@ -8,7 +8,7 @@ export async function POST({ request }) {
     const apiKey = import.meta.env.RESEND_API_KEY;
     const turnstileSecretKey = import.meta.env.TURNSTILE_SECRET_KEY;
 
-    console.log("🔍 ENVIRONMENT VARIABLES CHECK:");
+    console.log("ENVIRONMENT VARIABLES CHECK:");
     console.log("- RESEND_API_KEY exists:", !!apiKey);
     console.log("- TURNSTILE_SECRET_KEY exists:", !!turnstileSecretKey);
     console.log("- API key length:", apiKey ? apiKey.length : 0);
@@ -27,7 +27,7 @@ export async function POST({ request }) {
 
     // Check if API key is available
     if (!apiKey) {
-      console.error("❌ RESEND_API_KEY is not set in environment variables");
+      console.error("RESEND_API_KEY is not set in environment variables");
       console.error(
         "💡 Make sure you have a .env file in your project root with:"
       );
@@ -47,7 +47,7 @@ export async function POST({ request }) {
       );
     }
 
-    console.log("✅ API key found, proceeding with form processing...");
+    console.log("API key found, proceeding with form processing...");
 
     // Parse form data
     const formData = await request.formData();
@@ -72,7 +72,7 @@ export async function POST({ request }) {
 
     // Verify Turnstile token
     if (!turnstileToken) {
-      console.log("❌ VALIDATION FAILED - Missing Turnstile token");
+      console.log("VALIDATION FAILED - Missing Turnstile token");
       console.log("💡 This could mean:");
       console.log("   - Turnstile widget failed to load on frontend");
       console.log(
@@ -102,7 +102,7 @@ export async function POST({ request }) {
       );
 
       try {
-        console.log("📡 Making request to Cloudflare Turnstile API...");
+        console.log("Making request to Cloudflare Turnstile API...");
         const turnstileResponse = await fetch(
           "https://challenges.cloudflare.com/turnstile/v0/siteverify",
           {
@@ -118,16 +118,16 @@ export async function POST({ request }) {
         );
 
         console.log(
-          "📡 Cloudflare API Response Status:",
+          "Cloudflare API Response Status:",
           turnstileResponse.status
         );
         console.log(
-          "📡 Cloudflare API Response Headers:",
+          "Cloudflare API Response Headers:",
           Object.fromEntries(turnstileResponse.headers.entries())
         );
 
         if (!turnstileResponse.ok) {
-          console.error("❌ CLOUDFLARE API ERROR:");
+          console.error("CLOUDFLARE API ERROR:");
           console.error("- Status:", turnstileResponse.status);
           console.error("- Status Text:", turnstileResponse.statusText);
           const errorText = await turnstileResponse.text();
@@ -155,7 +155,7 @@ export async function POST({ request }) {
         console.log("- Cdata:", turnstileResult.cdata);
 
         if (!turnstileResult.success) {
-          console.error("❌ TURNSTILE VERIFICATION FAILED:");
+          console.error("TURNSTILE VERIFICATION FAILED:");
           console.error("- Error codes:", turnstileResult["error-codes"]);
           console.error("- Possible reasons:");
           console.error("  * Invalid or expired token");
@@ -173,7 +173,7 @@ export async function POST({ request }) {
             }
           );
         }
-        console.log("✅ Turnstile verification passed successfully");
+        console.log("Turnstile verification passed successfully");
         console.log(
           "- Challenge completed at:",
           turnstileResult["challenge_ts"]
@@ -202,7 +202,7 @@ export async function POST({ request }) {
         );
       }
     } else {
-      console.log("⚠️ TURNSTILE_SECRET_KEY not found, skipping verification");
+      console.log("TURNSTILE_SECRET_KEY not found, skipping verification");
       console.log(
         "💡 To enable Turnstile verification, add to your .env file:"
       );
@@ -211,7 +211,7 @@ export async function POST({ request }) {
 
     // Basic validation
     if (!name || !email || !message) {
-      console.log("❌ VALIDATION FAILED - Missing required fields");
+      console.log("VALIDATION FAILED - Missing required fields");
       console.log("- Name provided:", !!name);
       console.log("- Email provided:", !!email);
       console.log("- Message provided:", !!message);
@@ -229,7 +229,7 @@ export async function POST({ request }) {
     // Email validation (basic)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      console.log("❌ VALIDATION FAILED - Invalid email format:", email);
+      console.log("VALIDATION FAILED - Invalid email format:", email);
       return new Response(
         JSON.stringify({
           error: "Invalid email format",
@@ -241,7 +241,7 @@ export async function POST({ request }) {
       );
     }
 
-    console.log("✅ Form validation passed, initializing Resend...");
+    console.log("Form validation passed, initializing Resend...");
 
     // Initialize Resend
     const resend = new Resend(apiKey);
@@ -267,7 +267,7 @@ export async function POST({ request }) {
     });
 
     if (error) {
-      console.error("❌ RESEND API ERROR:");
+      console.error("RESEND API ERROR:");
       console.error("- Error type:", error.constructor.name);
       console.error("- Error message:", error.message);
       console.error("- Full error:", error);
@@ -283,7 +283,7 @@ export async function POST({ request }) {
       );
     }
 
-    console.log("✅ EMAIL SENT SUCCESSFULLY!");
+    console.log("EMAIL SENT SUCCESSFULLY!");
     console.log("- Resend response:", data);
     console.log("- Email ID:", data?.id);
     console.log("=== CONTACT FORM API CALL COMPLETED ===");

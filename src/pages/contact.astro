@@ -32,7 +32,7 @@ import ErrorBoundary from "../components/ErrorBoundary.astro";
 
       // Test error monitoring
       function testError() {
-        console.log('🧪 Testing Sentry error capture...');
+        console.log('Testing Sentry error capture...');
         try {
           throw new Error('This is a test error for Sentry');
         } catch (error) {
@@ -46,14 +46,14 @@ import ErrorBoundary from "../components/ErrorBoundary.astro";
 
       // Test message capture
       function testMessage() {
-        console.log('🧪 Testing Sentry message capture...');
+        console.log('Testing Sentry message capture...');
         captureMessage('This is a test message from the contact page', 'info');
         alert('Message sent to Sentry! Check your dashboard.');
       }
 
       // Test performance monitoring
       function testPerformance() {
-        console.log('🧪 Testing Sentry performance monitoring...');
+        console.log('Testing Sentry performance monitoring...');
         const transaction = startTransaction('Test Performance Transaction', 'test');
         
         // Simulate some work
@@ -65,7 +65,7 @@ import ErrorBoundary from "../components/ErrorBoundary.astro";
 
       // Test breadcrumbs
       function testBreadcrumb() {
-        console.log('🧪 Testing Sentry breadcrumbs...');
+        console.log('Testing Sentry breadcrumbs...');
         addBreadcrumb('User clicked test button', 'user-action', {
           button: 'test-breadcrumb',
           page: 'contact'
@@ -75,7 +75,7 @@ import ErrorBoundary from "../components/ErrorBoundary.astro";
 
       // Test form submission tracking
       function testFormSubmission() {
-        console.log('🧪 Testing Sentry form tracking...');
+        console.log('Testing Sentry form tracking...');
         trackFormSubmission('test-form', true);
         alert('Form submission tracked! Check your dashboard.');
       }

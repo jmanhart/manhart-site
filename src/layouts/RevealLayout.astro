@@ -1,0 +1,83 @@
+---
+export interface Props {
+  title: string;
+  authors?: string[];
+  description?: string;
+}
+
+import BaseHead from "../components/BaseHead.astro";
+
+const { title, authors, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <BaseHead title={title} />
+  {description && <meta name="description" content={description} />}
+  {authors?.map((author) => <meta name="author" content={author} />)}
+  
+  <!-- Reveal.js styles -->
+  <link rel="stylesheet" href="/revealjs/reveal.css">
+  <link rel="stylesheet" href="/revealjs/theme/black.css">
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .reveal {
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    .reveal .slides section {
+      text-align: left;
+      padding: 2rem;
+    }
+
+    .reveal h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .reveal h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .reveal p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <slot />
+    </div>
+  </div>
+
+  <!-- Reveal.js JavaScript -->
+  <script src="/revealjs/reveal.js"></script>
+  <script>
+    // Initialize Reveal.js
+    let deck = new Reveal({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+      transition: 'slide',
+      backgroundTransition: 'fade'
+    });
+
+    deck.initialize();
+
+    // Optional: Add custom keyboard shortcuts
+    deck.addKeyBinding('n', 'NEXT');
+    deck.addKeyBinding('p', 'PREVIOUS');
+  </script>
+</body>
+</html>

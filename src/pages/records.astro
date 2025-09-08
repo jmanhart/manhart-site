@@ -9,19 +9,19 @@ const baseUrl = import.meta.env.MODE === "development"
   : "https://manhart.io";
 const apiUrl = `${baseUrl}/api/records`;
 
-console.log("📡 Fetching from:", apiUrl);
+console.log("Fetching from:", apiUrl);
 
 let collection = [];
 let filteredCollection = [];
 
 try {
   const response = await fetch(apiUrl);
-  console.log("📡 API response status:", response.status);
+  console.log("API response status:", response.status);
 
   if (!response.ok) throw new Error(`Failed to fetch records (status ${response.status})`);
 
   collection = await response.json();
-  console.log("📡 Records received:", collection);
+  console.log("Records received:", collection);
 
   // Sort alphabetically by artist
   collection.sort((a, b) => {
@@ -32,7 +32,7 @@ try {
 
   filteredCollection = collection;
 } catch (error) {
-  console.error("❌ Error fetching collection:", error);
+  console.error("Error fetching collection:", error);
   collection = [];
   filteredCollection = [];
 }
@@ -82,14 +82,14 @@ try {
           <h2>🎶 All Records</h2>
           <p class="blog-short-description">Album Count: {collection.length}</p>
 
-          <!-- ✅ Inject SearchBar Component -->
+          <!-- Inject SearchBar Component -->
           <SearchBar />
           
 
-          <!-- ✅ Hidden JSON for Filtering -->
+          <!-- Hidden JSON for Filtering -->
           <div id="collection-data" style="display: none;">{JSON.stringify(collection)}</div>
 
-          <!-- ✅ Collection List -->
+          <!-- Collection List -->
           <div id="collection-list"></div>
         </div>
       </div>

@@ -1,0 +1,53 @@
+---
+import SlideLayout from "../layouts/SlideLayout.astro";
+
+export const title = "Reveal.js Presentation Demo";
+export const authors = ["John Manhart"];
+export const publishedAt = "2025-01-27";
+export const description = "A demonstration of Reveal.js integration with Astro";
+export const draft = false;
+---
+
+<SlideLayout {title} {authors} {description}>
+  <section>
+    <h1>Reveal.js in Astro</h1>
+    <p>Presentations made simple</p>
+    <p>Built with <a href="https://revealjs.com">Reveal.js</a></p>
+  </section>
+
+  <section>
+    <h2>What is Reveal.js?</h2>
+    <ul>
+      <li>The HTML Presentation Framework</li>
+      <li>Created by Hakim El Hattab</li>
+      <li>Open source and free to use</li>
+      <li>Used by thousands of developers worldwide</li>
+    </ul>
+  </section>
+
+  <section>
+    <p>Hello</p>
+  </section>
+
+  <section>
+    <h2>Code Examples</h2>
+
+  </section>
+
+  <section>
+    <h2>Astro Integration</h2>
+    <ul>
+      <li>Installed via npm</li>
+      <li>Static assets served correctly</li>
+      <li>Custom themes and styling</li>
+      <li>Markdown support available</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1>Thank You!</h1>
+    <p>Questions?</p>
+    <p><a href="/slides">View All Slides</a></p>
+    <p><a href="/">Back to Main Site</a></p>
+  </section>
+</SlideLayout>

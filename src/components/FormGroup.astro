@@ -43,7 +43,7 @@ import "../styles/global.scss";
   const TURNSTILE_SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
   // Debug environment variables
-  console.log('🔍 FRONTEND ENVIRONMENT VARIABLES CHECK:');
+  console.log('FRONTEND ENVIRONMENT VARIABLES CHECK:');
   console.log('- import.meta.env keys:', Object.keys(import.meta.env));
   console.log('- PUBLIC_TURNSTILE_SITE_KEY exists:', !!import.meta.env.PUBLIC_TURNSTILE_SITE_KEY);
   console.log('- TURNSTILE_SITE_KEY variable:', TURNSTILE_SITE_KEY);
@@ -123,11 +123,11 @@ import "../styles/global.scss";
   function initTurnstile(): void {
     // Prevent multiple initializations
     if (turnstileInitialized) {
-      console.log('⚠️ Turnstile already initialized, skipping...');
+      console.log('Turnstile already initialized, skipping...');
       return;
     }
 
-    console.log('🔧 INITIALIZING TURNSTILE...');
+    console.log('INITIALIZING TURNSTILE...');
     console.log('- TURNSTILE_SITE_KEY exists:', !!TURNSTILE_SITE_KEY);
     console.log('- TURNSTILE_SITE_KEY length:', TURNSTILE_SITE_KEY ? TURNSTILE_SITE_KEY.length : 0);
     console.log('- TURNSTILE_SITE_KEY starts with 0x4AAAAAAA:', TURNSTILE_SITE_KEY ? TURNSTILE_SITE_KEY.startsWith('0x4AAAAAAA') : false);
@@ -135,31 +135,31 @@ import "../styles/global.scss";
     console.log('- window.turnstile:', (window as any).turnstile);
 
     if (typeof (window as any).turnstile !== 'undefined' && TURNSTILE_SITE_KEY) {
-      console.log('✅ Rendering Turnstile widget...');
+      console.log('Rendering Turnstile widget...');
       try {
         (window as any).turnstile.render('#turnstile-widget', {
           sitekey: TURNSTILE_SITE_KEY,
           callback: function(token: string): void {
-            console.log('✅ Turnstile callback triggered with token:', token.substring(0, 20) + '...');
+            console.log('Turnstile callback triggered with token:', token.substring(0, 20) + '...');
             // Store the token for form submission
             (document.getElementById('contact-form') as HTMLFormElement).setAttribute('data-turnstile-token', token);
             // Add Sentry breadcrumb
             addBreadcrumb('Turnstile token received', 'security', { tokenLength: token.length });
           },
           'expired-callback': function(): void {
-            console.log('⚠️ Turnstile token expired');
+            console.log('Turnstile token expired');
             addBreadcrumb('Turnstile token expired', 'security');
           }
         });
-        console.log('✅ Turnstile widget rendered successfully');
+        console.log('Turnstile widget rendered successfully');
         turnstileInitialized = true;
         addBreadcrumb('Turnstile widget initialized', 'security');
       } catch (error) {
-        console.error('❌ ERROR RENDERING TURNSTILE:', error);
+        console.error('ERROR RENDERING TURNSTILE:', error);
         captureError(error as Error, { context: 'Turnstile initialization' });
       }
     } else {
-      console.error('❌ TURNSTILE INITIALIZATION FAILED:');
+      console.error('TURNSTILE INITIALIZATION FAILED:');
       console.error('- turnstile object available:', typeof (window as any).turnstile !== 'undefined');
       console.error('- TURNSTILE_SITE_KEY available:', !!TURNSTILE_SITE_KEY);
       if (!TURNSTILE_SITE_KEY) {
@@ -200,7 +200,7 @@ import "../styles/global.scss";
 
       // Validate form
       if (!validateForm()) {
-        console.log('❌ Form validation failed');
+        console.log('Form validation failed');
         trackFormSubmission('contact', false);
         addBreadcrumb('Form validation failed', 'form');
         return;
@@ -208,18 +208,18 @@ import "../styles/global.scss";
 
       // Check for Turnstile token
       const turnstileToken = formElement.getAttribute('data-turnstile-token');
-      console.log('🔍 TURNSTILE TOKEN CHECK:');
+      console.log('TURNSTILE TOKEN CHECK:');
       console.log('- Token exists:', !!turnstileToken);
       console.log('- Token length:', turnstileToken ? turnstileToken.length : 0);
 
       if (!turnstileToken) {
-        console.log('❌ No Turnstile token found - proceeding without verification');
+        console.log('No Turnstile token found - proceeding without verification');
         addBreadcrumb('No Turnstile token found', 'security');
         // Continue without Turnstile verification for now
         // In production, you might want to block this
       }
 
-      console.log('✅ Proceeding with submission');
+      console.log('Proceeding with submission');
 
       // Show loading state
       if (submitBtn) {
@@ -234,7 +234,7 @@ import "../styles/global.scss";
           formData.append('turnstile-token', turnstileToken);
         }
 
-        console.log('📡 Sending request to /api/resend...');
+        console.log('Sending request to /api/resend...');
         addBreadcrumb('API request started', 'api', { endpoint: '/api/resend' });
         
         const response = await fetch('/api/resend', {
@@ -242,9 +242,9 @@ import "../styles/global.scss";
           body: formData
         });
 
-        console.log('📡 Response status:', response.status);
+        console.log('Response status:', response.status);
         const result = await response.json();
-        console.log('📡 Response data:', result);
+        console.log('Response data:', result);
 
         if (result.success) {
           if (messageDiv) {
@@ -269,7 +269,7 @@ import "../styles/global.scss";
           captureMessage(`Contact form submission failed: ${result.error}`, 'error');
         }
               } catch (error) {
-          console.error('❌ FETCH ERROR:', error);
+          console.error('FETCH ERROR:', error);
           if (messageDiv) {
             messageDiv.textContent = 'An error occurred. Please try again.';
             messageDiv.className = 'form-message error';
@@ -289,7 +289,7 @@ import "../styles/global.scss";
       }
     });
   } else {
-    console.error('❌ Contact form not found');
+    console.error('Contact form not found');
     captureError(new Error('Contact form not found'), { context: 'Form initialization' });
   }
 

@@ -5,7 +5,7 @@ np---
 
 <div class="sentry-tester">
   <div class="tester-header">
-    <h3>🧪 Sentry Testing</h3>
+    <h3>Sentry Testing</h3>
     <p>Use these buttons to test different Sentry features:</p>
   </div>
   
@@ -45,13 +45,13 @@ np---
     
     if (dsnElement) {
       const dsn = (import.meta as any).env.PUBLIC_SENTRY_DSN;
-      dsnElement.textContent = dsn ? '✅ Configured' : '❌ Not configured';
+      dsnElement.textContent = dsn ? 'Configured' : 'Not configured';
     }
   }
 
   // Test error monitoring
   function testError() {
-    console.log('🧪 Testing Sentry error capture...');
+    console.log('Testing Sentry error capture...');
     try {
       throw new Error('This is a test error for Sentry monitoring');
     } catch (error) {
@@ -66,14 +66,14 @@ np---
 
   // Test message capture
   function testMessage() {
-    console.log('🧪 Testing Sentry message capture...');
+    console.log('Testing Sentry message capture...');
     captureMessage('This is a test message from the Sentry tester component', 'info');
     alert('Message sent to Sentry! Check your dashboard.');
   }
 
   // Test performance monitoring
   function testPerformance() {
-    console.log('🧪 Testing Sentry performance monitoring...');
+    console.log('Testing Sentry performance monitoring...');
     const transaction = startTransaction('Test Performance Transaction', 'test');
     
     // Simulate some work
@@ -85,7 +85,7 @@ np---
 
   // Test breadcrumbs
   function testBreadcrumb() {
-    console.log('🧪 Testing Sentry breadcrumbs...');
+    console.log('Testing Sentry breadcrumbs...');
     addBreadcrumb('User clicked test button', 'user-action', {
       button: 'test-breadcrumb',
       component: 'SentryTester',

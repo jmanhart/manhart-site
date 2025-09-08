@@ -1,0 +1,82 @@
+---
+import SlideLayout from "../layouts/SlideLayout.astro";
+
+export const title = "Demo Presentation";
+export const authors = ["John Manhart"];
+export const description = "A demonstration of Reveal.js integration with Astro";
+---
+
+<SlideLayout {title} {authors} {description}>
+  <!-- Title Slide -->
+  <section>
+    <h1>Demo Presentation</h1>
+    <p>Using the SlideLayout Component</p>
+    <p><small>Created with Astro + Reveal.js</small></p>
+  </section>
+
+  <!-- Features -->
+  <section>
+    <h2>Key Features</h2>
+    <ul>
+      <li class="fragment">Easy to use component</li>
+      <li class="fragment">Multiple themes available</li>
+      <li class="fragment">Responsive design</li>
+      <li class="fragment">Smooth transitions</li>
+    </ul>
+  </section>
+
+  <!-- Code Example -->
+  <section>
+    <h2>Usage Example</h2>
+    <pre><code class="language-html" data-trim>
+&lt;SlideLayout title="My Presentation" authors={["Author Name"]}&gt;
+  &lt;section&gt;
+    &lt;h1&gt;Slide 1&lt;/h1&gt;
+  &lt;/section&gt;
+
+  &lt;section&gt;
+    &lt;h1&gt;Slide 2&lt;/h1&gt;
+  &lt;/section&gt;
+&lt;/SlideLayout&gt;
+    </code></pre>
+  </section>
+
+  <!-- Themes Demo -->
+  <section>
+    <h2>Themes Available</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+      <div class="fragment">
+        <h3>Black</h3>
+        <p>Dark theme</p>
+      </div>
+      <div class="fragment">
+        <h3>White</h3>
+        <p>Light theme</p>
+      </div>
+      <div class="fragment">
+        <h3>League</h3>
+        <p>Professional theme</p>
+      </div>
+      <div class="fragment">
+        <h3>Beige</h3>
+        <p>Warm theme</p>
+      </div>
+      <div class="fragment">
+        <h3>Sky</h3>
+        <p>Blue theme</p>
+      </div>
+      <div class="fragment">
+        <h3>Night</h3>
+        <p>Dark blue theme</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final Slide -->
+  <section>
+    <h1>Thank You!</h1>
+    <p>Questions or feedback?</p>
+    <br>
+    <p><a href="/">Back to Main Site</a></p>
+  </section>
+</SlideLayout>

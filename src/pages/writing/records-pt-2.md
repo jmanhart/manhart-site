@@ -4,7 +4,7 @@ title: "How I Ended My Vinyl Buying Anxiety (part II)"
 description: "Making my record purchasing experience even less stressful."
 pubDate: "April 15, 2025"
 location: "Seattle"
-weather: "🌤️"
+weather: "Sunny"
 tag: "Coding"
 ---
 
@@ -43,7 +43,7 @@ Before, my app was making real-time API calls. Now, it works like this:
 
 ```javascript
 export async function fetchDiscogsRecords() {
-  console.log("📡 Fetching records from Discogs API...");
+  console.log("Fetching records from Discogs API...");
 
   const response = await fetch(DISCOGS_COLLECTION_URL, {
     headers: { Authorization: `Discogs token=${DISCOGS_API_KEY}` },
@@ -52,7 +52,7 @@ export async function fetchDiscogsRecords() {
   if (!response.ok) throw new Error(`Failed to fetch Discogs data`);
 
   const data = await response.json();
-  console.log(`✅ Processed ${data.releases.length} records.`);
+  console.log(`Processed ${data.releases.length} records.`);
 
   return data.releases;
 }
@@ -66,7 +66,7 @@ const { error } = await supabase
   .upsert(records, { onConflict: ["release_id"] });
 
 if (error) throw error;
-console.log("✅ Successfully updated Supabase records.");
+console.log("Successfully updated Supabase records.");
 ```
 
 Now, my app only loads from Supabase, making it significantly faster.
@@ -96,7 +96,7 @@ const { data: existingFile } = await supabase.storage
 const fileExists = existingFile.some((file) => file.name === `${releaseId}.jpg`);
 
 if (fileExists) {
-  console.log(`✅ Image already exists, skipping upload.`);
+  console.log(`Image already exists, skipping upload.`);
   return `${SUPABASE_STORAGE_URL}/${storagePath}`;
 ```
 
@@ -113,7 +113,7 @@ const { error } = await supabase.storage
   .upload(storagePath, imageBuffer, { upsert: true });
 
 if (error) throw error;
-console.log(`✅ Uploaded image: ${storagePath}`);
+console.log(`Uploaded image: ${storagePath}`);
 ```
 
 Now, every record in my collection has a permanent image URL that won't break. 🎉

@@ -4,7 +4,7 @@ title: "Adopting Dark Mode"
 description: "Adding a dark and light mode toggle to this site!"
 pubDate: "April 15, 2023"
 location: "Seattle"
-weather: "🌧️"
+weather: "Rainy"
 tag: "Personal"
 ---
 
