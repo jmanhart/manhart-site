@@ -69,14 +69,14 @@ console.log('ProjectHeaderContent Debug:', {
     width: 100%;
     height: var(--hero-height, 400px);
     min-height: 200px;
-    border-radius: 12px;
+    border-radius: 0.5em;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     margin-bottom: 2rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    will-change: transform, box-shadow;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    will-change: box-shadow, border-color;
     
     @media (max-width: 768px) {
       border-radius: 8px;
@@ -93,37 +93,26 @@ console.log('ProjectHeaderContent Debug:', {
       padding: 2rem 0;
     }
     
-    // Variants
-    &.default {
-      background: linear-gradient(135deg, var(--surface200) 0%, var(--surface300) 100%);
-      border: 1px solid var(--divider);
-      
-      .hero-background {
-        background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-        background-size: 200% 200%;
-        @media (prefers-reduced-motion: no-preference) {
-          animation: shimmer 3s ease-in-out infinite;
-        }
-      }
-    }
-    
-    &.minimal {
-      background: var(--surface100);
-      border: 2px solid var(--divider);
+    // Variants - all now match CardHero styling exactly
+    &.default,
+    &.minimal,
+    &.featured {
+      background-color: var(--surface000);
+      border: 0.5px solid var(--divider);
+      box-shadow: var(--card-shadow);
+      text-decoration: none;
+      color: var(--text-tertiary);
       
       .hero-background {
         display: none;
       }
     }
     
-    &.featured {
-      background: linear-gradient(135deg, var(--surface300) 0%, var(--surface400) 100%);
-      border: 2px solid var(--divider);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      
-      .hero-background {
-        background: radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-      }
+    // Hover state to match CardHero exactly
+    &:hover {
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--card-shadow-hover);
+      color: var(--text-tertiary);
     }
   }
 
@@ -147,7 +136,7 @@ console.log('ProjectHeaderContent Debug:', {
 
   .hero-title {
     margin: 0 0 0.5rem 0;
-    color: var(--text-primary);
+    color: var(--text-secondary);
     line-height: 1.2;
     
     @media (max-width: 768px) {
@@ -212,8 +201,4 @@ console.log('ProjectHeaderContent Debug:', {
     opacity: 0.6;
   }
 
-  @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
-  }
 </style>
