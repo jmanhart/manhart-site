@@ -23,3 +23,6 @@ pnpm-debug.log*
 /playwright/.cache/
 .vercel/
 .env*.local
+
+# Personal notes and planning files
+email-feature-battle-plan.md
