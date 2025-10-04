@@ -4,6 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import sentry from "@sentry/astro";
 
 export default defineConfig({
+  site: "https://manhart.io",
   output: "server",
   adapter: vercel(),
   integrations: [sitemap(), sentry()],
